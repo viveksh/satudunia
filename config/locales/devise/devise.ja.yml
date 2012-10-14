@@ -1,0 +1,40 @@
+# Messages for Japanese (日本語)
+# Exported from translatewiki.net
+# Export driver: syck-pecl
+# Author: Shirayuki
+ja: 
+  devise: 
+    confirmations: 
+      confirmed: あなたのアカウントは承認されました。ログインしてください。
+      send_instructions: 数分以内にアカウント承認用のメールが届きます。
+    mailer: 
+      confirm_account: 
+        link: 私のアカウントを確認
+        welcome: ようこそ
+      hello: こんにちは
+    passwords: 
+      link: パスワードを忘れた場合はこちら
+      send_instructions: 数分以内にパスワード変更用のメールが届きます。
+      updated: パスワードが更新されました。変更したパスワードを使ってログインしてください。
+    registrations: 
+      destroyed: あなたの登録データは消去されました。また戻ってくることを期待しています！
+      link: ユーザ登録
+      signed_up: サインアップしました。有効であれば、あなたのメール アドレスに確認をお送りしました。
+      updated: ユーザアカウントを更新しました。
+    sessions: 
+      link: ログイン
+      new: 
+        openid_url: 自分の OpenID URL
+        remember_me: ログイン状態を保持
+      sign_out: サインアウト
+      signed_in: ログインしました。
+      signed_out: ログアウトしました。
+    unlocks: 
+      link: アカウントロック解除メールが届かない場合はこちら
+      send_instructions: 数分以内にアカウントロック解除用のメールが届きます。
+      unlocked: あなたのアカウントのロックが解除されました。ログインしてください。
+  errors: 
+    messages: 
+      already_confirmed: 確認済みです
+      not_found: 見つかりません
+      not_locked: ロックされていません

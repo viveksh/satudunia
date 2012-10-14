@@ -1,0 +1,8 @@
+# Messages for Greek (Ελληνικά)
+# Exported from translatewiki.net
+# Export driver: syck-pecl
+# Author: Geraki
+el: 
+  custom_html: 
+    question_help: Δώστε όσες περισσότερες λεπτομέρειες γίνεται ώστε να έχει περισσότερες πιθανότητες να απαντηθεί από το να συζητιέται χωρίς τέλος. Προσπαθήστε να είστε σαφής και απλός.
+    question_prompt: ποια είναι η απορία σας; περιγράψτε την.

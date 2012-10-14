@@ -1,0 +1,31 @@
+# Messages for Russian (русский)
+# Exported from translatewiki.net
+# Export driver: syck-pecl
+# Author: Adata80
+# Author: Eleferen
+# Author: Lockal
+# Author: X0040h
+ru: 
+  admin: 
+    moderate: 
+      index: 
+        all: Все
+        ban: Блокировка
+        banned: Запрещённые вопросы
+        content: Содержание
+        flagged: Отмеченные вопросы
+        item_title: Заголовок
+        need_tags: Изменить теги
+        title: Модерация
+  moderate: 
+    questions: 
+      flagged: 
+        banned: Заблокированно
+        banned_tooltip: Показать только заблокированные вопросы
+        filters: "Фильтры:"
+      subtabs: 
+        flagged: Отмеченные
+        flagged_tooltip: Вопросы, отмеченные пользователями
+        retag: Необходимы Теги
+        retag_tooltip: Вопросы, без тегов
+        to_open_tooltip: Закрытые вопросы, с запросом пользователя на переоткрытие

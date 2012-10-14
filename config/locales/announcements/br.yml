@@ -1,0 +1,22 @@
+# Messages for Breton (brezhoneg)
+# Exported from translatewiki.net
+# Export driver: syck-pecl
+# Author: Gwenn-Ael
+# Author: Y-M D
+br: 
+  activerecord: 
+    attributes: 
+      announcement: 
+        ends_at: Echuiñ a ra d'an
+        message: Kemennadenn
+        only_anonymous: Evit an implijerien dizanv hepken
+        starts_at: Kregiñ a ra d'an
+  announcements: 
+    actions: 
+      delete: Dilemel
+      title: Oberoù
+    create: 
+      success: Krouet mat eo ho kemenn.
+    index: 
+      description: a ver hag a grou kemennoù nevez a vo diskwelet el lec'hienn en he fezh.
+      title: Kemennoù

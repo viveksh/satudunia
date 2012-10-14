@@ -1,0 +1,38 @@
+# Messages for Galician (galego)
+# Exported from translatewiki.net
+# Export driver: syck-pecl
+# Author: Toliño
+gl: 
+  activerecord: 
+    models: 
+      vote: Voto
+      votes: Votos
+  votes: 
+    comments: 
+      title: 
+        has_no_user_vote: 
+          one: Só %{count} usuario aprobou este comentario; prema para aprobalo vostede tamén.
+          other: Máis de %{count} usuarios aprobaron este comentario; prema para aprobalo vostede tamén.
+          zero: Prema para aprobar este comentario.
+        has_user_vote: 
+          one: Vostede e outro usuario aprobaron este comentario.
+          other: Vostede e outros %{count} usuarios aprobaron este comentario.
+          zero: Só vostede aprobou este comentario.
+    control: 
+      have_voted_down: Prema para anular a súa desaprobación
+      have_voted_up: Prema para anular a súa aprobación
+      to_vote_down: Prema para desaprobar
+      to_vote_up: Prema para aprobar
+    create: 
+      average: 
+        one: "%{count} voto"
+        other: "%{count} votos"
+      flash_error: Non pode votar nisto
+      flash_notice: Grazas por votar!
+      unauthenticated: Os usuarios anónimos non poden votar
+    destroy: 
+      flash_notice: O seu voto riscouse correctamente.
+    model: 
+      messages: 
+        closed_question: Non pode votar nas entradas pertencentes a unha pregunta pechada
+        vote_down_comment: Os comentarios non se poden desaprobar

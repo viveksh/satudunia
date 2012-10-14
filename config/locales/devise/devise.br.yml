@@ -1,0 +1,47 @@
+# Messages for Breton (brezhoneg)
+# Exported from translatewiki.net
+# Export driver: syck-pecl
+# Author: Fohanno
+# Author: Fulup
+# Author: Gwenn-Ael
+# Author: Y-M D
+br: 
+  devise: 
+    confirmations: 
+      confirmed: Kadarnaet eo bet ho kont. Kevreet oc'h bremañ.
+      send_instructions: A-benn un nebeud munutennoù e resevot ur postel gant displegadennoù evit kadarnaat ho kont.
+    failure: 
+      invalid: Chomlec'h postel pe ger-tremen direizh
+      locked: Prennet eo ho kont dija.
+      unauthenticated: Rankout a rit bezañ anavezet pe lakaat hoc'h anv evit kenderc'hel.
+      unconfirmed: Rankout a rit kadarnaat ho kont a-raok kenderc'hel.
+    mailer: 
+      confirm_account: 
+        link: Kadarnaat ma c'hont
+        welcome: Degemer mat
+      hello: Demat
+      reset_password: 
+        link: Cheñch ma ger-tremen
+    passwords: 
+      link: Ankouaet ho ker-tremen ganeoc'h ?
+      send_instructions: A-benn un nebeud munutennoù e resevot ur postel gant displegadennoù evit adderaouekaat ho ker-tremen.
+      updated: Cheñchet eo bet ho ker-termen. Anavezet oc'h bremañ.
+    registrations: 
+      destroyed: Kenavo ! Nullet eo bet ho kont. Spi hon eus ouzh ho kwelet adarre a-benn nebeut.
+      link: En em enskrivañ
+      signed_up: Enskrivet oc'h.
+      updated: Hizivaet ho peus ho kont.
+    sessions: 
+      link: Kevreañ
+      sign_out: Digevreañ
+      signed_in: Kevreet.
+      signed_out: Digevreet.
+    unlocks: 
+      link: n'hoc'h eus ket resevet an displegadennoù dibrennañ ?
+      send_instructions: A-benn un nebeud munutennoù e resevot ur postel gant displegadennoù evit dibrennañ ho kont.
+      unlocked: Distanket eo bet ho kont. Kevreet oc'h bremañ.
+  errors: 
+    messages: 
+      already_confirmed: zo bet kadarnaet dija
+      not_found: n'eo ket bet kavet
+      not_locked: ne oa ket prennet

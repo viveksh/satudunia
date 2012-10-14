@@ -1,0 +1,78 @@
+# Messages for Japanese (日本語)
+# Exported from translatewiki.net
+# Export driver: syck-pecl
+# Author: Shirayuki
+# Author: 青子守歌
+ja: 
+  feeds: 
+    feed: フィード
+    post_new_questions: 新しい質問を以下に投稿：
+    question: この質問をフィードで購読
+    questions: すべての質問をフィードで購読
+    share_on_twitter: Twitter、Facebookなど
+    tag: このタグの質問をフィードで購読
+    user: このユーザの質問をフィードで購読
+  global: 
+    actions: 操作
+    active: 有効化
+    anonymous: 匿名
+    blog: ブログ
+    by: by
+    chat: チャット
+    current: 現在
+    feedback: フィードバック
+    from: "%{site}から"
+    group_not_found: このページ%{url}はありません
+    home: ホーム
+    next_button: 次へ
+    open: 開く
+    or: または
+    permission_denied: 権限がありません
+    please_login: ログインしてください
+    preview: プレビュー
+    previous: 前へ
+    privacy: プライバシー
+    share: 共有
+    size: サイズ
+    sort_by: "並び順:"
+    tags_label: "タグ:"
+    tos: サービス利用規約
+    unknown_place: 不明
+    upgrade: アップグレード
+    view: 閲覧
+    view_question: 質問を閲覧
+  models: 
+    question: 質問
+  roles: 
+    moderator: モデレータ
+    owner: 所有者
+    user: 通常ユーザ
+  scaffold: 
+    add: 追加
+    are_you_sure: 本当によろしいですか?
+    back: 戻る
+    cancel: キャンセル
+    close: 閉じる
+    create: 作成
+    destroy: 削除
+    details: 詳細
+    edit: 編集
+    more: " もっと見る"
+    new: "%{model}を追加"
+    post_as_anonymous: 匿名で投稿
+    save: 保存
+    send: 送信
+    show: 表示
+    sure: 本当に%{model}を削除しますか？
+    update: 更新
+  time: 
+    ago: "%{time}前"
+    today: 今日
+    yesterday: 昨日
+  views: 
+    pagination: 
+      first: 先頭
+      last: 末尾
+      next: 次へ &raquo;
+      previous: "&laquo; 前へ"
+      truncate: ...

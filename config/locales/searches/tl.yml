@@ -1,0 +1,19 @@
+# Messages for Tagalog (Tagalog)
+# Exported from translatewiki.net
+# Export driver: syck-pecl
+# Author: AnakngAraw
+tl: 
+  searches: 
+    form: 
+      clear: hawiin
+      search_box_title: Suriin kung naitanong na dati ang katanungan mo
+      tags_tip: gamitin ang [tatak] upang tukuyin ang mga tatak.
+    index: 
+      advanced_search: mas masulong na paghahanap
+      description: Gamitin ang mga mapagpipiliang %{link} upang makakuha ng mga resultang mahimaymay.
+      empty: hindi tumugma sa anumang mga tanong ang paghahanap mo.
+      found_results: "%{quantity} mga resulta ang natagpuan."
+      input_legend: Ang nasagip na paghahanap na ito ay lilitaw sa bareta ng paglilibot para sa mas mabilis na pagpunta.
+      input_title: "Sagipin ang paghahanap na ito bilang:"
+      search_text: mga katanungan na naglalaman ng
+      tags: sa loob ng mga tatak na ito

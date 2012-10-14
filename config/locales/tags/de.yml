@@ -1,0 +1,14 @@
+# Messages for German (Deutsch)
+# Exported from translatewiki.net
+# Export driver: syck-pecl
+# Author: Kghbln
+# Author: Metalhead64
+de: 
+  tags: 
+    index: 
+      filter: Suche nach Markierungen
+    show: 
+      title: "Markierte Fragen: %{tags}"
+    show_json: 
+      edit_it: Eine Beschreibung für diese Markierung hinzufügen.
+      no_description: Für diese Markierung ist noch keine Beschreibung verfügbar.

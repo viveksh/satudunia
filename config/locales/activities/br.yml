@@ -1,0 +1,20 @@
+# Messages for Breton (brezhoneg)
+# Exported from translatewiki.net
+# Export driver: syck-pecl
+# Author: Gwenn-Ael
+# Author: Y-M D
+br: 
+  activerecord: 
+    models: 
+      activities: Obererezhioù
+      activity: Obererezh
+  activity: 
+    asked: goulennet
+    changed: kemmet
+    created: krouet
+    deleted: diverket
+    destroyed: Dilamet
+    flagged: merket
+    requested_to_close: goulennet serriñ
+    requested_to_open: goulennet digeriñ
+    updated: hizivaet

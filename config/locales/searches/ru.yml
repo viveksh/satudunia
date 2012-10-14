@@ -1,0 +1,21 @@
+# Messages for Russian (русский)
+# Exported from translatewiki.net
+# Export driver: syck-pecl
+# Author: Adata80
+# Author: DCamer
+# Author: Lockal
+ru: 
+  searches: 
+    form: 
+      clear: Очистить
+      search_box_title: Проверьте, не был ли этот вопрос задан ранее
+      tags_tip: Используйте [тег] для указания тегов.
+    index: 
+      advanced_search: расширенный поиск
+      description: Используйте параметры %{link} чтобы получить детальные результаты.
+      empty: По вашему запросу не найдено ни одного вопроса.
+      found_results: "%{quantity} результатов было найдено."
+      input_legend: Этот сохраненный поиск будет отображаться на панели навигации для быстрого доступа.
+      input_title: "Сохранить этот поиск как:"
+      search_text: Вопросы, содержащие
+      tags: с этими тегами

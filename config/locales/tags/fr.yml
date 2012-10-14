@@ -1,0 +1,13 @@
+# Messages for French (français)
+# Exported from translatewiki.net
+# Export driver: syck-pecl
+# Author: Gomoko
+fr: 
+  tags: 
+    index: 
+      filter: Recherche de balises
+    show: 
+      title: "Questions étiquetées: %{tags}"
+    show_json: 
+      edit_it: Ajouter une description pour cette balise.
+      no_description: Aucune description n'est encore disponible pour cette balise.

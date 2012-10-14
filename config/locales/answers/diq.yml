@@ -1,0 +1,28 @@
+# Messages for Zazaki (Zazaki)
+# Exported from translatewiki.net
+# Export driver: syck-pecl
+# Author: Erdemaslancan
+diq: 
+  activerecord: 
+    attributes: 
+      answer: 
+        body: Mesac
+        created_at: Vıraşter
+        link: Gıre
+    models: 
+      answer: Cewab
+      answers: Cewabi
+  answers: 
+    create: 
+      flash_notice: Teşekur kena!
+    edit: 
+      title: Cewabi timar kerê
+    form: 
+      answer_label: Pers u cewab
+      comment_label: Nê cewabi rê vatış vacê
+      comment_submit: Vatış
+      submit: Cewab
+    revert: 
+      title: Ravêr cewabi
+    update: 
+      flash_notice: Vatışê şıma biyo anewe.

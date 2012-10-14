@@ -1,0 +1,50 @@
+# Messages for German (Deutsch)
+# Exported from translatewiki.net
+# Export driver: syck-pecl
+# Author: Kghbln
+de: 
+  themes: 
+    edit: 
+      title: Benutzeroberfläche bearbeiten
+    form: 
+      bg_color_legend: Wähle die Farbe für den Hintergrund aus. Achte darauf, dass sie gut mit der Farbgebung des Rests deiner Applikation kontrastiert.
+      bg_image_legend: Dieses Bild wird auf jeder Seite als Hintergrundbild angezeigt. Die Größe des Bildes darf höchstens 800 KB betragen und muss entweder im GIF-, JPG- oder PNG-Format vorliegen.
+      colors_and_bg: Farben und Hintergründe
+      custom_css_legend: Sofern du CSS beherrschst, kannst du es dazu nutzen die Anmutung deiner Website weiter anzupassen. Du kannst entweder CSS oder SCSS. nutzen.
+      fluid_layout: Dynamisches Layout
+      fluid_layout_legend: Ein dynamisches Layout stellt die Breite jedes Elements auf der Seite abhängig von der Größe des Ansichtsfensters dar, anstatt abhängig von der Originalgröße des in ihm enthaltenen Elements. Sofern du also die Größe des Browserfensters änderst oder ein Gerät mit einem kleineren Bildschirm nutzt, wird sich das Layout entsprechend verändern und dadurch anpassen.
+      layout_html: Füge hier deine nutzerdefinierte Vorlage für das Layout hinzu.
+      main_color_legend: Dies ist die auf jeder Seite am häufigsten vorkommenden Farbe. Achte darauf eine Farbe zu wählen, die am besten zu deiner Marke oder Gemeinschaft passt.
+      modules_color_legend: Achte darauf, dass diese Farbe gut zur Hauptfarbe passt.
+      questions_index_html: Füge hier deine nutzerdefinierte Vorlage für den Fragenindex hinzu.
+      questions_show_html: Füge hier deine nutzerdefinierte Vorlage für die Fragenanzeige hinzu.
+      submit_update: Benutzeroberfläche aktualisieren
+      text_color_legend: Achte darauf, das dein Text lesbar ist und gut zur Hintergrundfarbe passt.
+      title: Du bearbeitest eine Benutzeroberfläche. Stell bitte sicher, dass die von dir genutze Farbenkombination zum Hintergrund passt.
+      topbar_color: Hintergrundfarbe des oberen Balkens
+      topbar_color_legend: Wähle die Hintergrundfarbe des oberen Balkens aus.
+      update: Benutzeroberfläche aktualisieren
+    index: 
+      description: Hier kannst du deine Benutzeroberflächen finden und die Anmutung deiner Anwendung ändern.
+      new_theme: Du kannst hier deine eigene Benutzeroberfläche erstellen.
+    ready: 
+      success: Die Benutzeroberfläche ist bereit zur Nutzung.
+    show: 
+      apply: Anwenden
+      bg_color: Hintergrundfarbe
+      bg_image: Hintergrundbild
+      brand_color: Farbe für die Marke
+      button_bg: Hintergrundfarbe für Schaltflächen
+      button_fg: Vordergrundfarbe für Schaltflächen
+      fg_color: Vordergrundfarbe
+      fluid: Flüssig (Dies sorgt während der Größenänderung eines Browserfensters für ein dynamisches Layout.)
+      link_bg: Hintergrundfarbe für Links
+      link_fg: Vordergrundfarbe für Links
+      main_color: Hauptfarbe
+      modules_color: Farbe für die Module
+      not_ready: Diese Benutzeroberfläche kann noch nicht verwendet werden. Schau bald mal wieder vorbei.
+      text_color: Textfarbe
+      try: Ausprobieren
+      use_link_bg: Einen Hintergrund für Links verwenden
+      view_bg: Hintergrundfarbe der Ansicht
+      view_fg: Vordergrundfarbe der Ansicht
