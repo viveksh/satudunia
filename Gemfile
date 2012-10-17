@@ -15,7 +15,7 @@ if RUBY_PLATFORM !~ /mswin|mingw/
 else
   gem 'maruku', '0.6.0'
 end
-gem 'maruku'
+#gem 'maruku'
 
 # ui
 gem 'haml', '>= 3.1.3'
@@ -98,7 +98,7 @@ group :deploy do
 end
 
 group :scripts do
-  gem 'eventmachine', '~> 0.12.10'
+  gem 'eventmachine', '~> 0.12.10' #'1.0.0'
   gem 'em-websocket', '~> 0.3.0'
   gem 'twitter', '1.7.2'
 end
