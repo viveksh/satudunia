@@ -1,0 +1,66 @@
+%script{:src => "http://maps.googleapis.com/maps/api/js?key=AIzaSyBmJE9KrYdmPiW16lAHDJOiCvS1Fwen7BU&sensor=true"}
+:javascript
+  var map;
+  var contact_address = new google.maps.LatLng(41.850033,-87.6500523);
+  
+  function initialize() {
+    var mapOptions = {
+      zoom: 11,
+      center: contact_address,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    
+    map = new google.maps.Map(document.getElementById('map_canvas'),mapOptions);
+    
+    var coordInfoWindow = new google.maps.InfoWindow();
+    coordInfoWindow.setContent(createInfoWindowContent());
+    coordInfoWindow.setPosition(contact_address);
+    coordInfoWindow.open(map);
+    
+    google.maps.event.addListener(map, 'zoom_changed', function() {
+      coordInfoWindow.setContent(createInfoWindowContent());
+      coordInfoWindow.open(map);
+    });
+    
+  }
+  
+  function createInfoWindowContent() {
+    return [
+      'B-Change.org',
+      'Secret Address 1402, Singapore',
+      'info@b-change.org',
+      '+612991029'
+    ].join('<br>');
+  }
+  
+  google.maps.event.addDomListener(window, 'load', initialize);
+
+.top
+  %h1
+    Contact Us
+  %br
+  %br
+  %br
+  #map_canvas
+    
+-contact = params[:contact] || {}
+= form_tag send_contact_us_contact_index_path, :class => "form", :method => :post do
+  .field
+    = label_tag "contact[name]", "Name *", :class => "label"
+    = text_field_tag "contact[name]", contact[:name], :class=> "text_field"
+  .field
+    = label_tag "contact[email]", "Email *", :class => "label"
+    = text_field_tag "contact[email]", contact[:email], :class=> "text_field"
+  .field
+    = label_tag "contact[comment]", "Comment *", :class => "label"
+    = text_area_tag "contact[comment]", contact[:comment], :class=> "text_area", :cols => 55, :rows => 15
+  .field.capcha
+    -if AppConfig.recaptcha["activate"] && !logged_in?
+      = recaptcha_tag(:challenge, :width => 600, :rows => 5, :display => {:lang => I18n.locale}).html_safe
+  .buttons
+    = submit_tag(t("scaffold.send"), :class => "save")
+    = t("global.or")
+    = link_to t("scaffold.cancel"), root_path, :class => 'cancel-feedback'
+    
+  
+
