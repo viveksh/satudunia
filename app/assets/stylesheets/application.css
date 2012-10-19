@@ -33,3 +33,8 @@
 //= require h5bp/helpers.css
 //= require h5bp/media.css
 //= require h5bp/print.css
+
+#map_canvas {
+  height: 300px;
+  width: 450px;
+}

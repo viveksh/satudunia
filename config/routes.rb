@@ -33,6 +33,7 @@ Rails.application.routes.draw do
   match '/widgets/embedded/:id' => 'widgets#embedded', :as => :embedded_widget
   match '/suggestions' => 'users#suggestions', :as => :suggestions
   match '/activities' => 'activities#index', :as => :activities
+  match '/contact' => 'contact#index', :as => :contact
   match '/activities/:id' => 'activities#show', :as => :activity, :method => :get
 
   match '/update_stripe' => 'invoices#webhook', :method => :post
@@ -78,6 +79,12 @@ Rails.application.routes.draw do
   resources :badges
 
   resources :searches, :path => "search", :as => "search"
+  
+  resources :contact do
+    collection do
+      post :send_contact_us
+    end
+  end
 
   resources :pages do
     member do
