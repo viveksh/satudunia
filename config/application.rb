@@ -16,6 +16,8 @@ end
 require 'yaml'
 YAML::ENGINE.yamler= 'syck'
 
+WEBMASTER_EMAIL = "webmaster@domain.com"
+
 module Shapado
   class Application < Rails::Application
     require File.expand_path('../load_config', __FILE__)

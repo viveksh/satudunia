@@ -216,6 +216,16 @@ class Notifier < ActionMailer::Base
       format.text
     end
   end
+  
+  def contact_us_from_user(contact)
+    @contact = contact
+    mail(:to => WEBMASTER_EMAIL,
+         :from => @contact.email,
+         :subject => "Contact Us message from #{@contact.name}",
+         :date => Time.now ) do |format|
+      format.text
+    end
+  end
 
   private
   def initialize_defaults(method_name)
