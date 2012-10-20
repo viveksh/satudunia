@@ -1,11 +1,11 @@
 %script{:src => "http://maps.googleapis.com/maps/api/js?key=AIzaSyBmJE9KrYdmPiW16lAHDJOiCvS1Fwen7BU&sensor=true"}
 :javascript
   var map;
-  var contact_address = new google.maps.LatLng(41.850033,-87.6500523);
+  var contact_address = new google.maps.LatLng(1.28668,103.853607);
   
   function initialize() {
     var mapOptions = {
-      zoom: 11,
+      zoom: 15,
       center: contact_address,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };
@@ -26,10 +26,10 @@
   
   function createInfoWindowContent() {
     return [
-      'B-Change.org',
-      'Secret Address 1402, Singapore',
-      'info@b-change.org',
-      '+612991029'
+      'Webmaster',
+      '3 Fullerton Rd, Singapore',
+      'webmaster@email.com',
+      '+65 1234 5678'
     ].join('<br>');
   }
   
@@ -53,7 +53,7 @@
     = label_tag "contact[email]", "Email *", :class => "label"
     = text_field_tag "contact[email]", contact[:email], :class=> "text_field"
   .field
-    = label_tag "contact[comment]", "Comment *", :class => "label"
+    = label_tag "contact[comment]", "Message *", :class => "label"
     = text_area_tag "contact[comment]", contact[:comment], :class=> "text_area", :cols => 55, :rows => 15
   .field.capcha
     -if AppConfig.recaptcha["activate"] && !logged_in?
