@@ -20,6 +20,8 @@
 
 .toolbar
   %ul.menubar
+    %li
+      = render "shared/translation_widget"
     -if !logged_in? || current_user.can_answer_on?(current_group)
       %li.answer.action
         = link_to t("questions.question.answer_verb"), "#to_answer", :id => "add_answer"

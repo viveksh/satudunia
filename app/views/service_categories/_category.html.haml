@@ -1,0 +1,22 @@
+%ul
+  %li{:style => "padding-bottom:0px !important"}
+    .user-info
+      %h2
+      = category.category_name
+      %p.description
+        Number of Service Providers
+        %small
+          = category.service_providers.count
+
+
+    = form_tag(service_category_path(category.id), :class => "form", :method => :put, :style => "margin-top:20px !important") do |f|
+      .field
+        = text_field_tag "category_name", category.category_name, :style => "width: 100px !important"
+      .buttons
+        = submit_tag t("scaffold.update"), :class => "save"
+        - unless category.service_providers.count != 0 
+          = link_to t("scaffold.destroy"), service_category_path(category.id), :method => :delete, :confirm => "Are you sure? This category will no longer exist"
+    
+
+
+

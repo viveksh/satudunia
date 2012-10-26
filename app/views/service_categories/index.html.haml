@@ -1,0 +1,16 @@
+%h1
+  = "Manage Service Provider Categories"
+%p.description
+  CRUD Service Provider Categories
+  
+.members
+  = form_tag service_categories_path, :class => "form", :id => "filter_members", :method => "post" do
+    .field
+      = label_tag :q, "New Category", :class => "label"
+      = text_field_tag "category_name", params[:category_name], :class => "text_field filter_field"
+      = submit_tag("create", :class => "filter_input")
+  #members
+    -@service_categories.each do |category|
+      = render :partial => "category", :object => category
+
+    = paginate @service_categories

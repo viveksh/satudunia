@@ -1,0 +1,45 @@
+%h1
+  Manage Service Providers
+%p.description
+  CRUD Service Providers
+
+%ul.admin-nav
+  %li.head_tag
+    = link_to "Create New", providers_path(:tab=>"new")
+  %li.question_help
+    = link_to "List", providers_path(:tab=>"list")
+
+
+- if params[:tab].eql?('new')
+  - method = :post
+  - if !params[:id].nil? && !@provider.id.nil?
+    - method = :put 
+  = form_for @provider, :html => {:class => "form", :method => method} do |form|
+    = form.error_messages
+    
+    .field
+      = form.label "Service Provider Name"
+      = form.text_field :name, :class => "text_area"
+
+    .field
+      = form.label "Description"
+      = form.text_area :description, :class => "text_area"
+
+    .field
+      = form.label "Website"
+      = form.text_field :url, :class => "text_area"
+      
+    .field
+      = form.label "Category"
+      = form.select :service_category_id, options_from_collection_for_select(@categories, :id, :category_name, @provider.service_category_id)
+
+    .buttons
+      = form.submit "Save", :class => "save"
+    
+- else
+  .members
+    #members
+      - @providers.each do |provider|
+        = render :partial => "provider", :object => provider
+        
+      = paginate @providers

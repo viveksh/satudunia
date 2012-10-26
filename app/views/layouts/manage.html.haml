@@ -20,7 +20,8 @@
                   = pjax_tab_entry "li", t('layouts.manage.invoices'), "manage", invoices_path, :selected => "active", :link_opts => {'data-page-layout' => "manage-layout"}
                 - if current_group.shapado_version.has_custom_domain?
                   = pjax_tab_entry "li", t('layouts.manage.domain'), "manage",  manage_properties_tab_path(:tab => "domain"), :selected => "active", :link_opts => {'data-page-layout' => "manage-layout"}
-
+                = pjax_tab_entry "li", "Service Provider Categories", "manage", service_categories_path, :selected => "active", :link_opts => {'data-page-layout' => "manage-layout"}
+                = pjax_tab_entry "li", "Service Providers", "manage", providers_path(:tab => "new"), :selected => "active", :link_opts => {'data-page-layout' => "manage-layout"}
           .widget-links.module
             %h3
               = t("layouts.manage.group_user_management")

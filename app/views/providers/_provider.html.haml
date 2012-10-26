@@ -1,0 +1,24 @@
+%ul
+  %li{:style => "padding-bottom:0px !important"}
+    .user-info
+      %h2
+        = provider.name
+        %small
+          = link_to "Update", providers_path(:tab=>"new", :id => provider.id)
+          |
+          = link_to "Delete", provider_path(:id => provider.id), :method => :delete, :confirm => "Are you sure? This Service Provider will no longer exist"
+      %p.description
+        %small
+          = provider.service_category.try(:category_name)
+      %p.description
+        = provider.description
+      %p.description
+        = provider.url
+      
+
+
+    
+    
+
+
+

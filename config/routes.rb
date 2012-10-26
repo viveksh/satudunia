@@ -85,6 +85,8 @@ Rails.application.routes.draw do
       post :send_contact_us
     end
   end
+  
+  resources :service_providers
 
   resources :pages do
     member do
@@ -231,6 +233,8 @@ Rails.application.routes.draw do
     end
     resources :constrains_configs
     resources :members
+    resources :service_categories
+    resources :providers
   end
 
   scope '/manage', :as => 'manage' do

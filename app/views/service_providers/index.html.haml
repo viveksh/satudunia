@@ -1,0 +1,23 @@
+.list-users
+  .filters.clearfix
+    %ul.menubar.clearfix
+      %li
+        %label
+          Categories:
+      %li.reputation
+        = link_to "All"
+      - @categories.each do |category|
+        %li.newest
+          = link_to "#{category.category_name} (#{category.service_providers.count})", service_providers_path(:category_id => category.id)
+
+  %ul.items
+    - if @service_providers.blank?
+      %li
+        .summary
+          %h3
+            No Service Providers Yet
+    -@service_providers.each do |provider|
+      = render :partial => "provider", :object => provider
+      
+  = paginate @service_providers
+    
