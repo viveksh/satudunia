@@ -98,6 +98,7 @@
               %li.delete
                 = link_to t("scaffold.destroy"), question_path(@question.id), :confirm => t('scaffold.are_you_sure'), :method => :delete
 
-
   #panel-forms.clearfix
     = render "reward_form"
+
+=render :partial => '/shared/translation_widget'
