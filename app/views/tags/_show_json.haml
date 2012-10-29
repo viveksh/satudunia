@@ -4,7 +4,7 @@
       = image_tag(tag_icon_path(current_group,tag.name))
 
   .tooltip-name
-    %p= t('questions.index.has_followers', :count => tag.followers_count.to_i)
+    %p= t('questions.index.has_followers', :count => tag.try(:followers_count).to_i)
     = follow_tag_link(tag)
   .tooltip-description
     - if !tag.description.blank?
