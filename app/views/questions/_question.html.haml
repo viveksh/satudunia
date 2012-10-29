@@ -30,9 +30,9 @@
             = link_to I18n.t('questions.show.solution'), question_path(question, :anchor => "answer#{question.answer_id}"), :rel => 'nofollow'
         %li.answers.action
           = link_to t('questions.question.has_answers', :count => question.answers_count), question_path(question)
-          
+
         %li.action
-          = link_to t('questions.question.views_count', :count => question.views_count), question_path(question)
+          = link_to t(question.views_count.to_s + ' views')
 
         -if question.followers_count.to_i > 0
           %li.followers.action
