@@ -110,7 +110,7 @@ class User
     v.validates_length_of       :password, :in => 6..20, :allow_blank => true
   end
 
-  before_save :update_languages
+  #before_save :update_languages
 
   attr_accessible :remember_me
 
