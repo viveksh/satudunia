@@ -496,7 +496,7 @@ module ApplicationHelper
 
   def follow_tag_link(tag)
     if logged_in?
-      if current_user.preferred_tags_on(current_group).include?(tag.name)
+      if current_user.preferred_tags_on(current_group).include?(tag.try(:name))
         follow_class = 'unfollow-tag toggle-action'
         follow_data = 'follow-tag'
         data_title = t('widgets.suggestions.follow_tag')
