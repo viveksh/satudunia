@@ -98,6 +98,8 @@ en:
       student:
         name: Student
         description: Asked a question with at least one up vote
+      devotee:
+        description: Visited the site each day for 8 consecutive days
       shapado:
         description: Visited the site each day for 8 consecutive days
       editor:
