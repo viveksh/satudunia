@@ -2,7 +2,7 @@
 :javascript
   var map;
   var geocoder;
-  var address = '#{@service_provider.address}';
+  var address = '#{escape_javascript @service_provider.address}';
   var centered;
   
   function initialize() {
