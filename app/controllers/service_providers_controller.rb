@@ -1,6 +1,6 @@
 class ServiceProvidersController < ApplicationController
-  before_filter :login_required, :except => :index
-  before_filter :check_permissions, :except => :index
+  before_filter :login_required, :except => [:index, :show]
+  before_filter :check_permissions, :except => [:index, :show]
 
   def index
     set_page_title("Service Providers")
@@ -9,6 +9,17 @@ class ServiceProvidersController < ApplicationController
     
     @service_providers = ServiceProvider.where(conditions).page(params["page"])
     @categories = ServiceCategory.all
+  end
+
+  def show
+      @service_provider = ServiceProvider.by_slug(params[:id])
+
+      if @service_provider.nil?
+        flash[:error] = "Service Provider not found"
+        redirect_to service_providers_path
+      else
+        set_page_title(@service_provider.name)
+      end
   end
   
   def create
@@ -28,7 +39,7 @@ class ServiceProvidersController < ApplicationController
   end
   
   def update
-    @provider = ServiceProvider.find(params[:id])
+    @provider = ServiceProvider.by_slug(params[:id])
     if @provider.nil?
       flash[:error] = "Service Provider not found"
       

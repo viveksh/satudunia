@@ -1,0 +1,47 @@
+%script{:src => "http://maps.googleapis.com/maps/api/js?key=AIzaSyBmJE9KrYdmPiW16lAHDJOiCvS1Fwen7BU&sensor=true"}
+:javascript
+  var map;
+  var geocoder;
+  var address = '#{@service_provider.address}';
+  var centered;
+  
+  function initialize() {
+    geocoder = new google.maps.Geocoder();
+
+    geocoder.geocode( { 'address': address}, function(results, status) {
+      if (status == google.maps.GeocoderStatus.ZERO_RESULTS){
+        alert('We apologize as there is no location for this entity/service provider');
+      }
+      centered = results[0].geometry.location;
+
+      map.setCenter(centered);
+      var marker = new google.maps.Marker({
+          map: map,
+          position: centered
+      });
+    });
+
+    var mapOptions = {
+      zoom: 15,
+      center: centered,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    
+    map = new google.maps.Map(document.getElementById('map_canvas'),mapOptions);
+  }
+  
+  google.maps.event.addDomListener(window, 'load', initialize);
+
+.top
+  %h1
+    = @service_provider.name
+
+#map_canvas{:style => "margin-left: 10px"}
+#service_information{:style => "margin: 10px"}
+  = @service_provider.description
+  - @service_provider.attributes.each do |attr|
+    - next if attr.last.blank? || attr.first =~ /id|description|service\_category\_id|slug|name/
+    %br
+    %b
+      = attr.first.capitalize 
+    = attr.last

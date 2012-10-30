@@ -1,7 +1,7 @@
 %li
   .summary
     %h3
-      = provider.name
+      = link_to provider.slug, service_provider_path(provider.slug)
     .badges
       = provider.description
     .owner-data
