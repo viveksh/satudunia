@@ -3,6 +3,7 @@
   - widgets = widget_list.send(position)
 - if !widgets.empty?
   %div{:class => "#{position}-widgets"}
+    = render :partial => 'shared/navigation_sidebar'
     - if !current_group.shapado_version.has_custom_ads?
       = render :partial => 'shared/default_adsense', :locals => {:position => position}
     - widgets.each do |widget|
