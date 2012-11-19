@@ -16,6 +16,13 @@ module Jobs
       end
     end
 
+    def self.generate_news_thumbnails(news_id)
+      news = News.find(news_id)
+      if news.has_news_image?
+        generate_thumbnails(news, news.news_image)
+      end
+    end
+
     private
     def self.generate_thumbnails(object, original_image)
       {"big" => "140x140", "medium" => "60x60", "small" => "25x25"}.each do |name, size|

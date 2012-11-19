@@ -235,6 +235,7 @@ Rails.application.routes.draw do
     resources :members
     resources :service_categories
     resources :providers
+    resources :manage_news
   end
 
   scope '/manage', :as => 'manage' do

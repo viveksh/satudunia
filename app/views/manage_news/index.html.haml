@@ -1,0 +1,106 @@
+:javascript
+  // Dean Edwards/Matthias Miller/John Resig
+
+  function init() {
+    // quit if this function has already been called
+    if (arguments.callee.done) return;
+
+    // flag this function so we don't do the same thing twice
+    arguments.callee.done = true;
+
+    // kill the timer
+    if (_timer) clearInterval(_timer);
+
+    // do stuff
+    Editor.setup($(".markdown_editor, .wysiwyg_editor"));
+  };
+
+  /* for Mozilla/Opera9 */
+  if (document.addEventListener) {
+    document.addEventListener("DOMContentLoaded", init, false);
+  }
+
+  /* for Internet Explorer */
+  /*@cc_on @*/
+  /*@if (@_win32)
+    document.write("<script id=__ie_onload defer src=javascript:void(0)><\/script>");
+    var script = document.getElementById("__ie_onload");
+    script.onreadystatechange = function() {
+      if (this.readyState == "complete") {
+        init(); // call the onload handler
+      }
+    };
+  /*@end @*/
+
+  /* for Safari */
+  if (/WebKit/i.test(navigator.userAgent)) { // sniff
+    var _timer = setInterval(function() {
+      if (/loaded|complete/.test(document.readyState)) {
+        init(); // call the onload handler
+      }
+    }, 10);
+  }
+
+  /* for other browsers */
+  window.onload = init;
+
+%h1
+  Manage News
+%p.description
+  CRUD News
+
+%ul.admin-nav
+  %li.head_tag
+    = link_to "Create New", manage_news_index_path(:tab => "new")
+  %li.question_help
+    = link_to "List", manage_news_index_path(:tab => "list")
+
+- if params[:tab].eql?('new')
+  - method = :post
+  - url = manage_news_index_path
+  - if !params[:id].nil? && !@news.id.nil?
+    - method = :put 
+    - url = manage_news_path(:id => @news.id)
+  = form_for @news, :url => url, :html => {:class => "form", :method => method} do |form|
+    = form.error_messages
+    
+    .field
+      = form.label "News Title *"
+      = form.text_field :news_title, :class => "text_area"
+
+    .field
+      = form.label "News Body *"
+      = form.text_area :news_body, :class => "wysiwyg_editor"
+
+    .field
+      = form.label "Active"
+      #{radio_button("news", "is_active", true)} yes
+      #{radio_button("news", "is_active", false)} no
+      
+    .field
+      = form.label "Archive"
+      #{radio_button("news", "is_archive", true)} yes
+      #{radio_button("news", "is_archive", false)} no
+
+    .field
+      = form.label "Authoring"
+      = current_user.name
+
+    .field
+      = form.label "Created Date"
+      = Time.now.to_datetime.strftime("%d %b %Y - %I:%M %p")
+
+    .field
+      = form.label "News Image"
+      = form.file_field :news_image
+
+    .buttons
+      = form.submit "Save", :class => "save"
+
+- else
+  .members
+    #members
+      - @news.each do |news|
+        = render :partial => "news", :object => news
+        
+      = paginate @news

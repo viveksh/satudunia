@@ -6,6 +6,7 @@ module Shapado
           helper_method :logo_path, :css_group_path,
                         :favicon_group_path, :tag_icon_path,
                         :avatar_user_path,
+                        :news_image_path,
                         :logo_group_path,
                         :question_attachment_path,
                         :javascript_group_path,
@@ -50,6 +51,15 @@ module Shapado
           prefix = size
         end
         "/_files/groups/#{prefix}/#{CGI.escape(group.id)}/#{group.logo_version}.png"
+      end
+
+      def news_image_path(news, size = nil)
+        prefix = "news_image"
+        if !size.nil? && ["big", "medium", "small"].include?(size)
+          prefix = size
+        end
+
+        "/_files/news/#{prefix}/#{CGI.escape(news.id.to_s)}.png"
       end
 
       def question_attachment_path(group,question, file, attach_id)
