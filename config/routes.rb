@@ -87,6 +87,7 @@ Rails.application.routes.draw do
   end
   
   resources :service_providers
+  resources :news
 
   resources :pages do
     member do

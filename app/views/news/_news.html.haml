@@ -1,0 +1,10 @@
+%li
+  .summary
+    - if news.has_news_image?
+      = image_tag news_image_path(news,"small"), :height => 64, :alt => news.slug, :class => 'gravatar'
+    %h3{:style => 'margin-top: -5px !important;'}
+      = link_to news.news_title, news_path(news.slug)
+    .badges
+      = truncate(news.news_body.html_safe, :length => 200)
+    .owner-data
+      by #{news.user.name} on #{news.created_at.strftime("%d %b %Y - %I:%M %p")}

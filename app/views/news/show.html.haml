@@ -1,0 +1,11 @@
+.userDescription
+  .basicInfo{:style => "margin-left: 10px !important"}
+    %h2
+      = @news.news_title
+    %small
+      by #{@news.user.name} on #{@news.created_at.strftime("%d %b %Y - %I:%M %p")}
+
+- if @news.has_news_image?
+  = image_tag news_image_path(@news,"small"), :height => 64, :alt => @news.slug, :class => 'gravatar', :style => "margin: 10px"
+#service_information{:style => "margin: 10px"}
+  = @news.news_body.html_safe

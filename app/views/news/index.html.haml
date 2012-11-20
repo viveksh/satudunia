@@ -1,0 +1,13 @@
+.list-users
+
+  %ul.items{:id => 'users'}
+    - if @news.blank?
+      %li
+        .summary
+          %h3
+            No Recent News Yet
+    -@news.each do |news|
+      = render :partial => "news", :object => news
+      
+  = paginate @news
+    

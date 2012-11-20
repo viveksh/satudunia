@@ -100,6 +100,10 @@
 - else
   .members
     #members
+      - if @news.blank?
+        %ul
+          %li{:style => "padding-bottom:0px !important"}
+            No News Yet
       - @news.each do |news|
         = render :partial => "news", :object => news
         
