@@ -32,7 +32,7 @@ class ServiceProvidersController < ApplicationController
       
       redirect_to providers_path(:tab=>"list")
     else
-      flash[:error] = @provider.errors.first[1]
+      flash[:error] = @provider.errors.first[1] rescue "Please fill all the required inputs"
       
       redirect_to providers_path(:tab=>"new")
     end
@@ -53,7 +53,7 @@ class ServiceProvidersController < ApplicationController
         
         redirect_to providers_path(:tab=>"list")
       else
-        flash[:error] = @provider.errors.first[1]
+        flash[:error] = @provider.errors.first[1] rescue "Please fill all the required inputs"
         
         redirect_to providers_path(:tab=>"new", :id=>@provider.id)
       end

@@ -27,7 +27,7 @@ class ManageNewsController < ApplicationController
       flash[:notice] = "News created"
       redirect_to manage_news_index_path(:tab => "list")
     else
-      flash[:error] = @news.errors.first[1]
+      flash[:error] = @news.errors.first[1] rescue "Please fill all the required inputs"
       redirect_to manage_news_index_path(:tab => "new")
     end
   end
@@ -48,7 +48,7 @@ class ManageNewsController < ApplicationController
         flash[:notice] = "News updated"
         redirect_to manage_news_index_path(:tab => "list")
       else
-        flash[:error] = @news.errors.first[1]
+        flash[:error] = @news.errors.first[1] rescue "Please fill all the required inputs"
         redirect_to manage_news_index_path(:tab => "new", :id => news.id)
       end
     end
