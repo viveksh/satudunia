@@ -31,7 +31,7 @@ class Poll
     poll.user_id = user_id
 
     if poll.valid? && poll.save
-      Poll.create_options(param_poll, poll)
+      Poll.create_options(params_poll, poll)
     else
       rv = poll.errors.first[1] rescue "Invalid poll data"
     end
