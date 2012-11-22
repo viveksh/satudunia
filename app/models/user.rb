@@ -79,6 +79,7 @@ class User
   references_many :activities, :dependent => :destroy, :validate => false
   references_many :invitations, :dependent => :destroy, :validate => false
   references_many :news, :dependent => :destroy, :validate => false
+  references_many :polls
   references_one :external_friends_list, :dependent => :destroy, :validate => false
 
   references_one :read_list, :dependent => :destroy, :validate => false

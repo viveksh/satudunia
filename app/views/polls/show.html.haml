@@ -1,0 +1,37 @@
+%script{:type => "text/javascript", :src => "https://www.google.com/jsapi"}
+
+:javascript
+  google.load("visualization", "1", {packages:["corechart"]});
+  google.setOnLoadCallback(drawChart);
+
+  function drawChart() {
+    var data = google.visualization.arrayToDataTable([
+      ['Options', 'Participant'],
+      #{render :partial => "option_item", :object => @poll}
+    ]);
+
+    var options = {
+      title: 'Polls result'
+    };
+
+
+    var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+    chart.draw(data,options);
+  }
+
+-content_for :header do
+  %h1
+    = @poll.poll_title
+
+- if current_user.nil? || @poll.contributors.include?(current_user)
+  #chart_div{:style => "width: 600px; height: 500px;"}
+- else
+  = form_for @poll, :url => polls_path, :html => {:class => "form", :method => :post} do |form|
+    = hidden_field_tag :id, @poll.id
+    - @poll.poll_options.each do |option|
+      .field
+        = radio_button_tag(:poll_option, option.id) 
+        = option.option_desc
+
+    .buttons
+      = form.submit "Submit", :class => "save"

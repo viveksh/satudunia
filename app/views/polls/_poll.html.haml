@@ -1,0 +1,9 @@
+%li
+  .summary
+    %h3
+      = link_to poll.poll_title, poll_path(poll.slug)
+    .badges
+      Participant: #{poll.contributors_count}
+    .owner-data
+      by #{poll.user.try(:name)}
+      at #{poll.created_at.to_datetime.strftime("%d %b %Y - %I:%M %p")}

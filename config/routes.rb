@@ -88,6 +88,7 @@ Rails.application.routes.draw do
   
   resources :service_providers
   resources :news
+  resources :polls
 
   resources :pages do
     member do
@@ -237,6 +238,7 @@ Rails.application.routes.draw do
     resources :service_categories
     resources :providers
     resources :manage_news
+    resources :manage_polls
   end
 
   scope '/manage', :as => 'manage' do

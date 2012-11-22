@@ -1,0 +1,12 @@
+.list-users
+  %ul.items
+    - if @polls.blank?
+      %li
+        .summary
+          %h3
+            No Polls Yet
+    -@polls.each do |poll|
+      = render :partial => "poll", :object => poll
+      
+  = paginate @polls
+    

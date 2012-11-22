@@ -1,0 +1,3 @@
+.field{:id => "poll_option_OPTION_ID"}
+  = text_field_tag "poll[poll_options][][option_desc]", "",:class => "text_area"
+  = link_to "x", "#", :onclick => "removeOption('OPTION_ID'); return false;"
