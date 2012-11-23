@@ -1,0 +1,15 @@
+= render :partial => 'shared/rich_text_partial'
+
+%h1
+  Manage EULA
+%p.description
+  Update EULA content
+
+= form_tag "/manage/manage_eulas/#{@eula.id}", :method => :put do
+
+  .field
+    = label_tag "eula Content"
+    = text_area_tag :eula_content, @eula.static_content, :class => "wysiwyg_editor"
+
+  .buttons
+    = submit_tag "Update", :class => "save"

@@ -239,6 +239,10 @@ Rails.application.routes.draw do
     resources :providers
     resources :manage_news
     resources :manage_polls
+    resources :manage_terms
+    resources :manage_abouts
+    resources :manage_eulas
+    resources :manage_privacy
   end
 
   scope '/manage', :as => 'manage' do

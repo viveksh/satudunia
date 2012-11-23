@@ -1,0 +1,15 @@
+= render :partial => 'shared/rich_text_partial'
+
+%h1
+  Manage ToS
+%p.description
+  Update ToS content
+
+= form_tag "/manage/manage_terms/#{@tos.id}", :method => :put do
+
+  .field
+    = label_tag "ToS Content"
+    = text_area_tag :tos_content, @tos.static_content, :class => "wysiwyg_editor"
+
+  .buttons
+    = submit_tag "Update", :class => "save"

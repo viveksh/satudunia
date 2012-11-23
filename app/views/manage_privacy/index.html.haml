@@ -1,0 +1,15 @@
+= render :partial => 'shared/rich_text_partial'
+
+%h1
+  Manage Privacy Policy
+%p.description
+  Update Privacy Policy content
+
+= form_tag "/manage/manage_privacy/#{@privacy.id}", :method => :put do
+
+  .field
+    = label_tag "Privacy Content"
+    = text_area_tag :privacy_content, @privacy.static_content, :class => "wysiwyg_editor"
+
+  .buttons
+    = submit_tag "Update", :class => "save"

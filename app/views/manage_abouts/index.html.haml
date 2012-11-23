@@ -1,0 +1,15 @@
+= render :partial => 'shared/rich_text_partial'
+
+%h1
+  Manage About
+%p.description
+  Update About content
+
+= form_tag "/manage/manage_abouts/#{@about.id}", :method => :put do
+
+  .field
+    = label_tag "About Content"
+    = text_area_tag :about_content, @about.static_content, :class => "wysiwyg_editor"
+
+  .buttons
+    = submit_tag "Update", :class => "save"

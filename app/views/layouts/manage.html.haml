@@ -24,6 +24,10 @@
                 = pjax_tab_entry "li", "Service Providers", "manage", providers_path(:tab => "list"), :selected => "active", :link_opts => {'data-page-layout' => "manage-layout"}
                 = pjax_tab_entry "li", "News", "manage", manage_news_index_path(:tab => "list"), :selected => "active", :link_opts => {'data-page-layout' => "manage-layout"}
                 = pjax_tab_entry "li", "Poll", "manage", manage_polls_path(:tab => "list"), :selected => "active", :link_opts => {'data-page-layout' => "manage-layout"}
+                = pjax_tab_entry "li", "Terms of Services", "manage", manage_terms_path, :selected => "active", :link_opts => {'data-page-layout' => "manage-layout"}
+                = pjax_tab_entry "li", "About", "manage", manage_abouts_path, :selected => "active", :link_opts => {'data-page-layout' => "manage-layout"}
+                = pjax_tab_entry "li", "EULA", "manage", manage_eulas_path, :selected => "active", :link_opts => {'data-page-layout' => "manage-layout"}
+                = pjax_tab_entry "li", "Privacy Policy", "manage", manage_privacy_index_path, :selected => "active", :link_opts => {'data-page-layout' => "manage-layout"}
           .widget-links.module
             %h3
               = t("layouts.manage.group_user_management")
