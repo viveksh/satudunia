@@ -1,7 +1,7 @@
 class ManageTermsController < ApplicationController
   layout "manage"
-  before_filter :login_required
-  before_filter :check_permissions
+  before_filter :login_required, :except => :public_terms
+  before_filter :check_permissions, :except => :public_terms
   tabs :default => :manage_terms
 
   def index
@@ -12,6 +12,12 @@ class ManageTermsController < ApplicationController
       @tos.static_key = "tos"
       @tos.save
     end
+  end
+
+  def public_terms
+    @tos = StaticPage.where(:static_key => 'tos').first
+
+    render :layout => "doc"
   end
 
   def update

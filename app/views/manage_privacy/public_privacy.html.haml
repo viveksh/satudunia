@@ -1,0 +1,7 @@
+.userDescription
+  .basicInfo{:style => "margin-left: 10px !important"}
+    %h2
+      Privacy Policy
+
+#service_information{:style => "margin: 10px"}
+  = @privacy.static_content.html_safe rescue ""

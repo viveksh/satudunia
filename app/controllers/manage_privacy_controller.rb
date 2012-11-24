@@ -1,7 +1,7 @@
 class ManagePrivacyController < ApplicationController
   layout "manage"
-  before_filter :login_required
-  before_filter :check_permissions
+  before_filter :login_required, :except => :public_privacy
+  before_filter :check_permissions, :except => :public_privacy
   tabs :default => :manage_privacy
 
   def index
@@ -12,6 +12,12 @@ class ManagePrivacyController < ApplicationController
       @privacy.static_key = "privacy"
       @privacy.save
     end
+  end
+
+  def public_privacy
+    @privacy = StaticPage.where(:static_key => 'privacy').first
+
+    render :layout => "doc"
   end
 
   def update

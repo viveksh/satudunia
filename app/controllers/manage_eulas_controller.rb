@@ -1,7 +1,7 @@
 class ManageEulasController < ApplicationController
   layout "manage"
-  before_filter :login_required
-  before_filter :check_permissions
+  before_filter :login_required, :except => :public_eula
+  before_filter :check_permissions, :except => :public_eula
   tabs :default => :manage_eula
 
   def index
@@ -12,6 +12,12 @@ class ManageEulasController < ApplicationController
       @eula.static_key = "eula"
       @eula.save
     end
+  end
+
+  def public_eula
+    @eula = StaticPage.where(:static_key => 'eula').first
+
+    render :layout => "doc"
   end
 
   def update

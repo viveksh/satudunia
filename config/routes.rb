@@ -38,6 +38,11 @@ Rails.application.routes.draw do
 
   match '/update_stripe' => 'invoices#webhook', :method => :post
 
+  match '/eula' => 'manage_eulas#public_eula'
+  match '/privacy_policy' => 'manage_privacy#public_privacy'
+  match '/terms_of_service' => 'manage_terms#public_terms'
+  match '/about' => 'manage_abouts#public_about'
+
   get "mobile/index"
 
   match '/users/auth/:provider' => 'users#auth', :as => :auth_users

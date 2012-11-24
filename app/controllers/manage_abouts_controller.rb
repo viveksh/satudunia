@@ -1,7 +1,7 @@
 class ManageAboutsController < ApplicationController
   layout "manage"
-  before_filter :login_required
-  before_filter :check_permissions
+  before_filter :login_required, :except => :public_about
+  before_filter :check_permissions, :except => :public_about
   tabs :default => :manage_about
 
   def index
@@ -12,6 +12,12 @@ class ManageAboutsController < ApplicationController
       @about.static_key = "about"
       @about.save
     end
+  end
+
+  def public_about
+    @about = StaticPage.where(:static_key => 'about').first
+
+    render :layout => "application"
   end
 
   def update

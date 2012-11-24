@@ -23,9 +23,11 @@
         %li
           = link_to t('global.feedback'), feedback_url, :class => "feedback", :id => "feedback"
         %li
-          = link_to t('global.tos'), tos_path
+          = link_to t('global.tos'), terms_of_service_path
         %li
-          = link_to t('global.privacy'), privacy_path
+          = link_to t('global.privacy'), privacy_policy_path
+        %li
+          = link_to "EULA", eula_path
   %p
     - cc_link = link_to 'Creative Commons Attribution 3.0', 'http://creativecommons.org/licenses/by/3.0/'
     = raw t('.cc_footer', :cc_link => cc_link)

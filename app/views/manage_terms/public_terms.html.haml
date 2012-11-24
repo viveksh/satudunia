@@ -1,0 +1,7 @@
+.userDescription
+  .basicInfo{:style => "margin-left: 10px !important"}
+    %h2
+      Terms of Service
+
+#service_information{:style => "margin: 10px"}
+  = @tos.static_content.html_safe rescue ""
