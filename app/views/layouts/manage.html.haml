@@ -32,6 +32,7 @@
                   = link_to "EULA", manage_eulas_path
                 %li
                   = link_to "Privacy Policy", manage_privacy_index_path
+                = pjax_tab_entry "li", "Faq", "manage", manage_faqs_path(:tab => "list"), :selected => "active", :link_opts => {'data-page-layout' => "manage-layout"}
           .widget-links.module
             %h3
               = t("layouts.manage.group_user_management")

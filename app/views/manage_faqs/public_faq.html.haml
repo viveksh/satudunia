@@ -1,0 +1,12 @@
+.list-users
+  %ul.items
+    - if @faqs.blank?
+      %li
+        .summary
+          %h3
+            No FAQ Yet
+    -@faqs.each do |faq|
+      = render :partial => "faq", :object => faq
+      
+  = paginate @faqs
+    

@@ -42,6 +42,7 @@ Rails.application.routes.draw do
   match '/privacy_policy' => 'manage_privacy#public_privacy'
   match '/terms_of_service' => 'manage_terms#public_terms'
   match '/about' => 'manage_abouts#public_about'
+  match '/faq' => 'manage_faqs#public_faq'
 
   get "mobile/index"
 
@@ -248,6 +249,7 @@ Rails.application.routes.draw do
     resources :manage_abouts
     resources :manage_eulas
     resources :manage_privacy
+    resources :manage_faqs
   end
 
   scope '/manage', :as => 'manage' do
