@@ -90,5 +90,11 @@ class WelcomeController < ApplicationController
 
     redirect_to params[:source].to_s[0,1]=="/" ? params[:source] : root_path
   end
+
+  def switch_mobile_view
+    session[:mobile_view] = false
+
+    redirect_to root_path
+  end
 end
 

@@ -17,6 +17,8 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  has_mobile_fu
+
   protect_from_forgery
 
   before_filter :check_cookies

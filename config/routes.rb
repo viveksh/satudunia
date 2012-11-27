@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   match '/plans' => 'doc#plans', :as => :plans
   match '/chat' => 'doc#chat', :as => :chat
   match '/shapado_feedback' => 'welcome#feedback', :as => :feedback
+  match '/switch_mobile_view' => 'welcome#switch_mobile_view'
   match '/feedback' => 'welcome#fake_feedback'
   match '/send_feedback' => 'welcome#send_shapado_feedback', :as => :send_feedback
   match '/send_shapado_feedback' => 'welcome#send_feedback', :as => :send_feedback
