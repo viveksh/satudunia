@@ -255,6 +255,7 @@ Rails.application.routes.draw do
 
   scope '/manage', :as => 'manage' do
     controller 'admin/manage' do
+      match 'dashboard' => :dashboard
       match 'edit_card' => :edit_card
       match 'social' => :social
       match 'properties' => :properties
@@ -270,6 +271,7 @@ Rails.application.routes.draw do
     end
   end
   match '/manage/properties/:tab' => 'admin/manage#properties', :as => :manage_properties_tab
+  match '/admin/index' => 'admin/manage#dashboard', :as => :admin_dashboard
 
   namespace :moderate do
     resources :questions do
