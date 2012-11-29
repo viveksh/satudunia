@@ -1,7 +1,7 @@
 class Admin::ManageController < ApplicationController
   before_filter :login_required
   before_filter :check_permissions, :except => [:edit_card]
-  layout "manage"
+  layout "supr"
   tabs :dashboard => :dashboard,
        :properties => :properties,
        :content => :content,

@@ -1,7 +1,7 @@
 class WidgetsController < ApplicationController
   before_filter :login_required, :except => :embedded
   before_filter :check_permissions, :except => :embedded
-  layout "manage"
+  layout "supr"
   tabs :default => :widgets
 
   subtabs :widgets => [[:mainlist, "mainlist"],

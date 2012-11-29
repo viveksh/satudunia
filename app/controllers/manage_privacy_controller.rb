@@ -1,5 +1,5 @@
 class ManagePrivacyController < ApplicationController
-  layout "manage"
+  layout "supr"
   before_filter :login_required, :except => :public_privacy
   before_filter :check_permissions, :except => :public_privacy
   tabs :default => :manage_privacy

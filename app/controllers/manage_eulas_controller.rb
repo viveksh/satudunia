@@ -1,5 +1,5 @@
 class ManageEulasController < ApplicationController
-  layout "manage"
+  layout "supr"
   before_filter :login_required, :except => :public_eula
   before_filter :check_permissions, :except => :public_eula
   tabs :default => :manage_eula

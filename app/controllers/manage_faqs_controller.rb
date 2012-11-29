@@ -1,5 +1,5 @@
 class ManageFaqsController < ApplicationController
-  layout "manage"
+  layout "supr"
   before_filter :login_required, :except => :public_faq
   before_filter :check_permissions, :except => :public_faq
   tabs :default => :manage_faq

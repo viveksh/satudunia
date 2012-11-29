@@ -1,5 +1,5 @@
 class ServiceCategoriesController < ApplicationController
-  layout "manage"
+  layout "supr"
   before_filter :login_required
   before_filter :check_permissions
   tabs :default => :service_categories

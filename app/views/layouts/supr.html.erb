@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Admin</title>
+    <%= stylesheet_link_tag    "admin/admin", :media => "all" %>
+    <%= javascript_include_tag "admin/admin" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+<!-- loading animation -->
+    <div id="qLoverlay"></div>
+    <div id="qLbar"></div>
+    
+    <div id="header">
+
+        <div class="navbar">
+            <div class="navbar-inner">
+              <div class="container-fluid">
+                <a class="brand" href="<%= admin_dashboard_path %>">Plus.<span class="slogan">admin</span></a>
+                <div class="nav-no-collapse">
+                    <ul class="nav">
+                        <li class="active"><a href="<%= admin_dashboard_path %>"><span class="icon16 icomoon-icon-screen"></span> Dashboard</a></li>
+                        <li><%= link_to "back to Site", root_path %></li>
+                    </ul>
+                  <!-- THIS IS DOWNLOADED FROM WWW.SXRIPTGATES.COM - SO THIS IS YOUR NEW SITE FOR DOWNLOAD SCRIPT ;) -->
+                    <ul class="nav pull-right usernav">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <span class="icon16 icomoon-icon-bell"></span><span class="notification">3</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="menu">
+                                    <ul class="notif">
+                                        <li class="header"><strong>Notifications</strong> (3) items</li>
+                                        <li>
+                                            <a href="#">
+                                                <span class="icon"><span class="icon16 icomoon-icon-user-2"></span></span>
+                                                <span class="event">1 User is registred</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <span class="icon"><span class="icon16 icomoon-icon-comments-4"></span></span>
+                                                <span class="event">Jony add 1 comment</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <span class="icon"><span class="icon16 icomoon-icon-new"></span></span>
+                                                <span class="event">admin Julia added post</span>
+                                            </a>
+                                        </li>
+                                        <li class="view-all"><a href="#">View all notifications <span class="icon16  icomoon-icon-arrow-right-7"></span></a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle avatar" data-toggle="dropdown">
+                                <img src="images/avatar.jpg" alt="" class="image" /> 
+                                <span class="txt">admin@supr.com</span>
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="menu">
+                                    <ul>
+                                        <li>
+                                            <a href="#"><span class="icon16 icomoon-icon-user-3"></span>Edit profile</a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><span class="icon16 icomoon-icon-comments-2"></span>Approve comments</a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><span class="icon16 entypo-icon-contact"></span>Add user</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="<%= destroy_user_session_path %>"><span class="icon16 icomoon-icon-exit"></span> Logout</a></li>
+                    </ul>
+                </div><!-- /.nav-collapse -->
+              </div>
+            </div><!-- /navbar-inner -->
+          </div><!-- /navbar --> 
+
+    </div><!-- End #header -->  
+    <div id="wrapper">
+
+        <!--Responsive navigation button-->  
+        <div class="resBtn">
+            <a href="#"><span class="icon16 minia-icon-list-3"></span></a>
+        </div>
+
+        <!--Sidebar background-->
+        <div id="sidebarbg"></div>
+        <!--Sidebar content-->
+        <div id="sidebar">
+            <!-- End search -->            
+
+            <div class="sidenav">
+
+                <div class="sidebar-widget" style="margin: -1px 0 0 0;">
+                    <h5 class="title" style="margin-bottom:0">Site Management</h5>
+                </div><!-- End .sidenav-widget -->
+
+                <div class="mainnav">
+                    <ul>
+                        <li><a href="<%= manage_properties_path %>"><span class="icon16 minia-icon-cog"></span>Site</a></li>
+                        <li><a href="<%= service_categories_path %>"><span class="icon16 minia-icon-cog"></span>Provider Categories</a></li>
+                        <li><a href="<%= providers_path(:tab => "list") %>"><span class="icon16 minia-icon-cog"></span>Service Provider</a></li>
+                        <li><a href="<%= manage_news_index_path(:tab => "list") %>"><span class="icon16 icomoon-icon-broadcast"></span>News</a></li>
+                        <li><a href="<%= manage_polls_path(:tab => "list") %>"><span class="icon16 icomoon-icon-bars"></span>Polls</a></li>
+                        <li><a href="<%= manage_terms_path %>"><span class="icon16 minia-icon-cog"></span>Terms of Service</a></li>
+                        <li><a href="<%= manage_abouts_path %>"><span class="icon16 minia-icon-cog"></span>About</a></li>
+                        <li><a href="<%= manage_eulas_path %>"><span class="icon16 minia-icon-cog"></span>EULA</a></li>
+                        <li><a href="<%= manage_privacy_index_path %>"><span class="icon16 minia-icon-cog"></span>Privacy Policy</a></li>
+                        <li><a href="<%= manage_faqs_path(:tab => "list") %>"><span class="icon16 minia-icon-cog"></span>FAQ</a></li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-widget" style="margin: -1px 0 0 0;">
+                    <h5 class="title" style="margin-bottom:0">User Management</h5>
+                </div><!-- End .sidenav-widget -->
+                <div class="mainnav">
+                    <ul>
+                        <li><a href="<%= manage_access_path %>"><span class="icon16 minia-icon-cog"></span>Access</a></li>
+                        <li><a href="<%= members_path %>"><span class="icon16 minia-icon-cog"></span>Members</a></li>
+                        <li><a href="<%= manage_invitations_path %>"><span class="icon16 minia-icon-cog"></span>Invitation</a></li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-widget" style="margin: -1px 0 0 0;">
+                    <h5 class="title" style="margin-bottom:0">Features</h5>
+                </div><!-- End .sidenav-widget -->
+                <div class="mainnav">
+                    <ul>
+                        <li><a href="<%= announcements_path %>"><span class="icon16 minia-icon-cog"></span>Announcements</a></li>
+                        <li><a href="<%= manage_social_path %>"><span class="icon16 minia-icon-cog"></span>Social</a></li>
+                        <li><a href="<%= constrains_configs_path %>"><span class="icon16 minia-icon-cog"></span>Requirements</a></li>
+                        <li><a href="<%= manage_properties_tab_path(:tab => "rewards") %>"><span class="icon16 minia-icon-cog"></span>Rewards</a></li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-widget" style="margin: -1px 0 0 0;">
+                    <h5 class="title" style="margin-bottom:0">Look & Feel</h5>
+                </div><!-- End .sidenav-widget -->
+                <div class="mainnav">
+                    <ul>
+                        <li><a href="<%= manage_appearance_path %>"><span class="icon16 minia-icon-cog"></span>Appearance</a></li>
+                        <li><a href="<%= manage_content_path %>"><span class="icon16 minia-icon-cog"></span>Content</a></li>
+                        <li><a href="<%= themes_path %>"><span class="icon16 minia-icon-cog"></span>Themes</a></li>
+                        <li><a href="<%= widgets_path %>"><span class="icon16 minia-icon-cog"></span>Widgets</a></li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-widget" style="margin: -1px 0 0 0;">
+                    <h5 class="title" style="margin-bottom:0">Close Group</h5>
+                </div><!-- End .sidenav-widget -->
+
+                <div class="mainnav">
+                    <ul>
+                        <li><a href="<%= manage_close_group_path %>"><span class="icon16 minia-icon-cog"></span>Close group</a></li>
+                    </ul>
+                </div>
+            </div><!-- End sidenav -->
+
+        </div><!-- End #sidebar -->
+        <!--Body content-->
+        <div id="content" class="clearfix">
+          <%= yield %>
+        </div><!-- End #content -->
+    
+    </div><!-- End #wrapper -->
+  </body>
+</html>

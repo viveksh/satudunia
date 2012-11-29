@@ -1,5 +1,5 @@
 class ManageTermsController < ApplicationController
-  layout "manage"
+  layout "supr"
   before_filter :login_required, :except => :public_terms
   before_filter :check_permissions, :except => :public_terms
   tabs :default => :manage_terms
