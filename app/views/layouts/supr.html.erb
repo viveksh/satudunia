@@ -96,7 +96,14 @@
         <div id="sidebarbg"></div>
         <!--Sidebar content-->
         <div id="sidebar">
-            <!-- End search -->            
+            <div class="shortcuts">
+                <ul>
+                    <li><a href="#" title="Support section" class="tip"><span class="icon24 icomoon-icon-support"></span></a></li>
+                    <li><a href="#" title="Database backup" class="tip"><span class="icon24 icomoon-icon-database"></span></a></li>
+                    <li><a href="#" title="Sales statistics" class="tip"><span class="icon24 iconic-icon-chart"></span></a></li>
+                    <li><a href="#" title="Write post" class="tip"><span class="icon24 icomoon-icon-pencil"></span></a></li>
+                </ul>
+            </div><!-- End search -->         
 
             <div class="sidenav">
 
@@ -106,7 +113,7 @@
 
                 <div class="mainnav">
                     <ul>
-                        <li><a href="<%= manage_properties_path %>"><span class="icon16 minia-icon-cog"></span>Site</a></li>
+                        <li><a href="<%= admin_config_path %>"><span class="icon16 minia-icon-cog"></span>Site</a></li>
                         <li><a href="<%= service_categories_path %>"><span class="icon16 minia-icon-cog"></span>Provider Categories</a></li>
                         <li><a href="<%= providers_path(:tab => "list") %>"><span class="icon16 minia-icon-cog"></span>Service Provider</a></li>
                         <li><a href="<%= manage_news_index_path(:tab => "list") %>"><span class="icon16 icomoon-icon-broadcast"></span>News</a></li>
@@ -168,7 +175,39 @@
         </div><!-- End #sidebar -->
         <!--Body content-->
         <div id="content" class="clearfix">
-          <%= yield %>
+          <div class="contentwrapper">
+            <div class="heading">
+                <h3><%= @page_title.nil? ? "" : @page_title %></h3>                    
+
+                <div class="resBtnSearch">
+                    <a href="#"><span class="icon16 brocco-icon-search"></span></a>
+                </div>
+
+                <div class="search">
+
+                    <form id="searchform" action="#" />
+                        <input type="text" class="top-search" placeholder="Search here ..." />
+                        <input type="submit" class="search-btn" value="" />
+                    </form>
+            
+                </div><!-- End search -->
+                
+                <ul class="breadcrumb">
+                    <li>You are here:</li>
+                    <li>
+                        <a href="<%= admin_dashboard_path %>" class="tip" title="back to dashboard">
+                            <span class="icon16 icomoon-icon-screen"></span>
+                        </a> 
+                        <span class="divider">
+                            <span class="icon16 icomoon-icon-arrow-right"></span>
+                        </span>
+                    </li>
+                    <li class="active"><%= @page_title.nil? ? "" : @page_title %></li>
+                </ul>
+
+            </div><!-- End .heading-->
+            <%= yield %>
+          </div><!-- End #contentwrapper-->
         </div><!-- End #content -->
     
     </div><!-- End #wrapper -->

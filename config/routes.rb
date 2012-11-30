@@ -272,6 +272,7 @@ Rails.application.routes.draw do
   end
   match '/manage/properties/:tab' => 'admin/manage#properties', :as => :manage_properties_tab
   match '/admin/index' => 'admin/manage#dashboard', :as => :admin_dashboard
+  match '/admin/config' => 'admin/manage#properties', :as => :admin_config
 
   namespace :moderate do
     resources :questions do

@@ -27,6 +27,7 @@ class Admin::ManageController < ApplicationController
                      [:invitations, "invitations"]]
 
   def dashboard
+    @page_title = "Dashboard"
   end
 
   def edit_card
@@ -41,6 +42,7 @@ class Admin::ManageController < ApplicationController
 
   def properties
     @active_subtab ||= "general"
+    @page_title = "Group Properties"
   end
 
   def appearance
