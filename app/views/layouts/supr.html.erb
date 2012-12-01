@@ -19,6 +19,7 @@
     <%= javascript_include_tag "admin/jquery.flot.tooltip_0.4.4" %>
     <%= javascript_include_tag "admin/jquery.flot.orderBars" %>
     <%= javascript_include_tag "admin/jquery.knob" %>
+    <%= javascript_include_tag "admin/jquery.pnotify.min" %>
     <%#= javascript_include_tag "admin/statistic" %>
     <%#= javascript_include_tag "admin/main" %>
     <%= csrf_meta_tags %>
@@ -228,5 +229,31 @@
         </div><!-- End #content -->
     
     </div><!-- End #wrapper -->
+<script type="text/javascript">
+    $(document).ready(function(){
+      <% unless flash[:notice].blank? %>
+        $.pnotify({
+            type: 'success',
+            title: 'Done!',
+            text: "<%= flash[:notice] %>",
+            icon: 'picon icon16 iconic-icon-check-alt white',
+            opacity: 0.95,
+            history: false,
+            sticker: false
+        });
+      <% end %>
+      <% unless flash[:error].blank? %>
+        $.pnotify({
+            type: 'error',
+            title: 'Sorry,',
+            text: "<%= flash[:error] %>",
+            icon: 'picon icon16 iconic-icon-check-alt white',
+            opacity: 0.95,
+            history: false,
+            sticker: false
+        });
+      <% end %>
+    });
+</script>
   </body>
 </html>
