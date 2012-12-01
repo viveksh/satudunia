@@ -1,4 +1,282 @@
-%h1
-  Dashboard
-%p.description
-  This is admin dashboard
+.row-fluid
+  .span8
+    .centerContent
+      %ul{:class => "bigBtnIcon"}
+        %li
+          = link_to "<span class='icon entypo-icon-users'></span><span class='txt'>Users</span>".html_safe, members_path, :class => "tipB"
+        %li
+          = link_to "<span class='icon icomoon-icon-support'></span><span class='txt'>Support tickets</span>".html_safe, "#"
+        %li
+          = link_to "<span class='icon icomoon-icon-comments-2'></span><span class='txt'>New Comments</span>".html_safe, "#"
+        %li
+          = link_to "<span class='icon icomoon-icon-basket'></span><span class='txt'>Orders</span>".html_safe, "#"
+        %li
+          = link_to "<span class='icon icomoon-icon-history'></span><span class='txt'>Backups</span>".html_safe, "#"
+        %li
+          = link_to "<span class='icon icomoon-icon-meter-fast'></span><span class='txt'>Site Usage</span>".html_safe, "#"
+
+.row-fluid
+  .span8
+    .box.chart.gradient
+      .title
+        %h4
+          %span{:class => "icon16 icomoon-icon-bars"}
+          %span
+            Visitor Charts
+      .content{:style => "padding-bottom:0;"}
+        %div{:id => "chart_div", :style => "height:300px;width:100%;"}
+        %ul{:class => "chartShortcuts"}
+          %li
+            = link_to "<span class='head'>Total Visits</span><span class='number'>509</span>".html_safe
+          %li
+            = link_to "<span class='head'>Unique Visits</span><span class='number'>509</span>".html_safe
+          %li
+            = link_to "<span class='head'>External Visits</span><span class='number'>509</span>".html_safe
+          %li
+            = link_to "<span class='head'>Impression</span><span class='number'>509</span>".html_safe
+
+  .span4
+    .sparkStats
+      %h4
+        300 people visited this site
+      %ul{:class => "unstyled"}
+        %li
+          %span{:class => "sparkLine1"}
+          Visits:
+          %span{:class => "number"}
+            500
+        %li
+          %span{:class => "sparkLine2"}
+          Pageviews:
+          %span{:class => "number"}
+            500
+        %li
+          %span{:class => "sparkLine3"}
+          Duration :
+          %span{:class => "number"}
+            500
+        %li
+          %span{:class => "sparkLine4"}
+          New Visits:
+          %span{:class => "number"}
+            500
+
+.row-fluid
+  .span4 
+    .box.gradient
+      .title
+        %h4
+          %span{:class => "icon16 icomoon-icon-pie"}
+          %span
+            Visitor overview
+      .content
+        %div{:id => "visitor_intensity"}
+
+  .span4
+    .box.gradient
+      .title
+        %h4
+          %span{:class => "icon16 entypo-icon-thumbs-up"}
+          %span
+            Vital Stats
+            %span{:class => "label label-success"}
+              %span{:class => "icomoon-icon-arrow-up white"}
+                1000
+      .content
+        %ul{:class => "unstyled"}
+          %li
+            %span{:class => "icomoon-icon-arrow-up green"}
+            80% Clicks
+            %span{:class => "pull-right strong"}
+              500
+            .progress.progress-striped
+              .bar{:style => "width: 81%"}
+          %li
+            %span{:class => "icomoon-icon-arrow-up green"}
+            72% Unique Clicks
+            %span{:class => "pull-right strong"}
+              599
+            .progress.progress-success.progress-striped
+              .bar{:style => "width: 72%"}
+          %li
+            %span{:class => "icomoon-icon-arrow-up green"}
+            50% Impressions
+            %span{:class => "pull-right strong"}
+              250
+            .progress.progress-warning.progress-striped
+              .bar{:style => "width: 50%"}
+          %li
+            %span{:class => "icomoon-icon-arrow-up green"}
+            3% Online Users
+            %span{:class => "pull-right strong"}
+              50
+            .progress.progress-danger.progress-striped
+              .bar{:style => "width: 20%"}
+
+  .span4
+    .reminder
+      %h4
+        Notifications
+      %ul
+        %li{:class => "clearfix"}
+          .icon
+            %span{:class => "icon32 icomoon-icon-basket gray"}
+          %span{:class => "number"}
+            7
+          %span{:class => "txt"}
+            New Users
+          = link_to "Go", "#", :class => "btn btn-warning"
+        %li{:class => "clearfix"}
+          .icon
+            %span{:class => "icon32 icomoon-icon-support red"}
+          %span{:class => "number"}
+            3
+          %span{:class => "txt"}
+            New Questions
+          = link_to "Go", "#", :class => "btn btn-warning"
+        %li{:class => "clearfix"}
+          .icon
+            %span{:class => "icon32 icomoon-icon-comments-4 blue"}
+          %span{:class => "number"}
+            13
+          %span{:class => "txt"}
+            New Answers
+          = link_to "Go", "#", :class => "btn btn-warning"
+        %li{:class => "clearfix"}
+          .icon
+            %span{:class => "icon32 icomoon-icon-new green"}
+          %span{:class => "number"}
+            1
+          %span{:class => "txt"}
+            Invoices
+          = link_to "Go", "#", :class => "btn btn-warning"
+        %li{:class => "clearfix"}
+          .icon
+            %span{:class => "icon32 icomoon-icon-cog dark"}
+          %span{:class => "number"}
+            4
+          %span{:class => "txt"}
+            Changes
+          = link_to "Go", "#", :class => "btn btn-warning"
+
+.row-fluid
+  .span8
+    .box.calendar.gradient
+      .title
+        %h4
+          %i{:class => "icon16 brocco-icon-calendar"}
+          %span
+            Calendar
+      .content.noPad
+        .calendar
+  .span4
+    .todo
+      %h4
+        To Do List
+        = link_to "<span class='icon16 icomoon-icon-plus-2'></span>".html_safe, "#", :class => "icon tip"
+      %ul
+        %li{:class => "clearfix"}
+          .txt
+            Fix Bugs
+            %span{:class => "by label"}
+              admin
+            %span{:class => "date badge badge-important"}
+              today
+          .controls
+            = link_to "<span class='icon12 icomoon-icon-pencil'></span>".html_safe, "#", :class => "tip" 
+            = link_to "<span class='icon12 icomoon-icon-remove'></span>".html_safe, "#", :class => "tip"
+        %li{:class => "clearfix"}
+          .txt
+            Fix Layout
+            %span{:class => "by label"}
+              admin
+            %span{:class => "date badge badge-success"}
+              tomorrow
+          .controls
+            = link_to "<span class='icon12 icomoon-icon-pencil'></span>".html_safe, "#", :class => "tip" 
+            = link_to "<span class='icon12 icomoon-icon-remove'></span>".html_safe, "#", :class => "tip"
+
+  .span4
+    .box.gradient
+      .title
+        %h4
+          %span{:class => "icon16 silk-icon-chat"}
+          %span
+            Message layout
+      .content.noPad
+        %ul{:class => "message"}
+          %li{:class => "user clearfix"}
+            = link_to image_tag('avatar2', :alt => "avatar2"), "#", :class => "avatar"
+            .message
+              .head.clearfix
+                %span{:class => "name"}
+                  %strong
+                    Me
+                  says:
+                %span{:class => "time"}
+                  10 seconds ago
+              %p
+                What is this?
+          %li{:class => "admin clearfix"}
+            = link_to image_tag('avatar3', :alt => "avatar3"), "#", :class => "avatar"
+            .message
+              .head.clearfix
+                %span{:class => "name"}
+                  %strong
+                    You
+                  says:
+                %span{:class => "time"}
+                  just now
+              %p
+                ttyl
+          %li{:class => "sendMsg"}
+            = form_tag "#", :class => "form-horizontal" do
+              = text_area_tag :message, "", :class => "elastic", :placeholder => "Enter your message", :style => "width:98%"
+              = button_tag "Send Message", :class => "btn btn-info marginT10"
+
+%script{:type => "text/javascript", :src => "https://www.google.com/jsapi"}
+:javascript
+  google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Type', 'Sum'],
+          ['New',     11],
+          ['Existing',      20]
+        ]);
+
+        var options = {
+          title: ''
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('visitor_intensity'));
+        chart.draw(data, options);
+      }
+
+:javascript
+  google.load('visualization', '1', {'packages': ['geochart']});
+     google.setOnLoadCallback(drawRegionsMap);
+
+      function drawRegionsMap() {
+        var data = google.visualization.arrayToDataTable([
+          ['Country', 'Visitor'],
+          ['Singapore', 200],
+          ['Indonesia', 700],
+          ['Thailand', 400],
+          ['Malaysia', 500],
+          ['Myanmar', 600],
+          ['Philippines', 500]
+        ]);
+
+        var options = {
+          region: '035',
+          width: 900,
+          height: 300,
+        };
+
+        var chart = new google.visualization.GeoChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+    };
+
+
+
