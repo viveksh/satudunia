@@ -400,7 +400,7 @@ $(document).ready(function() {
 	});
 
 	//------------- Prettify code  -------------//
-	prettyPrint();
+	//prettyPrint();
 
 	//------------- Tags plugin  -------------//
 	
