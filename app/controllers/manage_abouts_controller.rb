@@ -5,6 +5,7 @@ class ManageAboutsController < ApplicationController
   tabs :default => :manage_about
 
   def index
+    @page_title = "About"
     @about = StaticPage.where(:static_key => 'about').first
 
     if @about.blank?

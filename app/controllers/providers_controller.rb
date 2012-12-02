@@ -5,6 +5,7 @@ class ProvidersController < ApplicationController
   tabs :default => :providers
   
   def index
+    @page_title = "Service Providers"
     if params[:tab].eql?('new')
       @provider = ServiceProvider.new
       if !params[:id].nil?

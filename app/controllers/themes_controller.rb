@@ -6,7 +6,7 @@ class ThemesController < ApplicationController
   # GET /themes
   # GET /themes.json
   def index
-
+    @page_title = "Themes"
     conditions = {:_id => {:$ne => current_group.current_theme_id}}
     @themes = current_group.themes.where(conditions).page(params["page"])
 

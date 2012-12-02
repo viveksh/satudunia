@@ -12,7 +12,7 @@ class WidgetsController < ApplicationController
   # GET /widgets.json
   def index
     @active_subtab ||= "mainlist"
-
+    @page_title = "Widgets"
     @widget = Widget.new
     @widget_list = @group.send(:"#{@active_subtab}_widgets")
   end

@@ -5,6 +5,7 @@ class ManageTermsController < ApplicationController
   tabs :default => :manage_terms
 
   def index
+    @page_title = "ToS"
     @tos = StaticPage.where(:static_key => 'tos').first
 
     if @tos.blank?

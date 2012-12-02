@@ -5,6 +5,7 @@ class ServiceCategoriesController < ApplicationController
   tabs :default => :service_categories
   
   def index
+    @page_title = "Service Provider Categories"
     @service_categories = ServiceCategory.all.page(params[:page])
   end
   

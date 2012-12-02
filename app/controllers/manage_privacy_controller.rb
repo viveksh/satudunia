@@ -5,6 +5,7 @@ class ManagePrivacyController < ApplicationController
   tabs :default => :manage_privacy
 
   def index
+    @page_title = "Privacy Policy"
     @privacy = StaticPage.where(:static_key => 'privacy').first
 
     if @privacy.blank?

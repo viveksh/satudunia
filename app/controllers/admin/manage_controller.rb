@@ -46,6 +46,7 @@ class Admin::ManageController < ApplicationController
   end
 
   def appearance
+    @page_title = "Appearance"
   end
 
   def actions
@@ -59,6 +60,7 @@ class Admin::ManageController < ApplicationController
 
   def content
     @active_subtab ||= "head_tag"
+    @page_title = "Content"
     unless @group.has_custom_html
       flash[:error] = t("global.permission_denied")
       redirect_to domain_url(:custom => @group.domain, :controller => "manage",
@@ -67,15 +69,18 @@ class Admin::ManageController < ApplicationController
   end
 
   def social
+    @page_title = "Social Media"
     @active_subtab ||= "post_to_twitter"
   end
 
   def invitations
     @active_subtab ||= "invite"
+    @page_title = "Invitations"
     @invitation = Invitation.new
   end
 
   def access
+    @page_title = "Access"
   end
 
   def close_group

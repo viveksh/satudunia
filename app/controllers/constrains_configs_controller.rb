@@ -4,6 +4,7 @@ class ConstrainsConfigsController < ApplicationController
   layout "supr"
 
   def index
+    @page_title = "Requirements"
     @active_subtab = "constrains"
     if params[:mode].present?
       mode = ConstrainsConfig.find(params[:mode])

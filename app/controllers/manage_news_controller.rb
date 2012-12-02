@@ -5,6 +5,7 @@ class ManageNewsController < ApplicationController
   tabs :default => :manage_news
 
   def index
+    @page_title = "News"
     if params[:tab].eql? "new"
       @news = News.new
       if !params[:id].nil?

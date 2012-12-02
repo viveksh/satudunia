@@ -5,6 +5,7 @@ class ManageEulasController < ApplicationController
   tabs :default => :manage_eula
 
   def index
+    @page_title = "Eula"
     @eula = StaticPage.where(:static_key => 'eula').first
 
     if @eula.blank?

@@ -5,6 +5,7 @@ class ManageFaqsController < ApplicationController
   tabs :default => :manage_faq
 
   def index
+    @page_title = "FAQ"
     if params[:tab].eql? "new"
       @faq = Faq.new
       if !params[:id].nil?
