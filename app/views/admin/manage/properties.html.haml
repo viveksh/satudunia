@@ -10,141 +10,144 @@
           = f.error_messages
 
           =hidden_field_tag :source, domain_url(:custom => @group.domain, :controller => "admin/manage", :action => "properties", :tab => @active_subtab)
-          .form-row.row-fluid
-            .span12
-              .row-fluid
-                = f.label 'name', :class => "form-label span4"
-                = f.text_field :name, :class => "span8"
+          -if @active_subtab.eql? "general"
+            .form-row.row-fluid
+              .span12
+                .row-fluid
+                  = f.label 'name', :class => "form-label span4"
+                  = f.text_field :name, :class => "span8"
 
-          .form-row.row-fluid
-            .span12
-              .row-fluid
-                = f.label 'URL', :class => "form-label span4"
-                .input-append
-                  .add-on
-                    = request.protocol
-                  = f.text_field :subdomain, :class => "span4"
-                  .add-on
-                    = ".#{request.domain}"
+            .form-row.row-fluid
+              .span12
+                .row-fluid
+                  = f.label 'URL', :class => "form-label span4"
+                  .input-append
+                    .add-on
+                      = request.protocol
+                    = f.text_field :subdomain, :class => "span4"
+                    .add-on
+                      = ".#{request.domain}"
 
-          .form-row.row-fluid
-            .span12
-              .row-fluid
-                = f.label 'domain', :class => "form-label span4"
-                .input-prepend
-                  .add-on
-                    = request.protocol
-                  = f.text_field :domain, :class => "span4"
+            .form-row.row-fluid
+              .span12
+                .row-fluid
+                  = f.label 'domain', :class => "form-label span4"
+                  .input-prepend
+                    .add-on
+                      = request.protocol
+                    = f.text_field :domain, :class => "span4"
 
-          .form-row.row-fluid
-            .span12
-              .row-fluid
-                = f.label 'description', :class => "form-label span4", :for => 'textarea'
-                = f.text_area :description, :class => "span8 uniform", :style => "height: 80px !important"
-                .help-block.blue.span8{:style => "margin-left: 240px !important"}
-                  You have 400 characters to describe the group. 
+            .form-row.row-fluid
+              .span12
+                .row-fluid
+                  = f.label 'description', :class => "form-label span4", :for => 'textarea'
+                  = f.text_area :description, :class => "span8 uniform", :style => "height: 80px !important"
+                  .help-block.blue.span8{:style => "margin-left: 240px !important"}
+                    You have 400 characters to describe the group. 
 
-          .form-row.row-fluid
-            .span12
-              .row-fluid
-                = f.label "Isolate the group from other groups", :class => "form-label span4"
-                .span8.controls
-                  .left.marginT5
-                    = f.check_box :isolate, :class => "styled"
+            .form-row.row-fluid
+              .span12
+                .row-fluid
+                  = f.label "Isolate the group from other groups", :class => "form-label span4"
+                  .span8.controls
+                    .left.marginT5
+                      = f.check_box :isolate, :class => "styled"
 
-          .form-row.row-fluid
-            .span12
-              .row-fluid
-                = f.label "Allow custom analytics", :class => "form-label span4"
-                .span8.controls
-                  .left.marginT5
-                    = f.check_box :has_custom_analytics, :class => "styled"
+            .form-row.row-fluid
+              .span12
+                .row-fluid
+                  = f.label "Allow custom analytics", :class => "form-label span4"
+                  .span8.controls
+                    .left.marginT5
+                      = f.check_box :has_custom_analytics, :class => "styled"
+                  .help-block.blue.span8{:style => "margin-left: 240px !important; margin-top: -10px !important"}
+                    The group will be able to use its own tracking code  
+
+            .form-row.row-fluid
+              .span12
+                .row-fluid
+                  = f.label 'layout', :class => "form-label span4", :for => "checkboxes"
+                  .span8.controls
+                    = f.select :layout, [['Default', 'application'], ['2-Columns', 'classic']]
+
+            .form-row.row-fluid
+              .span12
+                .row-fluid
+                  = f.label 'Analitycs engine', :class => "form-label span4", :for => "checkboxes"
+                  .span8.controls
+                    = select("group", "analytics_vendor", [['Google Analytics', 'googlean']])
+
+            .form-row.row-fluid
+              .span12
+                .row-fluid
+                  = f.label 'Website Analitycs Id', :class => "form-label span4"
+                  = f.text_field :analytics_id, :class => "span8"
+
+            .form-row.row-fluid
+              .span12
+                .row-fluid
+                  = f.label :wysiwyg_editor, t('wysiwyg_editor', :scope => "activerecord.attributes.group"), :class => "form-label span4"
+                  .span8.controls
+                    .left.marginT5
+                      = f.check_box :wysiwyg_editor, :class => "styled"
+
+
+            .form-row.row-fluid
+              .span12
+                .row-fluid
+                  = f.label :enable_latex, t('enable_latex', :scope => "activerecord.attributes.group"), :class => "form-label span4"
+                  .span8.controls
+                    .left.marginT5
+                      = f.check_box :enable_latex, :class => "styled"
+
+            .form-row.row-fluid
+              .span12
+                .row-fluid
+                  = f.label :enable_mathjax, t('enable_mathjax', :scope => "activerecord.attributes.group"), :class => "form-label span4"
+                  .span8.controls
+                    .left.marginT5
+                      = f.check_box :enable_mathjax, :class => "styled"
+
+            .form-row.row-fluid
+              .span12
+                .row-fluid
+                  = f.label :fb_button, t('fb_button', :scope => "activerecord.attributes.group"), :class => "form-label span4"
+                  .span8.controls
+                    .left.marginT5
+                      = f.check_box :fb_button, :class => "styled"
+
+            .form-row.row-fluid
+              .span12
+                .row-fluid
+                  = f.label :track_users, t('track_users', :scope => "activerecord.attributes.group"), :class => "form-label span4"
+                  .span8.controls
+                    .left.marginT5
+                      = f.check_box :track_users, :class => "styled"
+
+            .form-row.row-fluid
+              .span12
+                .row-fluid
+                  = f.label :legend, t('legend', :scope => "activerecord.attributes.group"), :class => "form-label span4"
+                  = f.text_field :legend, :class => "span8"
                 .help-block.blue.span8{:style => "margin-left: 240px !important; margin-top: -10px !important"}
-                  The group will be able to use its own tracking code  
+                  It will be used in the header. You have 40 characters. 
 
-          .form-row.row-fluid
-            .span12
-              .row-fluid
-                = f.label 'layout', :class => "form-label span4", :for => "checkboxes"
-                .span8.controls
-                  = f.select :layout, [['Default', 'application'], ['2-Columns', 'classic']]
+            .form-row.row-fluid
+              .span12
+                .row-fluid
+                  = f.label :default_tags, t('default_tags', :scope => "activerecord.attributes.group"), :class => "form-label span4"
+                  = f.text_field :default_tags, :value => @group.default_tags.join(", "), :class => "span8"
+                .help-block.blue.span8{:style => "margin-left: 240px !important; margin-top: -10px !important"}
+                  Separate tags by commas. Only 10 default tags allowed. 
 
-          .form-row.row-fluid
-            .span12
-              .row-fluid
-                = f.label 'Analitycs engine', :class => "form-label span4", :for => "checkboxes"
-                .span8.controls
-                  = select("group", "analytics_vendor", [['Google Analytics', 'googlean']])
-
-          .form-row.row-fluid
-            .span12
-              .row-fluid
-                = f.label 'Website Analitycs Id', :class => "form-label span4"
-                = f.text_field :analytics_id, :class => "span8"
-
-          .form-row.row-fluid
-            .span12
-              .row-fluid
-                = f.label :wysiwyg_editor, t('wysiwyg_editor', :scope => "activerecord.attributes.group"), :class => "form-label span4"
-                .span8.controls
-                  .left.marginT5
-                    = f.check_box :wysiwyg_editor, :class => "styled"
-
-
-          .form-row.row-fluid
-            .span12
-              .row-fluid
-                = f.label :enable_latex, t('enable_latex', :scope => "activerecord.attributes.group"), :class => "form-label span4"
-                .span8.controls
-                  .left.marginT5
-                    = f.check_box :enable_latex, :class => "styled"
-
-          .form-row.row-fluid
-            .span12
-              .row-fluid
-                = f.label :enable_mathjax, t('enable_mathjax', :scope => "activerecord.attributes.group"), :class => "form-label span4"
-                .span8.controls
-                  .left.marginT5
-                    = f.check_box :enable_mathjax, :class => "styled"
-
-          .form-row.row-fluid
-            .span12
-              .row-fluid
-                = f.label :fb_button, t('fb_button', :scope => "activerecord.attributes.group"), :class => "form-label span4"
-                .span8.controls
-                  .left.marginT5
-                    = f.check_box :fb_button, :class => "styled"
-
-          .form-row.row-fluid
-            .span12
-              .row-fluid
-                = f.label :track_users, t('track_users', :scope => "activerecord.attributes.group"), :class => "form-label span4"
-                .span8.controls
-                  .left.marginT5
-                    = f.check_box :track_users, :class => "styled"
-
-          .form-row.row-fluid
-            .span12
-              .row-fluid
-                = f.label :legend, t('legend', :scope => "activerecord.attributes.group"), :class => "form-label span4"
-                = f.text_field :legend, :class => "span8"
-              .help-block.blue.span8{:style => "margin-left: 240px !important; margin-top: -10px !important"}
-                It will be used in the header. You have 40 characters. 
-
-          .form-row.row-fluid
-            .span12
-              .row-fluid
-                = f.label :default_tags, t('default_tags', :scope => "activerecord.attributes.group"), :class => "form-label span4"
-                = f.text_field :default_tags, :value => @group.default_tags.join(", "), :class => "span8"
-              .help-block.blue.span8{:style => "margin-left: 240px !important; margin-top: -10px !important"}
-                Separate tags by commas. Only 10 default tags allowed. 
-
-          .form-row.row-fluid
-            .span12
-              .row-fluid
-                .form-action
-                .span9.controls
-                  = f.button "Update", :class => "btn marginR10"
+            .form-row.row-fluid
+              .span12
+                .row-fluid
+                  .form-action
+                  .span9.controls
+                    = f.button "Update", :class => "btn marginR10"
+          -else
+            =render :partial => "admin/manage/properties/#{@active_subtab||'general'}", :locals => {:f => f}
             
           = yield :after_form
 
