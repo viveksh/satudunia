@@ -126,66 +126,58 @@
             <div class="sidenav">
 
                 <div class="sidebar-widget" style="margin: -1px 0 0 0;">
-                    <h5 class="title" style="margin-bottom:0">Site Management</h5>
+                    <h5 class="title" style="margin-bottom:0">Navigation</h5>
                 </div><!-- End .sidenav-widget -->
 
                 <div class="mainnav">
                     <ul>
-                        <li><a href="<%= admin_config_path %>"><span class="icon16 minia-icon-cog"></span>Site</a></li>
-                        <li><a href="<%= service_categories_path %>"><span class="icon16 minia-icon-cog"></span>Provider Categories</a></li>
-                        <li><a href="<%= providers_path(:tab => "list") %>"><span class="icon16 minia-icon-cog"></span>Service Provider</a></li>
-                        <li><a href="<%= manage_news_index_path(:tab => "list") %>"><span class="icon16 icomoon-icon-broadcast"></span>News</a></li>
-                        <li><a href="<%= manage_polls_path(:tab => "list") %>"><span class="icon16 icomoon-icon-bars"></span>Polls</a></li>
-                        <li><a href="<%= manage_terms_path %>"><span class="icon16 minia-icon-cog"></span>Terms of Service</a></li>
-                        <li><a href="<%= manage_abouts_path %>"><span class="icon16 minia-icon-cog"></span>About</a></li>
-                        <li><a href="<%= manage_eulas_path %>"><span class="icon16 minia-icon-cog"></span>EULA</a></li>
-                        <li><a href="<%= manage_privacy_index_path %>"><span class="icon16 minia-icon-cog"></span>Privacy Policy</a></li>
-                        <li><a href="<%= manage_faqs_path(:tab => "list") %>"><span class="icon16 minia-icon-cog"></span>FAQ</a></li>
-                    </ul>
-                </div>
-
-                <div class="sidebar-widget" style="margin: -1px 0 0 0;">
-                    <h5 class="title" style="margin-bottom:0">User Management</h5>
-                </div><!-- End .sidenav-widget -->
-                <div class="mainnav">
-                    <ul>
-                        <li><a href="<%= manage_access_path %>"><span class="icon16 minia-icon-cog"></span>Access</a></li>
-                        <li><a href="<%= members_path %>"><span class="icon16 minia-icon-cog"></span>Members</a></li>
-                        <li><a href="<%= manage_invitations_path %>"><span class="icon16 minia-icon-cog"></span>Invitation</a></li>
-                    </ul>
-                </div>
-
-                <div class="sidebar-widget" style="margin: -1px 0 0 0;">
-                    <h5 class="title" style="margin-bottom:0">Features</h5>
-                </div><!-- End .sidenav-widget -->
-                <div class="mainnav">
-                    <ul>
-                        <li><a href="<%= announcements_path %>"><span class="icon16 minia-icon-cog"></span>Announcements</a></li>
-                        <li><a href="<%= manage_social_path %>"><span class="icon16 minia-icon-cog"></span>Social</a></li>
-                        <li><a href="<%= constrains_configs_path %>"><span class="icon16 minia-icon-cog"></span>Requirements</a></li>
-                        <li><a href="<%= manage_properties_tab_path(:tab => "rewards") %>"><span class="icon16 minia-icon-cog"></span>Rewards</a></li>
-                    </ul>
-                </div>
-
-                <div class="sidebar-widget" style="margin: -1px 0 0 0;">
-                    <h5 class="title" style="margin-bottom:0">Look & Feel</h5>
-                </div><!-- End .sidenav-widget -->
-                <div class="mainnav">
-                    <ul>
-                        <li><a href="<%= manage_appearance_path %>"><span class="icon16 minia-icon-cog"></span>Appearance</a></li>
-                        <li><a href="<%= manage_content_path %>"><span class="icon16 minia-icon-cog"></span>Content</a></li>
-                        <li><a href="<%= themes_path %>"><span class="icon16 minia-icon-cog"></span>Themes</a></li>
-                        <li><a href="<%= widgets_path %>"><span class="icon16 minia-icon-cog"></span>Widgets</a></li>
-                    </ul>
-                </div>
-
-                <div class="sidebar-widget" style="margin: -1px 0 0 0;">
-                    <h5 class="title" style="margin-bottom:0">Close Group</h5>
-                </div><!-- End .sidenav-widget -->
-
-                <div class="mainnav">
-                    <ul>
-                        <li><a href="<%= manage_close_group_path %>"><span class="icon16 minia-icon-cog"></span>Close group</a></li>
+                        <li>
+                            <%= link_to "<span class='icon16 minia-icon-cog'></span>Site Management".html_safe, "#", :class => "hasUl" %>
+                            <ul class="sub">
+                                <li><a href="<%= admin_config_path %>"><span class="icon16 minia-icon-cog"></span>Site</a></li>
+                                <li><a href="<%= service_categories_path %>"><span class="icon16 minia-icon-cog"></span>Provider Categories</a></li>
+                                <li><a href="<%= providers_path(:tab => "list") %>"><span class="icon16 minia-icon-cog"></span>Service Provider</a></li>
+                                <li><a href="<%= manage_news_index_path(:tab => "list") %>"><span class="icon16 icomoon-icon-broadcast"></span>News</a></li>
+                                <li><a href="<%= manage_polls_path(:tab => "list") %>"><span class="icon16 icomoon-icon-bars"></span>Polls</a></li>
+                                <li><a href="<%= manage_terms_path %>"><span class="icon16 minia-icon-cog"></span>Terms of Service</a></li>
+                                <li><a href="<%= manage_abouts_path %>"><span class="icon16 minia-icon-cog"></span>About</a></li>
+                                <li><a href="<%= manage_eulas_path %>"><span class="icon16 minia-icon-cog"></span>EULA</a></li>
+                                <li><a href="<%= manage_privacy_index_path %>"><span class="icon16 minia-icon-cog"></span>Privacy Policy</a></li>
+                                <li><a href="<%= manage_faqs_path(:tab => "list") %>"><span class="icon16 minia-icon-cog"></span>FAQ</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <%= link_to "<span class='icon16 minia-icon-cog'></span>User Management".html_safe, "#", :class => "hasUl" %>
+                            <ul class="sub">
+                                <li><a href="<%= manage_access_path %>"><span class="icon16 minia-icon-cog"></span>Access</a></li>
+                                <li><a href="<%= members_path %>"><span class="icon16 minia-icon-cog"></span>Members</a></li>
+                                <li><a href="<%= manage_invitations_path %>"><span class="icon16 minia-icon-cog"></span>Invitation</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <%= link_to "<span class='icon16 minia-icon-cog'></span>Features".html_safe, "#", :class => "hasUl" %>
+                            <ul class="sub">
+                                <li><a href="<%= announcements_path %>"><span class="icon16 minia-icon-cog"></span>Announcements</a></li>
+                                <li><a href="<%= manage_social_path %>"><span class="icon16 minia-icon-cog"></span>Social</a></li>
+                                <li><a href="<%= constrains_configs_path %>"><span class="icon16 minia-icon-cog"></span>Requirements</a></li>
+                                <li><a href="<%= manage_properties_tab_path(:tab => "rewards") %>"><span class="icon16 minia-icon-cog"></span>Rewards</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <%= link_to "<span class='icon16 minia-icon-cog'></span>Look & Feel".html_safe, "#", :class => "hasUl" %>
+                            <ul class="sub">
+                                <li><a href="<%= manage_appearance_path %>"><span class="icon16 minia-icon-cog"></span>Appearance</a></li>
+                                <li><a href="<%= manage_content_path %>"><span class="icon16 minia-icon-cog"></span>Content</a></li>
+                                <li><a href="<%= themes_path %>"><span class="icon16 minia-icon-cog"></span>Themes</a></li>
+                                <li><a href="<%= widgets_path %>"><span class="icon16 minia-icon-cog"></span>Widgets</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <%= link_to "<span class='icon16 minia-icon-cog'></span>Close Group".html_safe, "#", :class => "hasUl" %>
+                            <ul class="sub">
+                                <li><a href="<%= manage_close_group_path %>"><span class="icon16 minia-icon-cog"></span>Close group</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </div><!-- End sidenav -->
@@ -231,6 +223,135 @@
     </div><!-- End #wrapper -->
 <script type="text/javascript">
     $(document).ready(function(){
+
+        //------------- Navigation -------------//
+        mainNav = $('.mainnav>ul>li');
+        mainNav.find('ul').siblings().addClass('hasUl').append('<span class="hasDrop icon16 icomoon-icon-arrow-down"></span>');
+        mainNavLink = mainNav.find('a').not('.sub a');
+        mainNavLinkAll = mainNav.find('a');
+        mainNavSubLink = mainNav.find('.sub a').not('.sub li .sub a');
+        mainNavCurrent = mainNav.find('a.current');
+
+        //remove current class if have
+        mainNavCurrent.removeClass('current');
+        //set the seleceted menu element
+        if ($.cookie("newCurrentMenu")) {
+            mainNavLinkAll.each(function(index) {
+                if($(this).attr('href') == $.cookie("newCurrentMenu")) {
+                    //set new current class
+                    $(this).addClass('current');
+
+                    ulElem = $(this).closest('ul');
+                    if(ulElem.hasClass('sub')) {
+                        //its a part of sub menu need to expand this menu
+                        aElem = ulElem.prev('a.hasUl').addClass('drop');
+                        ulElem.addClass('expand');
+                    } 
+                    //destroy cookie    
+                    $.cookie("newCurrentMenu",null);
+                }
+            });
+        }   
+        
+        //hover magic add blue color to icons when hover - remove or change the class if not you like.
+        mainNavLinkAll.hover(
+          function () {
+            $(this).find('span.icon16').addClass('blue');
+          }, 
+          function () {
+            $(this).find('span.icon16').removeClass('blue');
+          }
+        );
+
+        //click magic
+        mainNavLink.click(function(event) {
+            $this = $(this);
+            
+            if($this.hasClass('hasUl')) {
+                event.preventDefault();
+                if($this.hasClass('drop')) {
+                    $(this).siblings('ul.sub').slideUp(500, 'jswing').siblings().removeClass('drop');
+                } else {
+                    $(this).siblings('ul.sub').slideDown(500, 'jswing').siblings().addClass('drop');
+                }           
+            } else {
+                //has no ul so store a cookie for change class.
+                $.cookie("newCurrentMenu",$this.attr('href') ,{expires: 1});
+            }
+        });
+        mainNavSubLink.click(function(event) {
+            $this = $(this);
+            
+            if($this.hasClass('hasUl')) {
+                event.preventDefault();
+                if($this.hasClass('drop')) {
+                    $(this).siblings('ul.sub').slideUp(500).siblings().removeClass('drop');
+                } else {
+                    $(this).siblings('ul.sub').slideDown(250).siblings().addClass('drop');
+                }           
+            } else {
+                //has no ul so store a cookie for change class.
+                $.cookie("newCurrentMenu",$this.attr('href') ,{expires: 1});
+            }
+        });
+
+        //responsive buttons
+        $('.resBtn>a').click(function(event) {
+            $this = $(this);
+            if($this.hasClass('drop')) {
+                $('#sidebar>.shortcuts').slideUp(500).addClass('hided');
+                $('#sidebar>.sidenav').slideUp(500).addClass('hided');
+                $this.removeClass('drop');
+            } else {
+                $('#sidebar>.shortcuts').slideDown(250);
+                $('#sidebar>.sidenav').slideDown(250);
+                $this.addClass('drop');
+            }
+        });
+        $('.resBtnSearch>a').click(function(event) {
+            $this = $(this);
+            if($this.hasClass('drop')) {
+                $('.search').slideUp(500);
+                $this.removeClass('drop');
+            } else {
+                $('.search').slideDown(250);
+                $this.addClass('drop');
+            }
+        });
+
+        //Hide and show sidebar btn
+        $( '.collapseBtn' ).bind( 'click', function(){
+            $this = $(this);
+            //check if sidebar is show
+            if($(this).hasClass('hide')) {
+                /*console.log('Sidebar is show');*/
+                $('#sidebarbg').css('margin-left','0');
+                $('#content').css('margin-left', '213'+'px');
+                $('#sidebar').css('left', '0').css('margin-left','0');
+                $this.removeClass('hide');
+                $('.collapseBtn').css('top', '118'+'px').css('left', '170'+'px').removeClass('shadow');
+                $this.children('a').attr('title','Hide Sidebar');
+
+            } else {
+                /*console.log('Sidebar is hided');*/
+                //hide sidbar
+                $('#sidebarbg').css('margin-left','-299'+'px');
+                $('#sidebar').css('margin-left','-299'+'px');
+                $('.collapseBtn').animate({ //use .hide() if you experience heavy animation :)
+                    left: '200',
+                    top: '20'
+                  }, 500, 'easeInExpo', function() {
+                    // Animation complete.
+                  
+                }).addClass('shadow');
+                //expand content
+                $this.addClass('hide');
+                $this.children('a').attr('title','Show Sidebar')
+                $('#content').css('margin-left', '0');
+                
+            }
+        });
+
       <% unless flash[:notice].blank? %>
         $.pnotify({
             type: 'success',
