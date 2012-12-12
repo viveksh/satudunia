@@ -42,7 +42,7 @@ class Admin::ManageController < ApplicationController
 
   def properties
     @active_subtab ||= "general"
-    @page_title = "Group Properties"
+    @page_title = "Site Config"
   end
 
   def appearance
