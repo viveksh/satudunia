@@ -142,10 +142,7 @@
 
             .form-row.row-fluid
               .span12
-                .row-fluid
-                  .form-action
-                  .span9.controls
-                    = f.button "Update", :class => "btn marginR10"
+                = f.button "Update", :class => "btn", :style => "padding: 4px 10px !important; border-width: 1px !important; border-style: solid !important"
           -else
             =render :partial => "admin/manage/properties/#{@active_subtab||'general'}", :locals => {:f => f}
             
