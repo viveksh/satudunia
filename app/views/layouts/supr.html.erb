@@ -20,6 +20,7 @@
     <%= javascript_include_tag "admin/jquery.flot.orderBars" %>
     <%= javascript_include_tag "admin/jquery.knob" %>
     <%= javascript_include_tag "admin/jquery.pnotify.min" %>
+    <%= javascript_include_tag "admin/jquery.uniform.min" %>
     <%#= javascript_include_tag "admin/statistic" %>
     <%#= javascript_include_tag "admin/main" %>
     <%= csrf_meta_tags %>
@@ -223,6 +224,7 @@
     </div><!-- End #wrapper -->
 <script type="text/javascript">
     $(document).ready(function(){
+        $('.search-btn').addClass('nostyle');//tell uniform to not style this element
 
         //------------- Navigation -------------//
         mainNav = $('.mainnav>ul>li');
@@ -351,6 +353,10 @@
                 
             }
         });
+
+        //------------- Uniform  -------------//
+        //add class .nostyle if not want uniform to style field
+        $("input, textarea, select").not('.nostyle').uniform();
 
       <% unless flash[:notice].blank? %>
         $.pnotify({

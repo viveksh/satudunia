@@ -48,18 +48,20 @@
             .form-row.row-fluid
               .span12
                 .row-fluid
-                  = f.label "Isolate the group from other groups", :class => "form-label span4"
+                  = f.label " ", :class => "form-label span4", :for => "checkboxes"
                   .span8.controls
                     .left.marginT5
                       = f.check_box :isolate, :class => "styled"
+                      Isolate the group from other groups
 
             .form-row.row-fluid
               .span12
                 .row-fluid
-                  = f.label "Allow custom analytics", :class => "form-label span4"
+                  = f.label " ", :class => "form-label span4"
                   .span8.controls
                     .left.marginT5
                       = f.check_box :has_custom_analytics, :class => "styled"
+                      Allow custom analytics
                   .help-block.blue.span8{:style => "margin-left: 240px !important; margin-top: -10px !important"}
                     The group will be able to use its own tracking code  
 
@@ -86,43 +88,48 @@
             .form-row.row-fluid
               .span12
                 .row-fluid
-                  = f.label :wysiwyg_editor, t('wysiwyg_editor', :scope => "activerecord.attributes.group"), :class => "form-label span4"
+                  = f.label :wysiwyg_editor, " ", :class => "form-label span4"
                   .span8.controls
                     .left.marginT5
                       = f.check_box :wysiwyg_editor, :class => "styled"
+                      = t('wysiwyg_editor', :scope => "activerecord.attributes.group")
 
 
             .form-row.row-fluid
               .span12
                 .row-fluid
-                  = f.label :enable_latex, t('enable_latex', :scope => "activerecord.attributes.group"), :class => "form-label span4"
+                  = f.label :enable_latex, " ", :class => "form-label span4"
                   .span8.controls
                     .left.marginT5
                       = f.check_box :enable_latex, :class => "styled"
+                      = t('enable_latex', :scope => "activerecord.attributes.group")
 
             .form-row.row-fluid
               .span12
                 .row-fluid
-                  = f.label :enable_mathjax, t('enable_mathjax', :scope => "activerecord.attributes.group"), :class => "form-label span4"
+                  = f.label :enable_mathjax, " ", :class => "form-label span4"
                   .span8.controls
                     .left.marginT5
                       = f.check_box :enable_mathjax, :class => "styled"
+                      = t('enable_mathjax', :scope => "activerecord.attributes.group")
 
             .form-row.row-fluid
               .span12
                 .row-fluid
-                  = f.label :fb_button, t('fb_button', :scope => "activerecord.attributes.group"), :class => "form-label span4"
+                  = f.label :fb_button, " ", :class => "form-label span4"
                   .span8.controls
                     .left.marginT5
                       = f.check_box :fb_button, :class => "styled"
+                      = t('fb_button', :scope => "activerecord.attributes.group")
 
             .form-row.row-fluid
               .span12
                 .row-fluid
-                  = f.label :track_users, t('track_users', :scope => "activerecord.attributes.group"), :class => "form-label span4"
+                  = f.label :track_users, " ", :class => "form-label span4"
                   .span8.controls
                     .left.marginT5
                       = f.check_box :track_users, :class => "styled"
+                      = t('track_users', :scope => "activerecord.attributes.group")
 
             .form-row.row-fluid
               .span12
