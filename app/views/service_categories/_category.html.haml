@@ -1,22 +1,26 @@
-%ul
-  %li{:style => "padding-bottom:0px !important"}
-    .user-info
-      %h2
-      = category.category_name
-      %p.description
-        Number of Service Providers
-        %small
-          = category.service_providers.count
-
-
-    = form_tag(service_category_path(category.id), :class => "form", :method => :put, :style => "margin-top:20px !important") do |f|
-      .field
-        = text_field_tag "category_name", category.category_name, :style => "width: 100px !important"
-      .buttons
-        = submit_tag t("scaffold.update"), :class => "save"
-        - unless category.service_providers.count != 0 
-          = link_to t("scaffold.destroy"), service_category_path(category.id), :method => :delete, :confirm => "Are you sure? This category will no longer exist"
-    
+%tr
+  %td
+    = category.category_name
+  %td
+    = category.service_providers.count
+  %td
+    .controls.center
+      = link_to "<span class='icon12 icomoon-icon-pencil'></span>".html_safe, "#", :class => "tip", :title => "Edit Category", :id => "openDialog#{category.id}"
+      - unless category.service_providers.count != 0 
+        = link_to "<span class='icon12 icomoon-icon-remove'></span>".html_safe, service_category_path(category.id), :method => :delete, :confirm => "Are you sure? This category will no longer exist"
+    .dialog{:id => "dialog#{category.id}", :title => "Edit Category"}
+      = form_tag(service_category_path(category.id), :class => "form", :method => :put, :style => "margin-top:20px !important") do |f|
+        .form-row.row-fluid
+          .span12
+            .row-fluid
+              = label_tag :q, "Category Name *", :class => "form-label span4"
+              = text_field_tag "category_name", category.category_name,:class => "span8"
+        .form-row.row-fluid
+          .span12
+            .row-fluid
+              .span4
+                &nbsp;
+              = submit_tag t("scaffold.update"), :class => "btn nostyle span2", :style => "padding: 4px 10px !important; border-width: 1px !important; border-style: solid !important"
 
 
 

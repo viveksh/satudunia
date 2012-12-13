@@ -30,11 +30,11 @@ class ServiceProvidersController < ApplicationController
       
       flash[:notice] = "Service Provider created"
       
-      redirect_to providers_path(:tab=>"list")
+      redirect_to service_providers_index_path
     else
       flash[:error] = @provider.errors.first[1] rescue "Please fill all the required inputs"
       
-      redirect_to providers_path(:tab=>"new")
+      redirect_to service_providers_index_path
     end
   end
   
@@ -43,7 +43,7 @@ class ServiceProvidersController < ApplicationController
     if @provider.nil?
       flash[:error] = "Service Provider not found"
       
-      redirect_to providers_path(:tab=>"new")
+      redirect_to service_providers_index_path
     else
       if @provider.update_attributes(params[:service_provider])
         @provider.service_category_id = params[:service_provider][:service_category_id]
@@ -51,11 +51,11 @@ class ServiceProvidersController < ApplicationController
         
         flash[:notice] = "#{@provider.name} updated"
         
-        redirect_to providers_path(:tab=>"list")
+        redirect_to service_providers_index_path
       else
         flash[:error] = @provider.errors.first[1] rescue "Please fill all the required inputs"
         
-        redirect_to providers_path(:tab=>"new", :id=>@provider.id)
+        redirect_to service_providers_index_path
       end
     end
   end

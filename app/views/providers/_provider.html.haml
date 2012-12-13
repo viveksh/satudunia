@@ -1,27 +1,73 @@
-%ul
-  %li{:style => "padding-bottom:0px !important"}
-    .user-info
-      %h2
-        = provider.name
-        %small
-          = link_to "Edit", providers_path(:tab=>"new", :id => provider.id)
-          |
-          = link_to "Delete", provider_path(:id => provider.id), :method => :delete, :confirm => "Are you sure? This Service Provider will no longer exist"
-      %p.description
-        %small
-          = provider.service_category.try(:category_name)
-      %p.description
-        = provider.description
-      %p.description
-        = provider.address
-      %p.description
-        = provider.telephone
-      %p.description
-        = provider.country
-      %p.description
-        = provider.url
-      %p.description
-        = provider.email
+%tr
+  %td
+    = provider.name
+  %td
+    = provider.description
+  %td
+    = provider.address
+  %td 
+    = provider.country
+  %td
+    = provider.telephone
+  %td
+    = provider.url
+  %td
+    = provider.email
+  %td
+    = provider.service_category.try(:category_name)
+  %td
+    .controls.center
+      = link_to "<span class='icon12 icomoon-icon-pencil'></span>".html_safe, "#", :class => "tip", :title => "Edit Service Provider", :id => "openDialog#{provider.id}"
+      = link_to "<span class='icon12 icomoon-icon-remove'></span>".html_safe, provider_path(:id => provider.id), :method => :delete, :confirm => "Are you sure? This Service Provider will no longer exist", :class => "tip", :title => "Delete Service Provider"
+    .dialog{:id => "dialog#{provider.id}", :title => "Edit Service Provider"}
+      = form_for provider, :html => {:class => "form", :method => :put} do |form|
+        .form-row.row-fluid
+          .span12
+            .row-fluid
+              = form.label "Name", :class => "form-label span4"
+              = form.text_field :name, :class => "span8"
+        .form-row.row-fluid
+          .span12
+            .row-fluid
+              = form.label "Description", :class => "form-label span4"
+              = form.text_area :description, :class => "span8"
+        .form-row.row-fluid
+          .span12
+            .row-fluid
+              = form.label "Address", :class => "form-label span4"
+              = form.text_field :address, :class => "span8"
+        .form-row.row-fluid
+          .span12
+            .row-fluid
+              = form.label "Country", :class => "form-label span4"
+              = form.text_field :country, :class => "span8"
+        .form-row.row-fluid
+          .span12
+            .row-fluid
+              = form.label "Telephone", :class => "form-label span4"
+              = form.text_field :telephone, :class => "span8"
+        .form-row.row-fluid
+          .span12
+            .row-fluid
+              = form.label "Website", :class => "form-label span4"
+              = form.text_field :url, :class => "span8"
+        .form-row.row-fluid
+          .span12
+            .row-fluid
+              = form.label "Email", :class => "form-label span4"
+              = form.text_field :email, :class => "span8"
+        .form-row.row-fluid
+          .span12
+            .row-fluid
+              = form.label "Category", :class => "form-label span4"
+              = form.select :service_category_id, options_from_collection_for_select(@service_categories, :id, :category_name, provider.service_category_id)
+        .form-row.row-fluid
+          .span12
+            .row-fluid
+              .span4
+                &nbsp;
+              = form.submit "Save", :class => "btn nostyle span2", :style => "padding: 4px 10px !important; border-width: 1px !important; border-style: solid !important"
+
       
 
 

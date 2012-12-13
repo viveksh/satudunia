@@ -6,6 +6,7 @@
     <%#= javascript_include_tag "admin/admin" %>
     <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" %>
     <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.21/jquery-ui.min.js" %>
+    <%= javascript_include_tag "admin/admin" %>
     <%= javascript_include_tag "admin/bootstrap" %>
     <%= javascript_include_tag "admin/jquery.cookie" %>
     <%= javascript_include_tag "admin/jquery.mousewheel" %>
@@ -21,6 +22,7 @@
     <%= javascript_include_tag "admin/jquery.knob" %>
     <%= javascript_include_tag "admin/jquery.pnotify.min" %>
     <%= javascript_include_tag "admin/jquery.uniform.min" %>
+    <%= javascript_include_tag "admin/jquery.dataTables.min" %>
     <%#= javascript_include_tag "admin/statistic" %>
     <%#= javascript_include_tag "admin/main" %>
     <%= csrf_meta_tags %>
@@ -136,8 +138,7 @@
                             <%= link_to "<span class='icon16 minia-icon-cog'></span>Site Management".html_safe, "#", :class => "hasUl" %>
                             <ul class="sub">
                                 <li><a href="<%= admin_config_path %>"><span class="icon16 minia-icon-cog"></span>Site Config</a></li>
-                                <li><a href="<%= service_categories_path %>"><span class="icon16 minia-icon-cog"></span>Provider Categories</a></li>
-                                <li><a href="<%= providers_path(:tab => "list") %>"><span class="icon16 minia-icon-cog"></span>Service Provider</a></li>
+                                <li><a href="<%= service_providers_index_path %>"><span class="icon16 minia-icon-cog"></span>Service Providers</a></li>
                                 <li><a href="<%= manage_news_index_path(:tab => "list") %>"><span class="icon16 icomoon-icon-broadcast"></span>News</a></li>
                                 <li><a href="<%= manage_polls_path(:tab => "list") %>"><span class="icon16 icomoon-icon-bars"></span>Polls</a></li>
                                 <li><a href="<%= manage_terms_path %>"><span class="icon16 minia-icon-cog"></span>Terms of Service</a></li>
@@ -357,6 +358,47 @@
         //------------- Uniform  -------------//
         //add class .nostyle if not want uniform to style field
         $("input, textarea, select").not('.nostyle').uniform();
+
+        //--------------- Tabs ------------------//
+        $('#myTab a').click(function (e) {
+            e.preventDefault();
+            $(this).tab('show');
+        })
+        //activate loaders tabs
+        $('#myTabLoaders a').click(function (e) {
+            e.preventDefault();
+            $(this).tab('show');
+        })
+
+        //make 2 tab active ( remove if not want )
+        $('.tabs-right li:eq(1) a').tab('show'); // Select third tab (0-indexed)
+        $('.tabs-left li:eq(1) a').tab('show'); // Select third tab (0-indexed)
+
+        $('#loadersTab a').click(function (e) {
+          e.preventDefault();
+          $(this).tab('show');
+        })
+
+        //--------------- Data tables ------------------//
+        if($('table').hasClass('dynamicTable')){
+            $('.dynamicTable').dataTable({
+                "sPaginationType": "full_numbers",
+                "bJQueryUI": false,
+                "bAutoWidth": false,
+                "bLengthChange": false
+            });
+        }
+        if($('table').hasClass('contactTable')){
+            $('.contactTable').dataTable({
+                "bJQueryUI": false,
+                "bAutoWidth": false,
+                "iDisplayLength": 5,
+                "bLengthChange": false,
+                "aoColumnDefs": [{ 
+                    "bSortable": false, "aTargets": [ 0, 1, 2, 3 ] 
+                }],
+            });
+        }
 
       <% unless flash[:notice].blank? %>
         $.pnotify({

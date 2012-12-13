@@ -23,14 +23,14 @@ class ProvidersController < ApplicationController
     if @provider.nil?
       flash[:error] = "Service Provider not found"
       
-      redirect_to providers_path(:tab=>"list")
+      redirect_to service_providers_index_path
     else
       provider_name = @provider.name
       
       @provider.destroy
       flash[:notice] = "#{provider_name} deleted"
       
-      redirect_to providers_path(:tab=>"list")
+      redirect_to service_providers_index_path
     end
   end
   
