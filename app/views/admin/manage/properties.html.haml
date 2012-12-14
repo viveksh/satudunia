@@ -6,7 +6,7 @@
           %span{:class => "icon16 brocco-icon-home"}
           Site Config
         = link_to "Minimize", "#", :class => "minimize"
-      .content
+      .content{:style => "margin-bottom: -30px !important"}
         = form_for(@group, :html => {:class => "form-horizontal", :multipart => true}) do |f|
 
           = f.error_messages
@@ -162,5 +162,15 @@
             =render :partial => "admin/manage/properties/#{@active_subtab||'general'}", :locals => {:f => f}
             
           = yield :after_form
+
+.row-fluid
+  .span12
+    .box
+      .title
+        %p{:style => "margin: 20px 20px 20px"}
+          Thank you for your order, you will receive 
+          %span{:style => "color: green"}
+            5% 
+          discount in next order.
 
 
