@@ -16,41 +16,41 @@
             .form-row.row-fluid
               .span12
                 .row-fluid
-                  = f.label 'name', :class => "form-label span4"
-                  = f.text_field :name, :class => "span8"
+                  = f.label 'name', :class => "form-label span3"
+                  = f.text_field :name, :class => "span9"
 
             .form-row.row-fluid
               .span12
                 .row-fluid
-                  = f.label 'URL', :class => "form-label span4"
+                  = f.label 'URL', :class => "form-label span3"
                   .input-append
                     .add-on
                       = request.protocol
-                    = f.text_field :subdomain, :class => "span4"
+                    = f.text_field :subdomain, :class => "span3"
                     .add-on
                       = ".#{request.domain}"
 
             .form-row.row-fluid
               .span12
                 .row-fluid
-                  = f.label 'domain', :class => "form-label span4"
+                  = f.label 'domain', :class => "form-label span3"
                   .input-prepend
                     .add-on
                       = request.protocol
-                    = f.text_field :domain, :class => "span4"
+                    = f.text_field :domain, :class => "span3"
 
             .form-row.row-fluid
               .span12
                 .row-fluid
-                  = f.label 'description', :class => "form-label span4", :for => 'textarea'
-                  = f.text_area :description, :class => "span8 uniform"
+                  = f.label 'description', :class => "form-label span3", :for => 'textarea'
+                  = f.text_area :description, :class => "span9 uniform"
                   .help-block.blue.span8
                     You have 400 characters to describe the group. 
 
             .form-row.row-fluid
               .span12
                 .row-fluid
-                  = f.label " ", :class => "form-label span4", :for => "checkboxes"
+                  = f.label " ", :class => "form-label span3", :for => "checkboxes"
                   .span8.controls
                     .left.marginT5
                       = f.check_box :isolate, :class => "styled"
@@ -59,7 +59,7 @@
             .form-row.row-fluid
               .span12
                 .row-fluid
-                  = f.label " ", :class => "form-label span4"
+                  = f.label " ", :class => "form-label span3"
                   .span8.controls
                     .left.marginT5
                       = f.check_box :has_custom_analytics, :class => "styled"
@@ -70,27 +70,27 @@
             .form-row.row-fluid
               .span12
                 .row-fluid
-                  = f.label 'layout', :class => "form-label span4", :for => "checkboxes"
+                  = f.label 'layout', :class => "form-label span3", :for => "checkboxes"
                   .span8.controls
                     = f.select :layout, [['Default', 'application'], ['2-Columns', 'classic']]
 
             .form-row.row-fluid
               .span12
                 .row-fluid
-                  = f.label 'Analitycs engine', :class => "form-label span4", :for => "checkboxes"
+                  = f.label 'Analitycs engine', :class => "form-label span3", :for => "checkboxes"
                   .span8.controls
                     = select("group", "analytics_vendor", [['Google Analytics', 'googlean']])
 
             .form-row.row-fluid
               .span12
                 .row-fluid
-                  = f.label 'Website Analitycs Id', :class => "form-label span4"
-                  = f.text_field :analytics_id, :class => "span8"
+                  = f.label 'Website Analitycs Id', :class => "form-label span3"
+                  = f.text_field :analytics_id, :class => "span9"
 
             .form-row.row-fluid
               .span12
                 .row-fluid
-                  = f.label :wysiwyg_editor, " ", :class => "form-label span4"
+                  = f.label :wysiwyg_editor, " ", :class => "form-label span3"
                   .span8.controls
                     .left.marginT5
                       = f.check_box :wysiwyg_editor, :class => "styled"
@@ -100,7 +100,7 @@
             .form-row.row-fluid
               .span12
                 .row-fluid
-                  = f.label :enable_latex, " ", :class => "form-label span4"
+                  = f.label :enable_latex, " ", :class => "form-label span3"
                   .span8.controls
                     .left.marginT5
                       = f.check_box :enable_latex, :class => "styled"
@@ -109,7 +109,7 @@
             .form-row.row-fluid
               .span12
                 .row-fluid
-                  = f.label :enable_mathjax, " ", :class => "form-label span4"
+                  = f.label :enable_mathjax, " ", :class => "form-label span3"
                   .span8.controls
                     .left.marginT5
                       = f.check_box :enable_mathjax, :class => "styled"
@@ -118,7 +118,7 @@
             .form-row.row-fluid
               .span12
                 .row-fluid
-                  = f.label :fb_button, " ", :class => "form-label span4"
+                  = f.label :fb_button, " ", :class => "form-label span3"
                   .span8.controls
                     .left.marginT5
                       = f.check_box :fb_button, :class => "styled"
@@ -127,7 +127,7 @@
             .form-row.row-fluid
               .span12
                 .row-fluid
-                  = f.label :track_users, " ", :class => "form-label span4"
+                  = f.label :track_users, " ", :class => "form-label span3"
                   .span8.controls
                     .left.marginT5
                       = f.check_box :track_users, :class => "styled"
@@ -136,22 +136,28 @@
             .form-row.row-fluid
               .span12
                 .row-fluid
-                  = f.label :legend, t('legend', :scope => "activerecord.attributes.group"), :class => "form-label span4"
-                  = f.text_field :legend, :class => "span8"
+                  = f.label :legend, t('legend', :scope => "activerecord.attributes.group"), :class => "form-label span3"
+                  = f.text_field :legend, :class => "span9"
                   .help-block.blue.span8
                     It will be used in the header. You have 40 characters. 
 
             .form-row.row-fluid
               .span12
                 .row-fluid
-                  = f.label :default_tags, t('default_tags', :scope => "activerecord.attributes.group"), :class => "form-label span4"
-                  = f.text_field :default_tags, :value => @group.default_tags.join(", "), :class => "span8"
+                  = f.label :default_tags, t('default_tags', :scope => "activerecord.attributes.group"), :class => "form-label span3"
+                  = f.text_field :default_tags, :value => @group.default_tags.join(", "), :class => "span9"
                   .help-block.blue.span8
                     Separate tags by commas. Only 10 default tags allowed. 
 
             .form-row.row-fluid
               .span12
-                = f.button "Update", :class => "btn", :style => "padding: 4px 10px !important; border-width: 1px !important; border-style: solid !important"
+                .row-fluid
+                  .form-actions
+                    .span3
+                      &nbsp;
+                    .span9.controls
+                      = f.button "Save Changes", :class => "btn marginR10", :style => "padding: 4px 10px !important; border-width: 1px !important; border-style: solid !important"
+                      = link_to "Cancel", admin_config_path, :class => "btn btn-danger", :style => "padding: 5px 10px !important; border-width: 1px !important; border-style: solid !important"
           -else
             =render :partial => "admin/manage/properties/#{@active_subtab||'general'}", :locals => {:f => f}
             
