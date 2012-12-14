@@ -5,6 +5,7 @@
         %h4
           %span{:class => "icon16 brocco-icon-home"}
           Site Config
+        = link_to "Minimize", "#", :class => "minimize"
       .content
         = form_for(@group, :html => {:class => "form-horizontal", :multipart => true}) do |f|
 
