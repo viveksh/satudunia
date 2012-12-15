@@ -1,61 +1,140 @@
-%h1
-  Manage Service Providers
-%p.description
-  CRUD Service Providers
+.row-fluid
+  .span12
+    %ul{:class => "nav nav-pills"}
+      %li
+        = link_to "Categories", service_providers_index_path
+      %li{:class => "active"}
+        = link_to "Service Providers", manage_service_providers_path
 
-%ul.admin-nav
-  %li.head_tag
-    = link_to "Create New", providers_path(:tab=>"new")
-  %li.question_help
-    = link_to "List", providers_path(:tab=>"list")
+.row-fluid
+  .span12
+    .box
+      .title
+        %h4
+          %span{:class => "icon16 brocco-icon-database"}
+          %span
+            Service Providers
+        %form{:class => "box-form right", :action => "", :style => "margin-top:-27px !important"}
+          <a class="btn dropdown-toggle" data-toggle="dropdown" href="#" style="padding: 4px 10px !important; border-width: 1px !important; border-style: solid !important">
+          <span class="icon16 iconic-icon-cog"></span>
+          <span class="caret"></span>
+          </a>
+          %ul{:class => "dropdown-menu"}
+            %li
+              = link_to "<span class='icon16 brocco-icon-plus'></span>New Provider".html_safe, "#", :id => "openDialog"
+        = link_to "Minimize", "#", :class => "minimize"
 
+        .dialog{:id => "dialog", :title => "New Service Provider"}
+          = form_for @provider, :html => {:class => "form", :method => :post} do |form|
+            .form-row.row-fluid
+              .span12
+                .row-fluid
+                  = form.label "Name", :class => "form-label span4"
+                  = form.text_field :name, :class => "span8"
+            .form-row.row-fluid
+              .span12
+                .row-fluid
+                  = form.label "Description", :class => "form-label span4"
+                  = form.text_area :description, :class => "span8"
+            .form-row.row-fluid
+              .span12
+                .row-fluid
+                  = form.label "Address", :class => "form-label span4"
+                  = form.text_field :address, :class => "span8"
+            .form-row.row-fluid
+              .span12
+                .row-fluid
+                  = form.label "Country", :class => "form-label span4"
+                  = form.text_field :country, :class => "span8"
+            .form-row.row-fluid
+              .span12
+                .row-fluid
+                  = form.label "Telephone", :class => "form-label span4"
+                  = form.text_field :telephone, :class => "span8"
+            .form-row.row-fluid
+              .span12
+                .row-fluid
+                  = form.label "Website", :class => "form-label span4"
+                  = form.text_field :url, :class => "span8"
+            .form-row.row-fluid
+              .span12
+                .row-fluid
+                  = form.label "Email", :class => "form-label span4"
+                  = form.text_field :email, :class => "span8"
+            .form-row.row-fluid
+              .span12
+                .row-fluid
+                  = form.label "Category", :class => "form-label span4"
+                  = form.select :service_category_id, options_from_collection_for_select(@service_categories, :id, :category_name, @provider.service_category_id), :class => "span8"
+            .form-row.row-fluid
+              .span12
+                .row-fluid
+                  .span4
+                    &nbsp;
+                  = form.submit "Save", :class => "btn nostyle span2", :style => "padding: 4px 10px !important; border-width: 1px !important; border-style: solid !important"
 
-- if params[:tab].eql?('new')
-  - method = :post
-  - if !params[:id].nil? && !@provider.id.nil?
-    - method = :put 
-  = form_for @provider, :html => {:class => "form", :method => method} do |form|
-    = form.error_messages
-    
-    .field
-      = form.label "Service Provider Name"
-      = form.text_field :name, :class => "text_area"
+      .content.noPad.clearfix
+        %table{:cellpadding=>0,:cellspacing=>0,:border=>0,:class=>"responsive dynamicTable display table table-bordered",:width=>"100%"}
+          %thead
+            %tr
+              %th
+                Name
+              %th{:width => "30%"}
+                Description
+              %th{:width => "20%"}
+                Address
+              %th
+                Country
+              %th
+                Telephone
+              %th
+                Website
+              %th
+                Email
+              %th 
+                Category
+              %th{:width => "5%"}
+                Action
+          %tbody
+            -@providers.each_with_index do |provider|
+              = render :partial => "providers/provider", :object => provider
 
-    .field
-      = form.label "Description"
-      = form.text_area :description, :class => "text_area"
+%script
+  $(document).ready(function(){
+  //--------------- Dialogs ------------------//
+  $('#openDialog').click(function(){
+  $('#dialog').dialog('open');
+  return false;
+  });
 
-    .field
-      = form.label "Address"
-      = form.text_area :address, :class => "text_area"
+  // JQuery Dialog            
+  $('#dialog').dialog({
+  autoOpen: false,
+  modal: true,
+  dialogClass: 'dialog',
+  buttons: {
+  "Close": function() { 
+  $(this).dialog("close"); 
+  }
+  }
+  });
 
-    .field
-      = form.label "Country"
-      = form.text_field :country, :class => "text_area"
+  - @providers.each do |provider|
+    $('#openDialog#{provider.id}').click(function(){
+    $('#dialog#{provider.id}').dialog('open');
+    return false;
+    });
 
-    .field
-      = form.label "Telephone"
-      = form.text_field :telephone, :class => "text_area"
+    $('#dialog#{provider.id}').dialog({
+    autoOpen: false,
+    modal: true,
+    dialogClass: 'dialog',
+    buttons: {
+    "Close": function() { 
+    $(this).dialog("close"); 
+    }
+    }
+    });
 
-    .field
-      = form.label "Website"
-      = form.text_field :url, :class => "text_area"
-
-    .field
-      = form.label "Email"
-      = form.text_field :email, :class => "text_area"
-      
-    .field
-      = form.label "Category"
-      = form.select :service_category_id, options_from_collection_for_select(@categories, :id, :category_name, @provider.service_category_id)
-
-    .buttons
-      = form.submit "Save", :class => "save"
-    
-- else
-  .members
-    #members
-      - @providers.each do |provider|
-        = render :partial => "provider", :object => provider
-        
-      = paginate @providers
+  $("div.dialog button").addClass("btn");
+  });

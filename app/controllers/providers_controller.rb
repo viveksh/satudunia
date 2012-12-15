@@ -6,15 +6,9 @@ class ProvidersController < ApplicationController
   
   def index
     @page_title = "Service Providers"
-    if params[:tab].eql?('new')
-      @provider = ServiceProvider.new
-      if !params[:id].nil?
-        @provider = ServiceProvider.find(params[:id])
-      end
-      @categories = ServiceCategory.all
-    else
-      @providers = ServiceProvider.all.page(params[:page])
-    end
+    @service_categories = ServiceCategory.all
+    @providers = ServiceProvider.all
+    @provider = ServiceProvider.new
   end
   
   def destroy
@@ -23,14 +17,14 @@ class ProvidersController < ApplicationController
     if @provider.nil?
       flash[:error] = "Service Provider not found"
       
-      redirect_to service_providers_index_path
+      redirect_to manage_service_providers_path
     else
       provider_name = @provider.name
       
       @provider.destroy
       flash[:notice] = "#{provider_name} deleted"
       
-      redirect_to service_providers_index_path
+      redirect_to manage_service_providers_path
     end
   end
   

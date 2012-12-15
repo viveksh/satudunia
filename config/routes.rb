@@ -274,6 +274,8 @@ Rails.application.routes.draw do
   match '/admin/index' => 'admin/manage#dashboard', :as => :admin_dashboard
   match '/admin/config' => 'admin/manage#properties', :as => :admin_config
   match '/admin/service-providers' => 'service_categories#index', :as => :service_providers_index
+  match '/admin/service-providers/providers' => 'providers#index', :as => :manage_service_providers
+
 
   namespace :moderate do
     resources :questions do
