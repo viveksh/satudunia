@@ -6,7 +6,7 @@
           %span{:class => "icon16 brocco-icon-home"}
           Site Config
         = link_to "Minimize", "#", :class => "minimize"
-      .content{:style => "margin-bottom: -30px !important"}
+      .content{:style => "Padding-bottom: 0px !important"}
         = form_for(@group, :html => {:class => "form-horizontal", :multipart => true}) do |f|
 
           = f.error_messages
@@ -152,10 +152,10 @@
             .form-row.row-fluid
               .span12
                 .row-fluid
-                  .form-actions
-                    .span3
+                  .form-actions{:style => "width: 100% !important; margin-left: -10px !important; margin-bottom: -18px !important"}
+                    .span9
                       &nbsp;
-                    .span9.controls
+                    .span3.controls
                       = f.button "Save Changes", :class => "btn marginR10", :style => "padding: 4px 10px !important; border-width: 1px !important; border-style: solid !important"
                       = link_to "Cancel", admin_config_path, :class => "btn btn-danger", :style => "padding: 5px 10px !important; border-width: 1px !important; border-style: solid !important"
           -else
@@ -163,14 +163,5 @@
             
           = yield :after_form
 
-.row-fluid
-  .span12
-    .box
-      .title
-        %p{:style => "margin: 20px 20px 20px"}
-          Thank you for your order, you will receive 
-          %span{:style => "color: green"}
-            5% 
-          discount in next order.
 
 
