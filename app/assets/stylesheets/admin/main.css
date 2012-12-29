@@ -2531,3 +2531,12 @@ form input.valid {border: 1px solid #9FC569 !important;}
 	.loginContainer {width: 180px;margin-left: -100px;}
 	.ui-datepicker{ max-width: 180px;}
 }
+
+/*WYSIWYG patch*/
+.jHtmlArea {
+  margin-left: -17px !important;
+}
+
+.jHtmlArea iframe {
+  border: solid 1px #c4c4c4 !important;
+}

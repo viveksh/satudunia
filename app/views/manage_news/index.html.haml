@@ -29,7 +29,8 @@
               .span12
                 .row-fluid
                   = form.label "News Body *", :class => "form-label span4"
-                  = form.text_area :news_body, :class => "span8"
+                  .span8
+                    = form.text_area :news_body, :class => "span8 wysiwyg_editor"
 
             .form-row.row-fluid
               .span12
@@ -82,6 +83,7 @@
             -@news_list.each do |news|
               = render :partial => "news", :object => news
 
+= render :partial => 'shared/rich_text_partial'
 
 %script
   $(document).ready(function(){
