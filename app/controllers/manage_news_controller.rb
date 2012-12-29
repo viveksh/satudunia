@@ -53,11 +53,11 @@ class ManageNewsController < ApplicationController
     @news = News.find(params[:id])
     if @news.nil?
       flash[:error] = "News not found"
-      redirect_to manage_news_index_path(:tab => "list")
+      redirect_to admin_news_list_path
     else
       @news.destroy
       flash[:notice] = "News deleted"
-      redirect_to manage_news_index_path(:tab => "list")
+      redirect_to admin_news_list_path
     end
   end
 

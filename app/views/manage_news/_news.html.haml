@@ -33,9 +33,9 @@
               = form.label "Active", :class => "form-label span4"
               .span8.controls
                 .left.marginT5
-                  #{radio_button("news", "is_active", true)} yes
+                  #{radio_button("news", "is_active", true, :checked => news.is_active)} yes
                 .left.marginT5
-                  #{radio_button("news", "is_active", false)} no
+                  #{radio_button("news", "is_active", false, :checked => !news.is_active)} no
           
         .form-row.row-fluid
           .span12
@@ -43,9 +43,9 @@
               = form.label "Archive", :Class => "form-label span4"
               .span8.controls
                 .left.marginT5
-                  #{radio_button("news", "is_archive", true)} yes
+                  #{radio_button("news", "is_archive", true, :checked => news.is_archive)} yes
                 .left.marginT5  
-                  #{radio_button("news", "is_archive", false)} no
+                  #{radio_button("news", "is_archive", false, :checked => !news.is_archive)} no
 
         .form-row.row-fluid
           .span12
