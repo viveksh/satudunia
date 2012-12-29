@@ -4,7 +4,7 @@
   %td
     = news.news_title
   %td
-    = truncate(news.news_body.html_safe, :length => 30)
+    = truncate(news.news_body.html_safe, :length => 60)
   %td
     = news.created_at.to_datetime.strftime("%d %b %Y - %I:%M %p")
   %td
