@@ -6,14 +6,8 @@ class ManageNewsController < ApplicationController
 
   def index
     @page_title = "News"
-    if params[:tab].eql? "new"
-      @news = News.new
-      if !params[:id].nil?
-        @news = News.find(params[:id])
-      end
-    else
-      @news = News.all.page(params[:page])
-    end
+    @news = News.new
+    @news_list = News.all
   end
 
   def create
@@ -26,10 +20,10 @@ class ManageNewsController < ApplicationController
         Jobs::Images.async.generate_news_thumbnails(@news.id).commit!
       end
       flash[:notice] = "News created"
-      redirect_to manage_news_index_path(:tab => "list")
+      redirect_to admin_news_list_path
     else
       flash[:error] = @news.errors.first[1] rescue "Please fill all the required inputs"
-      redirect_to manage_news_index_path(:tab => "new")
+      redirect_to admin_news_list_path
     end
   end
 
@@ -37,7 +31,7 @@ class ManageNewsController < ApplicationController
     @news = News.find(params[:id])
     if @news.nil?
       flash[:error] = "News not found"
-      redirect_to manage_news_index_path(:tab => "list")
+      redirect_to admin_news_list_path
     else
       conditions = %w[news_title news_body is_active is_archive]
       if params[:news][:news_image]
@@ -47,10 +41,10 @@ class ManageNewsController < ApplicationController
       @news.safe_update(conditions, params[:news])
       if @news.valid? && @news.save
         flash[:notice] = "News updated"
-        redirect_to manage_news_index_path(:tab => "list")
+        redirect_to admin_news_list_path
       else
         flash[:error] = @news.errors.first[1] rescue "Please fill all the required inputs"
-        redirect_to manage_news_index_path(:tab => "new", :id => news.id)
+        redirect_to admin_news_list_path
       end
     end
   end

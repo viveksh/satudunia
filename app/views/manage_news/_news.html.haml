@@ -1,17 +1,16 @@
-%ul
-  %li{:style => "padding-bottom:0px !important"}
-    .stats{:style => "margin-right: 20px !important;"}
-      = image_tag news_image_path(news,"small"), :height => 64, :alt => news.slug
-    .user-info
-      %h2{:style => "margin-top: -4px !important;"}
-        = news.news_title
-        %small
-          = link_to "Edit", manage_news_index_path(:tab=>"new", :id => news.id)
-          |
-          = link_to "Delete", manage_news_path(:id => news.id), :method => :delete, :confirm => "Are you sure? This news will no longer exist"
-      %p.description
-        %small
-          = truncate(news.news_body.html_safe, :length => 80)
-      %p.description
-        by #{news.user.name}
-        at #{news.created_at.to_datetime.strftime("%d %b %Y - %I:%M %p")}
+%tr
+  %td
+    = image_tag news_image_path(news,"small"), :height => 64, :alt => news.slug
+  %td
+    = news.news_title
+  %td
+    = truncate(news.news_body.html_safe, :length => 30)
+  %td
+    = news.created_at.to_datetime.strftime("%d %b %Y - %I:%M %p")
+  %td
+    .controls.center
+      = link_to "<span class='icon12 icomoon-icon-pencil'></span>".html_safe, "#", :class => "tip", :title => "Edit News", :id => "openDialog#{news.id}"
+      = link_to "<span class='icon12 icomoon-icon-remove'></span>".html_safe, manage_news_path(news.id), :method => :delete, :confirm => "Are you sure? This news will no longer exist"
+
+    .dialog{:id => "dialog#{news.id}", :title => "Edit News"}
+      = news.news_title

@@ -1,66 +1,125 @@
-= render :partial => 'shared/rich_text_partial'
+.row-fluid
+  .span12
+    .box
+      .title
+        %h4
+          %span{:class => "icon16 icomoon-icon-broadcast"}
+          %span
+            News
+        %form{:class => "box-form right", :action => "", :style => "margin-top:-27px !important"}
+          <a class="btn dropdown-toggle" data-toggle="dropdown" href="#" style="padding: 4px 10px !important; border-width: 1px !important; border-style: solid !important">
+          <span class="icon16 iconic-icon-cog"></span>
+          <span class="caret"></span>
+          </a>
+          %ul{:class => "dropdown-menu"}
+            %li
+              = link_to "<span class='icon16 brocco-icon-plus'></span>Add new News".html_safe, "#", :id => "openModalDialog"
+        = link_to "Minimize", "#", :class => "minimize"
 
-%h1
-  Manage News
-%p.description
-  CRUD News
+        .dialog{:id => "modal", :title => "Add New News"}
+          = form_for @news, :url => manage_news_index_path, :html => {:class => "form", :method => :post} do |form|
+          
+            .form-row.row-fluid
+              .span12
+                .row-fluid
+                  = form.label "News Title *", :class => "form-label span4"
+                  = form.text_field :news_title, :class => "span8"
 
-%ul.admin-nav
-  %li.head_tag
-    = link_to "Create New", manage_news_index_path(:tab => "new")
-  %li.question_help
-    = link_to "List", manage_news_index_path(:tab => "list")
+            .form-row.row-fluid
+              .span12
+                .row-fluid
+                  = form.label "News Body *", :class => "form-label span4"
+                  = form.text_area :news_body, :class => "span8"
 
-- if params[:tab].eql?('new')
-  - method = :post
-  - url = manage_news_index_path
-  - if !params[:id].nil? && !@news.id.nil?
-    - method = :put 
-    - url = manage_news_path(:id => @news.id)
-  = form_for @news, :url => url, :html => {:class => "form", :method => method} do |form|
-    = form.error_messages
-    
-    .field
-      = form.label "News Title *"
-      = form.text_field :news_title, :class => "text_area"
+            .form-row.row-fluid
+              .span12
+                .row-fluid
+                  = form.label "Active", :class => "form-label span4"
+                  .span8.controls
+                    .left.marginT5
+                      #{radio_button("news", "is_active", true)} yes
+                    .left.marginT5
+                      #{radio_button("news", "is_active", false)} no
+              
+            .form-row.row-fluid
+              .span12
+                .row-fluid
+                  = form.label "Archive", :Class => "form-label span4"
+                  .span8.controls
+                    .left.marginT5
+                      #{radio_button("news", "is_archive", true)} yes
+                    .left.marginT5  
+                      #{radio_button("news", "is_archive", false)} no
 
-    .field
-      = form.label "News Body *"
-      = form.text_area :news_body, :class => "wysiwyg_editor"
+            .form-row.row-fluid
+              .span12
+                .row-fluid
+                  = form.label "News Image", :class => "form-label span4"
+                  = form.file_field :news_image
 
-    .field
-      = form.label "Active"
-      #{radio_button("news", "is_active", true)} yes
-      #{radio_button("news", "is_active", false)} no
-      
-    .field
-      = form.label "Archive"
-      #{radio_button("news", "is_archive", true)} yes
-      #{radio_button("news", "is_archive", false)} no
+            .form-row.row-fluid
+              .span12
+                .row-fluid
+                  .span4
+                    &nbsp;
+                  = form.submit "Save", :class => "btn nostyle span2", :style => "padding: 4px 10px !important; border-width: 1px !important; border-style: solid !important"
 
-    .field
-      = form.label "Authoring"
-      = current_user.name
+      .content.noPad.clearfix
+        %table{:cellpadding=>0,:cellspacing=>0,:border=>0,:class=>"responsive dynamicTable display table table-bordered",:width=>"100%"}
+          %thead
+            %tr
+              %th
+                Image
+              %th
+                Title
+              %th 
+                Display
+              %th
+                Date
+              %th
+                Action
+          %tbody
+            -@news_list.each do |news|
+              = render :partial => "news", :object => news
 
-    .field
-      = form.label "Created Date"
-      = Time.now.to_datetime.strftime("%d %b %Y - %I:%M %p")
 
-    .field
-      = form.label "News Image"
-      = form.file_field :news_image
+%script
+  $(document).ready(function(){
+  //--------------- Dialogs ------------------//
 
-    .buttons
-      = form.submit "Save", :class => "save"
+  $('#openModalDialog').click(function(){
+  $('#modal').dialog('open');
+  return false;
+  });
 
-- else
-  .members
-    #members
-      - if @news.blank?
-        %ul
-          %li{:style => "padding-bottom:0px !important"}
-            No News Yet
-      - @news.each do |news|
-        = render :partial => "news", :object => news
-        
-      = paginate @news
+  // JQuery UI Modal Dialog           
+  $('#modal').dialog({
+  autoOpen: false,
+  modal: true,
+  dialogClass: 'dialog',
+  buttons: {
+  "Close": function() { 
+  $(this).dialog("close"); 
+  }
+  }
+  });
+
+  - @news_list.each do |news|
+    $('#openDialog#{news.id}').click(function(){
+    $('#dialog#{news.id}').dialog('open');
+    return false;
+    });
+
+    $('#dialog#{news.id}').dialog({
+    autoOpen: false,
+    modal: true,
+    dialogClass: 'dialog',
+    buttons: {
+    "Close": function() { 
+    $(this).dialog("close"); 
+    }
+    }
+    });
+
+  $("div.dialog button").addClass("btn");
+  });

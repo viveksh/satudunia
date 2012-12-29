@@ -275,7 +275,7 @@ Rails.application.routes.draw do
   match '/admin/config' => 'admin/manage#properties', :as => :admin_config
   match '/admin/service-providers' => 'service_categories#index', :as => :service_providers_index
   match '/admin/service-providers/providers' => 'providers#index', :as => :manage_service_providers
-  match '/admin/news/list' => 'manage_news#index', :as => :manage_news_index
+  match '/admin/news/list' => 'manage_news#index'
 
 
   namespace :moderate do
