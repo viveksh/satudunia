@@ -13,4 +13,49 @@
       = link_to "<span class='icon12 icomoon-icon-remove'></span>".html_safe, manage_news_path(news.id), :method => :delete, :confirm => "Are you sure? This news will no longer exist"
 
     .dialog{:id => "dialog#{news.id}", :title => "Edit News"}
-      = news.news_title
+      = form_for news, :url => manage_news_path(news.id), :html => {:class => "form", :method => :put} do |form|
+          
+        .form-row.row-fluid
+          .span12
+            .row-fluid
+              = form.label "News Title *", :class => "form-label span4"
+              = form.text_field :news_title, :class => "span8"
+
+        .form-row.row-fluid
+          .span12
+            .row-fluid
+              = form.label "News Body *", :class => "form-label span4"
+              = form.text_area :news_body, :class => "span8"
+
+        .form-row.row-fluid
+          .span12
+            .row-fluid
+              = form.label "Active", :class => "form-label span4"
+              .span8.controls
+                .left.marginT5
+                  #{radio_button("news", "is_active", true)} yes
+                .left.marginT5
+                  #{radio_button("news", "is_active", false)} no
+          
+        .form-row.row-fluid
+          .span12
+            .row-fluid
+              = form.label "Archive", :Class => "form-label span4"
+              .span8.controls
+                .left.marginT5
+                  #{radio_button("news", "is_archive", true)} yes
+                .left.marginT5  
+                  #{radio_button("news", "is_archive", false)} no
+
+        .form-row.row-fluid
+          .span12
+            .row-fluid
+              = form.label "News Image", :class => "form-label span4"
+              = form.file_field :news_image
+
+        .form-row.row-fluid
+          .span12
+            .row-fluid
+              .span4
+                &nbsp;
+              = form.submit "Save", :class => "btn nostyle span2", :style => "padding: 4px 10px !important; border-width: 1px !important; border-style: solid !important"
