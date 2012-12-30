@@ -240,11 +240,11 @@
         //remove current class if have
         mainNavCurrent.removeClass('current');
         //set the seleceted menu element
+        var activePage = "<%= @active_page %>";
         if ($.cookie("newCurrentMenu")) {
             mainNavLinkAll.each(function(index) {
                 if($(this).attr('href') == $.cookie("newCurrentMenu")) {
                     //set new current class
-                    activePage = "<%= @active_page %>"
                     if (activePage == ""){
                         $(this).addClass('current');
                     }else{
@@ -262,7 +262,9 @@
                     $.cookie("newCurrentMenu",null);
                 }
             });
-        }   
+        } else {
+            $("a#"+activePage).addClass('current');
+        }  
         
         //hover magic add blue color to icons when hover - remove or change the class if not you like.
         mainNavLinkAll.hover(

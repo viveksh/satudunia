@@ -28,6 +28,7 @@ class Admin::ManageController < ApplicationController
 
   def dashboard
     @page_title = "Dashboard"
+    @active_page = "dashboard"
   end
 
   def edit_card

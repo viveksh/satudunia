@@ -6,6 +6,7 @@ class ProvidersController < ApplicationController
   
   def index
     @page_title = "Service Providers"
+    @active_page = "service_providers"
     @service_categories = ServiceCategory.all
     @providers = ServiceProvider.all
     @provider = ServiceProvider.new
