@@ -41,6 +41,7 @@ class Admin::ManageController < ApplicationController
   end
 
   def properties
+    @active_page = "site_config"
     @active_subtab ||= "general"
     @page_title = "Site Config"
   end

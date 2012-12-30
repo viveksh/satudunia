@@ -139,9 +139,9 @@
                         <li>
                             <%= link_to "<span class='icon16 minia-icon-cog'></span>Site Management".html_safe, "#", :class => "hasUl" %>
                             <ul class="sub">
-                                <li><a href="<%= admin_config_path %>"><span class="icon16 brocco-icon-home"></span>Site Config</a></li>
-                                <li><a href="<%= service_providers_index_path %>"><span class="icon16 brocco-icon-database"></span>Service Providers</a></li>
-                                <li><a href="<%= admin_news_list_path %>"><span class="icon16 icomoon-icon-broadcast"></span>News</a></li>
+                                <li><a id="site_config" href="<%= admin_config_path %>"><span class="icon16 brocco-icon-home"></span>Site Config</a></li>
+                                <li><a id="service_providers" href="<%= service_providers_index_path %>"><span class="icon16 brocco-icon-database"></span>Service Providers</a></li>
+                                <li><a id="manage_news" href="<%= admin_news_list_path %>"><span class="icon16 icomoon-icon-broadcast"></span>News</a></li>
                                 <li><a href="<%= manage_polls_path(:tab => "list") %>"><span class="icon16 icomoon-icon-bars"></span>Polls</a></li>
                                 <li><a href="<%= manage_terms_path %>"><span class="icon16 minia-icon-cog"></span>Terms of Service</a></li>
                                 <li><a href="<%= manage_abouts_path %>"><span class="icon16 minia-icon-cog"></span>About</a></li>
@@ -244,7 +244,13 @@
             mainNavLinkAll.each(function(index) {
                 if($(this).attr('href') == $.cookie("newCurrentMenu")) {
                     //set new current class
-                    $(this).addClass('current');
+                    activePage = "<%= @active_page %>"
+                    if (activePage == ""){
+                        $(this).addClass('current');
+                    }else{
+                        $("a#"+activePage).addClass('current');
+                    }
+                    
 
                     ulElem = $(this).closest('ul');
                     if(ulElem.hasClass('sub')) {

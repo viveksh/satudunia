@@ -5,6 +5,7 @@ class ManageNewsController < ApplicationController
   tabs :default => :manage_news
 
   def index
+    @active_page = "manage_news"
     @page_title = "News"
     @news = News.new
     @news_list = News.all
