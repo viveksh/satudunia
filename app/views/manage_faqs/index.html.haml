@@ -5,9 +5,9 @@
 
 %ul.admin-nav
   %li.head_tag
-    = link_to "Create New", manage_faqs_path(:tab => "new")
+    = link_to "Create New", admin_faq_path(:tab => "new")
   %li.question_help
-    = link_to "List", manage_faqs_path(:tab => "list")
+    = link_to "List", admin_faq_path(:tab => "list")
 
 - if params[:tab].eql?('new')
   - method = :post
@@ -43,7 +43,7 @@
               %h2{:style => "margin-top: -4px !important;"}
                 = faq.faq_question
                 %small
-                  = link_to "Edit", manage_faqs_path(:tab=>"new", :id => faq.id)
+                  = link_to "Edit", admin_faq_path(:tab=>"new", :id => faq.id)
                   |
                   = link_to "Delete", manage_faq_path(:id => faq.id), :method => :delete, :confirm => "Are you sure? This faq will no longer exist"
               %p.description

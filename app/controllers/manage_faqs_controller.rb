@@ -20,10 +20,10 @@ class ManageFaqsController < ApplicationController
     @faq = Faq.new(params[:faq])
     if @faq.valid? && @faq.save
       flash[:notice] = "Faq created"
-      redirect_to manage_faqs_path(:tab => 'list')
+      redirect_to admin_faq_path
     else
       flash[:error] = @faq.errors.first[1] rescue "Faq invalid"
-      redirect_to manage_faqs_path(:tab => 'new')
+      redirect_to admin_faq_path(:tab => 'new')
     end
   end
 
@@ -34,14 +34,14 @@ class ManageFaqsController < ApplicationController
       @faq.safe_update(%w[faq_question, faq_answer], params[:faq])
       if @faq.valid? && @faq.save
         flash[:notice] = "Faq created"
-        redirect_to manage_faqs_path(:tab => 'list')
+        redirect_to admin_faq_path
       else
         flash[:error] = @faq.errors.first[1] rescue "Faq invalid"
-        redirect_to manage_faqs_path(:tab => 'new')
+        redirect_to admin_faq_path(:tab => 'new')
       end
     else
       flash[:error] = "Faq not found"
-      redirect_to manage_faqs_path(:tab => 'list')
+      redirect_to admin_faq_path
     end
   end
 
@@ -57,10 +57,10 @@ class ManageFaqsController < ApplicationController
     if @faq.present?
       @faq.destroy()
       flash[:notice] = "Faq deleted"
-      redirect_to manage_faqs_path(:tab => 'list')
+      redirect_to manage_faqs_path
     else
       flash[:error] = "Faq not found"
-      redirect_to manage_faqs_path(:tab => 'list')
+      redirect_to manage_faqs_path
     end
   end
 
