@@ -10,7 +10,7 @@
 
     geocoder.geocode( { 'address': address}, function(results, status) {
       if (status == google.maps.GeocoderStatus.ZERO_RESULTS){
-        alert('We apologize as there is no location for this entity/service provider');
+        // do nothing if no address provided
       }
       centered = results[0].geometry.location;
 
