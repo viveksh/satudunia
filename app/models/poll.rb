@@ -44,7 +44,7 @@ class Poll
 
     self.safe_update(%w[poll_title is_active], params_poll)
 
-    if self.valid?
+    if self.valid? && self.save
       self.poll_options.map(&:destroy)
       Poll.create_options(params_poll, self)
     else
