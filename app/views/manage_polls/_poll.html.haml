@@ -4,7 +4,7 @@
       %h2{:style => "margin-top: -4px !important;"}
         = poll.poll_title
         %small
-          = link_to "Edit", manage_polls_path(:tab=>"new", :id => poll.id)
+          = link_to "Edit", admin_polls_path(:tab=>"new", :id => poll.id)
           |
           = link_to "Delete", manage_poll_path(:id => poll.id), :method => :delete, :confirm => "Are you sure? This news will no longer exist"
       %p.description

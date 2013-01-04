@@ -21,11 +21,11 @@ class ManagePollsController < ApplicationController
 
     if message.blank?
       flash[:notice] = "Poll created"
-      redirect_to manage_polls_path(:tab => 'list')
+      redirect_to admin_polls_path
     else
       @poll.destroy
       flash[:error] = message
-      redirect_to manage_polls_path(:tab => 'new')
+      redirect_to admin_polls_path(:tab => 'new')
     end
   end
 
@@ -35,10 +35,10 @@ class ManagePollsController < ApplicationController
 
     if message.blank?
       flash[:notice] = "Poll updated"
-      redirect_to manage_polls_path(:tab => 'list') 
+      redirect_to admin_polls_path 
     else
       flash[:error] = message
-      redirect_to manage_polls_path(:tab => 'new', :id => @poll.id)
+      redirect_to admin_polls_path(:tab => 'new', :id => @poll.id)
     end
   end
 
@@ -47,11 +47,11 @@ class ManagePollsController < ApplicationController
 
     if @poll.blank?
       flash[:error] = "Poll not found"
-      redirect_to manage_polls_path(:tab => 'list')
+      redirect_to admin_polls_path
     else
       @poll.destroy
       flash[:notice] = "Poll deleted"
-      redirect_to manage_polls_path(:tab => 'list') 
+      redirect_to admin_polls_path 
     end
   end
 

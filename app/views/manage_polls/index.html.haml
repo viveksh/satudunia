@@ -24,9 +24,9 @@
 
 %ul.admin-nav
   %li.head_tag
-    = link_to "Create New", manage_polls_path(:tab=>"new")
+    = link_to "Create New", admin_polls_path(:tab=>"new")
   %li.question_help
-    = link_to "List", manage_polls_path(:tab=>"list")
+    = link_to "List", admin_polls_path
 
 
 - if params[:tab].eql?('new')
