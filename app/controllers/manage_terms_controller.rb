@@ -6,6 +6,7 @@ class ManageTermsController < ApplicationController
 
   def index
     @page_title = "ToS"
+    @active_page = "cms_terms"
     @tos = StaticPage.where(:static_key => 'tos').first
 
     if @tos.blank?

@@ -6,6 +6,7 @@ class ManagePrivacyController < ApplicationController
 
   def index
     @page_title = "Privacy Policy"
+    @active_page = "cms_privacy"
     @privacy = StaticPage.where(:static_key => 'privacy').first
 
     if @privacy.blank?

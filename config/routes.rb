@@ -279,6 +279,10 @@ Rails.application.routes.draw do
   match '/admin/faq' => 'manage_faqs#index'
   match '/admin/polls' => 'manage_polls#index'
   match '/admin' => 'admin/manage#dashboard'
+  match '/admin/cms/terms-of-service' => 'manage_terms#index', :as => :cms_terms
+  match '/admin/cms/about-us' => 'manage_abouts#index', :as => :cms_abouts
+  match '/admin/cms/eula' => 'manage_eulas#index', :as => :cms_eula
+  match '/admin/cms/privacy-policy' => 'manage_privacy#index', :as => :cms_privacy
 
 
   namespace :moderate do

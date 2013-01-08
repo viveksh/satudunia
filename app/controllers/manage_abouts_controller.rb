@@ -6,6 +6,7 @@ class ManageAboutsController < ApplicationController
 
   def index
     @page_title = "About"
+    @active_page = "cms_about"
     @about = StaticPage.where(:static_key => 'about').first
 
     if @about.blank?

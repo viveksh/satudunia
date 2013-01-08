@@ -6,6 +6,7 @@ class ManageEulasController < ApplicationController
 
   def index
     @page_title = "Eula"
+    @active_page = "cms_eula"
     @eula = StaticPage.where(:static_key => 'eula').first
 
     if @eula.blank?
