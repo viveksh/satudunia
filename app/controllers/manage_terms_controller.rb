@@ -27,15 +27,15 @@ class ManageTermsController < ApplicationController
 
     if @tos.blank?
       flash[:error] = "Static Page not Found"
-      redirect_to manage_terms_path
+      redirect_to cms_terms_path
     else
       @tos.static_content = params[:tos_content]
       if @tos.valid? && @tos.save
         flash[:notice] = "Terms of Services updated"
-        redirect_to manage_terms_path
+        redirect_to cms_terms_path
       else
         flash[:error] = @tos.errors.first[1] rescue "Terms of Services invalid"
-        redirect_to manage_terms_path
+        redirect_to cms_terms_path
       end
     end
   end

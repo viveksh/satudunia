@@ -27,15 +27,15 @@ class ManagePrivacyController < ApplicationController
 
     if @privacy.blank?
       flash[:error] = "Static Page not Found"
-      redirect_to manage_privacy_path
+      redirect_to cms_privacy_path
     else
       @privacy.static_content = params[:privacy_content]
       if @privacy.valid? && @privacy.save
         flash[:notice] = "Privacy Policy updated"
-        redirect_to manage_privacy_index_path
+        redirect_to cms_privacy_path
       else
         flash[:error] = @privacy.errors.first[1] rescue "Privacy Policy invalid"
-        redirect_to manage_privacy_index_path
+        redirect_to cms_privacy_path
       end
     end
   end

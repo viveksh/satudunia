@@ -27,15 +27,15 @@ class ManageAboutsController < ApplicationController
 
     if @about.blank?
       flash[:error] = "Static Page not Found"
-      redirect_to manage_abouts_path
+      redirect_to cms_abouts_path
     else
       @about.static_content = params[:about_content]
       if @about.valid? && @about.save
         flash[:notice] = "About updated"
-        redirect_to manage_abouts_path
+        redirect_to cms_abouts_path
       else
         flash[:error] = @about.errors.first[1] rescue "About invalid"
-        redirect_to manage_abouts_path
+        redirect_to cms_abouts_path
       end
     end
   end

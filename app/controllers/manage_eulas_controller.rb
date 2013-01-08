@@ -27,15 +27,15 @@ class ManageEulasController < ApplicationController
 
     if @eula.blank?
       flash[:error] = "Static Page not Found"
-      redirect_to manage_eulas_path
+      redirect_to cms_eula_path
     else
       @eula.static_content = params[:eula_content]
       if @eula.valid? && @eula.save
         flash[:notice] = "EULA updated"
-        redirect_to manage_eulas_path
+        redirect_to cms_eula_path
       else
         flash[:error] = @eula.errors.first[1] rescue "EULA invalid"
-        redirect_to manage_eulas_path
+        redirect_to cms_eula_path
       end
     end
   end
