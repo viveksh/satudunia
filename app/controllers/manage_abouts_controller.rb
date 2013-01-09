@@ -22,6 +22,18 @@ class ManageAboutsController < ApplicationController
     render :layout => "application"
   end
 
+  def edit
+    @page_title = "About"
+    @active_page = "cms_about"
+    @about = StaticPage.where(:static_key => 'about').first
+
+    if @about.blank?
+      @about = StaticPage.new
+      @about.static_key = "about"
+      @about.save
+    end
+  end
+
   def update
     @about = StaticPage.find(params[:id])
 

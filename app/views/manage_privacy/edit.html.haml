@@ -1,0 +1,32 @@
+:css
+  .jHtmlArea {
+    margin-left: 0px !important;
+  }
+
+= render :partial => 'shared/rich_text_partial'
+
+.row-fluid
+  .span12
+    .box
+      .title
+        %h4
+          %span{:class => "icon16 brocco-icon-file"}
+          Privacy Policy
+        = link_to "Minimize", "#", :class => "minimize"
+      .content{:style => "padding-bottom: 0px !important"}
+        =form_tag "/manage/manage_privacy/#{@privacy.id}", :method => :put do
+          .form-row.row-fluid
+            .span12
+              .row-fluid
+                .span12
+                  = text_area_tag :privacy_content, @privacy.static_content, :class => "span12 wysiwyg_editor"
+
+          .form-row.row-fluid
+            .span12
+              .row-fluid
+                .form-actions{:style => "width: 100% !important; margin-left: -10px !important; margin-bottom: -18px !important"}
+                  .span9
+                    &nbsp;
+                  .span3.controls
+                    = button_tag "Save Changes", :class => "btn marginR10", :style => "padding: 4px 10px !important; border-width: 1px !important; border-style: solid !important"
+                    = link_to "Cancel", cms_privacy_path, :class => "btn btn-danger", :style => "padding: 5px 10px !important; border-width: 1px !important; border-style: solid !important"

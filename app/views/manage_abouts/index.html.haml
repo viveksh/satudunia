@@ -1,32 +1,19 @@
-= render :partial => 'shared/rich_text_partial'
-
-:css
-  .jHtmlArea {
-    margin-left: 0px !important;
-  }
-
 .row-fluid
   .span12
     .box
       .title
         %h4
           %span{:class => "icon16 brocco-icon-file"}
-          About Us
+          %span
+            About Us
+        %form{:class => "box-form right", :action => "", :style => "margin-top:-27px !important"}
+          <a class="btn dropdown-toggle" data-toggle="dropdown" href="#" style="padding: 4px 10px !important; border-width: 1px !important; border-style: solid !important">
+          <span class="icon16 iconic-icon-cog"></span>
+          <span class="caret"></span>
+          </a>
+          %ul{:class => "dropdown-menu"}
+            %li
+              = link_to "<span class='icon16 icomoon-icon-pencil'></span>Edit".html_safe, cms_edit_abouts_path
         = link_to "Minimize", "#", :class => "minimize"
-      .content{:style => "padding-bottom: 0px !important"}
-        =form_tag "/manage/manage_abouts/#{@about.id}", :method => :put do
-          .form-row.row-fluid
-            .span12
-              .row-fluid
-                .span12
-                  = text_area_tag :about_content, @about.static_content, :class => "span12 wysiwyg_editor"
-
-          .form-row.row-fluid
-            .span12
-              .row-fluid
-                .form-actions{:style => "width: 100% !important; margin-left: -10px !important; margin-bottom: -18px !important"}
-                  .span9
-                    &nbsp;
-                  .span3.controls
-                    = button_tag "Save Changes", :class => "btn marginR10", :style => "padding: 4px 10px !important; border-width: 1px !important; border-style: solid !important"
-                    = link_to "Cancel", cms_abouts_path, :class => "btn btn-danger", :style => "padding: 5px 10px !important; border-width: 1px !important; border-style: solid !important"
+      .content
+        = @about.static_content.html_safe

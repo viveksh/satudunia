@@ -22,6 +22,18 @@ class ManagePrivacyController < ApplicationController
     render :layout => "doc"
   end
 
+  def edit
+    @page_title = "Privacy Policy"
+    @active_page = "cms_privacy"
+    @privacy = StaticPage.where(:static_key => 'privacy').first
+
+    if @privacy.blank?
+      @privacy = StaticPage.new
+      @privacy.static_key = "privacy"
+      @privacy.save
+    end
+  end
+
   def update
     @privacy = StaticPage.find(params[:id])
 

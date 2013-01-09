@@ -22,6 +22,18 @@ class ManageTermsController < ApplicationController
     render :layout => "doc"
   end
 
+  def edit
+    @page_title = "ToS"
+    @active_page = "cms_terms"
+    @tos = StaticPage.where(:static_key => 'tos').first
+
+    if @tos.blank?
+      @tos = StaticPage.new
+      @tos.static_key = "tos"
+      @tos.save
+    end
+  end
+
   def update
     @tos = StaticPage.find(params[:id])
 

@@ -22,6 +22,18 @@ class ManageEulasController < ApplicationController
     render :layout => "doc"
   end
 
+  def edit
+    @page_title = "Eula"
+    @active_page = "cms_eula"
+    @eula = StaticPage.where(:static_key => 'eula').first
+
+    if @eula.blank?
+      @eula = StaticPage.new
+      @eula.static_key = "eula"
+      @eula.save
+    end
+  end
+
   def update
     @eula = StaticPage.find(params[:id])
 
