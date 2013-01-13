@@ -6,6 +6,7 @@ class ManagePollsController < ApplicationController
 
   def index
     @page_title = "Polls"
+    @active_page = "manage_polls"
     if params[:tab].eql? "new"
       @poll = Poll.new
       if !params[:id].nil?

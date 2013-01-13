@@ -6,6 +6,7 @@ class ManageFaqsController < ApplicationController
 
   def index
     @page_title = "FAQ"
+    @active_page = "manage_faq"
     if params[:tab].eql? "new"
       @faq = Faq.new
       if !params[:id].nil?
