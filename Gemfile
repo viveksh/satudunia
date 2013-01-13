@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.6'
+gem 'rails', '3.2.11'
 
 if RUBY_PLATFORM !~ /mswin|mingw/
   gem 'rdiscount', :git => 'git://github.com/ricodigo/rdiscount.git'
@@ -16,6 +16,7 @@ else
   gem 'maruku', '0.6.0'
 end
 #gem 'maruku'
+gem 'rb-readline'
 
 # ui
 gem 'haml', '>= 3.1.3'
