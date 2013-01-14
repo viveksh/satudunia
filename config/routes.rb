@@ -221,6 +221,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :tier1
+
   scope '/manage' do
     resources :widgets do
       member do

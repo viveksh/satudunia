@@ -1,0 +1,29 @@
+.top
+  %h1
+    Tier 1
+  %br
+    
+= form_tag tier1_path(:id => current_user.id), :class => "form", :method => :put do
+  .field
+    = label_tag "What is the reason for visiting the site?", "What is the reason for visiting the site?", :class => "label"
+    = check_box_tag "tier1[]", "I am living with HIV", false, :class=> "text_field", :disabled => @is_disable
+    I am living with HIV
+    %br
+    = check_box_tag "tier1[]", "I am dating someone living with HIV", false, :class=> "text_field", :disabled => @is_disable
+    I am dating someone living with HIV
+    %br
+    = check_box_tag "tier1[]", "I am in a relationship with someone living with HIV", false, :class=> "text_field", :disabled => @is_disable
+    I am in a relationship with someone living with HIV
+    %br
+    = check_box_tag "tier1[]", "I am related to someone living with HIV", false, :class=> "text_field", :disabled => @is_disable
+    I am related to someone living with HIV
+    %br
+    = check_box_tag "tier1[]", "I am a friend of someone living with HIV", false, :class=> "text_field", :disabled => @is_disable
+    I am a friend of someone living with HIV
+    %br
+    = check_box_tag "tier1[]", "I want to know more about living with HIV", false, :class=> "text_field", :disabled => @is_disable
+    I want to know more about living with HIV
+    %br
+
+  .buttons
+    = submit_tag("submit", :class => "save")
