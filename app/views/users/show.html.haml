@@ -62,6 +62,8 @@
       %h3= t("activerecord.models.badges")
       - unless @user.profile_tiers.blank?
         = image_tag "badges/netvibes.png"
+      -unless @user.profile_support.nil?
+        = image_tag "badges/reddit.png"
       %ul.clearfix
         - @badges.each do |badge|
           %li

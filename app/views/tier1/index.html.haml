@@ -24,6 +24,6 @@
     = check_box_tag "tier1[]", "I want to know more about living with HIV", false, :class=> "text_field", :disabled => @is_disable
     I want to know more about living with HIV
     %br
-
-  .buttons
-    = submit_tag("submit", :class => "save")
+  - unless @is_disable
+    .buttons
+      = submit_tag("submit", :class => "save")

@@ -81,6 +81,7 @@ class User
   references_many :news, :dependent => :destroy, :validate => false
   references_many :polls
   references_many :profile_tiers
+  references_one :profile_support
   references_one :external_friends_list, :dependent => :destroy, :validate => false
 
   references_one :read_list, :dependent => :destroy, :validate => false
