@@ -5,7 +5,7 @@ class Tier2Controller < ApplicationController
     set_page_title("Tier2")
 
     @is_disable = !current_user.profile_support.nil?
-    @profile_support = current_user.profile_support#ProfileSupport.new
+    @profile_support = ProfileSupport.new
   end
 
   def create
