@@ -71,7 +71,7 @@
 
   .field.birthday
     = label_tag "Date of birth"
-    = date_select("profile_support", "birth_date", :order => [:day, :month, :year], :disabled => @is_disable)
+    = date_select("profile_support", "birth_date", :start_year => 1940, :end_year => 2013, :order => [:day, :month, :year], :disabled => @is_disable)
   .field
     = label_tag "Hide my age"
     = radio_button("profile_support", "show_age", true, :disabled => @is_disable)
