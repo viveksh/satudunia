@@ -224,6 +224,8 @@ Rails.application.routes.draw do
   resources :tier_sample
   match 'tier-sample' => 'tier_sample#index'
 
+  resources :tier1
+
   resources :tier2
 
   scope '/manage' do

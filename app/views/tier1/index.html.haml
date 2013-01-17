@@ -2,28 +2,126 @@
   %h1
     Tier 1
   %br
-    
-= form_tag tier1_path(:id => current_user.id), :class => "form", :method => :put do
+= form_for @profile_support, :url => {:controller => :tier1, :action => :create}, :method => :post do |f|
   .field
-    = label_tag "What is the reason for visiting the site?", "What is the reason for visiting the site?", :class => "label"
-    = check_box_tag "tier1[]", "I am living with HIV", false, :class=> "text_field", :disabled => @is_disable
-    I am living with HIV
+    = label_tag "About Me"
+    = f.text_area :about_me, :disabled => @is_disable, :rows => 5
+  .field
+    = label_tag "Country"
+    = f.text_field :location_country, :disabled => @is_disable
+  .field
+    = label_tag "State/Province"
+    = f.text_field :location_state, :disabled => @is_disable
+  .field
+    = label_tag "City"
+    = f.text_field :location_city, :disabled => @is_disable
+  .field
+    = label_tag "Country Birth Place"
+    = f.text_field :birth_place_country, :disabled => @is_disable
+  .field
+    = label_tag "State/Province Birth Place"
+    = f.text_field :birth_place_state, :disabled => @is_disable
+  .field 
+    = label_tag "City Birth Place"
+    = f.text_field :birth_place_city, :disabled => @is_disable
+  .field
+    = label_tag "Race"
+    = radio_button("profile_support", "race", "Asian", :disabled => @is_disable) 
+    Asian
     %br
-    = check_box_tag "tier1[]", "I am dating someone living with HIV", false, :class=> "text_field", :disabled => @is_disable
-    I am dating someone living with HIV
+    = radio_button("profile_support", "race", "Caucasian", :disabled => @is_disable) 
+    Caucasian
     %br
-    = check_box_tag "tier1[]", "I am in a relationship with someone living with HIV", false, :class=> "text_field", :disabled => @is_disable
-    I am in a relationship with someone living with HIV
+    = radio_button("profile_support", "race", "African", :disabled => @is_disable) 
+    African
     %br
-    = check_box_tag "tier1[]", "I am related to someone living with HIV", false, :class=> "text_field", :disabled => @is_disable
-    I am related to someone living with HIV
+    
+    = radio_button("profile_support", "race", "Latino", :disabled => @is_disable) 
+    Latino
     %br
-    = check_box_tag "tier1[]", "I am a friend of someone living with HIV", false, :class=> "text_field", :disabled => @is_disable
-    I am a friend of someone living with HIV
+    
+    = radio_button("profile_support", "race", "Pasific Islander", :disabled => @is_disable) 
+    Pasific Islander
     %br
-    = check_box_tag "tier1[]", "I want to know more about living with HIV", false, :class=> "text_field", :disabled => @is_disable
-    I want to know more about living with HIV
+    
+    = radio_button("profile_support", "race", "Middle Eastern", :disabled => @is_disable)
+    Middle Eastern
     %br
+    
+    = radio_button("profile_support", "race", "Mixed", :disabled => @is_disable) 
+    Mixed
+    %br
+    
+  .field
+    = label_tag "Gender"
+    = radio_button("profile_support", "gender", "Male", :disabled => @is_disable) 
+    Male 
+    %br
+    = radio_button("profile_support", "gender", "Female", :disabled => @is_disable) 
+    Female 
+    %br
+    = radio_button("profile_support", "gender", "FTM", :disabled => @is_disable) 
+    FTM 
+    %br
+    = radio_button("profile_support", "gender", "MTF", :disabled => @is_disable) 
+    MTF 
+    %br
+    = radio_button("profile_support", "gender", "Intersex", :disabled => @is_disable) 
+    Intersex 
+
+  .field.birthday
+    = label_tag "Date of birth"
+    = date_select("profile_support", "birth_date", :start_year => 1940, :end_year => 2013, :order => [:day, :month, :year], :disabled => @is_disable)
+  .field
+    = label_tag "Hide my age"
+    = radio_button("profile_support", "show_age", true, :disabled => @is_disable)
+    yes
+    = radio_button("profile_support", "show_age", false, :disabled => @is_disable)
+    no
+
+  .field
+    = label_tag "Interested In"
+    = check_box_tag("profile_support[interested_in][]", "Men", false, :class=> "text_field", :disabled => @is_disable)
+    Men 
+    %br
+    = check_box_tag("profile_support[interested_in][]", "Women", false, :class=> "text_field", :disabled => @is_disable)
+    Women
+    %br 
+    = check_box_tag("profile_support[interested_in][]", "FTM", false, :class=> "text_field", :disabled => @is_disable)
+    FTM
+    %br
+    = check_box_tag("profile_support[interested_in][]", "MTF", false, :class=> "text_field", :disabled => @is_disable) 
+    MTF
+    %br
+    = check_box_tag("profile_support[interested_in][]", "Intersex", false, :class=> "text_field", :disabled => @is_disable) 
+    Intersex 
+
+  .field
+    = label_tag "Languages you read and write"
+    = check_box_tag("profile_support[languages][]", "بية", false, :class=> "text_field", :disabled => @is_disable)
+    بية
+    %br
+    = check_box_tag("profile_support[languages][]", "中文(简体)", false, :class=> "text_field", :disabled => @is_disable)
+    中文(简体)   
+    %br
+    = check_box_tag("profile_support[languages][]", "中文(香港)", false, :class=> "text_field", :disabled => @is_disable)
+    中文(香港) 
+    %br
+    = check_box_tag("profile_support[languages][]", "中文(台灣)", false, :class=> "text_field", :disabled => @is_disable)
+    中文(台灣) 
+    %br
+    = check_box_tag("profile_support[languages][]", "Nederlands ", false, :class=> "text_field", :disabled => @is_disable)
+    Nederlands 
+    %br
+    = check_box_tag("profile_support[languages][]", "English", false, :class=> "text_field", :disabled => @is_disable)
+    English 
+    %br
+    = check_box_tag("profile_support[languages][]", "Filipino", false, :class=> "text_field", :disabled => @is_disable)
+    Filipino 
+    %br
+    = check_box_tag("profile_support[languages][]", "Français", false, :class=> "text_field", :disabled => @is_disable)
+    Français
+
   - unless @is_disable
     .buttons
       = submit_tag("submit", :class => "save")
