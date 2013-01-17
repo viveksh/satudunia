@@ -5,7 +5,7 @@
 = form_for @profile_support, :url => {:controller => :tier2, :action => :create}, :method => :post do |f|
   .field
     = label_tag "About Me"
-    = f.text_area :about_me, :disabled => @is_disable
+    = f.text_area :about_me, :disabled => @is_disable, :rows => 5
   .field
     = label_tag "Country"
     = f.text_field :location_country, :disabled => @is_disable
