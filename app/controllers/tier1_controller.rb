@@ -5,6 +5,9 @@ class Tier1Controller < ApplicationController
     set_page_title("Tier1")
 
     @is_disable = !current_user.profile_tiers.blank?
+    if @is_disable
+      flash[:error] = "You have already answered this profile question"
+    end
   end
 
   def update
