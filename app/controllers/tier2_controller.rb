@@ -5,7 +5,12 @@ class Tier2Controller < ApplicationController
     set_page_title("Tier2")
 
     @is_disable = !current_user.profile_support.nil?
-    @profile_support = ProfileSupport.new
+    if @is_disable
+      flash[:notice] = "You have already answered this profile question"
+      @profile_support = current_user.profile_support
+    else
+      @profile_support = ProfileSupport.new
+    end
   end
 
   def create

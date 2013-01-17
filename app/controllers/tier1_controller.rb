@@ -6,7 +6,7 @@ class Tier1Controller < ApplicationController
 
     @is_disable = !current_user.profile_tiers.blank?
     if @is_disable
-      flash[:error] = "You have already answered this profile question"
+      flash[:notice] = "You have already answered this profile question"
     end
   end
 
