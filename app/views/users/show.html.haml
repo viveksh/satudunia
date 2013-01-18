@@ -64,6 +64,8 @@
         = image_tag "badges/netvibes.png"
       -unless @user.profile_support.nil?
         = image_tag "badges/reddit.png"
+      -unless @user.profile_tier2.nil?
+        = image_tag "badges/blank_badge_orange.png"
       %ul.clearfix
         - @badges.each do |badge|
           %li

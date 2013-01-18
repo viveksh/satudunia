@@ -2,125 +2,75 @@
   %h1
     Tier 2
   %br
-= form_for @profile_support, :url => {:controller => :tier2, :action => :create}, :method => :post do |f|
+= form_for @profile_tier2, :url => {:controller => :tier2, :action => :create}, :method => :post do |f|
   .field
-    = label_tag "About Me"
-    = f.text_area :about_me, :disabled => @is_disable, :rows => 5
+    = label_tag "Are you HIV positive?"
+    = radio_button("profile_tier2", "is_hiv_positive", "yes", :disabled => @is_disable)
+    Yes
+    %br
+    = radio_button("profile_tier2", "is_hiv_positive", "Not at my last test", :disabled => @is_disable)
+    Not at my last test (must give MMYYYY of last test)
+    %br
+    = radio_button("profile_tier2", "is_hiv_positive", "Not tested recently", :disabled => @is_disable)
+    Not tested recently (last test more than 12 months)
+    %br
+    = radio_button("profile_tier2", "is_hiv_positive", "Prefer not to display", :disabled => @is_disable)
+    Prefer not to display
+  
+  .field.birthday
+    = label_tag "When was your last test?"
+    = date_select("profile_tier2", "date_last_test", :start_year => 1940, :end_year => 2013, :order => [:day, :month, :year], :disabled => @is_disable, :discard_day => true, :include_blank => true)
+  
+  .field.birthday
+    = label_tag "When were you first diagnosed?"
+    = date_select("profile_tier2", "date_first_diagnosed", :start_year => 1940, :end_year => 2013, :order => [:day, :month, :year], :disabled => @is_disable)
+  .field
+    = label_tag "Where were you first diagnosed?"
   .field
     = label_tag "Country"
-    = f.text_field :location_country, :disabled => @is_disable
+    = f.text_field :country_first_diagnosed, :disabled => @is_disable
   .field
     = label_tag "State/Province"
-    = f.text_field :location_state, :disabled => @is_disable
+    = f.text_field :state_first_diagnosed, :disabled => @is_disable
   .field
     = label_tag "City"
-    = f.text_field :location_city, :disabled => @is_disable
-  .field
-    = label_tag "Country Birth Place"
-    = f.text_field :birth_place_country, :disabled => @is_disable
-  .field
-    = label_tag "State/Province Birth Place"
-    = f.text_field :birth_place_state, :disabled => @is_disable
+    = f.text_field :city_first_diagnosed, :disabled => @is_disable
+
   .field 
-    = label_tag "City Birth Place"
-    = f.text_field :birth_place_city, :disabled => @is_disable
+    = label_tag "Where do you get your regular health services? (eg. health check-up, blood tests, HIV medication, etc)"
   .field
-    = label_tag "Race"
-    = radio_button("profile_support", "race", "Asian", :disabled => @is_disable) 
-    Asian
-    %br
-    = radio_button("profile_support", "race", "Caucasian", :disabled => @is_disable) 
-    Caucasian
-    %br
-    = radio_button("profile_support", "race", "African", :disabled => @is_disable) 
-    African
-    %br
-    
-    = radio_button("profile_support", "race", "Latino", :disabled => @is_disable) 
-    Latino
-    %br
-    
-    = radio_button("profile_support", "race", "Pasific Islander", :disabled => @is_disable) 
-    Pasific Islander
-    %br
-    
-    = radio_button("profile_support", "race", "Middle Eastern", :disabled => @is_disable)
-    Middle Eastern
-    %br
-    
-    = radio_button("profile_support", "race", "Mixed", :disabled => @is_disable) 
-    Mixed
-    %br
-    
+    = label_tag "Country"
+    = f.text_field :country_regular_check_up, :disabled => @is_disable
   .field
-    = label_tag "Gender"
-    = radio_button("profile_support", "gender", "Male", :disabled => @is_disable) 
-    Male 
-    %br
-    = radio_button("profile_support", "gender", "Female", :disabled => @is_disable) 
-    Female 
-    %br
-    = radio_button("profile_support", "gender", "FTM", :disabled => @is_disable) 
-    FTM 
-    %br
-    = radio_button("profile_support", "gender", "MTF", :disabled => @is_disable) 
-    MTF 
-    %br
-    = radio_button("profile_support", "gender", "Intersex", :disabled => @is_disable) 
-    Intersex 
+    = label_tag "State/Province"
+    = f.text_field :state_regular_check_up, :disabled => @is_disable
+  .field
+    = label_tag "City"
+    = f.text_field :city_regular_check_up, :disabled => @is_disable
 
   .field.birthday
-    = label_tag "Date of birth"
-    = date_select("profile_support", "birth_date", :start_year => 1940, :end_year => 2013, :order => [:day, :month, :year], :disabled => @is_disable)
-  .field
-    = label_tag "Hide my age"
-    = radio_button("profile_support", "show_age", true, :disabled => @is_disable)
-    yes
-    = radio_button("profile_support", "show_age", false, :disabled => @is_disable)
-    no
+    = label_tag "When was your last health check-up with your HIV specialist?"
+    = date_select("profile_tier2", "date_last_check_up", :start_year => 1940, :end_year => 2013, :order => [:day, :month, :year], :disabled => @is_disable)
 
   .field
-    = label_tag "Interested In"
-    = check_box_tag("profile_support[interested_in][]", "Men", false, :class=> "text_field", :disabled => @is_disable)
-    Men 
+    = label_tag "Have you started antiretroviral therapy (ART)?"
+    = radio_button("profile_tier2", "is_antiretroviral", true, :disabled => @is_disable) 
+    Yes
     %br
-    = check_box_tag("profile_support[interested_in][]", "Women", false, :class=> "text_field", :disabled => @is_disable)
-    Women
-    %br 
-    = check_box_tag("profile_support[interested_in][]", "FTM", false, :class=> "text_field", :disabled => @is_disable)
-    FTM
-    %br
-    = check_box_tag("profile_support[interested_in][]", "MTF", false, :class=> "text_field", :disabled => @is_disable) 
-    MTF
-    %br
-    = check_box_tag("profile_support[interested_in][]", "Intersex", false, :class=> "text_field", :disabled => @is_disable) 
-    Intersex 
+    = radio_button("profile_tier2", "is_antiretroviral", false, :disabled => @is_disable) 
+    No
+
+  .field.birthday
+    = label_tag "When did you start antiretroviral therapy?"
+    = date_select("profile_tier2", "date_antiretroviral", :start_year => 1940, :end_year => 2013, :order => [:day, :month, :year], :disabled => @is_disable)
 
   .field
-    = label_tag "Languages you read and write"
-    = check_box_tag("profile_support[languages][]", "بية", false, :class=> "text_field", :disabled => @is_disable)
-    بية
-    %br
-    = check_box_tag("profile_support[languages][]", "中文(简体)", false, :class=> "text_field", :disabled => @is_disable)
-    中文(简体)   
-    %br
-    = check_box_tag("profile_support[languages][]", "中文(香港)", false, :class=> "text_field", :disabled => @is_disable)
-    中文(香港) 
-    %br
-    = check_box_tag("profile_support[languages][]", "中文(台灣)", false, :class=> "text_field", :disabled => @is_disable)
-    中文(台灣) 
-    %br
-    = check_box_tag("profile_support[languages][]", "Nederlands ", false, :class=> "text_field", :disabled => @is_disable)
-    Nederlands 
-    %br
-    = check_box_tag("profile_support[languages][]", "English", false, :class=> "text_field", :disabled => @is_disable)
-    English 
-    %br
-    = check_box_tag("profile_support[languages][]", "Filipino", false, :class=> "text_field", :disabled => @is_disable)
-    Filipino 
-    %br
-    = check_box_tag("profile_support[languages][]", "Français", false, :class=> "text_field", :disabled => @is_disable)
-    Français
+    = label_tag "What is one myth about living with HIV that you realise is not true?"
+    = f.text_area :myth_about_hiv, :disabled => @is_disable, :rows => 5
+  
+  .field
+    = label_tag "What is one humorous or odd thing about your life with HIV?"
+    = f.text_area :odd_about_hiv, :disabled => @is_disable, :rows => 5
 
   - unless @is_disable
     .buttons

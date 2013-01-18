@@ -4,25 +4,25 @@ class Tier2Controller < ApplicationController
   def index
     set_page_title("Tier2")
 
-    @is_disable = !current_user.profile_support.nil?
+    @is_disable = !current_user.profile_tier2.nil?
     if @is_disable
       flash[:notice] = "You have already answered this profile question"
-      @profile_support = current_user.profile_support
+      @profile_tier2 = current_user.profile_tier2
     else
-      @profile_support = ProfileSupport.new
+      @profile_tier2 = ProfileTier2.new
     end
   end
 
   def create
-    @profile_support = ProfileSupport.new
-    @profile_support.safe_update(%w[about_me location_country location_state location_city birth_date show_age interested_in languages], params[:profile_support])
+    @profile_tier2 = ProfileTier2.new
+    @profile_tier2.safe_update(%w[is_hiv_positive date_last_test date_first_diagnosed country_first_diagnosed state_first_diagnosed city_first_diagnosed date_last_check_up is_antiretroviral date_antiretroviral myth_about_hiv odd_about_hiv country_regular_check_up state_regular_check_up city_regular_check_up], params[:profile_tier2])
 
-    @profile_support.user_id = current_user.id
+    @profile_tier2.user_id = current_user.id
 
-    if @profile_support.save
+    if @profile_tier2.save
       flash[:notice] = "Tier2 Updated"
     else
-      flash[:notice] = "Tiear2 update Failed"
+      flash[:error] = "Tiear2 update Failed: #{@profile_tier2.errors.first[1]}"
     end
 
     redirect_to tier2_index_path
