@@ -1,0 +1,44 @@
+.top
+  %h1
+    Tier 6
+  %br
+= form_for @profile_tier6, :url => {:controller => :tier6, :action => :create}, :method => :post do |f|
+  .field
+    = label_tag "Your preferred role"
+    = radio_button("profile_tier6", "preferred_role", "Top", :disabled => @is_disable)
+    Top
+    %br
+    = radio_button("profile_tier6", "preferred_role", "Bottom", :disabled => @is_disable)
+    Bottom
+    %br
+    = radio_button("profile_tier6", "preferred_role", "Versatile", :disabled => @is_disable)
+    Versatile
+    %br
+    = radio_button("profile_tier6", "preferred_role", "Vers Top", :disabled => @is_disable)
+    Vers Top
+    %br
+    = radio_button("profile_tier6", "preferred_role", "Versatile Bottom", :disabled => @is_disable)
+    Versatile Bottom
+  .field
+    = label_tag "What are you into?"
+    = radio_button("profile_tier6", "preferred_into", "Anal", :disabled => @is_disable)
+    Anal
+    %br
+    = radio_button("profile_tier6", "preferred_into", "Bears", :disabled => @is_disable)
+    Bears
+    %br
+    = radio_button("profile_tier6", "preferred_into", "Body Contact", :disabled => @is_disable)
+    Body Contact
+    %br
+    = radio_button("profile_tier6", "preferred_into", "Body Odor, Smells", :disabled => @is_disable)
+    Body Odor, Smells
+    %br
+    = radio_button("profile_tier6", "preferred_into", "Bondage/Restraints", :disabled => @is_disable)
+    Bondage/Restraints
+    %br
+    = radio_button("profile_tier6", "preferred_into", "CBD", :disabled => @is_disable)
+    CBD
+
+  - unless @is_disable
+    .buttons
+      = submit_tag("submit", :class => "save")

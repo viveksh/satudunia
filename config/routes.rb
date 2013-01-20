@@ -234,6 +234,8 @@ Rails.application.routes.draw do
 
   resources :tier5
 
+  resources :tier6
+
   scope '/manage' do
     resources :widgets do
       member do
