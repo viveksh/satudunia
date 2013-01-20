@@ -1,0 +1,38 @@
+.top
+  %h1
+    Tier 4
+  %br
+= form_for @profile_tier4, :url => {:controller => :tier4, :action => :create}, :method => :post do |f|
+  .field 
+    = label_tag "Height"
+    = radio_button("profile_tier4", "height_measurement", "inches", :disabled => @is_disable)
+    inches
+    = radio_button("profile_tier4", "height_measurement", "cm", :disabled => @is_disable)
+    cm
+    %br
+    = f.text_field :height, :disabled => @is_disable
+  .field
+    = label_tag "Weight"
+    = radio_button("profile_tier4", "weight_measurement", "kgs", :disabled => @is_disable)
+    kgs
+    = radio_button("profile_tier4", "weight_measurement", "lbs", :disabled => @is_disable)
+    lbs
+    %br
+    = f.text_field :weight, :disabled => @is_disable
+  .field
+    = label_tag "Build"
+    = radio_button("profile_tier4", "body_build", "Lean", :disabled => @is_disable)
+    Lean
+    %br
+    = radio_button("profile_tier4", "body_build", "Athletic", :disabled => @is_disable)
+    Athletic
+    %br
+    = radio_button("profile_tier4", "body_build", "Muscular", :disabled => @is_disable)
+    Muscular
+    %br
+    = radio_button("profile_tier4", "body_build", "Chub", :disabled => @is_disable)
+    Chub
+    
+  - unless @is_disable
+    .buttons
+      = submit_tag("submit", :class => "save")

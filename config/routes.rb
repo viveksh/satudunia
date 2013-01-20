@@ -230,6 +230,8 @@ Rails.application.routes.draw do
 
   resources :tier3
 
+  resources :tier4
+
   scope '/manage' do
     resources :widgets do
       member do
