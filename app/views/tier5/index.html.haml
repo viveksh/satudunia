@@ -1,0 +1,39 @@
+.top
+  %h1
+    Tier 5
+  %br
+= form_for @profile_tier5, :url => {:controller => :tier5, :action => :create}, :method => :post do |f|
+  .field
+    = label_tag "Occupation"
+    = f.text_field :occupation, :disabled => @is_disable
+  .field
+    = label_tag "Religion"
+    = f.text_field :religion, :disabled => @is_disable
+  .field 
+    = label_tag "Drink Alcohol"
+    = radio_button("profile_tier5", "is_drink_alcohol", true, :disabled => @is_disable)
+    Yes
+    = radio_button("profile_tier5", "is_drink_alcohol", false, :disabled => @is_disable)
+    No
+  .field
+    = label_tag "Smoker"
+    = radio_button("profile_tier5", "is_smoker", true, :disabled => @is_disable)
+    Yes
+    = radio_button("profile_tier5", "is_smoker", false, :disabled => @is_disable)
+    No
+  .field
+    = label_tag "Music"
+    = f.text_area :music, :disabled => @is_disable, :rows => 5
+  .field
+    = label_tag "Books"
+    = f.text_area :books, :disabled => @is_disable, :rows => 5
+  .field
+    = label_tag "Movies"
+    = f.text_area :movies, :disabled => @is_disable, :rows => 5
+  .field
+    = label_tag "Other interests and hobbies "
+    = f.text_area :other_interest, :disabled => @is_disable, :rows => 5
+
+  - unless @is_disable
+    .buttons
+      = submit_tag("submit", :class => "save")
