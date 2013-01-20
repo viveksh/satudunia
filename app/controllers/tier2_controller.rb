@@ -22,7 +22,7 @@ class Tier2Controller < ApplicationController
     if @profile_tier2.save
       flash[:notice] = "Tier2 Updated"
     else
-      flash[:error] = "Tiear2 update Failed: #{@profile_tier2.errors.first[1]}"
+      flash[:error] = "Tier2 update Failed: #{@profile_tier2.errors.first[1]}"
     end
 
     redirect_to tier2_index_path

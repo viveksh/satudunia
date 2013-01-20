@@ -1,0 +1,50 @@
+.top
+  %h1
+    Tier 3
+  %br
+= form_for @profile_tier3, :url => {:controller => :tier3, :action => :create}, :method => :post do |f|
+  .field
+    = label_tag "Relationship Status"
+    = radio_button("profile_tier3", "relationship_status", "Single", :disabled => @is_disable)
+    Single
+    %br
+    = radio_button("profile_tier3", "relationship_status", "Dating Someone", :disabled => @is_disable)
+    Dating Someone
+    %br
+    = radio_button("profile_tier3", "relationship_status", "Dating a few", :disabled => @is_disable)
+    Dating a few
+    %br
+    = radio_button("profile_tier3", "relationship_status", "Monogamous relationship", :disabled => @is_disable)
+    Monogamous relationship
+    %br
+    = radio_button("profile_tier3", "relationship_status", "Open relationship", :disabled => @is_disable)
+    Open relationship
+    %br
+    = radio_button("profile_tier3", "relationship_status", "It's complicated", :disabled => @is_disable)
+    It's complicated
+    %br
+    = radio_button("profile_tier3", "relationship_status", "Prefer not to say", :disabled => @is_disable)
+    Prefer not to say
+
+  .field
+    = label_tag 'If "HIV Positive" = YES and "Relationship Status" ≠ SINGLE'
+
+  .field
+    = label_tag "Does your partner know your HIV status?"
+    = radio_button("profile_tier3", "is_partner_known", true, :disabled => @is_disable)
+    Yes
+    %br
+    = radio_button("profile_tier3", "is_partner_known", false, :disabled => @is_disable)
+    No
+
+  .field
+    = label_tag "Do you know your partner's HIV status?"
+    = radio_button("profile_tier3", "is_known_partner_hiv", true, :disabled => @is_disable)
+    Yes
+    %br
+    = radio_button("profile_tier3", "is_known_partner_hiv", false, :disabled => @is_disable)
+    No
+
+  - unless @is_disable
+    .buttons
+      = submit_tag("submit", :class => "save")
