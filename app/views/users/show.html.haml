@@ -74,6 +74,8 @@
         = image_tag "badges/idisk_badge.png"
       -unless @user.profile_tier6.nil?
         = image_tag "badges/system_badge.png"
+      -unless @user.profile_tier7.nil?
+        = image_tag "badges/badge.png"
       %ul.clearfix
         - @badges.each do |badge|
           %li

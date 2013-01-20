@@ -87,6 +87,7 @@ class User
   references_one :profile_tier4
   references_one :profile_tier5
   references_one :profile_tier6
+  references_one :profile_tier7
   references_one :external_friends_list, :dependent => :destroy, :validate => false
 
   references_one :read_list, :dependent => :destroy, :validate => false
