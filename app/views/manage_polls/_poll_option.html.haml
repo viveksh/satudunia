@@ -1,3 +1,9 @@
-.field{:id => "poll_option_OPTION_ID"}
-  = text_field_tag "poll[poll_options][][option_desc]", "",:class => "text_area"
-  = link_to "x", "#", :onclick => "removeOption('OPTION_ID'); return false;"
+.form-row.row-fluid{:id => "poll_option_POLL_ID_OPTION_ID"}
+  .span12
+    .row-fluid
+      .span4
+        new option
+      .span7
+        = text_field_tag "poll[poll_options][][option_desc]", "",:class => "text_area"
+      .span1
+        = link_to "x", "#", :onclick => "removeOption('POLL_ID','OPTION_ID'); return false;"

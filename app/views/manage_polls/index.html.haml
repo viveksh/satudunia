@@ -1,78 +1,125 @@
+.row-fluid
+  .span12
+    .box
+      .title
+        %h4
+          %span{:class => "icon16 icomoon-icon-bars"}
+          %span
+            Polls
+        %form{:class => "box-form right", :action => "", :style => "margin-top:-27px !important"}
+          <a class="btn dropdown-toggle" data-toggle="dropdown" href="#" style="padding: 4px 10px !important; border-width: 1px !important; border-style: solid !important">
+          <span class="icon16 iconic-icon-cog"></span>
+          <span class="caret"></span>
+          </a>
+          %ul{:class => "dropdown-menu"}
+            %li
+              = link_to "<span class='icon16 brocco-icon-plus'></span>New Poll".html_safe, "#", :id => "openModalDialog"
+        = link_to "Minimize", "#", :class => "minimize"
+
+        .dialog{:id => "modal", :title => "New Poll"}
+          = form_for @poll, :url => manage_polls_path, :html => {:class => "form", :method => :post} do |form|
+            .form-row.row-fluid
+              .span12
+                .row-fluid
+                  .span4
+                    = label_tag "Poll Title *"
+                  .span8
+                    = form.text_field :poll_title
+            .form-row.row-fluid
+              .span12
+                .row-fluid
+                  .span4
+                    new option
+                  .span8
+                    = text_field_tag "poll[poll_options][][option_desc]", ""
+            .options_content{:id => "poll_newPoll"}
+            .form-row.row-fluid
+              .span12
+                .row-fluid
+                  .span12
+                    = link_to "add options", "#", :onclick => "addOptions('newPoll'); return false;"
+            .form-row.row-fluid
+              .span12
+                .row-fluid   
+                  .span4
+                    &nbsp;   
+                  = submit_tag("create", :class => "btn nostyle span2", :style => "padding: 4px 10px !important; border-width: 1px !important; border-style: solid !important")
+      .content.noPad.clearfix
+        %table{:cellpadding=>0,:cellspacing=>0,:border=>0,:class=>"responsive dynamicTable display table table-bordered",:width=>"100%"}
+          %thead
+            %tr
+              %th
+                Poll
+              %th 
+                Voters
+              %th
+                Result
+              %th
+                Date
+              %th
+                Action
+          %tbody
+            -@polls.each do |poll|
+              = render :partial => "poll", :object => poll
+
+%script
+  $(document).ready(function(){
+  //--------------- Dialogs ------------------//
+
+  $('#openModalDialog').click(function(){
+  $('#modal').dialog('open');
+  return false;
+  });
+
+  // JQuery UI Modal Dialog           
+  $('#modal').dialog({
+  autoOpen: false,
+  modal: true,
+  dialogClass: 'dialog',
+  buttons: {
+  "Close": function() { 
+  $(this).dialog("close"); 
+  }
+  }
+  });
+
+  - @polls.each do |poll|
+    $('#openDialog#{poll.id}').click(function(){
+    $('#dialog#{poll.id}').dialog('open');
+    return false;
+    });
+
+    $('#dialog#{poll.id}').dialog({
+    autoOpen: false,
+    modal: true,
+    dialogClass: 'dialog',
+    buttons: {
+    "Close": function() { 
+    $(this).dialog("close"); 
+    }
+    }
+    });
+
+  $("div.dialog button").addClass("btn");
+  });
+
 :javascript
-  function addOption() {
+  function addOption(pollId) {
     var randomNumber = Math.floor(Math.random()*10000000);
     var optionField = "#{escape_javascript(render :partial => 'poll_option')}";
 
     optionField = optionField.replace("OPTION_ID", randomNumber);
     optionField = optionField.replace("OPTION_ID", randomNumber);
+    optionField = optionField.replace("POLL_ID", pollId);
+    optionField = optionField.replace("POLL_ID", pollId);
 
     return optionField;
   }
 
-  function addOptions(){
-    $(addOption()).insertBefore($('.options_content'));
+  function addOptions(pollId){
+    $(addOption(pollId)).insertBefore($('#poll_'+pollId));
   }
 
-  function removeOption(optionId){
-    $('#poll_option_'+optionId).remove();
+  function removeOption(pollId, optionId){
+    $('#poll_option_'+pollId+'_'+optionId).remove();
   }
-
-%h1
-  Manage Poll
-%p.description
-  CRUD Poll
-
-%ul.admin-nav
-  %li.head_tag
-    = link_to "Create New", admin_polls_path(:tab=>"new")
-  %li.question_help
-    = link_to "List", admin_polls_path
-
-
-- if params[:tab].eql?('new')
-  - method = :post
-  - url = manage_polls_path
-  - if !params[:id].nil? && !@poll.id.nil?
-    - method = :put 
-    - url = manage_poll_path(:id => @poll.id)
-  = form_for @poll, :url => url, :html => {:class => "form", :method => method} do |form|
-    = form.error_messages
-    
-    .field
-      = form.label "Poll title *"
-      = form.text_field :poll_title, :class => "text_area"
-
-    .field
-      = form.label "Poll Status"
-      #{radio_button("poll", "is_active", true)} Active
-      #{radio_button("poll", "is_active", false)} Suspend
-
-    .field
-      = form.label "Options"
-
-    - if !params[:id].nil? && !@poll.id.nil?
-      - @poll.poll_options.each_with_index do |option, i|
-        .field{:id => "poll_option_#{i}"}
-          = text_field_tag "poll[poll_options][][option_desc]", option.option_desc,:class => "text_area"
-          = link_to "x", "#", :onclick => "removeOption(#{i}); return false;"
-    - else
-      .field 
-        = text_field_tag "poll[poll_options][][option_desc]", "",:class => "text_area"
-    
-    .options_content
-      = link_to "add options", "#", :onclick => "addOptions(); return false;"
-      
-    .buttons
-      = form.submit "Save", :class => "save"
-    
-- else
-  .members
-    #members
-      - if @polls.blank?
-        %ul
-          %li{:style => "padding-bottom:0px !important"}
-            No Polls Yet
-      - @polls.each do |poll|
-        = render :partial => "poll", :object => poll
-        
-      = paginate @polls

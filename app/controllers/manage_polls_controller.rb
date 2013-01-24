@@ -7,14 +7,8 @@ class ManagePollsController < ApplicationController
   def index
     @page_title = "Polls"
     @active_page = "manage_polls"
-    if params[:tab].eql? "new"
-      @poll = Poll.new
-      if !params[:id].nil?
-        @poll = Poll.find(params[:id])
-      end
-    else
-      @polls = Poll.all.page(params[:page])
-    end
+    @poll = Poll.new
+    @polls = Poll.all
   end
 
   def create
@@ -26,7 +20,7 @@ class ManagePollsController < ApplicationController
     else
       @poll.destroy
       flash[:error] = message
-      redirect_to admin_polls_path(:tab => 'new')
+      redirect_to admin_polls_path
     end
   end
 
@@ -39,7 +33,7 @@ class ManagePollsController < ApplicationController
       redirect_to admin_polls_path 
     else
       flash[:error] = message
-      redirect_to admin_polls_path(:tab => 'new', :id => @poll.id)
+      redirect_to admin_polls_path
     end
   end
 

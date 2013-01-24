@@ -1,15 +1,45 @@
-%ul
-  %li{:style => "padding-bottom:0px !important"}
-    .user-info
-      %h2{:style => "margin-top: -4px !important;"}
-        = poll.poll_title
-        %small
-          = link_to "Edit", admin_polls_path(:tab=>"new", :id => poll.id)
-          |
-          = link_to "Delete", manage_poll_path(:id => poll.id), :method => :delete, :confirm => "Are you sure? This news will no longer exist"
-      %p.description
-        Contributors: #{poll.contributors_count}
-      %p.description
-        %small
-          by #{poll.user.try(:name)}
-          at #{poll.created_at.to_datetime.strftime("%d %b %Y - %I:%M %p")}
+%tr
+  %td
+    = poll.poll_title
+  %td
+    = poll.contributors_count
+  %td
+    = show_result(poll.contributors_count, poll.poll_options)
+  %td
+    = poll.created_at.to_datetime.strftime("%d %b %Y - %I:%M %p")
+  %td
+    .controls.center
+      = link_to "<span class='icon12 icomoon-icon-pencil'></span>".html_safe, "#", :class => "tip", :title => "Edit Poll", :id => "openDialog#{poll.id}"
+      = link_to "<span class='icon12 icomoon-icon-remove'></span>".html_safe, manage_poll_path(poll.id), :method => :delete, :confirm => "Are you sure? This poll will no longer exist"
+    .dialog{:id => "dialog#{poll.id}", :title => "Edit Poll"}
+      = form_for poll, :url => manage_poll_path(:id => poll.id), :html => {:class => "form", :method => :put} do |form|
+        .form-row.row-fluid
+          .span12
+            .row-fluid
+              .span4
+                = label_tag "Poll Title *"
+              .span8
+                = form.text_field :poll_title
+        - poll.poll_options.each_with_index do |option, i|
+          .form-row.row-fluid{:id => "poll_option_#{poll.id}_#{i}"}
+            .span12
+              .row-fluid
+                .span4
+                  option #{i + 1}
+                .span7
+                  = text_field_tag "poll[poll_options][][option_desc]", option.option_desc,:class => "text_area"
+                .span1
+                  = link_to "x", "#", :onclick => "removeOption('#{poll.id}',#{i}); return false;"
+        .options_content{:id => "poll_#{poll.id}"}
+        .form-row.row-fluid
+          .span12
+            .row-fluid
+              .span12
+                = link_to "add options", "#", :onclick => "addOptions('#{poll.id}'); return false;"
+        .form-row.row-fluid
+          .span12
+            .row-fluid
+              .span4
+                &nbsp;
+              = submit_tag t("scaffold.update"), :class => "btn nostyle span2", :style => "padding: 4px 10px !important; border-width: 1px !important; border-style: solid !important"
+
