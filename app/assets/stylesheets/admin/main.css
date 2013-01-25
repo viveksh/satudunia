@@ -1453,6 +1453,7 @@ select {width: 150px;}
 		.mainnav ul li .sub li a{font-size: 13px; border-bottom: 1px solid transparent; box-shadow:none; border-top: 1px solid transparent;}
 		.mainnav ul li .sub li a.current {
 			border-bottom: 1px solid #c4c4c4;
+      border-top: 1px solid #c4c4c4;
 			-moz-box-shadow:0 1px 0px rgba(255, 255, 255, 1);
 			-webkit-box-shadow: 0 1px 0px rgba(255, 255, 255, 1);
 			box-shadow: 0 1px 0px rgba(255, 255, 255, 1);
