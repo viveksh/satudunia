@@ -52,6 +52,11 @@
             -@service_categories.each_with_index do |category|
               = render :partial => "category", :object => category
 
+:javascript
+  $(document).ready(function(){
+    site_management_drawer_opened();
+  });
+
 %script
   $(document).ready(function(){
   //--------------- Dialogs ------------------//

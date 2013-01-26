@@ -141,8 +141,8 @@
                 <div class="mainnav">
                     <ul>
                         <li>
-                            <%= link_to "<span class='icon16 minia-icon-cog'></span>Site Management".html_safe, "#", :class => "hasUl" %>
-                            <ul class="sub">
+                            <%= link_to "<span class='icon16 minia-icon-cog'></span>Site Management".html_safe, "#", :class => "hasUl", :id => "site_management_link" %>
+                            <ul class="sub" id="site_management">
                                 <li><a id="site_config" href="<%= admin_config_path %>"><span class="icon16 brocco-icon-home"></span>Site Config</a></li>
                                 <li><a id="service_providers" href="<%= service_providers_index_path %>"><span class="icon16 brocco-icon-database"></span>Service Providers</a></li>
                                 <li><a id="manage_news" href="<%= admin_news_list_path %>"><span class="icon16 icomoon-icon-broadcast"></span>News</a></li>
@@ -151,8 +151,8 @@
                             </ul>
                         </li>
                         <li>
-                            <%= link_to "<span class='icon16 brocco-icon-list'></span>Content Management".html_safe, "#", :class => "hasUl" %>
-                            <ul class="sub">
+                            <%= link_to "<span class='icon16 brocco-icon-list'></span>Content Management".html_safe, "#", :class => "hasUl", :id => "content_management_link" %>
+                            <ul class="sub" id="content_management">
                                 <li><a id="cms_terms" href="<%= cms_terms_path %>"><span class="icon16 brocco-icon-file"></span>Terms of Service</a></li>
                                 <li><a id="cms_about" href="<%= cms_abouts_path %>"><span class="icon16 brocco-icon-file"></span>About</a></li>
                                 <li><a id="cms_eula" href="<%= cms_eula_path %>"><span class="icon16 brocco-icon-file"></span>EULA</a></li>
@@ -235,6 +235,22 @@
     
     </div><!-- End #wrapper -->
 <script type="text/javascript">
+    function site_management_drawer_opened(){
+        $('#content_management').removeClass('expand');
+        $('#content_management_link').removeClass('drop');
+
+        $('#site_management').addClass('expand');
+        $('#site_management_link').addClass('drop');
+    }
+
+    function content_management_drawer_opened(){
+        $('#content_management').addClass('expand');
+        $('#content_management_link').addClass('drop');
+
+        $('#site_management').removeClass('expand');
+        $('#site_management_link').removeClass('drop');
+    }
+
     $(document).ready(function(){
         $('.search-btn').addClass('nostyle');//tell uniform to not style this element
 
