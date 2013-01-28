@@ -1,0 +1,16 @@
+.menu ul,
+.menu > li.first,
+.menu > li.last {behavior: url(js/PIE.htc);}
+
+.cols,
+.date-style,
+#contact-form input,
+#contact-form textarea,
+.searchtext,
+.style-1 dt,
+.button,
+.slider-wrapper {behavior: url(js/PIE.htc);position:relative;}
+
+*+html .iefix {display: inline-block;width: 0;overflow: hidden;}
+*+html .banner strong {margin-top:-30px;}
+*+html .banner {top:432px;}
