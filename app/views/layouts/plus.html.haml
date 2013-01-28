@@ -1,0 +1,405 @@
+!!! 5
+%html
+  %head
+    %title Home
+    %meta{:charset => "utf-8"}
+    / SEO
+    %meta{:content => "", :name => "description"}
+    %meta{:content => "", :name => "keywords"}
+    %meta{:content => "",:name => "author"}
+    / favicon
+    %link{:href => "plus/favicon.ico", :rel => "icon"}/
+    %link{:href => "plus/favicon.ico", :rel => "shortcut icon"}/
+    / CSS
+    = stylesheet_link_tag "plus/style"
+    = stylesheet_link_tag "plus/jquery.bxslider.css"
+    / JS
+    = javascript_include_tag "plus"
+
+    /[if lt IE 8]
+      %div{:style => ' clear: both; text-align:center; position: relative;'}
+        = link_to image_tag("http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg", :border => 0, :height => 42, :width => 820, :alt => "You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."), "http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode"
+    /[if lt IE 9]
+      = stylesheet_link_tag "plus/ie"
+      = javascript_include_tag "plus/html5"
+
+  %body{:id => "page1"}
+    .bg
+      .bg2
+        / ==============================header=================================
+        %header
+          .header-bg
+            .main
+              .container_24
+                .wrapper
+                  %nav
+                    %ul{:class => "menu"}
+                      %li
+                        = link_to "Home", "/", :id => "home_nav"
+                      %li
+                        = link_to "About", about_path, :id => "about_nav"
+                      %li
+                        = link_to "Questions", questions_path, :id => "question_nav"
+                      %li 
+                        = link_to "News & Activities", news_index_path, :id => "news_nav"
+                      %li 
+                        = link_to "Services Locator", service_providers_path, :id => "service_providers_nav"
+                      %li
+                        = link_to "Community", users_path, :id => "community_nav"
+                      %li
+                        = link_to "FAQ", faq_path, :id => "faq_nav"
+                      %li
+                        = link_to "Contact", contact_path, :id => "contact_nav"
+                  .language
+                    %span
+                      Language :
+                      = select_tag "language", "<option>English</option><option>Germany</option><option>Italy</option>".html_safe
+                .grid_24.title1
+                  .logo
+                    = link_to image_tag("plus/logo.jpg"), "/"
+                  .right_l
+                    .sign_in
+                      = link_to image_tag("plus/sign_in.png"), new_user_session_path
+                    .soc_icon
+                      = link_to image_tag("plus/twitter1.png"), "http://www.twitter.com", :target => "blank"
+                      = link_to image_tag("plus/facebook1.png"), "http://www.facebook.com", :target => "blank"
+                .clear
+        /==============================slider================================
+        .slider-bg
+          .slider-wrapper
+            .slider
+              %ul{:class => "items"}
+                %li
+                  = image_tag "plus/image1.jpg"
+                %li
+                  = image_tag "plus/image2.jpg"
+                %li
+                  = image_tag "plus/image3.jpg"
+              = link_to "prev", "#", :class => "prev"
+              = link_to "next", "#", :class => "next"  
+            .clear
+        /==============================content================================
+        %section{:id => "content"}
+          .main
+            .container_24
+              .bg2_1
+                = form_tag "/",:id => "search" do
+                  = text_field_tag "search", "What is your question?"
+                  = button_tag "search"
+                  .clear
+              .grid_24
+                .alpha.grid_16
+                  = image_tag "plus/arr1.jpg", :class => "arr1"
+                  %h3{:class => "p3"}
+                    Getting Started
+                  = image_tag "plus/arr1.jpg", :class => "arr2"
+                  .wrap_center
+                    .grid_5
+                      = image_tag "plus/banner1.png"
+                      %p{:style => "font-size:18px;font-family:'Calibri';color:#0075ce;font-weigth:bold;padding-top:10px"}
+                        Knowledge Base
+                      %p{:class => "p12_1"}
+                        Lorem ipsum dolor sitmet
+                        %br
+                        consectetur hahaprtsff
+                    .grid_5
+                      = image_tag "plus/banner2.png"
+                      %p{:style => "font-size:18px;font-family:'Calibri';color:#0075ce;font-weigth:bold;padding-top:10px"}
+                        Questions
+                      %p{:class => "p12_1"}
+                        Ut enim ad minim venia, quis
+                        %br nostrud uis nostrud
+                    .grid_5
+                      = image_tag "plus/banner3.png"
+                      %p{:style => "font-size:18px;font-family:'Calibri';color:#0075ce;font-weigth:bold;padding-top:10px"}
+                        Services
+                      %p{:class => "p12_1"}
+                        Sed ut perspiciatis unde
+                        %br omnis iste natus error
+
+                  .grid_12.bg_bxslider
+                    %ul{:class => "bxslider"}
+                      %li
+                        .grid_14.body_s11
+                          %span{:class => "s11"}
+                            Sed ut perspiciatis unde omnis iste natus error
+                            %br sit voluptatem
+                          %p{:class => "p11"}
+                            Lorem ipsum dolor sit ame amet, consectetur adipisicing elit, sedo
+                            %br eiusmod tempor incididunt ut labore t, consectetur adipisicing elit,
+                            %br sed do eiusmod tempor incididunt ut labore et dolore magna aliq-
+                            %br cididuntu tempor incididunt ut labore.
+                          %p{:style => "color:#616161;font-size:11px;margin-left:10px;"}
+                            31 Dec 2012
+                          = link_to "<span style='margin-left: 10px;color:#0075ce;text-decoration: none;font-weight: bold;font-family:Arial;position:relative; top:-10px;'>Read More<img style='bottom: 1px;left: 71px;position: absolute;' src='plus/more1.jpg'></span>".html_safe, "#"
+                        .clear
+                      %li
+                        .grid_14.body_s11
+                          %span{:class => "s11"}
+                            Sed ut perspiciatis unde omnis iste natus error
+                            %br sit voluptatem
+                          %p{:class => "p11"}
+                            Lorem ipsum dolor sit ame amet, consectetur adipisicing elit, sedo
+                            %br eiusmod tempor incididunt ut labore t, consectetur adipisicing elit,
+                            %br sed do eiusmod tempor incididunt ut labore et dolore magna aliq-
+                            %br cididuntu tempor incididunt ut labore.
+                          %p{:style => "color:#616161;font-size:11px;margin-left:10px;"}
+                            31 Dec 2012
+                          = link_to "<span style='margin-left: 10px;color:#0075ce;text-decoration: none;font-weight: bold;font-family:Arial;position:relative; top:-10px;'>Read More<img style='bottom: 1px;left: 71px;position: absolute;' src='plus/more1.jpg'></span>".html_safe, "#"
+                        .clear
+                      %li
+                        .grid_14.body_s11
+                          %span{:class => "s11"}
+                            Sed ut perspiciatis unde omnis iste natus error
+                            %br sit voluptatem
+                          %p{:class => "p11"}
+                            Lorem ipsum dolor sit ame amet, consectetur adipisicing elit, sedo
+                            %br eiusmod tempor incididunt ut labore t, consectetur adipisicing elit,
+                            %br sed do eiusmod tempor incididunt ut labore et dolore magna aliq-
+                            %br cididuntu tempor incididunt ut labore.
+                          %p{:style => "color:#616161;font-size:11px;margin-left:10px;"}
+                            31 Dec 2012
+                          = link_to "<span style='margin-left: 10px;color:#0075ce;text-decoration: none;font-weight: bold;font-family:Arial;position:relative; top:-10px;'>Read More<img style='bottom: 1px;left: 71px;position: absolute;' src='plus/more1.jpg'></span>".html_safe, "#"
+                        .clear
+                  = image_tag "plus/bann.jpg", :class => "bann"
+                .grid_8.omega
+                  .bxslider1_2
+                    %ul{:class => "bxslider1 bg_s"}
+                      %li
+                        .slide12
+                          Latest Questions
+                        .slide13
+                          Sed ut perspiciatis unde omnis iste natus error sit voluptatem.
+                          %br{:style => "color:#000"}
+                            9s ago
+                          = image_tag "plus/l1.jpg", :class => "ms1"
+                        .slide13
+                          Sed ut perspiciatis unde omnis iste natus error sit voluptatem.
+                          %br{:style => "color:#919191"}
+                            9s ago
+                          = image_tag "plus/l1.jpg", :class => "ms1"
+                        .slide13
+                          Sed ut perspiciatis unde omnis iste natus error sit voluptatem.
+                          %br{:style => "color:#919191"}
+                            9s ago
+                          = image_tag "plus/l1.jpg", :class => "ms1"
+                        .slide13
+                          Sed ut perspiciatis unde omnis iste natus error sit voluptatem.
+                          %br{:style => "color:#919191"}
+                            9s ago
+                          = image_tag "plus/l1.jpg", :class => "ms1"
+                        .slide13
+                          Sed ut perspiciatis unde omnis iste natus error sit voluptatem.
+                          %br{:style => "color:#919191"}
+                            9s ago
+                          = image_tag "plus/l1.jpg", :class => "ms1"
+                      %li
+                        .slide12
+                          Latest Questions
+                        .slide13
+                          Sed ut perspiciatis unde omnis iste natus error sit voluptatem.
+                          %br{:style => "color:#000"}
+                            9s ago
+                          = image_tag "plus/l1.jpg", :class => "ms1"
+                        .slide13
+                          Sed ut perspiciatis unde omnis iste natus error sit voluptatem.
+                          %br{:style => "color:#919191"}
+                            9s ago
+                          = image_tag "plus/l1.jpg", :class => "ms1"
+                        .slide13
+                          Sed ut perspiciatis unde omnis iste natus error sit voluptatem.
+                          %br{:style => "color:#919191"}
+                            9s ago
+                          = image_tag "plus/l1.jpg", :class => "ms1"
+                        .slide13
+                          Sed ut perspiciatis unde omnis iste natus error sit voluptatem.
+                          %br{:style => "color:#919191"}
+                            9s ago
+                          = image_tag "plus/l1.jpg", :class => "ms1"
+                        .slide13
+                          Sed ut perspiciatis unde omnis iste natus error sit voluptatem.
+                          %br{:style => "color:#919191"}
+                            9s ago
+                          = image_tag "plus/l1.jpg", :class => "ms1"
+                      %li
+                        .slide12
+                          Latest Questions
+                        .slide13
+                          Sed ut perspiciatis unde omnis iste natus error sit voluptatem.
+                          %br{:style => "color:#000"}
+                            9s ago
+                          = image_tag "plus/l1.jpg", :class => "ms1"
+                        .slide13
+                          Sed ut perspiciatis unde omnis iste natus error sit voluptatem.
+                          %br{:style => "color:#919191"}
+                            9s ago
+                          = image_tag "plus/l1.jpg", :class => "ms1"
+                        .slide13
+                          Sed ut perspiciatis unde omnis iste natus error sit voluptatem.
+                          %br{:style => "color:#919191"}
+                            9s ago
+                          = image_tag "plus/l1.jpg", :class => "ms1"
+                        .slide13
+                          Sed ut perspiciatis unde omnis iste natus error sit voluptatem.
+                          %br{:style => "color:#919191"}
+                            9s ago
+                          = image_tag "plus/l1.jpg", :class => "ms1"
+                        .slide13
+                          Sed ut perspiciatis unde omnis iste natus error sit voluptatem.
+                          %br{:style => "color:#919191"}
+                            9s ago
+                          = image_tag "plus/l1.jpg", :class => "ms1"
+                    = link_to image_tag "plus/view.jpg", :class => "view"
+              .clear
+        /==============================aside=================================
+        %aside
+          .aside-bg
+            .main
+              .container_24
+                .wrapper
+                  .grid_6.info
+                    %ul{:class => "info"}
+                      %li
+                        = image_tag "plus/marker1.png", :class => "marker1"
+                        Dummy text o1
+                      %li
+                        = image_tag "plus/marker1.png", :class => "marker1"
+                        Dummy text o2
+                      %li
+                        = image_tag "plus/marker1.png", :class => "marker1"
+                        Dummy text o3
+                      %li
+                        = image_tag "plus/marker1.png", :class => "marker1"
+                        Dummy text o4
+                      %li
+                        = image_tag "plus/marker1.png", :class => "marker1"
+                        Dummy text o5
+                      %li
+                        = image_tag "plus/marker1.png", :class => "marker1"
+                        Dummy text o6
+                      %li
+                        = image_tag "plus/marker1.png", :class => "marker1"
+                        Dummy text o7
+                      %li
+                        = image_tag "plus/marker1.png", :class => "marker1"
+                        Dummy text o8
+                      %li
+                        = image_tag "plus/marker1.png", :class => "marker1"
+                        Dummy text o9
+                  .grid_8
+                    %h3{:class => "p4"}
+                      Follow Us
+                    %ul
+                      %li
+                        = link_to image_tag("plus/twitter.png", :class => "marker1"), "http://www.twitter.com", :target => "blank"
+                        Follow us on Twitter
+                      %li
+                        = link_to image_tag("plus/facebook.png", :class => "marker1"), "http://www.facebook.com", :target => "blank"
+                        Be a fan on Facebook
+                      %li
+                        = link_to image_tag("plus/rss.png", :class => "marker1"), "#", :target => "blank"
+                        RSS Feed
+                    %h3{:class => "p4"}
+                      Monthly Newsletter
+                    = form_tag "/", :id => "contact-form" do
+                      .success
+                        Contact form submitted!
+                        %br 
+                        %strong We will be in touch soon.
+                      %fieldset
+                        .wrapper
+                          %label{:class => "name"}
+                            = text_field_tag "first_name", "First name:"
+                          %label{:class => "last"}
+                            = text_field_tag "last_name", "Last name:"
+                        %label{:class => "email"}
+                          = text_field_tag "email", "E-Mail:"
+                        .button-wrapper
+                          = link_to "<img src='plus/arr.png' class='arr'><span stye='margin-left:5px'>Submit</span>".html_safe, "#", :class => "button" 
+                  .grid_5
+                    .info1
+                      %h3{:class => "p4"}
+                        Help and Support
+                      %p{:class => "p1_1"}
+                        Knowledgebase
+                        %br Contact Support
+                        About PLUS 
+                      %p{:class => "p2"}
+                        %span{:style => "font-size:16px;font-weigth:bold;font-family:Calibri;color:#fff"}  
+                          Members
+                        %br 2,200,222
+                      %p{:class => "p2"}
+                        %span{:style => "font-size:16px;font-weigth:bold;font-family:Calibri;color:#fff"}  
+                          Total Help
+                        %br 2,200,222
+                  .grid_5
+                    %h3{:class => "p4"}
+                      Dummy Text
+                    %p{:class => "p1_1"}
+                      Lorem ipsum dolor sit
+                      %br
+                      amet, consectetur
+                      %br
+                      adipisicing elit, sed do
+                      %br
+                      eiusmod tempor incididunt
+                      %br
+                      ut labore et dolore magna
+                      %br
+                      aliqua. Ut enim ad minim
+                      %br
+                      veniam, quis nostrud
+                      %br
+                      exercitation ullamco
+                      %br
+                      laboris nisi ut aliquip ex ea
+                      %br
+                      commodo consequat.
+                      %br
+                      Duis aute irure dolor in
+                      %br
+                      reprehenderit
+        /==============================footer=================================
+        %footer
+          .main
+            .container_24
+              .grid_24
+                .wrapper.footer_menu
+                  %nav
+                    %ul{:class => "menu"}
+                      %li
+                        = link_to "Home", "/", :id => "home_nav"
+                      %li
+                        = link_to "About", about_path, :id => "about_nav"
+                      %li
+                        = link_to "Questions", questions_path, :id => "question_nav"
+                      %li 
+                        = link_to "News & Activities", news_index_path, :id => "news_nav"
+                      %li 
+                        = link_to "Services Locator", service_providers_path, :id => "service_providers_nav"
+                      %li
+                        = link_to "Community", users_path, :id => "community_nav"
+                      %li
+                        = link_to "FAQ", faq_path, :id => "faq_nav"
+                      %li
+                        = link_to "Contact", contact_path, :id => "contact_nav"
+                  .footer-text
+                    Copyright 2013 All Rights Reserved&nbsp; | &nbsp;
+                    = link_to "Privacy Policy", privacy_policy_path, :class => "link"
+                  .bl
+                    = link_to image_tag("plus/footer_logo.png"), "/"
+              .clear
+
+
+
+
+:javascript
+  $('.bxslider').bxSlider({
+    nextSelector: '#slider-next',
+    prevSelector: '#slider-prev',
+  });
+
+  $('.bxslider1').bxSlider({
+    nextSelector: '#slider-next',
+    prevSelector: '#slider-prev',
+  });
