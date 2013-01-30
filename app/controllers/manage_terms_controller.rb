@@ -19,7 +19,7 @@ class ManageTermsController < ApplicationController
   def public_terms
     @tos = StaticPage.where(:static_key => 'tos').first
 
-    render :layout => "doc"
+    render :layout => "plus"
   end
 
   def edit

@@ -1,7 +1,24 @@
-.userDescription
-  .basicInfo{:style => "margin-left: 10px !important"}
-    %h2
-      Terms of Service
+- content_for :title do
+  Terms of Service
 
-#service_information{:style => "margin: 10px"}
-  = @tos.static_content.html_safe rescue ""
+= image_tag "plus/body_about.jpg", :class => "body_header"
+.alpha.grid_19.body_about
+  %span{:class => "p_a"}
+    Terms of Service
+  %span{:class => "p_a1", :style => "left: -297px"}
+    = link_to "Home", "/"
+    > Terms of Service
+  %h2
+    Terms of Service
+  %p{:class => "about"}
+    = @tos.static_content.html_safe rescue ""
+.grid_5.omega.body1_about
+  %p{:class => "about1"}
+    %strong
+      Follow Us
+  .soc_icon1
+    = link_to image_tag("plus/twitter1.png"), "http://www.twitter.com", :target => "blank"
+    = link_to image_tag("plus/facebook1.png"), "http://www.facebook.com", :target => "blank"
+
+:javascript
+  $('#about_nav').addClass('active');
