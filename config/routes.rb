@@ -340,7 +340,7 @@ Rails.application.routes.draw do
   match '/moderate' => 'moderate/questions#index'
 #   match '/search' => 'searches#index', :as => :search
   match '/about' => 'groups#show', :as => :about
-  root :to => 'questions#index'
+  root :to => 'home#index'
   #match '/:controller(/:action(/:id))'
   match '*a', :to => 'public_errors#routing'
 end
