@@ -19,7 +19,7 @@ class ManageEulasController < ApplicationController
   def public_eula
     @eula = StaticPage.where(:static_key => 'eula').first
 
-    render :layout => "doc"
+    render :layout => "plus"
   end
 
   def edit

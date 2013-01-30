@@ -1,3 +1,25 @@
+- content_for :title do
+  EULA
+
+= image_tag "plus/body_about.jpg", :class => "body_header"
+.alpha.grid_19.body_about
+  %span{:class => "p_a"}
+    EULA
+  %span{:class => "p_a1", :style => "left: -95px"}
+    = link_to "Home", "/"
+    > EULA
+  %h2
+    EULA
+  %p{:class => "about"}
+    = @eula.static_content.html_safe rescue ""
+.grid_5.omega.body1_about
+  %p{:class => "about1"}
+    %strong
+      Follow Us
+  .soc_icon1
+    = link_to image_tag("plus/twitter1.png"), "http://www.twitter.com", :target => "blank"
+    = link_to image_tag("plus/facebook1.png"), "http://www.facebook.com", :target => "blank"
+
 .userDescription
   .basicInfo{:style => "margin-left: 10px !important"}
     %h2
