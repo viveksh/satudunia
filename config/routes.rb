@@ -30,7 +30,7 @@ Rails.application.routes.draw do
   match '/send_shapado_feedback' => 'welcome#send_feedback', :as => :send_feedback
   match '/settings' => 'users#edit', :as => :settings
   match '/tos' => 'manage_terms#public_terms', :as => :tos
-  match '/privacy' => 'doc#privacy', :as => :privacy
+  match '/privacy' => 'manage_privacy#public_privacy', :as => :privacy
   match '/widgets/embedded/:id' => 'widgets#embedded', :as => :embedded_widget
   match '/suggestions' => 'users#suggestions', :as => :suggestions
   match '/activities' => 'activities#index', :as => :activities
