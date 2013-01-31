@@ -19,11 +19,3 @@
   .soc_icon1
     = link_to image_tag("plus/twitter1.png"), "http://www.twitter.com", :target => "blank"
     = link_to image_tag("plus/facebook1.png"), "http://www.facebook.com", :target => "blank"
-
-.userDescription
-  .basicInfo{:style => "margin-left: 10px !important"}
-    %h2
-      EULA
-
-#service_information{:style => "margin: 10px"}
-  = @eula.static_content.html_safe rescue ""
