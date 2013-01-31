@@ -2,6 +2,13 @@ class ContactController < ApplicationController
   layout "plus"
 
   def index
+    @contact = StaticPage.where(:static_key => 'contact').first
+
+    if @contact.blank?
+      @contact = StaticPage.new(:latitude => "1.28668", :longitude => "103.853607", :street_address => "3 Fullerton Rd, Singapore")
+      @contact.static_key = "contact"
+      @contact.save
+    end
   end
   
   def send_contact_us

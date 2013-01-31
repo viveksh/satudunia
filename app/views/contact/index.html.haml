@@ -1,7 +1,9 @@
 %script{:src => "http://maps.googleapis.com/maps/api/js?key=AIzaSyBmJE9KrYdmPiW16lAHDJOiCvS1Fwen7BU&sensor=true"}
 :javascript
   var map;
-  var contact_address = new google.maps.LatLng(1.28668,103.853607);
+  var lat = #{@contact.latitude};
+  var long = #{@contact.longitude};
+  var contact_address = new google.maps.LatLng(lat,long);
   
   function initialize() {
     var mapOptions = {
@@ -27,7 +29,7 @@
   function createInfoWindowContent() {
     return [
       'Webmaster',
-      '3 Fullerton Rd, Singapore',
+      '#{@contact.street_address}',
       'webmaster@email.com',
       '+65 1234 5678'
     ].join('<br>');

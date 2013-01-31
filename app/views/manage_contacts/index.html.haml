@@ -1,0 +1,111 @@
+.row-fluid
+  .span12
+    .box
+      .title
+        %h4
+          %span{:class => "icon16 brocco-icon-phone"}
+          %span
+            Contact Us
+        %form{:class => "box-form right", :action => "", :style => "margin-top:-27px !important"}
+          <a class="btn dropdown-toggle" data-toggle="dropdown" href="#" style="padding: 4px 10px !important; border-width: 1px !important; border-style: solid !important">
+          <span class="icon16 iconic-icon-cog"></span>
+          <span class="caret"></span>
+          </a>
+          %ul{:class => "dropdown-menu"}
+            %li
+              = link_to "<span class='icon16 brocco-icon-pencil'></span>Update Map".html_safe, "#", :id => "openModalDialog"
+        = link_to "Minimize", "#", :class => "minimize"
+
+        .dialog{:id => "modal", :title => "Update Map"}
+          = form_tag manage_contact_path(:id => @contact.id), :method => :put do
+            .form-row.row-fluid
+              .span12
+                .row-fluid
+                  = label_tag :latitude, "Latitude *", :class => "form-label span4"
+                  = text_field_tag "latitude", @contact.latitude, :class => "span8"
+            .form-row.row-fluid
+              .span12
+                .row-fluid
+                  = label_tag :longitude, "Longitude *", :class => "form-label span4"
+                  = text_field_tag "longitude", @contact.longitude, :class => "span8"
+            .form-row.row-fluid
+              .span12
+                .row-fluid
+                  = label_tag :street_address, "Street Address *", :class => "form-label span4"
+                  = text_field_tag "street_address", @contact.street_address, :class => "span8"
+            .form-row.row-fluid
+              .span12
+                .row-fluid
+                  .span4
+                    &nbsp;   
+                  = submit_tag("Update", :class => "btn nostyle span2", :style => "padding: 4px 10px !important; border-width: 1px !important; border-style: solid !important")
+
+      .content
+        #map_canvas{:style => "width: 400px; height: 300px"}
+
+%script{:src => "http://maps.googleapis.com/maps/api/js?key=AIzaSyBmJE9KrYdmPiW16lAHDJOiCvS1Fwen7BU&sensor=true"}
+:javascript
+  var map;
+  var latitude = #{@contact.latitude};
+  var longitude = #{@contact.longitude};
+  var contact_address = new google.maps.LatLng(latitude,longitude);
+  
+  function initialize() {
+    var mapOptions = {
+      zoom: 15,
+      center: contact_address,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    
+    map = new google.maps.Map(document.getElementById('map_canvas'),mapOptions);
+    
+    var coordInfoWindow = new google.maps.InfoWindow();
+    coordInfoWindow.setContent(createInfoWindowContent());
+    coordInfoWindow.setPosition(contact_address);
+    coordInfoWindow.open(map);
+    
+    google.maps.event.addListener(map, 'zoom_changed', function() {
+      coordInfoWindow.setContent(createInfoWindowContent());
+      coordInfoWindow.open(map);
+    });
+    
+  }
+  
+  function createInfoWindowContent() {
+    return [
+      'Webmaster',
+      '#{@contact.street_address}',
+      'webmaster@email.com',
+      '+65 1234 5678'
+    ].join('<br>');
+  }
+  
+  google.maps.event.addDomListener(window, 'load', initialize);
+
+  $(document).ready(function(){
+    site_management_drawer_opened();
+  });
+
+%script
+  $(document).ready(function(){
+  //--------------- Dialogs ------------------//
+
+  $('#openModalDialog').click(function(){
+  $('#modal').dialog('open');
+  return false;
+  });
+
+  // JQuery UI Modal Dialog           
+  $('#modal').dialog({
+  autoOpen: false,
+  modal: true,
+  dialogClass: 'dialog',
+  buttons: {
+  "Close": function() { 
+  $(this).dialog("close"); 
+  }
+  }
+  });
+
+  $("div.dialog button").addClass("btn");
+  });

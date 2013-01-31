@@ -268,6 +268,7 @@ Rails.application.routes.draw do
     resources :manage_eulas
     resources :manage_privacy
     resources :manage_faqs
+    resources :manage_contacts
   end
 
   scope '/manage', :as => 'manage' do
@@ -295,6 +296,7 @@ Rails.application.routes.draw do
   match '/admin/news/list' => 'manage_news#index'
   match '/admin/faq' => 'manage_faqs#index'
   match '/admin/polls' => 'manage_polls#index'
+  match '/admin/contact-us' => 'manage_contacts#index', :as => :manage_contact_us
   match '/admin' => 'admin/manage#dashboard'
   match '/admin/cms/terms-of-service' => 'manage_terms#index', :as => :cms_terms
   match '/admin/cms/about-us' => 'manage_abouts#index', :as => :cms_abouts
