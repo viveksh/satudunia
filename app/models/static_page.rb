@@ -22,4 +22,8 @@ class StaticPage
   def is_contact_page?
     static_key.eql? "contact"
   end
+
+  def street_address_safe
+    HTMLEntities.new.encode street_address
+  end
 end

@@ -74,7 +74,7 @@
   function createInfoWindowContent() {
     return [
       'Webmaster',
-      '#{@contact.street_address}',
+      '#{@contact.street_address_safe}',
       'webmaster@email.com',
       '+65 1234 5678'
     ].join('<br>');

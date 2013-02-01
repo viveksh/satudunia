@@ -27,6 +27,8 @@ gem 'kaminari'
 gem 'mustache'
 gem 'poirot', :git => 'git://github.com/dcu/poirot.git'
 
+gem 'htmlentities'
+
 
 # mongodb
 gem 'bson', '1.4.0'
