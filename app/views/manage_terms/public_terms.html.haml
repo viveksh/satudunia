@@ -5,12 +5,12 @@
 .alpha.grid_19.body_about
   %span{:class => "p_a"}
     Terms of Service
-  %span{:class => "p_a1", :style => "left: -297px"}
+  %span{:class => "p_a1"}
     = link_to "Home", "/"
     > Terms of Service
   %h2
     Terms of Service
-  %p{:class => "about"}
+  %div{:class => "about"}
     = @tos.static_content.html_safe rescue ""
 .grid_5.omega.body1_about
   %p{:class => "about1"}

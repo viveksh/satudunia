@@ -5,12 +5,12 @@
 .alpha.grid_19.body_about
   %span{:class => "p_a"}
     EULA
-  %span{:class => "p_a1", :style => "left: -95px"}
+  %span{:class => "p_a1"}
     = link_to "Home", "/"
     > EULA
   %h2
     EULA
-  %p{:class => "about"}
+  %div{:class => "about"}
     = @eula.static_content.html_safe rescue ""
 .grid_5.omega.body1_about
   %p{:class => "about1"}

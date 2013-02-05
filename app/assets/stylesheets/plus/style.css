@@ -628,8 +628,8 @@ select option{margin: 5px;}
     position: relative;
     top: -66px;
 	}
-.p_a1{left: -82px;
-    position: relative;
+.p_a1{left: 20px;
+    position: absolute;
     top: -31px;
 	font-family: Arial;
 	color:#fff;
@@ -1213,7 +1213,7 @@ position: absolute;
 	padding:0 0 0px;
 	position:relative;
 	z-index:1;
-	height: 920px;
+	height: 100%;
 	margin-top: -35px;
 }
 #page3 #content, #page4 #content {
