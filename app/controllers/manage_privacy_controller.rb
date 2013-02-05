@@ -19,7 +19,7 @@ class ManagePrivacyController < ApplicationController
   def public_privacy
     @privacy = StaticPage.where(:static_key => 'privacy').first
 
-    render :layout => "doc"
+    render :layout => "plus"
   end
 
   def edit
