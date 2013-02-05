@@ -14,6 +14,7 @@
     / CSS
     = stylesheet_link_tag "plus/style"
     = stylesheet_link_tag "plus/jquery.bxslider.css"
+    = stylesheet_link_tag "plus/popup.css"
     / JS
     = javascript_include_tag "plus"
 
@@ -54,13 +55,98 @@
                   .language
                     %span
                       Language :
-                      = select_tag "language", "<option>English</option><option>Germany</option><option>Italy</option>".html_safe
+                      %span{:class => "lan"}
+                        English
+                      = link_to image_tag("plus/line_lan.jpg", :alt => ""), "javascript:void(0);", :id => "trigg3"
+                    #obj2
+                      #cancel2
+                      %ul{:class => "language1"}
+                        %li
+                          = link_to "简体中文", "#"
+                        %li
+                          = link_to "Hindi", "#"
+                        %li
+                          = link_to "Indonesian", "#"
+                        %li
+                          = link_to "Malay", "#"
+                        %li
+                          = link_to "Tagalog", "#"
+                        %li
+                          = link_to "Thai", "#"
+                        %li
+                          = link_to "Vietnamese", "#"
                 .grid_24.title1
                   .logo
                     = link_to image_tag("plus/logo.jpg"), "/"
                   .right_l
-                    .sign_in
-                      = link_to image_tag("plus/sign_in.png"), new_user_session_path
+                    .wrapper1
+                      = link_to image_tag("plus/sign_in.png", :class => "sign_in"), "javascript:void(0);", :id => "trigg", :class => "sign_in"
+                      #obj
+                        #cancel
+                        .sample
+                          .grid_18_1
+                            .grid_9_1
+                              = form_for :user, :url => session_path(:user), :html => {:id => "login_form"} do |f|
+                                %spam{:class => "email"}
+                                  %label{:class => "name"}
+                                    Email
+                                  = f.text_field :email
+                                %span{:class => "password"}
+                                  %label{:class => "name"}
+                                    Password
+                                  = f.password_field :password
+                                  - if params[:pp] && params[:format] != 'mobile'
+                                    = hidden_field_tag :pp, 1
+                                .signs
+                                  = link_to "Sign in", "#", :id => "login_button"
+                                %span{:class => "fyp"}
+                                  = link_to t('devise.passwords.link'), new_password_path(:user)
+                                = f.check_box :remember_me
+                                %span{:class => "chek"}
+                                  Remember me
+                                .sgn
+                                  Sign up with
+                                  = link_to "email address", "javascript:void(0);", :id => "trigg1"
+                            .grid_9_1
+                              Login with
+                              - current_group.auth_providers.each do |provider|
+                                - next if params[:controller] == 'invitations' && ['Twitter','Facebook'].include?(provider)
+                                - dprovider = provider.downcase
+                                - if provider == 'Facebook' && current_group.has_facebook_login?
+                                  = link_to image_tag("plus/fs1.jpg"), '/users/auth/facebook', :class => 'auth-provider Facebook', :id => 'facebook'
+                                - elsif provider == 'Google'
+                                  = link_to image_tag("plus/gl.jpg"), multiauth_url(provider), :class => "auth-provider #{provider}", :id => dprovider
+                                - elsif provider == 'Twitter'
+                                  = link_to image_tag("plus/tw1.jpg"), multiauth_url(provider), :class => "auth-provider #{provider}", :id => dprovider
+                      #obj1
+                        #cancel1
+                          %ul
+                            = form_for :user, :url => users_path, :html => {:id => "signup_form"} do |f|
+                              %li{:class => "name1"}
+                                %label{:class => "name"}
+                                  Login
+                                = f.text_field :login
+                              %li{:class => "r_name"}
+                                %label{:class => "name"}
+                                  Name
+                                = f.text_field :name
+                              %li{:class => "email"}
+                                %label{:class => "name"}
+                                  Email
+                                = f.text_field :email
+                              %li{:class => "password"}
+                                %label{:class => "name"}
+                                  Password
+                                = f.text_field :password
+                              %li{:class => "r_password"}
+                                %label{:class => "name"}
+                                  Retype Password
+                                = f.text_field :password_confirmation
+                          .signs1
+                            = link_to "Sign up", "#", :id => "signup_button"
+                          .signs2
+                            = link_to "Back", "javascript:void(0);", :id => "trigg2"
+
                     .soc_icon
                       = link_to image_tag("plus/twitter1.png"), "http://www.twitter.com", :target => "blank"
                       = link_to image_tag("plus/facebook1.png"), "http://www.facebook.com", :target => "blank"
@@ -234,4 +320,41 @@
   $('.bxslider1').bxSlider({
     nextSelector: '#slider-next',
     prevSelector: '#slider-prev',
+  });
+
+  $(window).load(function(){
+    // submit login form
+    $('#login_button').click( function (){
+      $('#login_form').submit();
+    });
+
+    // submit signup form
+    $('#signup_button').click( function (){
+      $('#signup_form').submit();
+    });
+
+    $('#trigg').click( function () {
+      $('#obj1').css('display', 'none');
+      $('#obj').css('display', 'block');
+    });
+    $('#trigg1').click( function () {
+      $('#obj').css('display', 'none');
+      $('#obj1').css('display', 'block');
+      
+    });
+    $('#trigg3').click( function () {
+      $('#obj2').css('display', 'block');
+      
+      
+    });
+    $('#cancel').click(function(){
+      $('#obj').css('display', 'none');
+    });
+    $('#cancel2').click(function(){
+      $('#obj2').css('display', 'none');
+    });
+    $('#trigg2').click(function(){
+      $('#obj1').css('display', 'none');
+      $('#obj').css('display', 'block');
+    });
   });

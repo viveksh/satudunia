@@ -85,11 +85,13 @@
 }
 
 .container_24 .grid_5 {
-	width:190px;
+	width:185px;
+	background: none repeat scroll 0 0 transparent;
 }
 
 .container_24 .grid_6 {
 	width:230px;
+	background: none repeat scroll 0 0 transparent;
 }
 
 .container_24 .grid_7 {
