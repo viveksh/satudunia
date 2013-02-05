@@ -13,6 +13,20 @@
   %div{:class => "about"}
     = @privacy.static_content.html_safe rescue ""
 .grid_5.omega.body1_about
+  %p{:class => "about"}
+    %strong
+      About Plus
+  %ul{:class => "sp_bg"}
+    %li
+      = link_to "Knowledgebase", "#"
+    %li
+      = link_to "Service locator", "/service_providers"
+    %li
+      = link_to "Terms of service", "/terms_of_service"
+    %li
+      = link_to "Privacy policy", "/privacy_policy"
+    %li
+      = link_to "EULA", "/eula"
   %p{:class => "about1"}
     %strong
       Follow Us
