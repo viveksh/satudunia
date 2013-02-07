@@ -1,33 +1,44 @@
-.list-users
-  .top
-    %h1
-      = t('activerecord.models.users')
-      (#{current_group.members.count})
-    .filter
-      = form_tag "/users", :class => "form", :id => "filter_users", :method => "get" do
-        .field
-          = text_field_tag "q", params[:q], :class => "text_field filter_field", placeholder: t(".filter")
-          = submit_tag(t('layouts.application.search'), :class => "filter_input")
+- content_for :title do
+  Community
 
-  .filters.clearfix
-    %ul.menubar.clearfix
+= image_tag "plus/body_com.jpg", :class => "body_header"
+.alpha.grid24.body_about
+  %span{:class => "p_a"}
+    Community
+  %span{:class => "p_a1", :style => "position: relative !important; left: -169px;"}
+    = link_to "Home", "/"
+    > Community
+  %ul{:class => "Fright1"}
+    %li
+      = link_to "Week", "#", :class => "selected1"
+    %li
+      = link_to "Month", "#"
+    %li
+      = link_to "Quarter", "#"
+    %li
+      = link_to "Year", "#"
+    %li
+      = link_to "All", "#"
+  .tabs
+    %ul{:class => "tabNavigation"}
       %li
-        %label
-          = t('global.sort_by')
-      %li.reputation
-        = link_to t(".reputation"), users_path(:sort=>"reputation"), :title => t(".reputation_tooltip")
-      %li.newest
-        = link_to t(".newest"), users_path(:sort=>"newest"), :title => t(".newest_tooltip")
-      %li.oldest
-        = link_to t(".oldest"), users_path(:sort=>"oldest"), :title => t(".oldest_tooltip")
-      %li.name
-        = link_to t(".name"), users_path(:sort=>"name"), :title => t(".name_tooltip")
-      %li.name
-        = link_to t(".near"), users_path(:sort=>"near"), :title => t(".near_tooltip")
-
-  /Users
-  %ul.items#users
-    -@memberships.each do |membership|
-      = render :partial => "membership", :object => membership
-
-  = paginate @memberships
+        = link_to "Reputation", "#first", :class => "selected"
+      %li
+        = link_to "New Users", "#second"
+      %li
+        = link_to "Oldest", "#third"
+      %li
+        = link_to "Name", "#foure"
+      %li
+        = link_to "Nearby", "#five"
+    .clear
+    = form_tag "/users", :id => "search1", :method => "get" do
+      = text_field_tag "q", params[:q]
+      = link_to image_tag("plus/serch12.png", :class => "img12_1"), "#", :id => "search_user_link"
+      .clear
+    .first{:style => "display:block"}
+      %ul{:class => "slider22", :style => "position:relative;"}
+        %li{:class => "pager", :style => "width: 960px; height: 800px; list-style: none; outside: none;color:#000;"}
+          %ul
+            -@memberships.each do |membership|
+              = render "users/plus_membership", :membership => membership

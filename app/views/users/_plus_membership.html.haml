@@ -1,0 +1,50 @@
+- user = membership.user
+%li{:class => "grid_6", :style => "margin: 0 0 15px 20px; width: 212px !important"}
+  .wrapper
+    .com_bg
+      = avatar_img(user, :size => "medium")
+      = image_tag "plus/star.png", :class => "star"
+      %span{:class => "reit"}
+        100
+      %span{:class => "com_right"}
+        = h(user.display_name)
+      %span{:class => "com_right1"}
+        = t(:created_at, :scope => "activerecord.attributes.user")
+        = t("time.ago", :time => time_ago_in_words(membership.joined_at || membership.created_at))
+    .com_bg2
+      %span{:class => "com_right2"}
+        HIV Condition: Stable
+    .bg_people
+      .data
+        = image_tag "plus/us1.png"
+        %span
+          Lives in Singapore
+        %br
+        = image_tag "plus/us2.png", :class => "us2"
+        %span
+          Age: 25
+      .CLeft
+        %span
+          -count = user.questions.where(:group_id => current_group.id).count
+          =format_number(count)
+          %br
+        %span{:class => "fs1"}
+          Questions
+      .CRight
+        %span
+          -count = user.answers.where(:group_id => current_group.id).count
+          =format_number(count)
+          %br
+        %span{:class => "fs1"}
+          Answer
+        = image_tag "plus/line_f.jpg", :class => "line_f"
+      = link_to "<div class='follow'><span class='c_f'>Follow</span></div>".html_safe
+
+
+
+
+
+
+
+
+  
