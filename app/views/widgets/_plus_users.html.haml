@@ -1,0 +1,9 @@
+- User.recent_users.each do |user|
+  %li
+    = avatar_img(user, :size => "small")
+    %span{:style => "color:#0075ce;font-size:15px;padding-left: 10px;"}
+      = h(user.display_name)
+    %span{:style => "color: #000000;left: 48px;position: relative;"}
+      %br
+      = t(:created_at, :scope => "activerecord.attributes.user")
+      = t("time.ago", :time => time_ago_in_words(user.created_at))

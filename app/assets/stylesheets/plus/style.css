@@ -383,6 +383,7 @@ ul li{color: #b3b3b3;
     left: 15px;
     position: relative;
 	float: left;
+    width: 100%;
 	line-height: 20px;}
 p {margin-bottom:18px;}
 .p12_1 {color: #000000;

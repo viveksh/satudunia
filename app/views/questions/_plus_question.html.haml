@@ -1,0 +1,32 @@
+-last_target_id, last_target_date, owner = question.find_last_target
+%li
+  .q_ff
+    %span{:class => "q_f"}
+      = question.flags_count
+    %span{:class => "q_f_1"}
+      votes
+    %span{:class => "q_fs1"}
+      = question.answers_count
+    %span{:class => "q_fs_1"}
+      answers
+  .grid_14.Fright
+    %span{:class => "s1"}
+      = truncate(strip_tags(question.body), :length => 200)
+    %ul{:class => "tags2"}
+      - question.tags.each do |tag|
+        %li
+          = link_to h(tag), tag_path(:id => CGI.escape(tag)), :class => "tags2_1"
+    %ul{:class => "tags3"}
+      %li
+        = link_to "<span>Flag</span>".html_safe, new_question_flag_path(question), :class => "q_tag1"
+        = link_to "<span>Follow</span>".html_safe, follow_question_path(question), :class => "q_tag2"
+        = link_to "<span>Answer</span>".html_safe, question_path(question, :anchor => "to_answer"), :class => "q_tag3"
+    %span{:id => "ps2"}
+      = question.views_count
+      views
+    .ago
+      %span{:style => "color:#006893"}
+        = owner.name
+      %span
+        = time_ago_in_words(last_target_date)
+  .clear

@@ -895,6 +895,10 @@ Time.zone.now ? 1 : 0)
     rl.override(:"questions.#{question.id}" => Time.now)
   end
 
+  def self.recent_users(limit = 5)
+    User.order_by(%W[created_at desc]).limit(limit)
+  end
+
   protected
   def update_languages
     languages = self.preferred_languages.map { |e| e.split("-").first }

@@ -23,6 +23,8 @@ class QuestionsController < ApplicationController
           :show => [[:votes, [:votes_average, Mongo::DESCENDING]], [:oldest, [:created_at, Mongo::ASCENDING]], [:newest, [:created_at, Mongo::DESCENDING]]]
   helper :votes
 
+  layout "plus", :only => "index"
+
   # GET /questions
   # GET /questions.xml
 
@@ -34,6 +36,8 @@ class QuestionsController < ApplicationController
   # - all the questions tagged with one of the tag I follow_up
 
   def index
+    @body_id = "page3"
+    @tags = current_group.tags
     if current_group.current_theme.has_questions_index_html? && current_group.current_theme.questions_index_html.size > 0
       @template_format = 'mustache'
       request.format = :mustache

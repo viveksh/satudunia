@@ -1,6 +1,80 @@
-- questions_link = questions_link_for(params[:action])
-- content_for :nav_filters do
-  = render "questions/nav_filters", :questions_link => questions_link
+-# questions_link = questions_link_for(params[:action])
+-# content_for :nav_filters do
+  =# render "questions/nav_filters", :questions_link => questions_link
 
-%section.questions-index
-  = render 'shared/posts'
+/%section.questions-index
+=# render 'shared/posts'
+
+- content_for :title do
+  Questions
+
+= image_tag "plus/body_about1.jpg", :class => "body_header"
+.alpha.grid_18.body_about
+  %span{:class => "p_a"}
+    Questions
+  %span{:class => "p_a1"}
+    = link_to "Home", "/"
+    > Questions
+  .sort
+    %strong Sort by:
+    %select
+      %option Active
+      %option Newest
+      %option Hot
+      %option Followers
+    %span{:style => "color:#000"}
+      %strong Filter:
+      %select
+        %option All
+        %option Unanswered
+    %span{:style => "color:#000"}
+      %strong View mode:
+      %select
+        %option Questions
+        %option Answers
+    .clear
+  .bx-wrapper
+    %ul{:id => "slider21", :style => "position: relative;"}
+      %li{:class => "pager ps1"}
+        %ul
+          - @questions.each do |question|
+            = render "questions/plus_question", :question => question
+  = paginate @questions
+.grid_6.omega.body1_about
+  .tagsl1
+    %span{:class => "t_l1"} 67
+    %br
+    %span{:class => "t_l2"} Reputation
+    %span{:class => "t_l1_1"} 30
+    %br
+    %span{:class => "t_l2_1"} Following
+    %span{:class => "t_l1_2"} 90
+    %br
+    %span{:class => "t_l2_2"} View
+    %span{:class => "t_l1_3"} 36
+    %br
+    %span{:class => "t_l2_3"} Followers
+  %p{:style => "color: #000000;font-family: Calibri;font-size: 24px;margin-bottom: 0;padding: 10px 30px;"}
+    %strong
+      Recent Tags
+  %ul{:class => "tags", :style => "padding-left: 25px"}
+    - @tags.each do |tag|
+      %li{:style => "float:left; padding-left:0px !important;"}
+        %span{:class => "tags1_1"}
+          = link_to h(tag.name).html_safe, tag_path(:id => CGI.escape(tag.name))
+    .clear
+  %p{:class => "about1"}
+    %strong
+      Latest Users
+  %ul{:class => "users"}
+    = render :partial => "widgets/plus_users"
+  = link_to "<span style='color:#0075ce;padding-left: 30px;text-decoration: none;font-weight: bold;font-family:Arial'>More>></span>".html_safe, users_path
+  
+
+:javascript
+  $('#slider211').bxSlider({
+    mode: 'vertical',
+    auto: false,
+    pager: true,
+    speed: 900
+  });

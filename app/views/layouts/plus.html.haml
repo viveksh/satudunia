@@ -155,16 +155,19 @@
         = yield :slider_content
         /==============================content================================
         %section{:id => "content"}
-          .main
-            .container_24
-              .bg2_1
-                = form_tag "/",:id => "search" do
-                  = text_field_tag "search", "What is your question?"
-                  = button_tag "search"
+          .leftSide
+            .rightSide
+            .centerBg
+              .main
+                .container_24
+                  .bg2_1
+                    = form_tag "/",:id => "search" do
+                      = text_field_tag "search", "What is your question?"
+                      = button_tag "search"
+                      .clear
+                  .grid_24
+                    = yield
                   .clear
-              .grid_24
-                = yield
-              .clear
         /==============================aside=================================
         %aside
           .aside-bg
