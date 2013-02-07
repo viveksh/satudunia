@@ -15,7 +15,7 @@
     %ul{:class => "tags2"}
       - question.tags.each do |tag|
         %li
-          = link_to h(tag), tag_path(:id => CGI.escape(tag)), :class => "tags2_1"
+          = link_to h(tag), tag_path(:id => CGI.escape(tag)), :class => "tags2_1", :style => "margin-right: 10px;"
     %ul{:class => "tags3"}
       %li
         = link_to "<span>Flag</span>".html_safe, new_question_flag_path(question), :class => "q_tag1"
