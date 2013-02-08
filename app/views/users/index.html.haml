@@ -38,7 +38,7 @@
       .clear
     .first{:style => "display:block"}
       %ul{:class => "slider22", :style => "position:relative;"}
-        %li{:class => "pager", :style => "width: 960px; height: 800px; list-style: none; outside: none;color:#000;"}
+        %li{:class => "pager", :style => "width: 960px; overflow: hidden; list-style: none; outside: none;color:#000;"}
           %ul
             -@memberships.each do |membership|
               = render "users/plus_membership", :membership => membership
