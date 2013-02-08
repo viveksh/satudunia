@@ -3,12 +3,12 @@
   .wrapper
     .com_bg
       = avatar_img(user, :size => "medium")
-      = image_tag "plus/star.png", :class => "star"
+      = image_tag "plus/star.png", :class => "star", :style => "display: block; float: left;"
       %span{:class => "reit"}
         100
       %span{:class => "com_right"}
         = h(user.display_name)
-      %span{:class => "com_right1"}
+      %span{:class => "com_right1", :style => "padding-top: 35px !important;"}
         = t(:created_at, :scope => "activerecord.attributes.user")
         = t("time.ago", :time => time_ago_in_words(membership.joined_at || membership.created_at))
     .com_bg2

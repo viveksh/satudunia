@@ -42,3 +42,4 @@
           %ul
             -@memberships.each do |membership|
               = render "users/plus_membership", :membership => membership
+          = paginate @memberships
