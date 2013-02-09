@@ -354,7 +354,7 @@ ul li{color: #b3b3b3;
     font-size: 13px;} 
 #slider21 > li{
 	width: 710px!important;
-	height: 906px!important;
+	height: 100%!important;
 }
 #slider22 > li{
 	width: 953px!important;
