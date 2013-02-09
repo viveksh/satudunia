@@ -337,6 +337,18 @@
     prevSelector: '#slider-prev',
   });
 
+  function changeUrlBasedOnSliderImage(){
+    if($('.pic').attr('style').match(/image1/)){
+      window.location = '/questions';
+    } else if($('.pic').attr('style').match(/image2/)){
+      window.location = '/service_providers';
+    } else if($('.pic').attr('style').match(/image3/)){
+      window.location = '/users/new';
+    };
+  }
+
+  $('.slider').click(function(){changeUrlBasedOnSliderImage()});
+
   $(window).load(function(){
     // submit login form
     $('#login_button').click( function (){
