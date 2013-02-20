@@ -87,7 +87,7 @@ gem 'xapit', :git => 'git://github.com/kuadrosx/xapit.git'
 group :assets do
   gem 'compass-rails'
   gem 'compass'
-  gem 'sass-rails', git: 'https://github.com/rails/sass-rails.git', branch: '3-2-stable'
+  gem 'sass-rails', :git => 'https://github.com/rails/sass-rails.git', :branch => '3-2-stable'
   gem 'uglifier'
 end
 gem 'yui-compressor'
