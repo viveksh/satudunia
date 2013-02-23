@@ -1,0 +1,1 @@
+Form=function(){function b(){Modernizr.inputtypes.color?$("input[type=color]").change(function(){$(this).attr("value",$(this).val())}):($("input[type=color]").jPicker({window:{expandable:!0,position:{x:"screenCenter",y:"center"}},images:{clientPath:"/images/jpicker/"}}),$("input[type=color]").hide())}var a=this;return{initialize:b}}();

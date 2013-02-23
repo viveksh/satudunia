@@ -1,0 +1,1 @@
+Searches=function(){function b(a){$(".advanced-search").click(function(){return $(".advanced-form").toggleClass("open").slideToggle("slow"),!1})}var a=this;return{initialize:b}};

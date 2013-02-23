@@ -1,0 +1,1 @@
+Pages=function(){function b(a){(a.hasClass("new")||a.hasClass("edit")||a.hasClass("create")||a.hasClass("update"))&&Editor.initialize()}var a=this;return{initialize:b}}();

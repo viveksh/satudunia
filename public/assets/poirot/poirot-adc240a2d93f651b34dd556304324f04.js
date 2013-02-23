@@ -1,0 +1,1 @@
+var poirot=function(a){var b={partials:{}};return a(document).ready(function(){a('script[type="text/mustache"]').each(function(){var c=a(this).text(),d=this.id.replace(/-([a-z])/g,function(a){return a.replace("-","").toUpperCase()}).replace("Template","");b.partials[d]=c,b[d]=function(d){return a(Mustache.to_html(c,d,b.partials))}})}),b}(jQuery);

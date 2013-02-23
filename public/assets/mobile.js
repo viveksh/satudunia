@@ -1,0 +1,1 @@
+$(document).ready(function(){$.mobile.page.prototype.options.addBackBtn=!0,$('div[data-role*="page"]').live("pageshow",function(a,b){var c=$("a").filter(function(){return this.hostname==location.hostname&&!this.href.match("mobile")});$.each(c,function(){var a=$(this),b=a.attr("href");b.match("\\?")?a.attr("href",b+"&format=mobile"):a.attr("href",b+"?format=mobile")})})});

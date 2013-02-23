@@ -1,0 +1,1 @@
+Tags=function(){function b(a){a.hasClass("index")&&Tags.initializeOnIndex(a)}function c(a){$("#filter_tags").find("input[type=submit]").hide(),$("#filter_tags").searcher({url:"/questions/tags.js",target:$("#tag_table"),behaviour:"live",timeout:500,extraParams:{format:"js"},success:function(a){$("#tags").hide()}})}var a=this;return{initialize:b,initializeOnIndex:c}}();

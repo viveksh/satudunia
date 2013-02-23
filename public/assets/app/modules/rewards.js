@@ -1,0 +1,1 @@
+Rewards=function(){function b(){$("#reward_reputation").hide();if(Ui.offline){$("#reward_reputation").hide();var a=$("#reward_slider");a.slider({value:50,min:50,max:a.data("max"),step:50,slide:function(a,b){$("#reward_value").text(b.value),$("#reward_reputation").val(b.value)}})}}var a=this;return{initialize:b}}();

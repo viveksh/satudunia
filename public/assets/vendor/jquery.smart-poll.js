@@ -1,0 +1,2 @@
+// jQuery - Smart Poll - Copyright TJ Holowaychuk <tj@vision-media.ca> (MIT Licensed)
+(function(a){a.poll=function(b,c){a.isFunction(b)&&(c=b,b=1e3),function d(){setTimeout(function(){c(d)},b),b*=1.5}()}})(jQuery);

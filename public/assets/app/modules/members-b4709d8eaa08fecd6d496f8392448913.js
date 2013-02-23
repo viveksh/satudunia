@@ -1,0 +1,1 @@
+Members=function(){function b(a){$("#filter_members").searcher({url:"/manage/members.js",target:$("#members"),behaviour:"live",timeout:500,extraParams:{format:"js"},success:function(a){$(".pagination").html(a.pagination)}}),$(".filter_input").hide()}var a=this;return{initialize:b}}();
