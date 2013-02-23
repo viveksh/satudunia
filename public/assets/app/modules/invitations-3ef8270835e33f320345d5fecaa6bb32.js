@@ -1,1 +1,0 @@
-Invitations=function(){function b(){}var a=this;return{initialize:b}}();

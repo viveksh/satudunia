@@ -1,1 +1,0 @@
-AppConfig=function(){function b(){var a=$("#appconfig");a.length>0&&$.each(a[0].attributes,function(){var a=this,b=a.name.match("^data-(.+)");b&&b[1]&&(AppConfig[b[1]]=a.value)})}var a=this;return{initialize:b}}();

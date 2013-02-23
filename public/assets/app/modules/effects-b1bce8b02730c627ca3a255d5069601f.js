@@ -1,1 +1,0 @@
-Effects=function(){function b(){}function c(a){typeof a!="undefined"&&a.fadeOut(400,function(){a.fadeIn(400)})}var a=this;return{initialize:b,fade:c}}();

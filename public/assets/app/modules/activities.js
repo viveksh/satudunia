@@ -1,1 +1,0 @@
-Activities=function(){function b(){}function c(a){Utils.log("[create] activity"),$.get("/activities/"+a.object_id,{notif:1},function(a){$("ul.notifications-list li.notification-title").after("<li>"+a+"</li>");var b=$("ul.notifications-list li:first a#notification-counter");b.text(parseInt(b.text())+1)})}var a=this;return{initialize:b,createOnIndex:c}}();

@@ -1,1 +1,0 @@
-$(document).ready(function(){var a=$(document.body);Loader.initialize(a,!0)});
