@@ -298,12 +298,12 @@ Rails.application.routes.draw do
   match '/admin/polls' => 'manage_polls#index'
   match '/admin/contact-us' => 'manage_contacts#index', :as => :manage_contact_us
   match '/admin' => 'admin/manage#dashboard'
-  match '/admin/cms/terms-of-service' => 'manage_terms#index', :as => :cms_terms
+  match '/admin/cms/terms-of-use' => 'manage_terms#index', :as => :cms_terms
   match '/admin/cms/about-us' => 'manage_abouts#index', :as => :cms_abouts
   match '/admin/cms/eula' => 'manage_eulas#index', :as => :cms_eula
   match '/admin/cms/privacy-policy' => 'manage_privacy#index', :as => :cms_privacy
 
-  match '/admin/cms/edit/terms-of-service' => 'manage_terms#edit', :as => :cms_edit_terms
+  match '/admin/cms/edit/terms-of-use' => 'manage_terms#edit', :as => :cms_edit_terms
   match '/admin/cms/edit/about-us' => 'manage_abouts#edit', :as => :cms_edit_abouts
   match '/admin/cms/edit/eula' => 'manage_eulas#edit', :as => :cms_edit_eula
   match '/admin/cms/edit/privacy-policy' => 'manage_privacy#edit', :as => :cms_edit_privacy

@@ -43,10 +43,10 @@ class ManageTermsController < ApplicationController
     else
       @tos.static_content = params[:tos_content]
       if @tos.valid? && @tos.save
-        flash[:notice] = "Terms of Services updated"
+        flash[:notice] = "Terms of Use updated"
         redirect_to cms_terms_path
       else
-        flash[:error] = @tos.errors.first[1] rescue "Terms of Services invalid"
+        flash[:error] = @tos.errors.first[1] rescue "Terms of Use invalid"
         redirect_to cms_terms_path
       end
     end
