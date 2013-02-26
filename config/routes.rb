@@ -41,7 +41,7 @@ Rails.application.routes.draw do
 
   match '/eula' => 'manage_eulas#public_eula'
   match '/privacy-policy' => 'manage_privacy#public_privacy'
-  match '/terms-of-service' => 'manage_terms#public_terms'
+  match '/terms-of-use' => 'manage_terms#public_terms'
   match '/about' => 'manage_abouts#public_about'
   match '/faq' => 'manage_faqs#public_faq'
 
