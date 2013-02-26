@@ -97,6 +97,8 @@ Rails.application.routes.draw do
   resources :news
   resources :polls
 
+  match '/services-map' => 'service_providers#index'
+
   resources :pages do
     member do
       get :js
