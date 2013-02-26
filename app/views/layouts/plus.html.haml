@@ -64,27 +64,7 @@
                         = link_to "Contact", contact_path, :id => "contact_nav"
                   .language
                     %span
-                      Language :
-                      %span{:class => "lan"}
-                        English
-                      = link_to image_tag("plus/line_lan.jpg", :alt => ""), "javascript:void(0);", :id => "trigg3"
-                    #obj2
-                      #cancel2
-                      %ul{:class => "language1"}
-                        %li
-                          = link_to "简体中文", "#"
-                        %li
-                          = link_to "Hindi", "#"
-                        %li
-                          = link_to "Indonesian", "#"
-                        %li
-                          = link_to "Malay", "#"
-                        %li
-                          = link_to "Tagalog", "#"
-                        %li
-                          = link_to "Thai", "#"
-                        %li
-                          = link_to "Vietnamese", "#"
+                      = render :partial => '/shared/translation_widget'
                 .grid_24.title1
                   .logo
                     = link_to image_tag("plus/logo.jpg"), "/"

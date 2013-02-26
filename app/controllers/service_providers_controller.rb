@@ -3,7 +3,7 @@ class ServiceProvidersController < ApplicationController
   before_filter :check_permissions, :except => [:index, :show]
 
   def index
-    set_page_title("Service Providers")
+    set_page_title("Services Map")
     conditions = {}
     conditions = {:service_category_id => params[:category_id]} if params[:category_id]
     
