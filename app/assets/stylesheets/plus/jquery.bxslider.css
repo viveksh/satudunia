@@ -30,6 +30,7 @@
     margin-top: 10px;
     padding-top: 10px;
 }
+#page3 .tabs3 .bx-wrapper {border:none;}
 #page4 .bx-wrapper {
 	position: relative;
 	margin: 0;
@@ -59,7 +60,7 @@
     margin-top: -120px;}
 .bxslider1_2 .bx-wrapper .bx-viewport {
 	background: url("bg_sl1.jpg") center center no-repeat #fff;
-	height:507px!important;
+	height:443px!important;
 }
 #page3 .bx-wrapper .bx-pager, 
 #page3 .bx-wrapper .bx-controls-auto {
@@ -123,7 +124,16 @@
 	padding-top: 20px;
 	position: relative;
 }
-
+.tabs2 .bx-wrapper .bx-pager {
+	text-align: left;
+	font-size: .85em;
+	font-family: Arial;
+	font-weight: bold;
+	color: #666;
+	padding-top: 20px;
+	position: relative;
+	display:none;
+}
 .bx-wrapper .bx-pager .bx-pager-item,
 .bx-wrapper .bx-controls-auto .bx-controls-auto-item {
 	display: inline-block;
@@ -174,6 +184,15 @@
     position: absolute;
     text-indent: 984em;
     width: 51px;}
+#page4 .tabs2 .bx-wrapper .bx-prev {background: url("controls1.jpg") no-repeat scroll 0 center transparent;
+    bottom: 10px;
+    height: 30px;
+    left: 24px;
+    overflow: hidden;
+    position: absolute;
+    text-indent: 984em;
+    width: 51px;
+	display:none;}
 #page3 .bx-wrapper .bx-next{
 	background: url("next1.jpg") no-repeat scroll 0 center transparent;
     bottom: 0;
@@ -193,6 +212,17 @@
     text-indent: 984em;
     width: 51px;
 	overflow: hidden;
+}
+#page4 .tabs2 .bx-wrapper .bx-next {
+	background: url("next1.jpg") no-repeat scroll 0 center transparent;
+    bottom: 10px;
+    height: 30px;
+    left: 242px;
+    position:absolute;
+    text-indent: 984em;
+    width: 51px;
+	overflow: hidden;
+	display:none;
 }
 .bx-wrapper .bx-prev:hover {
 	background-position: 0 0;

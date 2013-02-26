@@ -70,7 +70,23 @@
                     = link_to image_tag("plus/logo.jpg"), "/"
                   .right_l
                     .wrapper1
-                      = link_to image_tag("plus/sign_in.png", :class => "sign_in"), "javascript:void(0);", :id => "trigg", :class => "sign_in"
+                      - if current_user.nil?
+                        = link_to image_tag("plus/sign_in.png", :class => "sign_in"), "javascript:void(0);", :id => "trigg", :class => "sign_in"
+                      -else
+                        .profile_small
+                          = avatar_img(current_user, :size => "small")
+                          %span{:class => "wayne"}
+                            = current_user.name
+                          = link_to image_tag("plus/arrows21.jpg"), "javascript:void(0);", :id => "trigg4"
+                        #obj3
+                          #cancel3
+                          %ul{:class => "language1_2"}
+                            %li
+                              = link_to "Profile Settings", user_path(current_user)
+                            %li
+                              = link_to t('.connect'), social_connect_path
+                            %li
+                              = link_to t("layouts.application.logout"), destroy_user_session_path
                       #obj
                         #cancel
                         .sample
@@ -356,6 +372,9 @@
       $('#obj').css('display', 'none');
       $('#obj1').css('display', 'block');
       
+    });
+    $('#trigg4').click( function () {
+      $('#obj3').toggle();
     });
     $('#trigg3').click( function () {
       $('#obj2').css('display', 'block');

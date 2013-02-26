@@ -4,7 +4,7 @@
 ******************************************************/
 
 em{font-style: italic;}
-strong{font-weight: bold;font-size:11px;}
+
 table{border-collapse: collapse; border-spacing: 0px; width: 100%;}
 td {vertical-align: top;}
 ol li{list-style-position:inside; list-style-type:decimal;}
@@ -110,6 +110,14 @@ input[type="checkbox"]{
   margin-left: -182px;
     margin-top: 10px;
 }
+.checkbox input[type="checkbox"]{
+  margin-left: 0px;
+    margin-top: 0px;
+}
+.checkbox1 input[type="checkbox"]{
+  margin-left: 0px;
+    margin-top: 0px;
+}
 .sgn{color: #000000;
     font-size: 13px;
     margin-left: -26px;
@@ -140,7 +148,7 @@ html, body {
 	height:100%;
 	width:100%;
 }
-#obj, #obj1, #obj2{
+#obj, #obj1, #obj2, #obj3{
 	background: none repeat scroll 0 0 #FFFFFF;
     height: 247px;
     left: 546px !important;
@@ -154,7 +162,7 @@ html, body {
 #obj1{
 	background: none repeat scroll 0 0 #FFFFFF;
     height: 375px;
-    left: 710px !important;
+    left: 595px !important;
     padding: 0;
     position: absolute;
     text-align: center;
@@ -173,6 +181,18 @@ background: none repeat scroll 0 0 #FFFFFF;
     width: 131px;
     z-index: 3000;
 }
+#obj3{
+background: none repeat scroll 0 0 #FFFFFF;
+    height: 166px;
+    left: 712px !important;
+    line-height: 23px;
+    padding: 0;
+    position: absolute;
+    text-align: center;
+    top: 83px !important;
+    width: 132px;
+    z-index: 3000;
+}
 #cancel2{
 	display:block; 
 	float:right; 
@@ -184,7 +204,19 @@ background: none repeat scroll 0 0 #FFFFFF;
 	top: -7px;
 	
 }
-#trigg3{margin-left: 10px;}
+#cancel4{
+	display:block; 
+	float:right; 
+	width:132px; 
+	height:11px; 
+	background:url(q_close.png) no-repeat; 
+	cursor:pointer;
+	position:absolute;
+	top: -7px;
+	
+}
+
+#trigg4{margin-left: 10px;}
 #cancel1{
 	display:block; 
 	float:right; 
@@ -205,6 +237,17 @@ background: none repeat scroll 0 0 #FFFFFF;
 	cursor:pointer;
 	position:absolute;
 	top: -6px;
+	
+}
+#cancel3{
+	background: url("popup_header4.png") no-repeat scroll 0 0 transparent;
+    cursor: pointer;
+    display: block;
+    float: right;
+    height: 15px;
+    position: absolute;
+    top: -9px;
+    width: 133px;
 	
 }
 
