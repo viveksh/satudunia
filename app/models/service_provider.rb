@@ -4,7 +4,7 @@ class ServiceProvider
 
   slug_key :name, :unique => true
   
-  paginates_per 25
+  #paginates_per 25
   
   index :service_category_id
   

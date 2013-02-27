@@ -169,6 +169,7 @@
                     = text_field_tag "search", "What is your question?"
                     = button_tag "search"
                     .clear
+                = yield :search_form
                 .grid_24
                   = yield
                 .clear

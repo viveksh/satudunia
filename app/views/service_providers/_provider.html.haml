@@ -1,8 +1,13 @@
-%li
-  .summary
-    %h3
-      = link_to provider.name, service_provider_path(provider.slug)
-    .badges
-      = provider.description
-    .owner-data
-      = provider.url
+%li{:class => "grid_12 serv_loc4"}
+  %span{:class => "s1"}
+    = provider.name
+  %p{:class => "srv_loc2"}
+    = provider.description
+    %br
+    = "Phone: #{provider.telephone}"
+    %br
+    Email:
+    = link_to provider.email, "mailto:#{provider.email}"
+  - unless provider.address.blank?
+    = image_tag "plus/gmap_icon.png"
+    = link_to "View on map", "#"

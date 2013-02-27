@@ -1,23 +1,178 @@
-.list-users
-  .filters.clearfix
-    %ul.menubar.clearfix
-      %li
-        %label
-          Categories:
-      %li.reputation
-        = link_to "All"
-      - @categories.each do |category|
-        %li.newest
-          = link_to "#{category.category_name} (#{category.service_providers.count})", service_providers_path(:category_id => category.id)
+- content_for :title do
+  Services Map
 
-  %ul.items
-    - if @service_providers.blank?
+- content_for :search_form do
+  = form_tag "/services-map", :id => "search2", :method => "get" do
+    = text_field_tag "search", params[:search]
+    = link_to image_tag("plus/serch12.png", :class => "img12_1"), "#", :id => "search_services_link"
+
+= image_tag "plus/body_com.jpg", :class => "body_header"
+.alpha.grid24.body_about
+  %span{:class => "p_a"}
+    Services Map
+  %span{:class => "p_a1", :style => "position: relative !important; left: -169px;"}
+    = link_to "Home", "/"
+    > Services Map
+
+  #map
+    %figure{:class => "p5"}
+      #services_map{:style => "width:760px; height:450px"}
+    #map2
+      %p{:class => "i3_4"}
+        %strong
+          Healthcare
+          %br
+          Service
+          %br
+          Map
+      %ul{:class => "serv_loc7"}
+        %li
+          = link_to "All", "/services-map"
+        - @categories.each do |category|
+          %li
+            = link_to category.category_name, "/services-map?category_id=#{category.id}"
+
+  .tabs2
+    %ul{:class => "tabNavigation"}
+      %span{:class => "serv_loc1"}
+        Sort by
       %li
-        .summary
-          %h3
-            No Service Providers Yet
-    -@service_providers.each do |provider|
-      = render :partial => "provider", :object => provider
-      
-  = paginate @service_providers
+        = link_to "A - J", "#first", :class => "selected", :id => "first_tab"
+      %li
+        = link_to "K - T", "#second", :id => "second_tab"
+      %li
+        = link_to "U - Z", "#third", :id => "third_tab"
+    .clear
+    .i4_1.serv_loc6{:id => "first"}
+      %ul{:class => "i3_2", :id => "slider41", :style => "position:relative;"}
+        %li{:class => "pager"}
+          %ul
+            - unless @alphabetical_providers[0].nil?
+              - @alphabetical_providers[0].each do |provider|
+                - next if provider.blank?
+                = render "provider", :provider => provider
+
+    .i4_1.serv_loc6{:id => "second", :style => "display:none;"}
+      %ul{:class => "i3_2", :id => "slider41"}
+        %li{:class => "pager"}
+          %ul
+            - unless @alphabetical_providers[1].nil?
+              - @alphabetical_providers[1].each do |provider|
+                - next if provider.blank?
+                = render "provider", :provider => provider
+
+    .i4_1.serv_loc6{:id => "third", :style => "display:none;"}
+      %ul{:class => "i3_2", :id => "slider41"}
+        %li{:class => "pager"}
+          %ul
+            - unless @alphabetical_providers[2].nil?
+              - @alphabetical_providers[2].each do |provider|
+                - next if provider.blank?
+                = render "provider", :provider => provider
+
+%script{:src => "http://maps.googleapis.com/maps/api/js?key=AIzaSyBmJE9KrYdmPiW16lAHDJOiCvS1Fwen7BU&sensor=true"}
+
+:javascript
+  $(window).load(function(){
+    $('div.tabs2 ul.tabNavigation a').click(function () {
+      $('#first').hide();
+      $('#second').hide();
+      $('#third').hide();
+      $(this.hash).show();
+      $('div.tabs2 ul.tabNavigation a').removeClass('selected');
+      $(this).addClass('selected');
+      return false;
+    });
+  });
+
+  var map;
+  var gl;
+  
+  try {
+    if (typeof navigator.geolocation === 'undefined'){
+      gl = google.gears.factory.create('beta.geolocation');
+    } else {
+      gl = navigator.geolocation;
+    }
+  } catch(e) {}
+  
+  function initMap() {
+    if (gl) {
+      gl.getCurrentPosition(function displayMap(position){
+        map = showMap(position, 15, "services_map");
+
+        setMarker();
+
+      }, displayError);
+    } else {
+      displayError();
+    }
+  }
+  
+  google.maps.event.addDomListener(window, 'load', initMap);
+
+  // Show a map centered at (position.coords.latitude, position.coords.longitude).
+  function showMap(position, zoomValue, mapElement){
+    var map;
+    var mapOptions = {
+      center: new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
+      zoom: zoomValue,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+
+    map = new google.maps.Map(document.getElementById(mapElement), mapOptions);
+    
+    return map;
+  }
+
+  // Marked on locations along with the info window
+  function showMarker(map, latLng, titleName, infoContent){
+    var marker = new google.maps.Marker({
+      position: latLng,
+      map: map,
+      title: titleName
+    });
+    
+    var infoWindow = new google.maps.InfoWindow();
+    
+    google.maps.event.addListener(marker, 'click', (function setInfoWindow(marker){
+      return function(){
+        infoWindow.setPosition(latLng);
+        infoWindow.setContent(infoContent);
+        infoWindow.open(map, marker); 
+      }    
+    })(marker));
+    
+    return marker;
+  }
+
+  // Show location error
+  function displayError(positionError) {
+    alert("Could not determine location.");
+  }
+
+  // Return facility description for infoWindow
+  function getFacilityInformation(serviceDesc, completeAddress, locationName, phone, email){
+    var completeDescription = '<b>'+locationName+'</b><br>'+ serviceDesc;
+    
+    completeDescription += '<br><small>'+ completeAddress +'</small><br><small>Phone: '+ phone +'</small><br><small>Email: '+ email +'</small>';
+    
+    return completeDescription;
+  }
+
+%script
+  function setMarker() {
+  var geocoder = new google.maps.Geocoder();
+
+  - @service_providers.each do |provider|
+    - next if provider.address.nil? || provider.address.blank?
+    geocoder.geocode( { 'address': '#{escape_javascript provider.address}'}, function(results, status) {
+    centered = results[0].geometry.location;
+    showMarker(map, centered, '#{provider.name}', getFacilityInformation('#{escape_javascript provider.description}','#{escape_javascript provider.address}', '#{escape_javascript provider.name}', '#{escape_javascript provider.telephone}', '#{escape_javascript provider.email}'));
+    });
+  }
+
+
+
+
     

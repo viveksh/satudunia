@@ -1,13 +1,27 @@
 class ServiceProvidersController < ApplicationController
   before_filter :login_required, :except => [:index, :show]
   before_filter :check_permissions, :except => [:index, :show]
+  layout "plus"
 
   def index
     set_page_title("Services Map")
     conditions = {}
     conditions = {:service_category_id => params[:category_id]} if params[:category_id]
     
-    @service_providers = ServiceProvider.where(conditions).page(params["page"])
+    @alphabetical_providers ||= []
+    letter_counter = 0
+    @service_providers = ServiceProvider.where(conditions)
+    @group_providers = @service_providers.group_by{|provider| provider.name[0].downcase}
+    @group_providers.keys.sort.each do |starting_letter|
+      letter_counter = 0 if starting_letter.downcase <= "j"
+      letter_counter = 1 if starting_letter.downcase > "j" && starting_letter.downcase <= "t"
+      letter_counter = 2 if starting_letter.downcase > "t"
+      @group_providers[starting_letter].each do |provider|
+        @alphabetical_providers[letter_counter] ||= []
+        @alphabetical_providers[letter_counter] << provider
+      end
+    end
+
     @categories = ServiceCategory.all
   end
 
