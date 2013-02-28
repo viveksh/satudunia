@@ -76,7 +76,7 @@
                         .profile_small
                           = avatar_img(current_user, :size => "small")
                           %span{:class => "wayne"}
-                            = current_user.display_name
+                            = h(current_user.display_name)
                           = link_to image_tag("plus/arrows21.jpg"), "javascript:void(0);", :id => "trigg4"
                         #obj3
                           #cancel3
