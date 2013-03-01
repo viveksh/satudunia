@@ -119,7 +119,7 @@
                                 - next if params[:controller] == 'invitations' && ['Twitter','Facebook'].include?(provider)
                                 - dprovider = provider.downcase
                                 - if provider == 'Facebook' && current_group.has_facebook_login?
-                                  - link_to image_tag("plus/fs1.jpg"), '/first-auth/facebook', :class => 'auth-provider Facebook', :id => 'facebook'
+                                  = link_to image_tag("plus/fs1.jpg"), '/first-auth/facebook', :class => 'auth-provider Facebook', :id => 'facebook'
                                 - elsif provider == 'Google'
                                   = link_to image_tag("plus/gl.jpg"), '/first-auth/google', :class => "auth-provider #{provider}", :id => dprovider
                                 - elsif provider == 'Twitter'
