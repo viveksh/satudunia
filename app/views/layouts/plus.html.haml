@@ -119,11 +119,11 @@
                                 - next if params[:controller] == 'invitations' && ['Twitter','Facebook'].include?(provider)
                                 - dprovider = provider.downcase
                                 - if provider == 'Facebook' && current_group.has_facebook_login?
-                                  - link_to image_tag("plus/fs1.jpg"), '/users/auth/facebook', :class => 'auth-provider Facebook', :id => 'facebook'
+                                  - link_to image_tag("plus/fs1.jpg"), '/first-auth/facebook', :class => 'auth-provider Facebook', :id => 'facebook'
                                 - elsif provider == 'Google'
-                                  = link_to image_tag("plus/gl.jpg"), multiauth_url(provider), :class => "auth-provider #{provider}", :id => dprovider
+                                  = link_to image_tag("plus/gl.jpg"), '/first-auth/google', :class => "auth-provider #{provider}", :id => dprovider
                                 - elsif provider == 'Twitter'
-                                  = link_to image_tag("plus/tw1.jpg"), multiauth_url(provider), :class => "auth-provider #{provider}", :id => dprovider
+                                  = link_to image_tag("plus/tw1.jpg"), '/first-auth/twitter', :class => "auth-provider #{provider}", :id => dprovider
                       #obj1
                         #cancel1
                           %ul
@@ -354,22 +354,20 @@
 
   $('.slider').click(function(){changeUrlBasedOnSliderImage()});
 
-  function closePopup(){
-    if(window.opener!=null){
-      window.opener.location.reload(true);
-      window.close();
-    }
-  }
-
   function openPopup(authUrl) {
     var pparg;
+    var left = (screen.width/2)-(700/2);
+    var top = (screen.height/2)-(500/2);
     
     (authUrl.indexOf('?')==-1)? pparg = '?pp=1' : pparg = '&pp=1'
-    window.open(authUrl+pparg, 'openid_popup', 'width=700,height=500');
+    window.open(authUrl+pparg, 'openid_popup', 'width=700,height=500,top='+top+',left='+left);
     $('#obj').css('display', 'none');
   }
 
   $(window).load(function(){
+    // open popup when coming from auth-provider 
+    closePopup();
+
     // open popup for auth-provider 
     $('.auth-provider').live("click", function(e){
       e.preventDefault();
@@ -415,3 +413,12 @@
       $('#obj').css('display', 'block');
     });
   });
+
+%script
+  function closePopup(){
+  if(window.opener!=null){
+  - unless current_user.nil?
+    window.opener.location.reload(true);
+    window.close();
+  }
+  }

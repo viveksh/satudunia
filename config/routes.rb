@@ -44,6 +44,9 @@ Rails.application.routes.draw do
   match '/terms-of-use' => 'manage_terms#public_terms'
   match '/about' => 'manage_abouts#public_about'
   match '/faq' => 'manage_faqs#public_faq'
+  match '/first-auth/:auth_provider' => 'home#auth_popup1'
+  match '/second-auth/:auth_provider' => 'home#auth_popup2'
+  match '/third-auth/:auth_provider' => 'home#auth_popup3'
 
   get "mobile/index"
 

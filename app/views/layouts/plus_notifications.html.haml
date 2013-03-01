@@ -1,0 +1,26 @@
+!!!
+%html
+  %head
+    %title 
+      = yield :title
+    / favicon
+    %link{:href => "plus/favicon.ico", :rel => "icon"}/
+
+    / CSS
+    = stylesheet_link_tag "plus/style"
+
+  %body
+    .bg
+      .bg2
+        / ==============================header=================================
+        %header
+          .header-bg
+            .main
+              .container_24
+                .wrapper
+                  %nav
+                    %ul{:class => "menu"}
+                      %li
+                        = image_tag("plus/logo.jpg")
+        %section
+          = yield
