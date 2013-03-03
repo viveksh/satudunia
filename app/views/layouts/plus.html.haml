@@ -280,8 +280,6 @@
                         = link_to "About", about_path, :id => "about_nav"
                       %li
                         = link_to "Questions", questions_path, :id => "question_nav"
-                     # %li 
-                       # = link_to "News & Activities", news_index_path, :id => "news_nav"
                       %li 
                         = link_to "Services Map", '/services-map', :id => "service_providers_nav"
                       %li
@@ -327,11 +325,11 @@
 
   function openPopup(authUrl) {
     var pparg;
-    var left = (screen.width/2)-(700/2);
+    var left = (screen.width/2)-(975/2);
     var top = (screen.height/2)-(500/2);
     
     (authUrl.indexOf('?')==-1)? pparg = '?pp=1' : pparg = '&pp=1'
-    window.open(authUrl+pparg, 'openid_popup', 'width=700,height=500,top='+top+',left='+left);
+    window.open(authUrl+pparg, 'openid_popup', 'width=975,height=500,top='+top+',left='+left);
     $('#obj').css('display', 'none');
   }
 
