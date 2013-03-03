@@ -323,7 +323,7 @@
     var top = (screen.height/2)-(500/2);
     
     (authUrl.indexOf('?')==-1)? pparg = '?pp=1' : pparg = '&pp=1'
-    window.open(authUrl+pparg, 'openid_popup', 'width=975,height=500,top='+top+',left='+left);
+    window.open(authUrl+pparg, 'openid_popup', 'width=975,height=500,location=no,top='+top+',left='+left);
     $('#obj').css('display', 'none');
   }
 
