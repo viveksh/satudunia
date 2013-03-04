@@ -1,0 +1,23 @@
+%div{:data => {:role => "page"}}
+  %div{:data => {:role => "header"}}
+    %h1
+      PLUS
+
+    %div{:"data-role" => "navbar"}
+      %div{:"data-role" => "controlgroup", :"data-type" => "horizontal"}
+        - if current_user.blank?
+          %span{:"data-inline" => true, :style => "margin-left: 15px"}
+            Welcome to mobile site,
+          %a{:href => "/users/login", :"data-role" => "button", :"data-transition"=>"slideup"}
+            Sign In
+        - else
+          %span{:"data-inline" => true, :style => "margin-left: 15px"}
+            Welcome #{h(current_user.display_name)},
+          %a{:href => destroy_user_session_path, :"data-role" => "button", :"data-transition"=>"slideup"}
+            Sign Out
+
+  %div{:data => {:role => "content"}}
+    %br
+    
+  %div{:data => {:role => "footer"}}
+    = link_to "Click here for desktop version", switch_mobile_view_path
