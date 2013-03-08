@@ -11,7 +11,7 @@
       answers
   .grid_14.Fright
     %span{:class => "s1"}
-      = truncate(strip_tags(question.body), :length => 200)
+      = link_to truncate(strip_tags(question.body), :length => 200), "/questions/#{question.slug}"
     %ul{:class => "tags2"}
       - question.tags.each do |tag|
         %li

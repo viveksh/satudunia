@@ -23,7 +23,7 @@ class QuestionsController < ApplicationController
           :show => [[:votes, [:votes_average, Mongo::DESCENDING]], [:oldest, [:created_at, Mongo::ASCENDING]], [:newest, [:created_at, Mongo::DESCENDING]]]
   helper :votes
 
-  layout "plus", :only => "index"
+  layout "plus", :only => ["index", "show"]
 
   # GET /questions
   # GET /questions.xml
@@ -171,6 +171,8 @@ class QuestionsController < ApplicationController
   # GET /questions/1
   # GET /questions/1.xml
   def show
+    @body_id = "page3"
+    
     if current_group.current_theme.has_questions_show_html?
       @template_format = 'mustache'
       request.format = :mustache
