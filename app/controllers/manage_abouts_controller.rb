@@ -17,9 +17,10 @@ class ManageAboutsController < ApplicationController
   end
 
   def public_about
+    set_page_title("About")
     @about = StaticPage.where(:static_key => 'about').first
 
-    render :layout => "plus"
+    render :layout => "application"
   end
 
   def edit
