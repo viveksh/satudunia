@@ -18,3 +18,35 @@
 
       = render "shared/layout/footer"
 
+:javascript
+  function openPopup(authUrl) {
+    var pparg;
+    var left = (screen.width/2)-(975/2);
+    var top = (screen.height/2)-(686/2);
+    
+    (authUrl.indexOf('?')==-1)? pparg = '?pp=1' : pparg = '&pp=1'
+    window.open(authUrl+pparg, 'openid_popup', 'width=975,height=686,location=no,top='+top+',left='+left);
+    $('#obj').css('display', 'none');
+  }
+
+  $(window).load(function(){
+    // open popup when coming from auth-provider 
+    closePopup();
+
+    // open popup for auth-provider 
+    $('.auth-provider').live("click", function(e){
+      e.preventDefault();
+      var authUrl = $(this).attr('href');
+      openPopup(authUrl);
+    });
+  });
+
+%script
+  function closePopup(){
+  if(window.opener!=null){
+  - unless current_user.nil?
+    window.opener.location.reload(true);
+    window.close();
+  }
+  }
+
