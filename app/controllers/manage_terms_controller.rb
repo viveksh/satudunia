@@ -17,9 +17,10 @@ class ManageTermsController < ApplicationController
   end
 
   def public_terms
+    set_page_title("Terms of Use")
     @tos = StaticPage.where(:static_key => 'tos').first
 
-    render :layout => "plus"
+    render :layout => "doc"
   end
 
   def edit
