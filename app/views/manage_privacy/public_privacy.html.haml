@@ -1,19 +1,6 @@
-- content_for :title do
-  Privacy Policy
-
-= image_tag "plus/body_about.jpg", :class => "body_header"
-.alpha.grid_19.body_about
-  %span{:class => "p_a"}
-    Privacy Policy
-  %span{:class => "p_a1"}
-    = link_to "Home", "/"
-    > Privacy Policy
-  %h2
-    Privacy Policy
-  %div{:class => "about"}
-    = @privacy.static_content.html_safe rescue ""
-.grid_5.omega.body1_about
-  %p{:class => "about"}
-    %strong
-      About Plus
-  = render :partial => "shared/about_nav_bar"
+.userDescription
+  .basicInfo{:style => "margin-left: 10px !important"}
+    %h2
+      Privacy Policy
+#service_information{:style => "margin: 10px"}
+  = @privacy.static_content.html_safe rescue ""
