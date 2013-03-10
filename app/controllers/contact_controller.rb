@@ -1,7 +1,7 @@
 class ContactController < ApplicationController
-  layout "plus"
 
   def index
+    set_page_title("Contact Us")
     @contact = StaticPage.where(:static_key => 'contact').first
 
     if @contact.blank?

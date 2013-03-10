@@ -37,29 +37,11 @@
   
   google.maps.event.addDomListener(window, 'load', initialize);
 
-- content_for :title do
-  Contact Us
-
-= image_tag "plus/body_about.jpg", :class => "body_header"
-.alpha.grid_19.body_about
-  %span{:class => "p_a"}
+.top
+  %h1{:style => "float: none !important;"}
     Contact Us
-  %span{:class => "p_a1"}
-    = link_to "Home", "/"
-    > Contact Us
-  %h2
-    Contact Us
-  %div{:style => "padding: 10px 30px; font-size: 13px; font-family: Arial; color: #000000"}
-    #map_canvas{:style => "width: 690px; height: 300px; margin-bottom: 10px"}
-    
-.grid_5.omega.body1_about
-  %p{:class => "about"}
-    %strong
-      About Plus
-  = render :partial => "shared/about_nav_bar"
+  #map_canvas{:style => "width: 100% !important;"}
 
-:javascript
-  $('#contact_nav').addClass('active');
     
   
 
