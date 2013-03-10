@@ -36,8 +36,6 @@ class UsersController < ApplicationController
         :feed => tab_config,
         :contributed => tab_config
 
-  layout "plus", :only => "index"
-
   def index
     set_page_title(t("users.index.title"))
 
