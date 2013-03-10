@@ -1,122 +1,139 @@
-- content_for :title do
-  = @question.title
+%meta{"data-js"=> 'show'}
+= include_latex
 
 - question_body = find_and_preserve(shapado_auto_link(markdown(@question.body.present? ? @question.body : @question.title)))
 
-= image_tag "plus/body_about1.jpg", :class => "body_header"
-.alpha.grid_18.body_about
-  %span{:class => "p_a"}
-    Questions
-  %span{:class => "p_a1"}
-    = link_to "Home", "/"
-    >
-    = link_to "Questions", "/questions"
-    >
-    = @question.title
-  .q_height2
-    = link_to image_tag("plus/reiting_num1.png"), "#"
-    %p{:class => "reiting_num5"}
-      456
-    = link_to image_tag("plus/reiting_num2.png"), "#", :class => "reiting_num6"
-  .grid_14.Fright3
-    %span{:class => "s1"}
+- content_for :head do
+  %meta{name: "keywords", content: clean_seo_keywords(@question.tags.dup, @question.title)}
+  %meta{name: "description", content: question_body.gsub(/<\/?[^>]*>/, "")[0, 255] }
+  %link{rel: "canonical", href: question_url(@question) }
+
+-cache_for(:question, @question.id, @question.user == current_user ? "owner" : "" ) do
+  %section{class: "main-question #{@question.id}", id: "question-#{@question.id}", item_scope: '', itemtype: "http://schema.org/Article"}
+
+    %h1{itemprop: "name"}
       = @question.title
-    .grid_14.ms_fr
-      %span{:class => "s1_q_i"}
-        = question_body.html_safe
-    %a{:class => "q_i_tag111", :href => "#"}
-      = image_tag "plus/q_user_i.jpg"
-    
-  %ul{:class => "tags2 tags9_1"}
-    - @question.tags.each do |tag|
-      %li
-        = link_to tag, "#", :class => "tags2_1"
-  %ul{:class => "tags3 tags9_2"}
-    %li
-      = link_to "<span>Flag</span>".html_safe, "#", :class => "q_tag1"
-      = link_to "<span>Follow</span>".html_safe, "#", :class => "q_tag2"
-  .clear
-  .tabs4
-    %ul{:class => "tabNavigation"}
-      %span{:class => "serv_loc1_1"}
-        = "#{@question.answers_count} answers"
-      %li
-        = link_to "Newest", "#first", :class => "selected"
-      %li
-        = link_to "Votes", "#second"
-      %li
-        = link_to "Oldest", "#third"
-    .i4_1.serv_loc6{:id => "first"}
-      %ul{:id => "slider21", :class => "i3_2"}
-        %li{:class => "pager ps1"}
+      - if @question.closed
+        =" [#{t("closed", scope: "activerecord.attributes.question").upcase}]"
+    .author
+      %small
+        %span
+          = t('activerecord.attributes.question.asked_by')
+        = render "users/user_mini", user: @question.user, author: true
+        %time{datetime: @question.created_at.iso8601, itemprop: "datePublished"}
+          = t("time.ago", time: time_ago_in_words(@question.created_at))
+        - if @question.updated_by
+          ,
+          = t('global.edited_by')
+          = render "users/user_mini", user: @question.updated_by
+
+          %time{datetime: @question.updated_at.iso8601, itemprop: "dateModified"}
+            = link_to t("time.ago", time: time_ago_in_words(@question.updated_at)), history_question_path(@question), title: "#{t("questions.show.history")} (#{@question.versions_count})"
+
+    .description.markdown.clearfix
+      %div{itemprop: "articleBody"}
+        = question_body
+      = render "reward_info"
+      = render "attachments", question: @question, attachments: @question.attachments, editing: false
+
+
+    %ul.tag-list.clearfix
+      - @question.tags.each do |tag|
+        %li
+          = tag_link(tag)
+      - if logged_in? && (current_user.can_modify?(@question) || current_user.can_retag_others_questions_on?(current_group))
+        %li.retag
+          = link_to t('.retag'), retag_question_path(@question), class: 'retag-link'
+
+    %meta{itemprop: "keywords", content: @question.tags.join(",")}
+    %meta{itemprop: "inLanguage", content: @question.language}
+    %meta{itemprop: "interactionCount", content: "UserComments:#{@question.answers_count}"}
+    %meta{itemprop: "interactionCount", content: "UserPageVisits:#{@question.views_count}"}
+
+    = render "toolbar"
+
+    .comments
+      =link_to "#{content_tag(:span, "NN", class: "counter")} comments".html_safe, "#", class: "toggle_comments"
+      -@question.comments.each do |comment|
+        -read = (@last_read_at && @last_read_at > comment.created_at && comment.votes_average < 2)
+        = render "comments/comment", comment: comment, source: question_path(@question), mini: true, read: read
+
+    .panel-comments
+      = form_for [@question, @comment ||= Comment.new], remote: true, html: {class: "question_comment_form", data: {commentable: @question.id, editor: current_group.wysiwyg_editor ? 'wysiwyg_editor' : 'markdown_editor', "login-required" => true}} do |f|
+        %fieldset
+          = render "comments/form", f: f, commentable: @question, source: question_url(@question)
+          .buttons
+            = f.submit t("comments.shared.comment_submit"), data: {"disable-with" => "Saving..."}
+            = t("global.or")
+            = link_to t('scaffold.cancel'), '', :class => 'cancel cancel_comment'
+
+#answers-content-wrap
+  .error
+    - source = question_path(@question)
+    = error_messages_for 'answer'
+
+  - if @question.closed && @question.close_reason.present?
+    #close_reason
+      = t(".close_reason")
+      = t(@question.close_reason.reason, scope: "close_requests.form")
+      - if !@question.close_reason.comment.empty?
+
+        .comment
+          =find_and_preserve(shapado_auto_link(@question.close_reason.comment))
+  - if !@answers.empty? || @question.accepted
+    -cache_for(:question_answers, @question.id) do
+      %h2
+        = t("questions.question.has_answers", count: @question.answers_count)
+
+      .filters.clearfix
+        %ul.menubar{class: @active_subtab.to_s}
+          %li
+            %label=t('global.sort_by')
+          %li.newest-active
+            = link_to t("questions.index.newest"), question_path(@question, sort: "newest", anchor: "answers"), rel: "nofollow", class: "pjax", data: {layout: "question"}
+          %li.votes-active
+            = link_to t("questions.index.votes"), question_path(@question, sort: "votes", anchor: "answers"), rel: "nofollow", class: "pjax", data: {layout: "question"}
+          %li.oldest-active
+            = link_to t("questions.index.oldest"), question_path(@question, sort: "oldest", anchor: "answers"), rel: "nofollow", class: "pjax", data: {layout: "question"}
+          %li
+            = link_to t('.solution')
+
+        -if @question.follow_up
+          .followUp-content
+            %h1
+              = t("questions.show.follow_up_of")
+            = link_to @question.follow_up.original_question.title, question_path(@question.follow_up.original_question, anchor: @question.follow_up.original_answer_id), rel: 'nofollow'
+
+        -if @question.followed_up_by.limit(1).count > 0
+          %h1= t('global.followed_by')
           %ul
-            - @question.answers.each do |answer|
+            -@question.followed_up_by.all.each do |child|
               %li
-                .q_height
-                  = link_to image_tag("plus/reiting_num1.png")
-                  %p{:class => "reiting_num3"}
-                    = answer.votes_count
-                  = link_to image_tag("plus/reiting_num2.png"), "#", :class => "reiting_num4"
-                .grid_14.Fright
-                  %span{:class => "s1_q_i"}
-                    = answer.body
-                  %a{:class => "q_i_tag2", :href => "#"}
-                    = image_tag "plus/q_user_i.jpg"
-                  
-                .clear
-            %span{:class => "serv_loc1_2", :style => "top:10px"}
-              Your Answer
-            = image_tag "plus/edit_area.jpg", :class => "Fleft", :style => "margin-top:20px"
-            %p
-              = link_to "<span>Post your Answer</span>".html_safe, "#", :class => "q_i1_tag1", :style => "text-decoration: none;"
+                = link_to child.title, question_path(child)
 
-.grid_6.omega.body1_about.body_qwest1
-  .tagsl1
-    %span{:class => "t_l1"}
-      67
-    %br
-    %span{:class => "t_l2"}
-      Reputation
-    %span{:class => "t_l1_1"}
-      30
-    %br
-    %span{:class => "t_l2_1"}
-      Following
-    %span{:class => "t_l1_2"}
-      90
-    %br
-    %span{:class => "t_l2_2"}
-      View
-    %span{:class => "t_l1_3"}
-      36
-    %br
-    %span{:class => "t_l2_3"}
-      Followers
-  .clear
-  %ul{:class => "sp_bg1111", :style => ""}
-    %li
-      = link_to "Question", "/questions"
-  %p{:class => "i3_11"}
-    %strong
-      Related
-  %ul{:class => "tags1"}
-    - Question.related_questions(@question).each do |question|
-      %li
-        = link_to question.title, "/question/#{question.slug}"
+  - if !@answers.empty? || @question.accepted
+    .answers-list
+      - if @question.accepted
+        - solution = @question.answer
+        = render "answer", question: @question, answer: solution unless solution.nil?
 
-:javascript
-  $(window).load(function(){
+      - @answers.each do |answer|
+        - next if answer.id == @question.answer_id
+        = render "answer", {:question => @question, :answer => answer}
 
-    var tabContainers = $('div.tabs4 > div');
-      tabContainers.hide().filter(':first').show();
-      
-      $('div.tabs4 ul.tabNavigation a').click(function () {
-        tabContainers.hide();
-        tabContainers.filter(this.hash).show();
-        $('div.tabs4 ul.tabNavigation a').removeClass('selected');
-        $(this).addClass('selected');
-        return false;
-      }).filter(':first').click();
-    });
-  });
+      = paginate(@answers)
 
+  -if !@question.closed || !(logged_in? && current_user.can_answer_on?(current_group))
+    #to_answer
+      -if logged_in? && @question.answers.where(user_id: current_user.id).count > 0
+        %h2
+        .toolbar
+          %ul.menubar
+            %li.action
+              = link_to "Add another answer", "#", id: "add_another_answer"
+      -else
+        %h2
+          -#i18n
+          Your answer
+
+      = render "answers/form", markdown: true, question: @question
