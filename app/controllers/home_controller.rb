@@ -2,7 +2,7 @@ class HomeController < ApplicationController
   layout "shapadocom"
 
   def index
-    set_page_title("Plus")
+    set_page_title("Project Happy")
     @body_id = "page1"
   end
 

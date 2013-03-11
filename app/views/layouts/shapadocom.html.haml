@@ -2,10 +2,10 @@
 -ie_html :class => 'no-js', :lang => I18n.locale do
   %head
     %meta{:charset => "utf-8"}
-    %title Plus
+    %title Project Happy
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
-    %meta{:content => "", :name => "description"}
-    %meta{:content => "", :name => "author"}
+    %meta{:content => "Supporting the well-being, health and happiness of young people.", :name => "description"}
+    %meta{:content => "Happy", :name => "author"}
     / Le styles
     = stylesheet_link_tag "shapadocom"
 
@@ -26,19 +26,15 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          %a.brand{:href => "#"} Plus
+          %a.brand{:href => "#"} Project Happy
 
           / /.nav-collapse
     .container
       / Main hero unit for a primary marketing message or call to action
       .hero-unit
-        %h1 Plus is a Global Online Community for HIV-related issues
+        %h1 Supporting the well-being, health and happiness of young people. 
       .row
         .span4.pitches
-          %p
-            %strong#pitch PLUS is the answer to your questions and concerns about HIV
-          %p
-            %strong#pitchy PLUS connects you to medical care & support services near you
           %p
             - if current_user.nil?
               = link_to "Sign up now", '/users/login', :class => 'btn btn-success btn-large'
@@ -70,7 +66,7 @@
 
       %hr/
       %footer
-        %p &copy; Plus 2013
+        %p &copy; Project Happy 2013
     / /container
     /
       Le javascript
