@@ -11,18 +11,6 @@
         = raw(current_group.footer)
       -else
         %li
-          = link_to t('global.blog'), 'http://blog.ricodigo.com/blog/categories/shapado/'
-        %li
-          = link_to 'Twitter', 'http://twitter.com/shapado'
-        %li
-          = link_to 'Identi.ca', 'http://identi.ca/shapado'
-        %li
-          = link_to 'IRC', 'irc://irc.freenode.org/shapado'
-        %li
-          = link_to t('global.chat'), domain_url+'/chat'
-        %li
-          = link_to t('global.feedback'), feedback_url, :class => "feedback", :id => "feedback"
-        %li
           = link_to t('global.tos'), "terms-of-use"
         %li
           = link_to t('global.privacy'), "/privacy-policy"
