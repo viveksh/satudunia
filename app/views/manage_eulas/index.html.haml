@@ -16,4 +16,4 @@
               = link_to "<span class='icon16 icomoon-icon-pencil'></span>Edit".html_safe, cms_edit_eula_path
         = link_to "Minimize", "#", :class => "minimize"
       .content
-        = @eula.static_content.html_safe
+        = @eula.static_content.html_safe rescue ""

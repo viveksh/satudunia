@@ -16,4 +16,4 @@
               = link_to "<span class='icon16 icomoon-icon-pencil'></span>Edit".html_safe, cms_edit_abouts_path
         = link_to "Minimize", "#", :class => "minimize"
       .content
-        = @about.static_content.html_safe
+        = @about.static_content.html_safe rescue ""
