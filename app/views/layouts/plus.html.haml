@@ -227,23 +227,7 @@
                       %li
                         = link_to image_tag("plus/rss.png", :class => "marker1"), "#", :target => "blank"
                         RSS Feed
-                    %h3{:class => "p4"}
-                      Monthly Newsletter
-                    = form_tag "/", :id => "contact-form" do
-                      .success
-                        Contact form submitted!
-                        %br 
-                        %strong We will be in touch soon.
-                      %fieldset
-                        .wrapper
-                          %label{:class => "name"}
-                            = text_field_tag "first_name", "First name:"
-                          %label{:class => "last"}
-                            = text_field_tag "last_name", "Last name:"
-                        %label{:class => "email"}
-                          = text_field_tag "email", "E-Mail:"
-                        .button-wrapper
-                          = link_to "<img src='plus/arr.png' class='arr'><span stye='margin-left:5px'>Submit</span>".html_safe, "#", :class => "button" 
+                    
                   .grid_5
                     .info1
                       %h3{:class => "p4"}
