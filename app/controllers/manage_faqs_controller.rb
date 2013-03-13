@@ -7,14 +7,8 @@ class ManageFaqsController < ApplicationController
   def index
     @page_title = "FAQ"
     @active_page = "manage_faq"
-    if params[:tab].eql? "new"
-      @faq = Faq.new
-      if !params[:id].nil?
-        @faq = Faq.find(params[:id])
-      end
-    else
-      @faqs = Faq.all.page(params[:page])
-    end
+    @faq = Faq.new
+    @faqs = Faq.all.page(params[:page])
   end
 
   def create
@@ -32,9 +26,9 @@ class ManageFaqsController < ApplicationController
     @faq = Faq.find(params[:id])
 
     if @faq.present?
-      @faq.safe_update(%w[faq_question, faq_answer], params[:faq])
+      @faq.safe_update(%w[faq_question faq_answer], params[:faq])
       if @faq.valid? && @faq.save
-        flash[:notice] = "Faq created"
+        flash[:notice] = "Faq updated"
         redirect_to admin_faq_path
       else
         flash[:error] = @faq.errors.first[1] rescue "Faq invalid"

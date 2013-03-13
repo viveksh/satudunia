@@ -1,6 +1,28 @@
-%li
-  .summary
-    %h3
-      = faq.faq_question
-    .badges
-      = faq.faq_answer
+%tr
+  %td
+    = faq.faq_question
+  %td
+    = faq.faq_answer
+  %td
+    .control.center
+      = link_to "<span class='icon12 icomoon-icon-pencil'></span>".html_safe, "#", :class => "tip", :title => "Edit FAQ", :id => "openDialog#{faq.id}"
+      = link_to "<span class='icon12 icomoon-icon-remove'></span>".html_safe, manage_faq_path(:id => faq.id), :method => :delete, :confirm => "Are you sure? This FAQ will no longer exist"
+
+    .dialog{:id => "dialog#{faq.id}", :title => "Edit FAQ"}
+      = form_for faq, :url => manage_faq_path(:id => faq.id), :html => {:class => "form", :id => "filter_members", :method => "put"} do |f|
+        .form-row.row-fluid
+          .span12
+            .row-fluid
+              = label_tag :q, "Question *", :class => "form-label span4"
+              = f.text_field :faq_question, :class => "span8"
+        .form-row.row-fluid
+          .span12
+            .row-fluid
+              = label_tag :q, "Answer *", :class => "form-label span4"
+              = f.text_area :faq_answer, :class => "span8"
+        .form-row.row-fluid
+          .span12
+            .row-fluid   
+              .span4
+                &nbsp;   
+              = submit_tag t("scaffold.update"), :class => "btn nostyle span2", :style => "padding: 4px 10px !important; border-width: 1px !important; border-style: solid !important"

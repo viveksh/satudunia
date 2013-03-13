@@ -1,52 +1,96 @@
-%h1
-  Manage FAQ
-%p.description
-  CRUD FAQ
+.row-fluid
+  .span12
+    .box
+      .title
+        %h4
+          %span{:class => "icon16 brocco-icon-dribbble"}
+          %span
+            FAQ
+        %form{:class => "box-form right", :action => "", :style => "margin-top:-27px !important"}
+          <a class="btn dropdown-toggle" data-toggle="dropdown" href="#" style="padding: 4px 10px !important; border-width: 1px !important; border-style: solid !important">
+          <span class="icon16 iconic-icon-cog"></span>
+          <span class="caret"></span>
+          </a>
+          %ul{:class => "dropdown-menu"}
+            %li
+              = link_to "<span class='icon16 brocco-icon-plus'></span>New Faq".html_safe, "#", :id => "openModalDialog"
+        = link_to "Minimize", "#", :class => "minimize"
 
-%ul.admin-nav
-  %li.head_tag
-    = link_to "Create New", admin_faq_path(:tab => "new")
-  %li.question_help
-    = link_to "List", admin_faq_path(:tab => "list")
+        .dialog{:id => "modal", :title => "New FAQ"}
+          = form_for @faq, :url => manage_faqs_path, :html => {:class => "form", :id => "filter_members", :method => "post"} do |f|
+            .form-row.row-fluid
+              .span12
+                .row-fluid
+                  = label_tag :q, "Question *", :class => "form-label span4"
+                  = f.text_field :faq_question, :class => "span8"
+            .form-row.row-fluid
+              .span12
+                .row-fluid
+                  = label_tag :q, "Answer *", :class => "form-label span4"
+                  = f.text_area :faq_answer, :class => "span8"
+            .form-row.row-fluid
+              .span12
+                .row-fluid   
+                  .span4
+                    &nbsp;   
+                  = submit_tag("create", :class => "btn nostyle span2", :style => "padding: 4px 10px !important; border-width: 1px !important; border-style: solid !important")
 
-- if params[:tab].eql?('new')
-  - method = :post
-  - url = manage_faqs_path
-  - if !params[:id].nil? && !@faq.id.nil?
-    - method = :put 
-    - url = manage_faq_path(:id => @faq.id)
-  = form_for @faq, :url => url, :html => {:class => "form", :method => method} do |form|
-    = form.error_messages
-    
-    .field
-      = form.label "Question *"
-      = form.text_field :faq_question, :class => "text_area"
+      .content.noPad.clearfix
+        %table{:cellpadding=>0,:cellspacing=>0,:border=>0,:class=>"responsive dynamicTable display table table-bordered",:width=>"100%"}
+          %thead
+            %tr
+              %th
+                Questions
+              %th 
+                Answer
+              %th
+                Action
+          %tbody
+            -@faqs.each do |faq|
+              = render :partial => "faq", :object => faq
 
-    .field
-      = form.label "Answer *"
-      = form.text_area :faq_answer, :class => "text_area"
+:javascript
+  $(document).ready(function(){
+    site_management_drawer_opened();
+  });
 
-    .buttons
-      = form.submit "Save", :class => "save"
+%script
+  $(document).ready(function(){
+  //--------------- Dialogs ------------------//
 
-- else
-  .members
-    #members
-      - if @faqs.blank?
-        %ul
-          %li{:style => "padding-bottom:0px !important"}
-            No FAQ Yet
-      - @faqs.each do |faq|
-        %ul
-          %li{:style => "padding-bottom:0px !important"}
-            .user-info
-              %h2{:style => "margin-top: -4px !important;"}
-                = faq.faq_question
-                %small
-                  = link_to "Edit", admin_faq_path(:tab=>"new", :id => faq.id)
-                  |
-                  = link_to "Delete", manage_faq_path(:id => faq.id), :method => :delete, :confirm => "Are you sure? This faq will no longer exist"
-              %p.description
-                = faq.faq_answer
-        
-      = paginate @faqs
+  $('#openModalDialog').click(function(){
+  $('#modal').dialog('open');
+  return false;
+  });
+
+  // JQuery UI Modal Dialog           
+  $('#modal').dialog({
+  autoOpen: false,
+  modal: true,
+  dialogClass: 'dialog',
+  buttons: {
+  "Close": function() { 
+  $(this).dialog("close"); 
+  }
+  }
+  });
+
+  - @faqs.each do |faq|
+    $('#openDialog#{faq.id}').click(function(){
+    $('#dialog#{faq.id}').dialog('open');
+    return false;
+    });
+
+    $('#dialog#{faq.id}').dialog({
+    autoOpen: false,
+    modal: true,
+    dialogClass: 'dialog',
+    buttons: {
+    "Close": function() { 
+    $(this).dialog("close"); 
+    }
+    }
+    });
+
+  $("div.dialog button").addClass("btn");
+  });
