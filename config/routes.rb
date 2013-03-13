@@ -313,6 +313,7 @@ Rails.application.routes.draw do
   match '/admin/cms/edit/eula' => 'manage_eulas#edit', :as => :cms_edit_eula
   match '/admin/cms/edit/privacy-policy' => 'manage_privacy#edit', :as => :cms_edit_privacy
 
+  match '/admin/user-access' => 'admin/manage#access', :as => :admin_user_access
 
   namespace :moderate do
     resources :questions do
