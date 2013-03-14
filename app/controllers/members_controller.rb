@@ -29,6 +29,7 @@ class MembersController < ApplicationController
     if @member.id != current_user.id || current_user.admin?
       @member.role = params[:role]
       @member.save
+      flash[:notice] = "Members Updated"
     else
       flash[:error] = I18n.t('members.update.error', :login => @member.login)
     end
@@ -39,6 +40,7 @@ class MembersController < ApplicationController
     @member = @group.memberships.find(params[:id])
     if (@member.user_id != current_user.id)
       @member.leave(@group)
+      flash[:notice] = "Members Deleted"
     else
       flash[:error] = "Sorry, you cannot destroy the **#{@member.user.login}'s** membership"
     end
