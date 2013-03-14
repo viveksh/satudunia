@@ -13,14 +13,15 @@
   %td
     = link_to member.display_name, user_path(member)
   %td
-    -if can_modify_member
-      = form_tag(member_path(membership), :html => {:class => "form-horizontal", :id => "form_user_#{member.id}", :method => :put}) do         
-        = select_tag :role, options_for_select(locales_roles, membership.role)
+    = form_tag(member_path(membership), :html => {:class => "form-horizontal", :id => "form_user_#{member.id}", :method => :put}) do         
+      = select_tag :role, options_for_select(locales_roles, membership.role)
   %td
     = link_to "<span class='icon12 icomoon-icon-pencil'></span>".html_safe, "#", :class => "tip", :title => "Update User", :id => "update_user_#{member.id}"
     = link_to "<span class='icon12 icomoon-icon-remove'></span>".html_safe, member_path(membership), :method => :delete, :confirm => "Are you sure? This User will no longer exist"
 
-:javascript
-  $('#update_user_#{member.id}').click(function (){
-    $('#form_user_#{member.id}').submit();
-  });
+    :javascript
+      $(document).ready(function(){
+        $('#update_user_#{member.id}').click(function (){
+          $('#form_user_#{member.id}').submit();
+        });
+      });
