@@ -1,14 +1,47 @@
-= form_for(@invitation, :html => {:class => "form", :multipart => true}) do |f|
-  = f.error_messages
-  = hidden_field_tag :source, domain_url(:custom => @group.domain, :controller => "admin/manage", :action => "invite", :tab => @active_subtab)
-  .field
-    = label :user_role, t("admin.manage.properties.invite.user_role")
-    = select("invitations", "user_role", locales_roles)
-  .field
-    = label :invitations_body, t('admin.manage.properties.invite.body_instructions')
-    = text_area :invitations, :body
-  .field
-    = label :invitations_emails, t('admin.manage.properties.invite.emails_instructions')
-    = text_area :invitations, :emails
-  .buttons
-    = f.submit t('scaffold.create'), :class => "save"
+.row-fluid
+  .span12
+    .box
+      .title
+        %h4
+          %span{:class => "icon16 minia-icon-cog"}
+          Invite People
+        = link_to "Minimize", "#", :class => "minimize"
+      .content{:style => "Padding-bottom: 0px !important"}
+        = form_for(@invitation, :html => {:class => "form-horizontal", :multipart => true}) do |f|
+          = f.error_messages
+          = hidden_field_tag :source, domain_url(:custom => @group.domain, :controller => "admin/manage", :action => "invite", :tab => @active_subtab)
+          .form-row.row-fluid
+            .span12
+              .row-fluid
+                = label :user_role, t("admin.manage.properties.invite.user_role"), :class => "form-label span3"
+                .span8.controls
+                  .left.marginT5
+                    = select("invitations", "user_role", locales_roles)
+          .form-row.row-fluid
+            .span12
+              .row-fluid
+                = label :invitations_body, t('admin.manage.properties.invite.body_instructions'), :class => "form-label span3"
+                .span8.controls
+                  .left.marginT5
+                    = text_area :invitations, :body
+          .form-row.row-fluid
+            .span12
+              .row-fluid
+                = label :invitations_emails, t('admin.manage.properties.invite.emails_instructions'), :class => "form-label span3"
+                .span8.controls
+                  .left.marginT5
+                    = text_area :invitations, :emails
+          .form-row.row-fluid
+            .span12
+              .row-fluid
+                .form-actions{:style => "width: 100% !important; margin-left: -10px !important; margin-bottom: -18px !important"}
+                  .span9
+                    &nbsp;
+                  .span3.controls
+                    = f.submit t('scaffold.create'), :class => "btn marginR10", :style => "padding: 4px 10px !important; border-width: 1px !important; border-style: solid !important"
+
+:javascript
+  $(document).ready(function(){
+    $('#liInvite').addClass('active');
+    $('#liInvitations').removeClass('active');
+  });

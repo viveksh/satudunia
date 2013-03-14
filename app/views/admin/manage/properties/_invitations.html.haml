@@ -1,11 +1,34 @@
-.invitations-ready
-  %ul
-    - current_user.pending_invitations(current_group).each do |invitation|
-      %li
-        = invitation.email
-        = form_tag revoke_invitation_path(invitation), :class => "form", :multipart => true, :method => :post do
-          = hidden_field_tag :source, domain_url(:custom => @group.domain, :controller => "admin/manage", :action => "invitations", :tab => @active_subtab)
-          = submit_tag t('.revoke_button')
-        = form_tag resend_invitation_path(invitation), :class => "form", :multipart => true, :method => :post do
-          = hidden_field_tag :source, domain_url(:custom => @group.domain, :controller => "admin/manage", :action => "invitations", :tab => @active_subtab)
-          = submit_tag t('.resend_button')
+.row-fluid
+  .span12
+    .box
+      .title
+        %h4
+          %span{:class => "icon16 minia-icon-cog"}
+          Invitations
+        = link_to "Minimize", "#", :class => "minimize"
+      .content{:style => "Padding-bottom: 0px !important"}
+        %table{:cellpadding=>0,:cellspacing=>0,:border=>0,:class=>"responsive dynamicTable display table table-bordered",:width=>"100%"}
+          %thead
+            %tr
+              %th
+                Email
+              %th
+                Action
+          %tbody
+            - current_user.pending_invitations(current_group).each do |invitation|
+              %tr
+                %td
+                  = invitation.email
+                %td 
+                  = form_tag revoke_invitation_path(invitation), :class => "form", :multipart => true, :method => :post do
+                    = hidden_field_tag :source, domain_url(:custom => @group.domain, :controller => "admin/manage", :action => "invitations", :tab => @active_subtab)
+                    = submit_tag t('.revoke_button'), :class => "btn nostyle span2", :style => "padding: 4px 10px !important; border-width: 1px !important; border-style: solid !important"
+                  = form_tag resend_invitation_path(invitation), :class => "form", :multipart => true, :method => :post do
+                    = hidden_field_tag :source, domain_url(:custom => @group.domain, :controller => "admin/manage", :action => "invitations", :tab => @active_subtab)
+                    = submit_tag t('.resend_button'), :class => "btn nostyle span2", :style => "padding: 4px 10px !important; border-width: 1px !important; border-style: solid !important"
+
+:javascript
+  $(document).ready(function(){
+    $('#liInvite').removeClass('active');
+    $('#liInvitations').addClass('active');
+  });
