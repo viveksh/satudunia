@@ -33,7 +33,7 @@ class MembersController < ApplicationController
     else
       flash[:error] = I18n.t('members.update.error', :login => @member.login)
     end
-    redirect_to members_path
+    redirect_to admin_members_path
   end
 
   def destroy
@@ -44,7 +44,7 @@ class MembersController < ApplicationController
     else
       flash[:error] = "Sorry, you cannot destroy the **#{@member.user.login}'s** membership"
     end
-    redirect_to members_path
+    redirect_to admin_members_path
   end
 
   protected

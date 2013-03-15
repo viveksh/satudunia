@@ -314,6 +314,7 @@ Rails.application.routes.draw do
   match '/admin/cms/edit/privacy-policy' => 'manage_privacy#edit', :as => :cms_edit_privacy
 
   match '/admin/user-access' => 'admin/manage#access', :as => :admin_user_access
+  match '/admin/members' => 'members#index', :as => :admin_members
 
   namespace :moderate do
     resources :questions do
