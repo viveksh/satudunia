@@ -315,6 +315,7 @@ Rails.application.routes.draw do
 
   match '/admin/user-access' => 'admin/manage#access', :as => :admin_user_access
   match '/admin/members' => 'members#index', :as => :admin_members
+  match '/admin/invitations' => 'admin/manage#invitations', :as => :admin_manage_invitations
 
   namespace :moderate do
     resources :questions do

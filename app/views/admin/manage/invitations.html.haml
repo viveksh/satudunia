@@ -2,9 +2,9 @@
   .span12
     %ul{:class => "nav nav-pills"}
       %li{:class => "active", :id => "liInvitations"}
-        = link_to t(".invitations"), manage_invitations_path(:tab=>"invitations")
+        = link_to t(".invitations"), admin_manage_invitations_path(:tab=>"invitations")
       %li{:id => "liInvite"}
-        = link_to t(".invite"), manage_invitations_path(:tab=>"invite")
+        = link_to t(".invite"), admin_manage_invitations_path(:tab=>"invite")
 
 = render :partial => "admin/manage/properties/#{@active_subtab}"
 
