@@ -4,14 +4,18 @@
 Terms of use page 1
 %br
 1. Purpose
-The aim of Project Happy is to enhance connections between gay, bisexual men and transgender people living with HIV
+The aim of Project Happy is to support the well-being of young people who are exploring their sexual orientation and gender identity. The service will provide information about the diverse lives of gay, lesbian, bisexual and transgender people, as well as people who are simply curious about other sexual orientations and/or gender identities. 
 %br
-so that we can help each other and understand that we are not alone.
-Project Happy operates under a Policy of Inclusion where people affected by HIV, 
-%br 
-or interested to learn more about HIV, are welcome to join
-the discussion once they become registered members. Upon registration, 
+Project Happy operates under a Policy of Inclusion where people of different sexual orientations, gender identities, ages, ethnicity, socio-economic status and religions are welcome to join the discussion once they become registered members. Upon registration, it is assumed that all users acknowledge that Project Happy is primarily a space for the empowerment of young people who are exploring their sexual orientation and gender identity including, but not limited to, people who identify as gay, lesbian, bisexual and transgender or curious.
 %br
-it is assumed that all users acknowledge that Project Happy is primarily a space for the empowerment of people living with HIV, led by people living with HIV.
+Learn more about Project Happy’s Policy of Inclusion
 
 = button_to "Agree", "/second-auth/#{@auth_provider}"
+= button_to "Cancel", "#", :id => "closeWindow"
+
+:javascript
+  $(window).load(function(){
+    $('#closeWindow').click(function (){
+      window.close();
+    });
+  });

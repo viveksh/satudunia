@@ -20,8 +20,17 @@ The core values the Project Happy team seeks to upload with the Website and Serv
   %li
     Health & Well-being: seek to deliver up-to-date information that supports physical and mental health.
   %li
-    Fair and Equitable Access: seek to ensure that all people living with HIV or affected by HIV  have access to services that support health and well-being, without prejudice.
+    Fair and Equitable Access: seek to ensure that all people, regardless of sexual orientation, gender identity, age, ethnicity, socio-economic status or religion have access to services that support health and well-being, without prejudice.
   %li
-    Informed Choice: respect people'≈s ability to make their own decisions when they are supplied with relevant information and advice, without duress.
+    Informed Choice: respect people’s ability to make their own decisions when they are supplied with relevant information and advice, without duress.
  
 = button_to "Acknowledge", "/third-auth/#{@auth_provider}"
+= button_to "Cancel", "#", :id => "closeWindow"
+
+:javascript
+  $(window).load(function(){
+    $('#closeWindow').click(function (){
+      window.close();
+    });
+  });
+
