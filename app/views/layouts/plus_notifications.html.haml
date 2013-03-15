@@ -5,6 +5,8 @@
       = yield :title
     / favicon
     %link{:href => "plus/favicon.ico", :rel => "icon"}/
+    = javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"
+    = javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.21/jquery-ui.min.js"
 
     / CSS
     = stylesheet_link_tag "plus/style"
