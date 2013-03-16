@@ -11,12 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Main stylesheets -->
-    <%= stylesheet_link_tag    "admin/bootstrap" %>
-    <%= stylesheet_link_tag    "admin/bootstrap-responsive" %>
-    <%= stylesheet_link_tag    "admin/jquery.ui.supr" %>
-    <%= stylesheet_link_tag    "admin/icons" %>
-    <%= stylesheet_link_tag    "admin/uniform.default" %>
-    <%= stylesheet_link_tag    "admin/main" %>
+    <%= stylesheet_link_tag    "admin/admin" %>
     <%= javascript_include_tag "admin/bootstrap" %>
     <%= javascript_include_tag "admin/jquery.uniform.min" %>
 
@@ -88,7 +83,7 @@
                     <div class="span12">
                         <div class="row-fluid">
                             <div class="form-actions">
-                            <div class="span12 controls">
+                            <div class="span12 controls" style="padding-left: 0px !important;">
                                 <%= f.check_box :remember_me, :class => "styled" %>  Keep me logged in
                                 <button type="submit" class="btn btn-info right" id="loginBtn"><span class="icon16 icomoon-icon-enter white"></span> Login</button>
                             </div>
