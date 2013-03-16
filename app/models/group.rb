@@ -66,6 +66,8 @@ class Group
   field :logo_version, :type => Integer, :default => 0
   field :custom_favicon_version, :type => Integer, :default => 0
 
+  field :custom_pagination_length, :type => Integer, :default => 20
+
   field :sso_url, :type => String
   field :layout, :type => String, :default => 'application'
 

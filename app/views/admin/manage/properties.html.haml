@@ -152,6 +152,12 @@
             .form-row.row-fluid
               .span12
                 .row-fluid
+                  = f.label :per_page_limit, "Per Page Limit", :class => "form-label span3"
+                  = f.text_field :custom_pagination_length, :value => @group.custom_pagination_length, :class => "span9"
+
+            .form-row.row-fluid
+              .span12
+                .row-fluid
                   .form-actions{:style => "width: 100% !important; margin-left: -10px !important; margin-bottom: -18px !important"}
                     .span9
                       &nbsp;

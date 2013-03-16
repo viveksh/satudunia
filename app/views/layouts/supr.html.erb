@@ -421,14 +421,15 @@
                 "sPaginationType": "full_numbers",
                 "bJQueryUI": false,
                 "bAutoWidth": false,
-                "bLengthChange": false
+                "bLengthChange": false,
+                "iDisplayLength": <%= current_group.custom_pagination_length rescue 20 %>
             });
         }
         if($('table').hasClass('contactTable')){
             $('.contactTable').dataTable({
                 "bJQueryUI": false,
                 "bAutoWidth": false,
-                "iDisplayLength": 5,
+                "iDisplayLength": <%= current_group.custom_pagination_length rescue 20 %>,
                 "bLengthChange": false,
                 "aoColumnDefs": [{ 
                     "bSortable": false, "aTargets": [ 0, 1, 2, 3 ] 
