@@ -1,6 +1,6 @@
 class Admin::ManageController < ApplicationController
-  before_filter :login_required
-  before_filter :check_permissions, :except => [:edit_card]
+  before_filter :login_required, :except => [:dashboard]
+  before_filter :check_permissions, :except => [:dashboard, :edit_card]
   layout "supr"
   tabs :dashboard => :dashboard,
        :properties => :properties,
@@ -29,6 +29,12 @@ class Admin::ManageController < ApplicationController
   def dashboard
     @page_title = "Dashboard"
     @active_page = "dashboard"
+    
+    session["from_admin_login"] = false if !current_user.blank?
+
+    if current_user.nil? || current_user.blank?
+      render :layout => "supr_login_page"
+    end
   end
 
   def edit_card

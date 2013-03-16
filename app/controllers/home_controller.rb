@@ -3,6 +3,11 @@ class HomeController < ApplicationController
 
   def index
     @body_id = "page1"
+
+    # redirect back to admin
+    if session["from_admin_login"] && !current_user.blank? && current_user.admin?
+      redirect_to '/admin'
+    end
   end
 
   def auth_popup1
