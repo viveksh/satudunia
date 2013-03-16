@@ -38,10 +38,12 @@
                   .span9
                     &nbsp;
                   .span3.controls
-                    = f.submit t('scaffold.create'), :class => "btn marginR10", :style => "padding: 4px 10px !important; border-width: 1px !important; border-style: solid !important"
+                    = f.submit t('scaffold.create'), :class => "btn marginR10 nostyle", :style => "padding: 4px 10px !important; border-width: 1px !important; border-style: solid !important"
 
 :javascript
   $(document).ready(function(){
     $('#liInvite').addClass('active');
     $('#liInvitations').removeClass('active');
+
+    user_management_drawer_opened();
   });

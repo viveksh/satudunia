@@ -85,10 +85,12 @@ class Admin::ManageController < ApplicationController
     @active_subtab ||= "invite"
     @page_title = "Invitations"
     @invitation = Invitation.new
+    @active_page = "user_invitations"
   end
 
   def access
     @page_title = "Access"
+    @active_page = "user_access"
   end
 
   def close_group

@@ -161,11 +161,11 @@
                             </ul>
                         </li>
                         <li>
-                            <%= link_to "<span class='icon16 minia-icon-cog'></span>User Management".html_safe, "#", :class => "hasUl" %>
-                            <ul class="sub">
-                                <li><a href="<%= admin_user_access_path %>"><span class="icon16 minia-icon-cog"></span>Access</a></li>
-                                <li><a href="<%= admin_members_path %>"><span class="icon16 minia-icon-cog"></span>Members</a></li>
-                                <li><a href="<%= admin_manage_invitations_path %>"><span class="icon16 minia-icon-cog"></span>Invitation</a></li>
+                            <%= link_to "<span class='icon16 minia-icon-cog'></span>User Management".html_safe, "#", :class => "hasUl", :id => "user_management_link" %>
+                            <ul class="sub" id="user_management">
+                                <li><a href="<%= admin_user_access_path %>" id="user_access"><span class="icon16 minia-icon-cog"></span>Access</a></li>
+                                <li><a href="<%= admin_members_path %>" id="user_members"><span class="icon16 minia-icon-cog"></span>Members</a></li>
+                                <li><a href="<%= admin_manage_invitations_path %>" id="user_invitations"><span class="icon16 minia-icon-cog"></span>Invitation</a></li>
                             </ul>
                         </li>
                         <li>
@@ -250,6 +250,17 @@
 
         $('#site_management').removeClass('expand');
         $('#site_management_link').removeClass('drop');
+    }
+
+    function user_management_drawer_opened(){
+        $('#content_management').removeClass('expand');
+        $('#content_management_link').removeClass('drop');
+
+        $('#site_management').removeClass('expand');
+        $('#site_management_link').removeClass('drop');
+
+        $('#user_management').addClass('expand');
+        $('#user_management_link').addClass('drop');
     }
 
     $(document).ready(function(){

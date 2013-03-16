@@ -7,6 +7,7 @@ class MembersController < ApplicationController
 
   def index
     @page_title = "Members"
+    @active_page = "user_members"
     @group = current_group
     conditions = {}
     conditions = {:display_name => /^#{Regexp.escape(params[:q])}/} if params[:q]
