@@ -158,6 +158,41 @@
             .form-row.row-fluid
               .span12
                 .row-fluid
+                  = f.label :slogan_short_ask, "Slogan Short Ask", :class => "form-label span3"
+                  = f.text_field :slogan_short_ask, :value => @group.slogan_short_ask, :class => "span9"
+
+            .form-row.row-fluid
+              .span12
+                .row-fluid
+                  = f.label :slogan_long_ask, "Slogan Long Ask", :class => "form-label span3"
+                  = f.text_field :slogan_long_ask, :value => @group.slogan_long_ask, :class => "span9"
+
+            .form-row.row-fluid
+              .span12
+                .row-fluid
+                  = f.label :slogan_short_location, "Slogan Short Location", :class => "form-label span3"
+                  = f.text_field :slogan_short_location, :value => @group.slogan_short_location, :class => "span9"
+
+            .form-row.row-fluid
+              .span12
+                .row-fluid
+                  = f.label :slogan_long_location, "Slogan Long Location", :class => "form-label span3"
+                  = f.text_field :slogan_long_location, :value => @group.slogan_long_location, :class => "span9"
+
+            .form-row.row-fluid
+              .span12
+                .row-fluid
+                  = f.label :slogan_short_sign, "Slogan Short Signup", :class => "form-label span3"
+                  = f.text_field :slogan_short_sign, :value => @group.slogan_short_sign, :class => "span9"
+            .form-row.row-fluid
+              .span12
+                .row-fluid
+                  = f.label :slogan_long_sign, "Slogan Long Signup", :class => "form-label span3"
+                  = f.text_field :slogan_long_sign, :value => @group.slogan_long_sign, :class => "span9"
+
+            .form-row.row-fluid
+              .span12
+                .row-fluid
                   .form-actions{:style => "width: 100% !important; margin-left: -10px !important; margin-bottom: -18px !important"}
                     .span9
                       &nbsp;

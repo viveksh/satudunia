@@ -68,6 +68,15 @@ class Group
 
   field :custom_pagination_length, :type => Integer, :default => 20
 
+  field :slogan_short_ask, :type => String
+  field :slogan_long_ask, :type => String
+
+  field :slogan_short_location, :type => String
+  field :slogan_long_location, :type => String
+
+  field :slogan_short_sign, :type => String
+  field :slogan_long_sign, :type => String
+
   field :sso_url, :type => String
   field :layout, :type => String, :default => 'application'
 
