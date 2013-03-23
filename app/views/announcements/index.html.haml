@@ -1,24 +1,103 @@
-%h1
-  = t('.title')
-%p.description
-  = t('.description')
+:css
+  div.selector {
+    width: 183px !important;
+  }
 
-.list-announcements
-  %ul
-    -@announcements.each do |announcement|
-      %li
-        %h2
-          = markdown(announcement.message)
-        .date
-          = "#{Time.at(announcement.starts_at).strftime("<b>%x</b> %X")} - #{Time.at(announcement.ends_at).strftime("<b>%x</b> %X")}".html_safe
-        -if announcement.only_anonymous
-          %strong
-            = "[#{t("activerecord.attributes.announcement.only_anonymous")}]"
-        = link_to t("announcements.actions.delete"), announcement_path(announcement), :method => :delete
+.row-fluid
+  .span12
+    .box
+      .title
+        %h4
+          %span{:class => "icon16 iconic-icon-cog"}
+          %span
+            = t('.title')
+        %form{:class => "box-form right", :action => "", :style => "margin-top:-27px !important"}
+          <a class="btn dropdown-toggle" data-toggle="dropdown" href="#" style="padding: 4px 10px !important; border-width: 1px !important; border-style: solid !important">
+          <span class="icon16 iconic-icon-cog"></span>
+          <span class="caret"></span>
+          </a>
+          %ul{:class => "dropdown-menu"}
+            %li
+              = link_to "<span class='icon16 brocco-icon-plus'></span>New Announcement".html_safe, "#", :id => "openModalDialog"
+        = link_to "Minimize", "#", :class => "minimize"
 
-= form_for(@announcement, :html=>{:class => "form", :id => "new_announcement"}) do |f|
-  = render :partial => "form", :locals => {:f => f}
+        .dialog{:id => "modal", :title => "New Announcement"}
+          = form_for(@announcement, :html=>{:class => "form", :id => "new_announcement"}) do |f|
+            .form-row.row-fluid
+              .span12
+                .row-fluid
+                  = label_tag :message, "Message", :class => "form-label span1"
+                  = f.text_area :message, :class => "span11"
+            .form-row.row-fluid
+              .span12
+                .row-fluid
+                  = label_tag :starts_at, "Starts", :class => "form-label span1"
+                  = select_datetime(Time.current, :prefix => 'announcement[starts_at]')
+            .form-row.row-fluid
+              .span12
+                .row-fluid
+                  = label_tag :ends_at, "Ends", :class => "form-label span1"
+                  = select_datetime(Time.current.tomorrow, :prefix => 'announcement[ends_at]')
+            .form-row.row-fluid
+              .span12
+                .row-fluid
+                  = label_tag :only_anonymous, " ", :class => "form-label span1"
+                  .span10.controls
+                    .left.marginT5
+                      = f.check_box :only_anonymous, :class => "styled"
+                      = t(:only_anonymous, :scope => "activerecord.attributes.announcement")
+            .form-row.row-fluid
+              .span12
+                .row-fluid   
+                  .span10
+                    &nbsp;   
+                  = submit_tag("create", :class => "btn nostyle span2", :style => "padding: 4px 10px !important; border-width: 1px !important; border-style: solid !important")
+      .content.noPad.clearfix
+        %table{:cellpadding=>0,:cellspacing=>0,:border=>0,:class=>"responsive dynamicTable display table table-bordered",:width=>"100%"}
+          %thead
+            %tr
+              %th
+                Message
+              %th
+                Date
+              %th
+                Only for Anonymous
+              %th
+                Action
+          %tbody
+            -@announcements.each do |announcement|
+              %tr
+                %td
+                  = announcement.message
+                %td
+                  = "#{Time.at(announcement.starts_at).strftime("<b>%x</b> %X")} - #{Time.at(announcement.ends_at).strftime("<b>%x</b> %X")}".html_safe
+                %td
+                  = announcement.only_anonymous ? "Yes" : "No"
+                %td
+                  = link_to "<span class='icon12 icomoon-icon-remove'></span>".html_safe, announcement_path(announcement), :method => :delete, :confirm => "Are you sure? This announcement will no longer exist"
 
-  .form-options
-    .buttons
-      = f.submit t('scaffold.create'), :class => "save"
+
+:javascript
+  $(document).ready(function(){
+    feature_management_drawer_opened();
+
+    //--------------- Dialogs ------------------//
+    $('#openModalDialog').click(function(){
+      $('#modal').dialog('open');
+      return false;
+    });
+
+    // JQuery UI Modal Dialog           
+    $('#modal').dialog({
+      autoOpen: false,
+      modal: true,
+      dialogClass: 'dialog',
+      buttons: {
+      "Close": function() { 
+        $(this).dialog("close"); 
+        }
+      }
+    });
+
+    $("div.dialog button").addClass("btn");
+  });

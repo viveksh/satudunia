@@ -169,9 +169,9 @@
                             </ul>
                         </li>
                         <li>
-                            <%= link_to "<span class='icon16 minia-icon-cog'></span>Features".html_safe, "#", :class => "hasUl" %>
-                            <ul class="sub">
-                                <li><a href="<%= announcements_path %>"><span class="icon16 minia-icon-cog"></span>Announcements</a></li>
+                            <%= link_to "<span class='icon16 minia-icon-cog'></span>Features".html_safe, "#", :class => "hasUl", :id => "feature_management_link" %>
+                            <ul class="sub" id="feature_management">
+                                <li><a href="<%= announcements_path %>" id="features_announcement"><span class="icon16 minia-icon-cog"></span>Announcements</a></li>
                                 <li><a href="<%= manage_social_path %>"><span class="icon16 minia-icon-cog"></span>Social</a></li>
                                 <li><a href="<%= constrains_configs_path %>"><span class="icon16 minia-icon-cog"></span>Requirements</a></li>
                                 <li><a href="<%= manage_properties_tab_path(:tab => "rewards") %>"><span class="icon16 minia-icon-cog"></span>Rewards</a></li>
@@ -261,6 +261,20 @@
 
         $('#user_management').addClass('expand');
         $('#user_management_link').addClass('drop');
+    }
+
+    function feature_management_drawer_opened(){
+        $('#content_management').removeClass('expand');
+        $('#content_management_link').removeClass('drop');
+
+        $('#site_management').removeClass('expand');
+        $('#site_management_link').removeClass('drop');
+
+        $('#user_management').removeClass('expand');
+        $('#user_management_link').removeClass('drop');
+
+        $('#feature_management').addClass('expand');
+        $('#feature_management_link').addClass('drop');
     }
 
     $(document).ready(function(){
