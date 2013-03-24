@@ -1,16 +1,18 @@
-%h2
-  = t(".add_tags")
-.field
-  %label
-    =t(".tweet_starts_with")
-  = text_field_tag 'group[share][starts_with]', @group.share.starts_with
-  %small
-    = t(".starts_with_example")
-.field
-  %label
-    =t(".tweet_ends_with")
-  = text_field_tag 'group[share][ends_with]', @group.share.ends_with
-  %small
-    = t(".ends_with_example")
-.buttons
-  = f.submit t('scaffold.update'), :class => "save"
+.form-row.row-fluid
+  .span12
+    .row-fluid
+      = f.label t(".tweet_starts_with"), :class => "form-label span3"
+      = text_field_tag 'group[share][starts_with]', @group.share.starts_with, :class => "span9"
+.form-row.row-fluid
+  .span12
+    .row-fluid
+      = f.label t(".tweet_ends_with"), :class => "form-label span3"
+      = text_field_tag 'group[share][ends_with]', @group.share.ends_with, :class => "span9"
+.form-row.row-fluid
+  .span12
+    .row-fluid
+      .form-actions{:style => "width: 100% !important; margin-left: -10px !important; margin-bottom: -18px !important"}
+        .span9
+          &nbsp;
+        .span3.controls
+          = f.submit t('scaffold.update'), :class => "btn marginR10 nostyle", :style => "padding: 4px 10px !important; border-width: 1px !important; border-style: solid !important"

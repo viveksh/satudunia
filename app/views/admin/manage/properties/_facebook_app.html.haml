@@ -1,25 +1,30 @@
-%h2
-  =t(".facebook_app")
-
 %p
   = t(".legend")
 
-.field
-  %label
-    =t(".application_id")
-  = text_field_tag 'group[share][fb_app_id]', @group.share.fb_app_id, :class => "text_field"
-.field
-  %label
-    =t(".secret_key")
-  = text_field_tag 'group[share][fb_secret_key]',  @group.share.fb_secret_key, :class => "text_field"
-.field
-  .checkbox
-    = check_box_tag 'group[share][fb_active]', true, @group.share.fb_active, :class => "checkbox"
-    %label
-      =t("global.active")
+.form-row.row-fluid
+  .span12
+    .row-fluid
+      = f.label t(".application_id"), :class => "form-label span3"
+      = text_field_tag 'group[share][fb_app_id]', @group.share.fb_app_id, :class => "span9"
+.form-row.row-fluid
+  .span12
+    .row-fluid
+      = f.label t(".secret_key"), :class => "form-label span3"
+      = text_field_tag 'group[share][fb_secret_key]',  @group.share.fb_secret_key, :class => "span9"
+.form-row.row-fluid
+  .span12
+    .row-fluid
+      = f.label t("global.active"), :class => "form-label span3"
+      = check_box_tag 'group[share][fb_active]', true, @group.share.fb_active, :class => "checkbox"
 
-.buttons
-  = f.submit t('scaffold.update'), :class => "save"
+.form-row.row-fluid
+  .span12
+    .row-fluid
+      .form-actions{:style => "width: 100% !important; margin-left: -10px !important; margin-bottom: -18px !important"}
+        .span9
+          &nbsp;
+        .span3.controls
+          = f.submit t('scaffold.update'), :class => "btn marginR10 nostyle", :style => "padding: 4px 10px !important; border-width: 1px !important; border-style: solid !important"
 
 
 -if !@group.share.fb_app_id.blank?

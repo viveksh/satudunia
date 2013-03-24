@@ -79,6 +79,7 @@ class Admin::ManageController < ApplicationController
   def social
     @page_title = "Social Media"
     @active_subtab ||= "post_to_twitter"
+    @active_page = "features_social"
   end
 
   def invitations

@@ -1,24 +1,49 @@
-%h1
-  = t('.title')
-%p.description
-  = t('.description')
+.row-fluid
+  .span12
+    %ul{:class => "nav nav-pills"}
+      %li{:id => "post_to_twitter"}
+        = link_to t(".post_to_twitter"), manage_social_path(:tab=>"post_to_twitter"), :title => t(".post_to_twitter_title")
+      %li{:id => "facebook_app"}
+        = link_to t(".facebook_app"), manage_social_path(:tab=>"facebook_app"), :title => t(".facebook_app_title")
+      %li{:id => "twitter_account"}
+        = link_to t(".twitter_account"), manage_social_path(:tab=>"twitter_account"), :title => t(".twitter_account_title")
+      %li{:id => "ask_from_twitter"}
+        = link_to t(".ask_from_twitter"), manage_social_path(:tab=>"ask_from_twitter"), :title => t(".ask_from_twitter_title")
+      %li{:id => "tag_your_tweets"}
+        = link_to t(".tag_your_tweets"), manage_social_path(:tab=>"tag_your_tweets"), :title => t(".tag_your_tweets_title")
 
-%ul.admin-nav
-  %li.facebook_app
-    = link_to t(".facebook_app"), manage_social_path(:tab=>"facebook_app"), :title => t(".facebook_app_title")
-  %li.twitter_account
-    = link_to t(".twitter_account"), manage_social_path(:tab=>"twitter_account"), :title => t(".twitter_account_title")
-  %li.post_to_twitter
-    = link_to t(".post_to_twitter"), manage_social_path(:tab=>"post_to_twitter"), :title => t(".post_to_twitter_title")
-  %li.ask_from_twitter
-    = link_to t(".ask_from_twitter"), manage_social_path(:tab=>"ask_from_twitter"), :title => t(".ask_from_twitter_title")
-  %li.tag_your_tweets
-    = link_to t(".tag_your_tweets"), manage_social_path(:tab=>"tag_your_tweets"), :title => t(".tag_your_tweets_title")
-
-= form_for(@group, :html => {:class => "form", :multipart => true}) do |f|
-  = f.error_messages
-  = hidden_field_tag :source, domain_url(:custom => @group.domain, :controller => "admin/manage", :action => "social", :tab => @active_subtab)
-  = render :partial => "admin/manage/properties/#{@active_subtab}", :locals => {:f => f}
+.row-fluid
+  .span12
+    .box
+      .title
+        %h4
+          %span{:class => "icon16 iconic-icon-cog"}
+          = t(".#{@active_subtab}")
+        = link_to "Minimize", "#", :class => "minimize"
+      .content{:style => "Padding-bottom: 0px !important"}
+        = form_for(@group, :html => {:class => "form", :multipart => true}) do |f|
+          = f.error_messages
+          = hidden_field_tag :source, domain_url(:custom => @group.domain, :controller => "admin/manage", :action => "social", :tab => @active_subtab)
+          = render :partial => "admin/manage/properties/#{@active_subtab}", :locals => {:f => f}
 
 
 = yield :after_form
+
+:javascript
+  function activeLink(){
+    var mainNav = $('.span12>ul');
+    var mainNavCurrent = mainNav.find('li.active');
+
+    //remove current class if have
+    mainNavCurrent.removeClass('active');
+
+    //append active class to current tab
+    var currentActiveNav = '#{@active_subtab}';
+    mainNav.find('li#'+currentActiveNav).addClass('active');
+  }
+
+  $(document).ready(function(){
+    feature_management_drawer_opened();
+
+    activeLink();
+  });

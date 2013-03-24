@@ -1,25 +1,36 @@
-%h2
-  =t(".asking_from_twitter")
+.form-row.row-fluid
+  .span12
+    .row-fluid
+      = f.label t(".question_asked_to"), :class => "form-label span3"
+      .input-prepend
+        .add-on 
+          @
+        = text_field_tag 'group[share][twitter_user]', @group.share.twitter_user, :class => "span3"
+        .help-block.blue.span8
+          =t(".twitter_account")
 
-.field.asked-twitter
-  %label
-    =t(".question_asked_to")
-  <span>@</span>
-  = text_field_tag 'group[share][twitter_user]', @group.share.twitter_user
-  %small
-    =t(".twitter_account")
+.form-row.row-fluid
+  .span12
+    .row-fluid
+      = f.label t(".question_must_include"), :class => "form-label span3"
+      .input-prepend
+        .add-on 
+          &nbsp;
+        = text_field_tag 'group[share][twitter_pattern]', @group.share.twitter_pattern, :class => "span3"
+        .help-block.blue.span8
+          = t(".question_must_include_example")
 
-.field
-  %label
-    = t(".question_must_include")
-  =text_field_tag 'group[share][twitter_pattern]', @group.share.twitter_pattern
-  %small
-    = t(".question_must_include_example")
+.form-row.row-fluid
+  .span12
+    .row-fluid
+      = f.label t("global.active"), :class => "form-label span3", :for => "checkboxes"
+      = check_box_tag 'group[share][enable_twitter]', true, @group.share.enable_twitter
 
-.field
-  .checkbox
-    = check_box_tag 'group[share][enable_twitter]', true, @group.share.enable_twitter
-    %label
-      =t("global.active")
-.buttons
-  = f.submit t('scaffold.update'), :class => "save"
+.form-row.row-fluid
+  .span12
+    .row-fluid
+      .form-actions{:style => "width: 100% !important; margin-left: -10px !important; margin-bottom: -18px !important"}
+        .span9
+          &nbsp;
+        .span3.controls
+          = f.submit t('scaffold.update'), :class => "btn marginR10 nostyle", :style => "padding: 4px 10px !important; border-width: 1px !important; border-style: solid !important"

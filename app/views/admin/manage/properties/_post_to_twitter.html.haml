@@ -1,30 +1,39 @@
-%h2
-  = t(".post_to_twitter")
 - if current_group.has_twitter_oauth?
   %p
     =raw t(".legend", :twitter_account => current_group.twitter_account["screen_name"], :link =>  manage_social_path(:tab=>"twitter_account"))
-  .field
-    .checkbox
-      = f.check_box "notification_opts[questions_to_twitter]", :checked => @group.notification_opts.questions_to_twitter
-      = t(".send_questions_to_twitter")
-  .field
-    .checkbox
-      = f.check_box "notification_opts[badges_to_twitter]", :checked => @group.notification_opts.badges_to_twitter
-      = t(".send_badges_to_twitter")
-  .field
-    .checkbox
-      = f.check_box "notification_opts[favorites_to_twitter]", :checked => @group.notification_opts.favorites_to_twitter
-      = t(".send_favorites_to_twitter")
-  .field
-    .checkbox
-      = f.check_box "notification_opts[answers_to_twitter]", :checked => @group.notification_opts.answers_to_twitter
-      = t(".send_answers_to_twitter")
-  .field
-    .checkbox
-      = f.check_box "notification_opts[comments_to_twitter]", :checked => @group.notification_opts.comments_to_twitter
-      = t(".send_comments_to_twitter")
-  .buttons
-    = f.submit t('scaffold.update'), :class => "save"
+  .form-row.row-fluid
+    .span12
+      .row-fluid
+        = f.label t(".send_questions_to_twitter"), :class => "form-label span3"
+        = f.check_box "notification_opts[questions_to_twitter]", :checked => @group.notification_opts.questions_to_twitter
+  .form-row.row-fluid
+    .span12
+      .row-fluid
+        = f.label t(".send_badges_to_twitter"), :class => "form-label span3"
+        = f.check_box "notification_opts[badges_to_twitter]", :checked => @group.notification_opts.badges_to_twitter
+  .form-row.row-fluid
+    .span12
+      .row-fluid
+        = f.label t(".send_favorites_to_twitter"), :class => "form-label span3"
+        = f.check_box "notification_opts[favorites_to_twitter]", :checked => @group.notification_opts.favorites_to_twitter
+  .form-row.row-fluid
+    .span12
+      .row-fluid
+        = f.label t(".send_answers_to_twitter"), :class => "form-label span3"
+        = f.check_box "notification_opts[answers_to_twitter]", :checked => @group.notification_opts.answers_to_twitter
+  .form-row.row-fluid
+    .span12
+      .row-fluid
+        = f.label t(".send_comments_to_twitter"), :class => "form-label span3"
+        = f.check_box "notification_opts[comments_to_twitter]", :checked => @group.notification_opts.comments_to_twitter
+  .form-row.row-fluid
+    .span12
+      .row-fluid
+        .form-actions{:style => "width: 100% !important; margin-left: -10px !important; margin-bottom: -18px !important"}
+          .span9
+            &nbsp;
+          .span3.controls
+            = f.submit t('scaffold.update'), :class => "btn marginR10", :style => "padding: 4px 10px !important; border-width: 1px !important; border-style: solid !important"
 
 - else
   =raw t(".legend_connect", :link =>  manage_social_path(:tab=>"twitter_account"))
