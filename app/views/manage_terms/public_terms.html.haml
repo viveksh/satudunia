@@ -2,7 +2,7 @@
   Terms of Use
 
 = image_tag "plus/body_about.jpg", :class => "body_header"
-.alpha.grid_19.body_about
+.alpha.grid_19.body_about{:id => "firstElement", :style => "height: 622px !important;"}
   %span{:class => "p_a"}
     Terms of Use
   %span{:class => "p_a1"}
@@ -12,7 +12,7 @@
     Terms of Use
   %div{:class => "about"}
     = @tos.static_content.html_safe rescue ""
-.grid_5.omega.body1_about
+.grid_5.omega.body1_about{:id => "secondElement", :style => "height: 622px !important;"}
   %p{:class => "about"}
     %strong
       About Plus
