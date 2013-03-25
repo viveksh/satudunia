@@ -9,7 +9,7 @@
   Questions
 
 = image_tag "plus/body_about1.jpg", :class => "body_header"
-.alpha.grid_18.body_about
+.alpha.grid_18.body_about{:id => "firstElement"}
   %span{:class => "p_a"}
     Questions
   %span{:class => "p_a1"}
@@ -40,7 +40,7 @@
           - @questions.each do |question|
             = render "questions/plus_question", :question => question
   = paginate @questions
-.grid_6.omega.body1_about
+.grid_6.omega.body1_about{:id => "secondElement", :style => "top: -43px !important; width: 242px !important"}
   .tagsl1
     %span{:class => "t_l1"} 67
     %br
@@ -54,7 +54,7 @@
     %span{:class => "t_l1_3"} 36
     %br
     %span{:class => "t_l2_3"} Followers
-  %p{:style => "color: #000000;font-family: Calibri;font-size: 24px;margin-bottom: 0;padding: 10px 30px;"}
+  %p{:style => "color: #000000;font-family: Calibri;font-size: 24px;margin-top: 105px;padding: 10px 30px;"}
     %strong
       Recent Tags
   %ul{:class => "tags", :style => "padding-left: 25px"}
