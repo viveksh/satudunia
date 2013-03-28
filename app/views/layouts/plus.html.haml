@@ -69,6 +69,8 @@
                 .grid_24.title1
                   .logo
                     = link_to image_tag("plus/logo.jpg"), "/"
+                    %span
+                      = h current_group.slogan_short_ask.html_safe
                   .right_l
                     .wrapper1
                       - if current_user.nil?
@@ -94,14 +96,14 @@
                           .grid_18_1
                             .grid_9_1
                               = form_for :user, :url => session_path(:user), :html => {:id => "login_form"} do |f|
-                                %spam{:class => "email"}
+                                %span{:class => "email"}
                                   %label{:class => "name"}
                                     Email
-                                  = f.text_field :email
+                                  = f.text_field :email,:class =>"input-class"
                                 %span{:class => "password"}
                                   %label{:class => "name"}
                                     Password
-                                  = f.password_field :password
+                                  = f.password_field :password,:class =>"input-class"
                                   - if params[:pp] && params[:format] != 'mobile'
                                     = hidden_field_tag :pp, 1
                                 .signs
@@ -125,6 +127,9 @@
                                   = link_to image_tag("plus/gl.jpg"), '/first-auth/google', :class => "auth-provider #{provider}", :id => dprovider
                                 - elsif provider == 'Twitter'
                                   = link_to image_tag("plus/tw1.jpg"), '/first-auth/twitter', :class => "auth-provider #{provider}", :id => dprovider
+                                - elsif provider == 'MyOpenID'
+                                  = link_to image_tag("plus/tw1.jpg"), '/first-auth/MyOpenID', :class => "auth-provider #{provider}", :id => dprovider
+                                  
                       #obj1
                         #cancel1
                           %ul
@@ -375,3 +380,12 @@
     window.close();
   }
   }
+  
+:javascript
+  $("#user_password").keypress(function(event){
+    if(event.which == 13){
+      event.preventDefault();
+      $("#login_form").submit();
+    }
+  });
+
