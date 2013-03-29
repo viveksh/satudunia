@@ -95,6 +95,7 @@ class Admin::ManageController < ApplicationController
   end
 
   def close_group
+    @page_title ="Close group"
   end
 
   protected
