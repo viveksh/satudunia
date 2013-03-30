@@ -4,11 +4,19 @@
       .title
         %h4
           %span{:class => "icon16 brocco-icon-window"}
-          Requirements
+          = t(".title")
+        %form{:class => "box-form right", :action => "", :style => "margin-top:-27px !important"}
+          <a class="btn dropdown-toggle" data-toggle="dropdown" href="#" style="padding: 4px 10px !important; border-width: 1px !important; border-style: solid !important">
+          <span class="icon16 iconic-icon-cog"></span>
+          <span class="caret"></span>
+          </a>
+          %ul{:class => "dropdown-menu"}
+            %li
+              = link_to "<span class='icon16 brocco-icon-plus'></span>Add new Constrains config".html_safe, "#", :id => "openModalDialog"
         = link_to "Minimize", "#", :class => "minimize"
       .content{:style => "Padding-bottom: 0px !important"}
-        %h1.title
-          =t("admin.manage.properties.constrains.reputation_constrains_subtitle")
+        / %h1.title
+        /   =t("admin.manage.properties.constrains.reputation_constrains_subtitle")
 
         =render :partial => "admin/manage/properties/subtabs"
 

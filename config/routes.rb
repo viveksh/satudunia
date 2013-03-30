@@ -294,7 +294,7 @@ Rails.application.routes.draw do
     controller 'admin/manage' do
       match 'social' => :social
       match 'appearance' => :appearance
-      match 'close_group' => :close_group
+      match 'close_group' => :close_group, :path => "close-group"
       match 'content' => :content
     end
   end

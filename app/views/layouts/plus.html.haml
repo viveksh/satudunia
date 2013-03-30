@@ -118,6 +118,7 @@
                                   = link_to "email address", "javascript:void(0);", :id => "trigg1"
                             .grid_9_1
                               Login with
+                              = debugger
                               - current_group.auth_providers.each do |provider|
                                 - next if params[:controller] == 'invitations' && ['Twitter','Facebook'].include?(provider)
                                 - dprovider = provider.downcase
@@ -127,9 +128,9 @@
                                   = link_to image_tag("plus/gl.jpg"), '/first-auth/google', :class => "auth-provider #{provider}", :id => dprovider
                                 - elsif provider == 'Twitter'
                                   = link_to image_tag("plus/tw1.jpg"), '/first-auth/twitter', :class => "auth-provider #{provider}", :id => dprovider
-                                - elsif provider == 'MyOpenID'
-                                  = link_to image_tag("plus/tw1.jpg"), '/first-auth/MyOpenID', :class => "auth-provider #{provider}", :id => dprovider
-                                  
+                                - elsif provider == 'OpenID'
+                                  = link_to image_tag("plus/oi.jpg"), '/first-auth/MyOpenID', :class => "auth-provider #{provider}", :id => dprovider
+                              %a#cancel1_1{:href => "javascript:void(0);"} close
                       #obj1
                         #cancel1
                           %ul
@@ -360,7 +361,7 @@
       
       
     });
-    $('#cancel').click(function(){
+    $('#cancel1_1').click(function(){
       $('#obj').css('display', 'none');
     });
     $('#cancel2').click(function(){

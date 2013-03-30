@@ -5,7 +5,7 @@
         %h4
           %span{:class => "icon16  entypo-icon-palette"}
           %span
-            Themes
+            = t(".title")
         %form{:class => "box-form right", :action => "", :style => "margin-top:-27px !important"}
           <a class="btn dropdown-toggle" data-toggle="dropdown" href="#" style="padding: 4px 10px !important; border-width: 1px !important; border-style: solid !important">
           <span class="icon16 iconic-icon-cog"></span>
@@ -13,9 +13,15 @@
           </a>
           %ul{:class => "dropdown-menu"}
             %li
-              = link_to "<span class='icon16 brocco-icon-plus'></span>Add new theme".html_safe, "#", :id => "openModalDialog"
+              = link_to "<span class='icon16 brocco-icon-plus'></span>Add new theme".html_safe, new_theme_path, :id => "openModalDialog"
+            %li
+              = link_to "<span class='icon16 brocco-icon-plus'></span>Import".html_safe, "#", class: "import_theme", :id => "openModalDialog"
+            %li
+              = link_to "<span class='icon16 brocco-icon-plus'></span>Filter".html_safe, "#", class: "", :id => "openModalDialog"
         = link_to "Minimize", "#", :class => "minimize"
       .content{:style => "Padding-bottom: 50px !important"}
+        %p.description
+          = t('themes.index.description')
         %table{:cellpadding=>0,:cellspacing=>0,:border=>0,:class=>"responsive dynamicTable display table table-bordered",:width=>"100%"}
           %thead
             %tr
@@ -33,7 +39,7 @@
             -@themes.each do |theme|
               = render :partial => "theme", :object => theme
         / commented can be use in future
-        /= t('themes.index.description')
+        
 
         / .toolbar
         /   %ul.menubar
