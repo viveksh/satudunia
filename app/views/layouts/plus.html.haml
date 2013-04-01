@@ -118,7 +118,6 @@
                                   = link_to "email address", "javascript:void(0);", :id => "trigg1"
                             .grid_9_1
                               Login with
-                              = debugger
                               - current_group.auth_providers.each do |provider|
                                 - next if params[:controller] == 'invitations' && ['Twitter','Facebook'].include?(provider)
                                 - dprovider = provider.downcase
