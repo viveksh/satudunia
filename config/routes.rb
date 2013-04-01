@@ -296,6 +296,7 @@ Rails.application.routes.draw do
       match 'appearance' => :appearance
       match 'close_group' => :close_group, :path => "close-group"
       match 'content' => :content
+      match 'rewards' => :rewards
     end
   end
   match '/manage/properties/:tab' => 'admin/manage#properties', :as => :manage_properties_tab

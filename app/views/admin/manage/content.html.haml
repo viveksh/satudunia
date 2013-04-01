@@ -1,17 +1,17 @@
 .row-fluid
   .span12
     %ul{:class => "nav nav-pills"}
-      %li{:class => "active"}
+      %li{:class => "#{'active' if @activeTabClass == "head_tag" ||  @activeTabClass == nil}"}
         = link_to h("<head>"), manage_content_path(:tab=>"head_tag")
-      %li
+      %li{:class => "#{'active' if @activeTabClass == "question_help"}"}
         = link_to t(".question_help"), manage_content_path(:tab=>"question_help")
-      %li
+      %li{:class => "#{'active' if @activeTabClass == "question_prompt"}"}
         = link_to t(".question_prompt"), manage_content_path(:tab=>"question_prompt")
-      %li
+      %li{:class => "#{'active' if @activeTabClass == "head"}"}
         = link_to t(".head"), manage_content_path(:tab=>"head")
-      %li
+      %li{:class => "#{'active' if @activeTabClass == "top_bar"}"}
         = link_to t(".top_bar"), manage_content_path(:tab=>"top_bar")
-      %li
+      %li{:class => "#{'active' if @activeTabClass == "footer"}"}
         = link_to t(".footer"), manage_content_path(:tab=>"footer")
 .row-fluid
   .span12

@@ -19,3 +19,8 @@
 	display:inline-block;
 	text-align:right !important;
 }
+.checkbox-adjust{
+	padding-top:7px !important;
+	display: inline-block;
+	/*margin-left: -17px;*/
+}

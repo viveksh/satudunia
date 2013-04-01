@@ -1067,7 +1067,9 @@ select option{margin: 5px;}
     top: -30px;}
 #page1 header {padding-bottom:0;}
 .right_l{float:right;}
-.header-bg {background:#202020;}
+.header-bg {background:#202020;
+height: 111px;
+}
 
 h1 {
 	padding:41px 0 64px 2px; 
@@ -1868,6 +1870,7 @@ height: 1030px !important;
 {
    float:left;
 }
+	.body_about{background: none repeat scroll 0 0 #FFFFFF;
     border: 1px solid #D0D3D6;
     border-radius: 5px 5px 5px 5px;
 	margin-right: -5px;
@@ -1951,14 +1954,14 @@ height: 1030px !important;
     padding-left: 30px;
     padding-right: -10px;
     padding-top: 8px;
-    width: 155px;}
-    .sp_bg li{font-size:13px;
-    font-family:Arial;
-    color:#0075ce;
-    line-height: 30px;}
-    .sp_bg li a{color:#0075ce; font-size:13px;text-decoration:none}
-    .il_ask{left: -197px;}
-    .sp_bg1{background-attachment: scroll;
+	width: 176px;}
+	.sp_bg li{font-size:13px;
+	font-family:Arial;
+	color:#0075ce;
+	line-height: 30px;}
+	.sp_bg li a{color:#0075ce; font-size:13px;text-decoration:none}
+	.il_ask{left: -197px;}
+	.sp_bg1{background-attachment: scroll;
     background-clip: border-box;
     background-color: #e8eff2;
     background-image: none;
@@ -2398,6 +2401,7 @@ footer {
     position: absolute;
     top: 30px;
 }
+
 .a1{color: #FFFFFF;
     font-family: Calibri;
     font-size: 30px;}
@@ -2417,3 +2421,4 @@ footer {
 .input-class{
     width:220px;
 }
+
