@@ -1607,13 +1607,19 @@ ul.menu li li:hover li ul, ul.menu li li.sfHover li ul {
     margin-left: 0px;
     margin-top: 15px;}
 	.ask{min-height:780px;}
-.q_tag1{background: url("q_teg1.jpg") repeat-x scroll 0 0 transparent;
+.q_tag1{
+    background: url("q_teg1.jpg") repeat-x scroll 0 0 transparent;
     border: 1px solid #AAB9BF;
     border-radius: 3px;
     margin-left: 5px;
 	padding-right:15px;
 	min-height: 30px;
     width: 68px;}
+.underline-decoration-link{}
+.underline-decoration-link:hover{
+    text-decoration: underline !important;
+}
+
 .tags9{float: right;
     margin-right: 100px;
     margin-top: 10px;}
@@ -1805,23 +1811,33 @@ min-height: 101px;
 position: absolute;
     width: 96px;}	
 .q_f{color: #FFFFFF;
+    display: inline-block;
     font-family: Calibri;
     font-size: 27px;
     font-weight: bold;
-    left: 15px;
+    left: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
     position: relative;
-    top: 10px;}
+    top: 10px;
+    width: 60px;}
+
 .q_f_1{color: #FFFFFF;
-    left: 23px;
+    left: 20px;
     position: absolute;
     top: 33px;
     }
-.q_fs1{color: #FFFFFF;
+.q_fs1{ color: #FFFFFF;
     font-family: Calibri;
     font-size: 18px;
     font-weight: bold;
-    left: 28px;
+    left: 5px;
+    width: 60px;
+    text-align: center;
     position: absolute;
+    margin-left: auto;
+    margin-right: auto;
     top: 60px;}
 .q_fs_1{color: #FFFFFF;
     left: 15px;
@@ -2420,5 +2436,12 @@ footer {
 /*updated css*/
 .input-class{
     width:220px;
+}
+
+.front_link_style{
+    color: #0075CE !important;
+    font-family: 'Calibri';
+    font-size: 18px;
+    padding-top: 10px;
 }
 

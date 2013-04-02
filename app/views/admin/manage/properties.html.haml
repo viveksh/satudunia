@@ -158,6 +158,12 @@
             .form-row.row-fluid
               .span12
                 .row-fluid
+                  = f.label :Question_slider_default_stepper, "Default Stepper", :class => "form-label span3"
+                  = f.text_field :question_default_length, :value => @group.question_default_length, :class => "span9 counter-steper"
+
+            .form-row.row-fluid
+              .span12
+                .row-fluid
                   = f.label :slogan_short_ask, "Slogan Short Ask", :class => "form-label span3"
                   = f.text_field :slogan_short_ask, :value => @group.slogan_short_ask, :class => "span9"
 

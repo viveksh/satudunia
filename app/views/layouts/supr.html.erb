@@ -25,11 +25,16 @@
     <%= javascript_include_tag "admin/jquery.dataTables.min" %>
     <%= javascript_include_tag "app/modules/editor" %>
     <%= javascript_include_tag "vendor/jHtmlArea" %>
+    <!-- favicon link tag -->
+    <%= favicon_link_tag(favicon_group_path(current_group), :rel=>'icon')%>
+    <%= favicon_link_tag(favicon_group_path(current_group), :rel=>'shortcut icon')%>
+    <!-- favicon link tag -->
     <%#= javascript_include_tag "admin/statistic" %>
     <%#= javascript_include_tag "admin/main" %>
     <%= csrf_meta_tags %>
   </head>
   <body>
+
 <!-- loading animation -->
     <div id="qLoverlay"></div>
     <div id="qLbar"></div>
@@ -37,6 +42,7 @@
     <div id="header">
 
         <div class="navbar">
+      
             <div class="navbar-inner">
               <div class="container-fluid">
                 <a class="brand" href="<%= admin_dashboard_path %>">Plus.<span class="slogan">admin</span></a>
