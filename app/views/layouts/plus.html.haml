@@ -19,16 +19,21 @@
     %meta{'http-equiv' => "Content-Language", :content => "en-US"}
     %meta{'http-equiv' => "imagetoolbar", :content => "no"}
     / favicon
-    %link{:href => favicon_group_path(current_group), :rel => "icon"}/
-    %link{:href => "plus/logo.png", :rel => "shortcut icon"}/
-    %link{:href => "plus/iOS_icon.png", :rel => "apple-touch-icon"}
-    %link{:href => "plus/iOS_icon.png", :rel => "apple-touch-startup-image"}
+    %link{:href => favicon_group_path(current_group), :rel => "icon"}
+    %link{:href => favicon_group_path(current_group), :rel => "shortcut icon"}/
+    %link{:href => favicon_group_path(current_group), :rel => "apple-touch-icon"}
+    %link{:href => favicon_group_path(current_group), :rel => "apple-touch-startup-image"}
+    %meta{:content => favicon_group_path(current_group), :name=>"msapplication-TileImage"}/
     / CSS
     = stylesheet_link_tag "plus/style"
+    = stylesheet_link_tag "tool-tip.css"
     = stylesheet_link_tag "plus/jquery.bxslider.css"
     = stylesheet_link_tag "plus/popup.css"
     / JS
     = javascript_include_tag "plus"
+    = javascript_include_tag "tool-tip.js"
+    
+
 
     /[if lt IE 8]
       %div{:style => ' clear: both; text-align:center; position: relative;'}
@@ -291,9 +296,11 @@
               .clear
 
 
-
-
 :javascript
+  
+  $(function() {
+    $(".tool-tip").tooltip();
+  });
   $('.bxslider').bxSlider({
     nextSelector: '#slider-next',
     prevSelector: '#slider-prev',
@@ -378,11 +385,11 @@
 
 %script
   function closePopup(){
-  if(window.opener!=null){
-  - unless current_user.nil?
-    window.opener.location.reload(true);
-    window.close();
-  }
+    // if(window.opener!=null){
+    //   - unless current_user.nil?
+    //   window.opener.location.reload(true);
+    //   window.close();
+    // }
   }
   
 :javascript

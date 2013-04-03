@@ -2444,4 +2444,7 @@ footer {
     font-size: 18px;
     padding-top: 10px;
 }
+.avoid_link_color{
+	color:#0075CE !important;
+}
 
