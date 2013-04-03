@@ -113,7 +113,7 @@ class ApplicationController < ActionController::Base
       @questions = @questions.send(key, extra_scope[key])
     end
 
-    @questions = @questions.page(params["page"])
+    @questions = @questions.page(params["page"]).per(session[:per_page].blank? ? 15 : session[:per_page])
 
     @langs_conds = @languages
 

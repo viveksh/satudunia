@@ -38,6 +38,11 @@ class QuestionsController < ApplicationController
   def index
     @body_id = "page3"
     @tags = current_group.tags
+
+    unless params[:per_page].blank?
+      session[:per_page] = params[:per_page]
+    end
+
     if current_group.current_theme.has_questions_index_html? && current_group.current_theme.questions_index_html.size > 0
       @template_format = 'mustache'
       request.format = :mustache
