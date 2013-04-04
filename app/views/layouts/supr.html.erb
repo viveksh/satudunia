@@ -199,9 +199,9 @@
                             </ul>
                         </li>
                         <li>
-                            <%= link_to "<span class='icon16 cut-icon-hash'></span>Moderation".html_safe, "#", :class => "hasUl" %>
+                            <%= link_to "<span class='icon16 cut-icon-hash'></span>Moderation".html_safe, "#", :class => "hasUl", :id => "moderator_management_link" %>
                             <ul class="sub" id="moderator_management">
-                                <li>
+                                <li class="full-width">
                                     <a href="<%= admin_manage_flags_path %>" id="moderator_flag"><span class="icon16 entypo-icon-flag"></span>Flag</a>
                                 </li>
                             </ul>
@@ -321,6 +321,23 @@
 
         $('#feature_management').addClass('expand');
         $('#feature_management_link').addClass('drop');
+    }
+
+    function moderation_drawer_opened(){
+        $('#content_management').removeClass('expand');
+        $('#content_management_link').removeClass('drop');
+
+        $('#site_management').removeClass('expand');
+        $('#site_management_link').removeClass('drop');
+
+        $('#user_management').removeClass('expand');
+        $('#user_management_link').removeClass('drop');
+
+        $('#feature_management').removeClass('expand');
+        $('#feature_management_link').removeClass('drop');
+
+        $('#moderator_management').addClass('expand');
+        $('#moderator_management_link').addClass('drop');
     }
 
     $(document).ready(function(){

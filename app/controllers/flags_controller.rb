@@ -108,6 +108,13 @@ class FlagsController < ApplicationController
   end
 
   def admin_index
+    @page_title = "Flag"
+    @active_page = "moderator_flag"
+    options = {}
+    options[:flags_count] = {:$gt => 0}
+
+    @questions = current_group.questions.where(options)
+
     render :layout => "supr"
   end
 
