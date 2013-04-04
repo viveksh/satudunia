@@ -10,7 +10,8 @@ module Shapado
                         :logo_group_path,
                         :question_attachment_path,
                         :javascript_group_path,
-                        :bg_image_path
+                        :bg_image_path,
+			:shortcut_group_path
         end
       end
 
@@ -28,6 +29,9 @@ module Shapado
 
       def favicon_group_path(group)
         "/_files/groups/favicon/#{CGI.escape(group.id)}/#{group.custom_favicon_version}.png"
+      end
+      def shortcut_group_path(group)
+        "/_files/groups/shortcut/#{CGI.escape(group.id)}/#{group.custom_favicon_version}.png"
       end
 
       def tag_icon_path(group,tag_name)

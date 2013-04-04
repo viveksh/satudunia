@@ -20,7 +20,7 @@
     %meta{'http-equiv' => "imagetoolbar", :content => "no"}
     / favicon
     %link{:href => favicon_group_path(current_group), :rel => "icon"}
-    %link{:href => favicon_group_path(current_group), :rel => "shortcut icon"}/
+    %link{:href => shortcut_group_path(current_group), :rel => "shortcut icon"}/
     %link{:href => favicon_group_path(current_group), :rel => "apple-touch-icon"}
     %link{:href => favicon_group_path(current_group), :rel => "apple-touch-startup-image"}
     %meta{:content => favicon_group_path(current_group), :name=>"msapplication-TileImage"}/
@@ -180,8 +180,10 @@
             .main
               .container_24
                 .bg2_1
+                  %div#search-container
+                    no search result found!
                   = form_tag "/",:id => "search" do
-                    = text_field_tag "search", "What is your question?"
+                    = text_field_tag "search-ajax", "What is your question?", :class => "search-tag",:alt => "What is your question?"
                     = button_tag "search"
                     .clear
                 = yield :search_form
@@ -195,8 +197,10 @@
                 .main
                   .container_24
                     .bg2_1
+                      %div#search-container
+                        no search result found!
                       = form_tag "/",:id => "search" do
-                        = text_field_tag "search", "What is your question?"
+                        = text_field_tag "search-ajax", "What is your question?", :class => "search-tag",:alt => "What is your question?"
                         = button_tag "search"
                         .clear
                     .grid_24
@@ -398,5 +402,42 @@
       event.preventDefault();
       $("#login_form").submit();
     }
+  });
+:javascript
+
+  var varValueTaker;
+  $(".search-tag").focus(function(){
+    varValueTaker = $(this).val();
+    var varTakeAlt = $(this).attr("alt");
+    if(varValueTaker==varTakeAlt){
+      $("#search-container").fadeOut("slow");
+      $(this).val("");
+    }
+  });
+  $(".search-tag").blur(function(){
+    var varValueTakerBlur = $(this).val();
+    var varTakeAlt = $(this).attr("alt");
+    if(varValueTakerBlur==""){
+      if(varValueTaker==varValueTaker)
+        $(this).val(varTakeAlt);
+        $("#search-container").fadeOut("slow");
+    } 
+
+  });
+  $(".search-tag").keypress(function(){
+    setTimeout(function(){
+      var ajaxValueData = $("#search-ajax").val();
+      $.ajax({
+      method:"GET",
+      data:"title=what ",
+      url:"/search_ajax",
+      success:function(successs){
+        alert(successs.toSource());
+      }
+    });
+
+    },400);
+    
+    // $("#search-container").fadeIn("slow");
   });
 

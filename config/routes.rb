@@ -185,6 +185,7 @@ Rails.application.routes.draw do
     resources :close_requests
     resources :open_requests
   end
+  get '/search_ajax' => 'searches#search_ajax'
 
   match 'questions/tags/:tags' => 'tags#show', :as => :question_tag
   match 'questions/tagged/:tags' => redirect { |env, req| "/questions/tags/#{req.params[:tags].gsub(' ', '+')}" }, :tags => /.+/ #support se url

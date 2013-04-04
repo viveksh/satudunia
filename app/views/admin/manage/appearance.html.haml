@@ -48,11 +48,21 @@
                 = f.label :custom_favicon, "Favicon", :class => "form-label span3"
                 = f.file_field :custom_favicon
                 -if @group.has_custom_favicon?
-                  = image_tag(favicon_group_path(@group))
+                  = image_tag(favicon_group_path(@group),:Height=>"20px")
                 -else
                   = image_tag("/favicon.ico")
-
+          / shortcut icon
           .form-row.row-fluid
+            .span12
+              .row-fluid
+                = f.label :custom_shortcut, "Shortcut Icon", :class => "form-label span3"
+                = f.file_field :custom_shortcut
+                -if @group.has_custom_shortcut?
+                  = image_tag(shortcut_group_path(@group),:height=>"20px")
+                -else
+                  = image_tag("/favicon.ico")
+          / shortcut icon    
+          .form-row.row-fluid 
             .span12
               .row-fluid
                 .form-actions{:style => "width: 100% !important; margin-left: -10px !important; margin-bottom: -18px !important"}
