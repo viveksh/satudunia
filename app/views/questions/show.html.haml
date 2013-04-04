@@ -73,22 +73,22 @@
 .grid_6.omega.body1_about.body_qwest1{:id => "secondElement", :style => "width: 242px !important"}
   .tagsl1
     %span{:class => "t_l1"}
-      67
+      = @question.flags_count
     %br
     %span{:class => "t_l2"}
-      Reputation
+      Flagged
     %span{:class => "t_l1_1"}
-      30
+      = @question.answers_count
     %br
     %span{:class => "t_l2_1"}
-      Following
+      Answers
     %span{:class => "t_l1_2"}
-      90
+      = @question.views_count
     %br
     %span{:class => "t_l2_2"}
       View
     %span{:class => "t_l1_3"}
-      36
+      = @question.followers_count
     %br
     %span{:class => "t_l2_3"}
       Followers
