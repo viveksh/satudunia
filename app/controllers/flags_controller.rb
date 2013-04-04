@@ -2,6 +2,7 @@ class FlagsController < ApplicationController
   before_filter :login_required
   before_filter :moderator_required, :only => [:index]
   before_filter :find_resource
+  before_filter :check_permissions, :only => [:admin_index]
 
   def index
     @flags = @resource.flags
@@ -106,6 +107,10 @@ class FlagsController < ApplicationController
     end
   end
 
+  def admin_index
+    render :layout => "supr"
+  end
+
   protected
   def find_resource
     if params[:answer_id]
@@ -122,6 +127,15 @@ class FlagsController < ApplicationController
       question_url(@resource)
     else
       params[:return_to]
+    end
+  end
+
+  def check_permissions
+    @group = current_group
+
+    if !current_user.owner_of?(@group)
+      flash[:notice] = t("global.permission_denied")
+      redirect_to domain_url(:custom => current_group.domain)
     end
   end
 end

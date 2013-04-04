@@ -323,6 +323,8 @@ Rails.application.routes.draw do
   match '/admin/members' => 'members#index', :as => :admin_members
   match '/admin/invitations' => 'admin/manage#invitations', :as => :admin_manage_invitations
 
+  match '/admin/flags' => 'flags#admin_index', :as => :admin_manage_flags
+
   namespace :moderate do
     resources :questions do
       collection do
