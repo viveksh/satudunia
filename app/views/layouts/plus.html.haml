@@ -19,11 +19,13 @@
     %meta{'http-equiv' => "Content-Language", :content => "en-US"}
     %meta{'http-equiv' => "imagetoolbar", :content => "no"}
     / favicon
-    %link{:href => favicon_group_path(current_group), :rel => "icon"}
+    %link{:href => favicon_group_path(current_group), :rel => "icon"}/
     %link{:href => shortcut_group_path(current_group), :rel => "shortcut icon"}/
-    %link{:href => favicon_group_path(current_group), :rel => "apple-touch-icon"}
-    %link{:href => favicon_group_path(current_group), :rel => "apple-touch-startup-image"}
-    %meta{:content => favicon_group_path(current_group), :name=>"msapplication-TileImage"}/
+    %link{:href => apple_group_path(current_group), :rel => "apple-touch-icon"}/
+    %link{:href => applest_group_path(current_group), :rel => "apple-touch-startup-image"}/
+    %meta{:content => metro_group_path(current_group), :name=>"msapplication-TileImage"}/
+    %meta{:content => "<%= current_group.metro_color %>", :name=>"msapplication-TileColo"}/
+    
     / CSS
     = stylesheet_link_tag "plus/style"
     = stylesheet_link_tag "tool-tip.css"
@@ -428,12 +430,12 @@
     setTimeout(function(){
       var ajaxValueData = $("#search-ajax").val();
       $.ajax({
-      method:"GET",
-      data:"title=what ",
-      url:"/search_ajax",
-      success:function(successs){
-        alert(successs.toSource());
-      }
+        method:"GET",
+        data:"q="+ajaxValueData,
+        url:"/search_ajax",
+        success:function(successs){
+          alert(successs.toSource());
+        }
     });
 
     },400);

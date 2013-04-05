@@ -473,6 +473,7 @@ textarea{background: none repeat scroll 0 0 #FFFFFF;
     margin-left: 15px;
     margin-top: 22px;}
 .srv_loc3{color: #000000;
+    display:inline-block !important;
     font-family: Arial;
     font-size: 13px;
     margin-left: 15px;
@@ -901,7 +902,7 @@ ul.info{margin-top: 30px;}
     padding-left: 25px;}
 .tags_pm li{margin-bottom: 15px;
     padding-left: 25px;}
-.tags2{padding-left: 15px; float: left;}
+.tags2{padding-left: 15px; float: left; clear:both !important;}
 .tags3{padding-top: 35px; float: right;}
 .tags2 li{border: medium none !important;
     float: left;
@@ -2446,5 +2447,20 @@ footer {
 }
 .avoid_link_color{
 	color:#0075CE !important;
+}
+#search-container{
+	width:480px;
+	margin-left:auto;
+	margin-right:auto;
+	border:solid 1px #000;
+	z-index:1000;
+	position:absolute;
+	top:80px;
+	left:25px;
+	padding:10px;
+	font-size:18px;
+	color:#71706D;
+	display:none;
+	background-color:#fff;
 }
 
