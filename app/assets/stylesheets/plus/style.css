@@ -2448,8 +2448,9 @@ footer {
 .avoid_link_color{
 	color:#0075CE !important;
 }
+/*seach styles*/
 #search-container{
-	width:480px;
+	width:510px;
 	margin-left:auto;
 	margin-right:auto;
 	border:solid 1px #000;
@@ -2457,10 +2458,24 @@ footer {
 	position:absolute;
 	top:80px;
 	left:25px;
-	padding:10px;
 	font-size:18px;
 	color:#71706D;
 	display:none;
 	background-color:#fff;
 }
+.text-style-drop{
+    width:494px !important;
+    padding:8px !important;
+    display:inline-block !important;
+    cursor: pointer;
 
+}
+.style-drop:hover{
+    color:#202020!important;
+}
+.text-style-drop:hover{
+    background-color: #D3CEC7 !important;
+}
+.search-btn{
+    cursor: pointer;
+}

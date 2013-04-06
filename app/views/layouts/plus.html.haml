@@ -34,6 +34,7 @@
     / JS
     = javascript_include_tag "plus"
     = javascript_include_tag "tool-tip.js"
+    = javascript_include_tag "plus/searchAjax.js"
     
 
 
@@ -183,10 +184,12 @@
               .container_24
                 .bg2_1
                   %div#search-container
-                    no search result found!
-                  = form_tag "/",:id => "search" do
-                    = text_field_tag "search-ajax", "What is your question?", :class => "search-tag",:alt => "What is your question?"
-                    = button_tag "search"
+                    %span.text-style-drop
+                      No result found!
+                  = form_tag "#{question_search_path}",:id => "search" do
+                    = text_field_tag "search-ajax", "What is your question?", :class => "search-tag",:alt => "What is your question?",:autocomplete=>"off"
+                    = hidden_field_tag "hidden_keys"
+                    = button_tag "search",:class=>"search-btn"
                     .clear
                 = yield :search_form
                 .grid_24
@@ -200,10 +203,12 @@
                   .container_24
                     .bg2_1
                       %div#search-container
-                        no search result found!
-                      = form_tag "/",:id => "search" do
-                        = text_field_tag "search-ajax", "What is your question?", :class => "search-tag",:alt => "What is your question?"
-                        = button_tag "search"
+                        %span.text-style-drop
+                          No result found!
+                      = form_tag "#{question_search_path}",:id => "search" do
+                        = text_field_tag "search-ajax", "What is your question?", :class => "search-tag",:alt => "What is your question?",:autocomplete=>"off"
+                        = hidden_field_tag "hidden_keys"
+                        = button_tag "search",:class=>"search-btn"
                         .clear
                     .grid_24
                       = yield
@@ -405,41 +410,5 @@
       $("#login_form").submit();
     }
   });
-:javascript
-
-  var varValueTaker;
-  $(".search-tag").focus(function(){
-    varValueTaker = $(this).val();
-    var varTakeAlt = $(this).attr("alt");
-    if(varValueTaker==varTakeAlt){
-      $("#search-container").fadeOut("slow");
-      $(this).val("");
-    }
-  });
-  $(".search-tag").blur(function(){
-    var varValueTakerBlur = $(this).val();
-    var varTakeAlt = $(this).attr("alt");
-    if(varValueTakerBlur==""){
-      if(varValueTaker==varValueTaker)
-        $(this).val(varTakeAlt);
-        $("#search-container").fadeOut("slow");
-    } 
-
-  });
-  $(".search-tag").keypress(function(){
-    setTimeout(function(){
-      var ajaxValueData = $("#search-ajax").val();
-      $.ajax({
-        method:"GET",
-        data:"q="+ajaxValueData,
-        url:"/search_ajax",
-        success:function(successs){
-          alert(successs.toSource());
-        }
-    });
-
-    },400);
-    
-    // $("#search-container").fadeIn("slow");
-  });
-
+  
+  
