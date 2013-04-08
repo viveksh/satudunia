@@ -1,0 +1,40 @@
+.row-fluid
+  .span12
+    .box
+      .title
+        %h4
+          %span{:class => "icon16 entypo-icon-flag"}
+          Flag
+        = link_to "Minimize", "#", :class => "minimize"
+      .content{:style => "Padding-bottom: 50px !important"}
+        %table{:cellpadding=>0,:cellspacing=>0,:border=>0,:class=>"responsive dynamicTable display table table-bordered",:width=>"100%"}
+          %thead
+            %tr
+              %th
+                Question Title
+              %th 
+                Question Body
+              %th
+                Owner
+              %th 
+                Flagged
+          %tbody
+            - @questions.each do |question|
+              %tr
+                %td
+                  = question.title
+                %td
+                  = truncate(h(question.body), :length => 100)
+                %td
+                  = question.user.name
+                %td 
+                  - question.flags.group_by{|f| f.reason}.each do |reason, flags|
+                    = flags.size
+                    x as 
+                    = t(reason, :scope=>"flags.form")
+                    %br
+
+:javascript
+  $(window).load(function(){
+    moderation_drawer_opened();
+  });

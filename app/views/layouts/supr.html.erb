@@ -179,9 +179,9 @@
                         </li>
                         <li>
                             <%= link_to "<span class='icon16 cut-icon-locked'></span>Features".html_safe, "#", :class => "hasUl" %>
-                            <ul class="sub">
-                                <li><a href="<%= announcements_path %>"><span class="icon16 brocco-icon-mic"></span>Announcements</a></li>
-                                <li><a href="<%= manage_social_path %>"><span class="icon16 brocco-icon-earth"></span>Social</a></li>
+                            <ul class="sub" id="feature_management">
+                                <li><a href="<%= announcements_path %>" id="features_announcement"><span class="icon16 brocco-icon-mic" ></span>Announcements</a></li>
+                                <li><a href="<%= manage_social_path %>" id="features_social"><span class="icon16 brocco-icon-earth"></span>Social</a></li>
                                 <li><a href="<%= constrains_configs_path %>"><span class="icon16 brocco-icon-window"></span>Requirements</a></li>
                                 <li><a href="<%= manage_rewards_path %>"><span class="icon16 entypo-icon-trophy"></span>Rewards</a></li>
                             </ul>
@@ -199,6 +199,14 @@
                             <%= link_to "<span class='icon16 entypo-icon-close'></span>Close Group".html_safe, "#", :class => "hasUl" %>
                             <ul class="sub">
                                 <li class="full-width"><a href="<%= manage_close_group_path %>"><span class="icon16 entypo-icon-close"></span>Close group</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <%= link_to "<span class='icon16 cut-icon-hash'></span>Moderation".html_safe, "#", :class => "hasUl", :id => "moderator_management_link" %>
+                            <ul class="sub" id="moderator_management">
+                                <li class="full-width">
+                                    <a href="<%= admin_manage_flags_path %>" id="moderator_flag"><span class="icon16 entypo-icon-flag"></span>Flag</a>
+                                </li>
                             </ul>
                         </li>
                     </ul>
@@ -316,6 +324,23 @@
 
         $('#feature_management').addClass('expand');
         $('#feature_management_link').addClass('drop');
+    }
+
+    function moderation_drawer_opened(){
+        $('#content_management').removeClass('expand');
+        $('#content_management_link').removeClass('drop');
+
+        $('#site_management').removeClass('expand');
+        $('#site_management_link').removeClass('drop');
+
+        $('#user_management').removeClass('expand');
+        $('#user_management_link').removeClass('drop');
+
+        $('#feature_management').removeClass('expand');
+        $('#feature_management_link').removeClass('drop');
+
+        $('#moderator_management').addClass('expand');
+        $('#moderator_management_link').addClass('drop');
     }
 
     $(document).ready(function(){

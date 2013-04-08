@@ -96,7 +96,7 @@ Rails.application.routes.draw do
     end
   end
   
-  resources :service_providers
+  resources :service_providers, :path=>'services-map'
   resources :news
   resources :polls
 
@@ -324,6 +324,8 @@ Rails.application.routes.draw do
   match '/admin/user-access' => 'admin/manage#access', :as => :admin_user_access
   match '/admin/members' => 'members#index', :as => :admin_members
   match '/admin/invitations' => 'admin/manage#invitations', :as => :admin_manage_invitations
+
+  match '/admin/flags' => 'flags#admin_index', :as => :admin_manage_flags
 
   namespace :moderate do
     resources :questions do
