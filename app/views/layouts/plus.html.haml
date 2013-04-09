@@ -107,11 +107,11 @@
                                 %span{:class => "email"}
                                   %label{:class => "name"}
                                     Email
-                                  = f.text_field :email,:class =>"input-class"
+                                  = f.text_field :email, :style => "width: 180px;"
                                 %span{:class => "password"}
                                   %label{:class => "name"}
                                     Password
-                                  = f.password_field :password,:class =>"input-class"
+                                  = f.password_field :password, :style => "width: 180px;"
                                   - if params[:pp] && params[:format] != 'mobile'
                                     = hidden_field_tag :pp, 1
                                 .signs
