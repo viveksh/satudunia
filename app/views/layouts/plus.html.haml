@@ -389,15 +389,6 @@
       $('#obj').css('display', 'block');
     });
   });
-
-%script
-  function closePopup(){
-    if(window.opener!=null){
-      - unless current_user.nil?
-      window.opener.location.reload(true);
-      window.close();
-    }
-  }
   
 :javascript
   $("#user_password").keypress(function(event){
@@ -406,5 +397,13 @@
       $("#login_form").submit();
     }
   });
+
+  function closePopup(){
+    var nilUser = "#{current_user.nil?}";
+    if(window.opener!=null && nilUser != "true"){
+      window.opener.location.reload(true);
+      window.close();
+    }
+  }
   
   
