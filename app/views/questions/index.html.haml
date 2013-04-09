@@ -39,8 +39,6 @@
         %ul
           - @questions.each do |question|
             = render "questions/plus_question", :question => question
-  = paginate @questions
-.grid_6.omega.body1_about{:id => "secondElement"}
   = paginate @questions, :left => 5, :right => 1
   .per_page{:style => "float:right;"}
     = link_to 15, '/questions?per_page=15', :id => "per_page_15"
