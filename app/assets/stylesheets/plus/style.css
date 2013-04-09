@@ -1068,9 +1068,7 @@ select option{margin: 5px;}
     top: -30px;}
 #page1 header {padding-bottom:0;}
 .right_l{float:right;}
-.header-bg {background:#202020;
-height: 111px;
-}
+.header-bg {background:#202020;}
 
 h1 {
     padding:41px 0 64px 2px; 
