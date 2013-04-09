@@ -2479,3 +2479,20 @@ footer {
 .search-btn{
     cursor: pointer;
 }
+
+.pagination{
+    font-size: 13px;
+    color: black;
+    padding: 10px;
+    float: left;
+}
+
+.per_page{
+    float: right;
+    font-size: 13px;
+    padding: 10px;
+}
+
+.per_page .current{
+    color: black;
+}
