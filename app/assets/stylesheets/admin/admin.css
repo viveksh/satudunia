@@ -13,6 +13,7 @@
  *= require ../helper/items
  *= require short.styles.css
  *= require counterStepper.css
- *= require jpicker/jPicker-1.1.6.css.scss
  *= require jquery-ui/jquery-ui.css.scss
+ *= require jPicker-1.1.6.min
+ *= require farbtastic.css
 */

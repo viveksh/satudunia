@@ -24,7 +24,7 @@
     %link{:href => apple_group_path(current_group), :rel => "apple-touch-icon"}/
     %link{:href => applest_group_path(current_group), :rel => "apple-touch-startup-image"}/
     %meta{:content => metro_group_path(current_group), :name=>"msapplication-TileImage"}/
-    %meta{:content => "<%= current_group.metro_color %>", :name=>"msapplication-TileColo"}/
+    %meta{:content => "#{current_group.metro_color}", :name=>"msapplication-TileColo"}/
     
     / CSS
     = stylesheet_link_tag "plus/style"

@@ -1351,8 +1351,8 @@ ul.menu li li:hover li ul, ul.menu li li.sfHover li ul {
     display:none;
 }
 
-.prev, 
-.next {
+a.prev, 
+a.next {
     display:block;
     width:40px;
     min-height:39px;
@@ -1361,11 +1361,11 @@ ul.menu li li:hover li ul, ul.menu li li.sfHover li ul {
     position:absolute;
     z-index:9999;
 }
-.prev {top:205px; left:150px;}
-.next {background-position:right top;right: 190px;
+a.prev {top:205px; left:150px;}
+a.next {background-position:right top;right: 190px;
     top: 205px;}
-.prev:hover {background-position:left bottom;}
-.next:hover {background-position:right bottom;}
+a.prev:hover {background-position:left bottom;}
+a.next:hover {background-position:right bottom;}
 
 .bg2_1{background: url("bg2_1.png") no-repeat scroll 0 0 transparent;
     position: relative;

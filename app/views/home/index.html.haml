@@ -61,43 +61,57 @@
         Find HIV health specialists in your local areas and help us map other services that people should know about.
 .grid_8.omega
   .bxslider1_2
+    - firstLimitCounter = 0
+    - secondLimitCounter = 0
     %ul{:class => "bxslider1 bg_s"}
       %li
         .slide12
           Latest Questions
+        - firstLimit = 0
         - @collectionAll.each do |item|
-          .slide13
-            =item.title
-            %br{:style => "color:#000"}
-              %span
-                - @timeDiff = ((@timeNow - item.created_at)/ 3600).round
-                = pluralize(@timeDiff,'Hr')
-                Ago
-            = image_tag "plus/l1.jpg", :class => "ms1"
+          - if firstLimit < @firstLimit
+            .slide13
+              =item.title
+              %br{:style => "color:#000"}
+                %span
+                  - @timeDiff = ((@timeNow - item.created_at)/ 3600).round
+                  = pluralize(@timeDiff,'Hr')
+                  Ago
+              = image_tag "plus/l1.jpg", :class => "ms1"
+            - firstLimitCounter+=1 
+          - firstLimit+=1
       %li
         .slide12
           Latest Questions
+        - secondLimitCounter = firstLimitCounter
+        - secondLimit = (@firstLimit-firstLimitCounter)
         - @collectionAll.each do |item|
-          .slide13
-            =item.title
-            %br{:style => "color:#000"}
-              %span
-                - @timeDiff = ((@timeNow - item.created_at)/ 3600).round
-                = pluralize(@timeDiff,'Hr')
-                Ago
-            = image_tag "plus/l1.jpg", :class => "ms1"
+          - if secondLimit >= @firstLimit && secondLimit < @secondLimit
+            .slide13
+              =item.title
+              %br{:style => "color:#000"}
+                %span
+                  - @timeDiff = ((@timeNow - item.created_at)/ 3600).round
+                  = pluralize(@timeDiff,'Hr')
+                  Ago
+              = image_tag "plus/l1.jpg", :class => "ms1"
+            - secondLimitCounter+=1
+          - secondLimit+=1
       %li
         .slide12
           Latest Questions
+        - thirdLimit = (@secondLimit - secondLimitCounter)
         - @collectionAll.each do |item|
-          .slide13
-            =item.title
-            %br{:style => "color:#000"}
-              %span
-                - @timeDiff = ((@timeNow - item.created_at)/ 3600).round
-                = pluralize(@timeDiff,'Hr')
-                Ago
-            = image_tag "plus/l1.jpg", :class => "ms1"
+          - if thirdLimit >= @secondLimit
+            .slide13
+              =item.title
+              %br{:style => "color:#000"}
+                %span
+                  - @timeDiff = ((@timeNow - item.created_at)/ 3600).round
+                  = pluralize(@timeDiff,'Hr')
+                  Ago
+              = image_tag "plus/l1.jpg", :class => "ms1"
+          - thirdLimit+=1
     = @timeAgo
     = link_to(image_tag("plus/view.jpg"),questions_path)
 :javascript
