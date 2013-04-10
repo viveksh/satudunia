@@ -66,6 +66,7 @@ $(document).ready(function(){
     var altTagTaker = $(this).attr("alt");
     $("#hidden_keys").val(altTagTaker+",");
     $("#search-container").html("").fadeOut('fast','linear');
+    $("#search").submit();
   });
 
 });

@@ -1,6 +1,5 @@
 - content_for :title do
   Home
-
 - content_for :slider_content do
   .slider-bg
     .slider-wrapper
@@ -65,39 +64,45 @@
       %li
         .slide12
           Latest Questions
+        - firstLimit = 0
         - @collectionAll.each do |item|
-          .slide13
-            =item.title
-            %br{:style => "color:#000"}
-              %span
-                - @timeDiff = ((@timeNow - item.created_at)/ 3600).round
-                = pluralize(@timeDiff,'Hr')
-                Ago
-            = image_tag "plus/l1.jpg", :class => "ms1"
+          - if firstLimit < @firstLimit
+            .slide13
+              =item.title
+              %br{:style => "color:#000"}
+                %span
+                  = time_ago_in_words(item.created_at)
+                  Ago
+              = image_tag "plus/l1.jpg", :class => "ms1"
+          - firstLimit+=1
       %li
         .slide12
           Latest Questions
+        - secondLimit = 0
         - @collectionAll.each do |item|
-          .slide13
-            =item.title
-            %br{:style => "color:#000"}
-              %span
-                - @timeDiff = ((@timeNow - item.created_at)/ 3600).round
-                = pluralize(@timeDiff,'Hr')
-                Ago
-            = image_tag "plus/l1.jpg", :class => "ms1"
+          - if secondLimit >= @firstLimit && secondLimit < @secondLimit
+            .slide13
+              =item.title
+              %br{:style => "color:#000"}
+                %span
+                  = time_ago_in_words(item.created_at)
+                  Ago
+              = image_tag "plus/l1.jpg", :class => "ms1"
+          - secondLimit+=1
       %li
         .slide12
           Latest Questions
+        - thirdLimit = 0
         - @collectionAll.each do |item|
-          .slide13
-            =item.title
-            %br{:style => "color:#000"}
-              %span
-                - @timeDiff = ((@timeNow - item.created_at)/ 3600).round
-                = pluralize(@timeDiff,'Hr')
-                Ago
-            = image_tag "plus/l1.jpg", :class => "ms1"
+          - if thirdLimit >= @secondLimit
+            .slide13
+              =item.title
+              %br{:style => "color:#000"}
+                %span
+                  = time_ago_in_words(item.created_at)
+                  Ago
+              = image_tag "plus/l1.jpg", :class => "ms1"
+          - thirdLimit+=1
     = @timeAgo
     = link_to(image_tag("plus/view.jpg"),questions_path)
 :javascript

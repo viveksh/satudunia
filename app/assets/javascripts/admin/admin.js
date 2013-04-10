@@ -14,4 +14,5 @@
 //= require ui.core.js
 //= require ui.spinner.js
 //= require counterStepper.js
+//= require farbtastic.js
 

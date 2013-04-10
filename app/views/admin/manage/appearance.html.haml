@@ -95,7 +95,13 @@
             .span12
               .row-fluid
                 = f.label :metro_color, "Metro Color Pallette", :class => "form-label span3"
-                = f.text_field :metro_color, :class => "color-picker-input" ,:id=>"color-picker"
+                = f.text_field :metro_color, :class => "colorwell text span3" ,:id=>""
+          .form-row.row-fluid
+            .span12
+              .row-fluid
+                %span.span3
+                  &nbsp;
+                %span#color-picker
           .form-row.row-fluid 
             .span12
               .row-fluid
@@ -106,16 +112,15 @@
                     = f.button "Save Changes", :class => "btn marginR10", :style => "padding: 4px 10px !important; border-width: 1px !important; border-style: solid !important"
                     = link_to "Cancel", admin_path, :class => "btn btn-danger", :style => "padding: 5px 10px !important; border-width: 1px !important; border-style: solid !important"
   :javascript
-    $("#color-picker").jPicker({
-      window:
-      {
-        expandable: true
-      },
-      color:
-      {
-        alphaSupport: true,
-        active: new $.jPicker.Color({ ahex: '99330099' })
+    // colorPicker
+    var f = $.farbtastic('#color-picker');
+    var p = $('#color-picker').css('opacity', 0.25);
+    var selected;
+    $('.colorwell').each(function () { f.linkTo(this); $(this).css('opacity', 0.75); }).focus(function() {
+      if (selected) {
+        $(selected).css('opacity', 0.75).removeClass('colorwell-selected');
       }
-
-
+      f.linkTo(this);
+      p.css('opacity', 1);
+      $(selected = this).css('opacity', 1).addClass('colorwell-selected');
     });
