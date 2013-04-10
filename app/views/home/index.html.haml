@@ -1,6 +1,5 @@
 - content_for :title do
   Home
-
 - content_for :slider_content do
   .slider-bg
     .slider-wrapper
@@ -61,8 +60,6 @@
         Find HIV health specialists in your local areas and help us map other services that people should know about.
 .grid_8.omega
   .bxslider1_2
-    - firstLimitCounter = 0
-    - secondLimitCounter = 0
     %ul{:class => "bxslider1 bg_s"}
       %li
         .slide12
@@ -74,41 +71,35 @@
               =item.title
               %br{:style => "color:#000"}
                 %span
-                  - @timeDiff = ((@timeNow - item.created_at)/ 3600).round
-                  = pluralize(@timeDiff,'Hr')
+                  = time_ago_in_words(item.created_at)
                   Ago
               = image_tag "plus/l1.jpg", :class => "ms1"
-            - firstLimitCounter+=1 
           - firstLimit+=1
       %li
         .slide12
           Latest Questions
-        - secondLimitCounter = firstLimitCounter
-        - secondLimit = (@firstLimit-firstLimitCounter)
+        - secondLimit = 0
         - @collectionAll.each do |item|
           - if secondLimit >= @firstLimit && secondLimit < @secondLimit
             .slide13
               =item.title
               %br{:style => "color:#000"}
                 %span
-                  - @timeDiff = ((@timeNow - item.created_at)/ 3600).round
-                  = pluralize(@timeDiff,'Hr')
+                  = time_ago_in_words(item.created_at)
                   Ago
               = image_tag "plus/l1.jpg", :class => "ms1"
-            - secondLimitCounter+=1
           - secondLimit+=1
       %li
         .slide12
           Latest Questions
-        - thirdLimit = (@secondLimit - secondLimitCounter)
+        - thirdLimit = 0
         - @collectionAll.each do |item|
           - if thirdLimit >= @secondLimit
             .slide13
               =item.title
               %br{:style => "color:#000"}
                 %span
-                  - @timeDiff = ((@timeNow - item.created_at)/ 3600).round
-                  = pluralize(@timeDiff,'Hr')
+                  = time_ago_in_words(item.created_at)
                   Ago
               = image_tag "plus/l1.jpg", :class => "ms1"
           - thirdLimit+=1
