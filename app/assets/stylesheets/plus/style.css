@@ -2327,6 +2327,7 @@ aside {
     position: absolute;
     right: 254px;
     top: 190px;
+    width: 399px;
     z-index: 99999;}
 .mms{background: url("h_teg1.jpg") repeat-x scroll 0 0 transparent;
     border: 2px solid #fff;
@@ -2347,7 +2348,7 @@ aside {
     padding-right: 15px;
     position:absolute;
     right: 533px;
-    top: 260px;
+    top: 320px;
     width: 100px;
     z-index: 99999;}
 .mms2{background: url("h_teg2.jpg") repeat-x scroll 0 0 transparent;
@@ -2358,7 +2359,7 @@ aside {
     padding-right: 15px;
     position:absolute;
     right: 533px;
-    top: 260px;
+    top: 320px;
     width: 102px;
     z-index: 99999;}
 .mms span{color: #FFFFFF;
