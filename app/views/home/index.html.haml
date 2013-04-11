@@ -30,7 +30,7 @@
                 =h current_group.slogan_long_sign
               = link_to "<span>Sign Up Now</span>".html_safe, "/users/login", :class => "mms2"
         = link_to "prev", "#", :class => "prev"
-        = link_to "next", "#", :class => "next"  
+        = link_to "next", "#", :class => "next"
       .clear
 
 .alpha.grid_16
@@ -44,16 +44,16 @@
       %p{:style => "font-size:18px;font-family:'Calibri';color:#0075ce;font-weigth:bold;padding-top:10px"}
         Knowledge Base
       %p{:class => "p12_1"}
-        Get the information you need to know and 
+        Get the information you need to know and
         stay in touch via our regular newsletter or social media feeds
     .grid_5
-      = image_tag "plus/banner2.png"
+      = link_to (image_tag "plus/banner2.png"),questions_path
       %p{:style => "font-size:18px;font-family:'Calibri';color:#0075ce;font-weigth:bold;padding-top:10px"}
         = link_to("Questions",questions_path,:class=>"front_link_style")
       %p{:class => "p12_1"}
         Learn from other people's experience of living with HIV - the diversity of answers might be the food for though that you needed.
     .grid_5
-      = image_tag "plus/banner3.png"
+      = link_to (image_tag "plus/banner3.png"),service_providers_path
       %p{:style => "font-size:18px;font-family:'Calibri';color:#0075ce;font-weigth:bold;padding-top:10px"}
         = link_to("Services",service_providers_path,:class=>"front_link_style")
       %p{:class => "p12_1"}
@@ -62,48 +62,49 @@
   .bxslider1_2
     %ul{:class => "bxslider1 bg_s"}
       %li
-        .slide12
+        .slide12{:style => "color:#202020"}
           Latest Questions
         - firstLimit = 0
         - @collectionAll.each do |item|
           - if firstLimit < @firstLimit
             .slide13
-              =item.title
+              = link_to truncate(strip_tags(item.title), :length => 200), "/questions/#{item.slug}",:class => "avoid_link_color"
               %br{:style => "color:#000"}
-                %span
+                %span.colors
                   = time_ago_in_words(item.created_at)
                   Ago
               = image_tag "plus/l1.jpg", :class => "ms1"
           - firstLimit+=1
       %li
-        .slide12
+        .slide12{:style => "color:#202020"}
           Latest Questions
         - secondLimit = 0
         - @collectionAll.each do |item|
           - if secondLimit >= @firstLimit && secondLimit < @secondLimit
             .slide13
-              =item.title
+              = link_to truncate(strip_tags(item.title), :length => 200), "/questions/#{item.slug}",:class => "avoid_link_color"
               %br{:style => "color:#000"}
-                %span
+                %span.colors
                   = time_ago_in_words(item.created_at)
                   Ago
               = image_tag "plus/l1.jpg", :class => "ms1"
           - secondLimit+=1
       %li
-        .slide12
+        .slide12{:style => "color:#202020"}
           Latest Questions
         - thirdLimit = 0
         - @collectionAll.each do |item|
           - if thirdLimit >= @secondLimit
             .slide13
-              =item.title
+              = link_to truncate(strip_tags(item.title), :length => 200), "/questions/#{item.slug}",:class => "avoid_link_color"
               %br{:style => "color:#000"}
-                %span
+                %span.colors
                   = time_ago_in_words(item.created_at)
                   Ago
               = image_tag "plus/l1.jpg", :class => "ms1"
           - thirdLimit+=1
-    = @timeAgo
     = link_to(image_tag("plus/view.jpg"),questions_path)
 :javascript
   $('#home_nav').addClass('active');
+
+

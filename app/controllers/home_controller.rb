@@ -5,7 +5,7 @@ class HomeController < ApplicationController
     @body_id = "page1"
     #default limit stepper variable
     @DefaultlimitStepper = current_group.question_default_length
-    @collectionAll = Question.all.order(:created_at => :desc).limit(@DefaultlimitStepper*3)
+    @collectionAll = Question.where(:group_id=>current_group.id).order(:created_at => :desc).limit(@DefaultlimitStepper*3)
     # setting variables for first limit, second limit and third limit
     @firstLimit = current_group.question_default_length
     @secondLimit = current_group.question_default_length*2

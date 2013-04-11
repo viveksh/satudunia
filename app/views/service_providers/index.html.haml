@@ -18,16 +18,24 @@
     %figure{:class => "p5"}
       #services_map{:style => "width:760px; height:450px"}
     #map2
-      %p{:class => "i3_4"}
+      %p{:class => "i3_55"}
         %strong
           Healthcare
           %br
           Service
           %br
-          Map
+          Providers
       %ul{:class => "serv_loc7"}
         %li
-          = link_to "All", "/services-map"
+          %a{:href => "/services-map"} Private Hospitals
+        %li
+          %a{:href => "/services-map"} Latest Developments
+        %li
+          %a{:href => "/services-map"} Restructured Healthcare Clusters
+        %li
+          %a{:href => "/services-map"} Medical Centres
+        %li
+          %a{:href => "/services-map"} Specialist Medical Centres
         - @categories.each do |category|
           %li
             = link_to category.category_name, "/services-map?category_id=#{category.id}"
