@@ -509,10 +509,10 @@ textarea{background: none repeat scroll 0 0 #FFFFFF;
 #slider31{width: 684px;}
 .bx-window{padding-left: 30px;}
 #page3 .bx-window{
-    min-height: 906px!important;
+    min-height: 500px!important;
     padding-left: 0;width: 710px !important;}
 #page4 .bx-window{
-    min-height: 963px;
+    min-height: 500px;
     padding-left: 0;width: 953px !important;}
 .serv_loc6 .bx-window{height: 750px !important;
     min-height: 750px!important;
@@ -565,7 +565,7 @@ ul li{color: #b3b3b3;
     font-size: 13px;} 
 #slider21 > li{
     width: 710px!important;
-    min-height: 927px!important;
+    min-height: 500px!important;
 }
 #slider31 > li{
     height: 810px !important;
@@ -1068,7 +1068,9 @@ select option{margin: 5px;}
     top: -30px;}
 #page1 header {padding-bottom:0;}
 .right_l{float:right;}
-.header-bg {background:#202020;}
+.header-bg {background:#202020;
+height: 90px;
+}
 
 h1 {
     padding:41px 0 64px 2px; 
@@ -1349,8 +1351,8 @@ ul.menu li li:hover li ul, ul.menu li li.sfHover li ul {
     display:none;
 }
 
-.prev, 
-.next {
+a.prev, 
+a.next {
     display:block;
     width:40px;
     min-height:39px;
@@ -1359,11 +1361,11 @@ ul.menu li li:hover li ul, ul.menu li li.sfHover li ul {
     position:absolute;
     z-index:9999;
 }
-.prev {top:205px; left:150px;}
-.next {background-position:right top;right: 190px;
+a.prev {top:205px; left:150px;}
+a.next {background-position:right top;right: 190px;
     top: 205px;}
-.prev:hover {background-position:left bottom;}
-.next:hover {background-position:right bottom;}
+a.prev:hover {background-position:left bottom;}
+a.next:hover {background-position:right bottom;}
 
 .bg2_1{background: url("bg2_1.png") no-repeat scroll 0 0 transparent;
     position: relative;
@@ -1947,7 +1949,8 @@ height: 1030px !important;
     padding-bottom: 12px;
     padding-left: 30px;
     padding-right: -10px;
-    padding-top: 100px;}
+    padding-top: 100px;
+    width: 220px;}
     .sp_bg1111 li{font-size:13px;
     font-family:Arial;
     color:#0075ce;
@@ -2324,7 +2327,6 @@ aside {
     position: absolute;
     right: 254px;
     top: 190px;
-    width: 399px;
     z-index: 99999;}
 .mms{background: url("h_teg1.jpg") repeat-x scroll 0 0 transparent;
     border: 2px solid #fff;
@@ -2345,7 +2347,7 @@ aside {
     padding-right: 15px;
     position:absolute;
     right: 533px;
-    top: 320px;
+    top: 260px;
     width: 100px;
     z-index: 99999;}
 .mms2{background: url("h_teg2.jpg") repeat-x scroll 0 0 transparent;
@@ -2356,7 +2358,7 @@ aside {
     padding-right: 15px;
     position:absolute;
     right: 533px;
-    top: 320px;
+    top: 260px;
     width: 102px;
     z-index: 99999;}
 .mms span{color: #FFFFFF;
@@ -2477,20 +2479,7 @@ footer {
 .search-btn{
     cursor: pointer;
 }
-
-.pagination{
-    font-size: 13px;
-    color: black;
-    padding: 10px;
-    float: left;
-}
-
-.per_page{
-    float: right;
-    font-size: 13px;
-    padding: 10px;
-}
-
-.per_page .current{
-    color: black;
+/*pagination styles*/
+.pagination-float{
+    float:right;
 }

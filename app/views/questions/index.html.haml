@@ -4,10 +4,8 @@
 
 /%section.questions-index
 =# render 'shared/posts'
-
 - content_for :title do
   Questions
-
 = image_tag "plus/body_about1.jpg", :class => "body_header"
 .alpha.grid_18.body_about{:id => "firstElement"}
   %span{:class => "p_a"}
@@ -34,17 +32,21 @@
         %option Answers
     .clear
   .bx-wrapper
-    %ul{:id => "slider21", :style => "position: relative;"}
-      %li{:class => "pager ps1"}
-        %ul
-          - @questions.each do |question|
-            = render "questions/plus_question", :question => question
-  = paginate @questions, :left => 5, :right => 1
-  .per_page{:style => "float:right;"}
-    = link_to 15, '/questions?per_page=15', :id => "per_page_15"
-    = link_to 30, '/questions?per_page=30', :id => "per_page_30"
-    = link_to 50, '/questions?per_page=50', :id => "per_page_50"
-    per page
+    %div.bx-window
+      %ul{:id => "slider21", :style => "position: relative;"}
+        %li{:class => "pager ps1"}
+          %ul
+            - @questions.each do |question|
+              = render "questions/plus_question", :question => question
+    %div.pagination-div
+      = paginate @questions, :left => 5, :right => 1
+      %ul#pagination-digg{:style => "float:right;"}
+        %li.pagination-float
+          = link_to 15, '/questions?per_page=15', :id => "per_page_15"
+        %li.pagination-float
+          = link_to 30, '/questions?per_page=30', :id => "per_page_30"
+        %li.pagination-float
+          = link_to 50, '/questions?per_page=50', :id => "per_page_50"
 .grid_6.omega.body1_about{:id => "secondElement", :style => "width: 242px !important"}
   .tagsl1
     %span{:class => "t_l1"} 67
@@ -85,10 +87,13 @@
   $(window).load(function(){
     var sessionPerPage = '#{session[:per_page].blank? ? 15 : session[:per_page]}';
     if (sessionPerPage == '15'){
-      $('#per_page_15').addClass('current');
+      $('a#per_page_15').parent().addClass('active').html("15");
+      $(this).remove();
     } else if (sessionPerPage == '30'){
-      $('#per_page_30').addClass('current');
+      $('a#per_page_30').parent().addClass('active').html("30");
+      $(this).remove();
     } else if (sessionPerPage == '50'){
-      $('#per_page_50').addClass('current');
+      $('a#per_page_50').parent().addClass('active').html("50");
+      $(this).remove();
     }
   });

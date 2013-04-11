@@ -101,7 +101,7 @@ class SearchesController < ApplicationController
     unless @params.blank?
       @params.scan(/\[(\w+)\]/).flatten
       @params.gsub(/\[(\w+)\]/, "")
-      @search = Question.filter(@params)
+      @search = Question.where(:group_id=>current_group.id).filter(@params)
       respond_to do |format|
         format.json {render:json =>@search.to_json}
       end
