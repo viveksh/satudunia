@@ -509,10 +509,10 @@ textarea{background: none repeat scroll 0 0 #FFFFFF;
 #slider31{width: 684px;}
 .bx-window{padding-left: 30px;}
 #page3 .bx-window{
-    min-height: 906px!important;
+    min-height: 500px!important;
     padding-left: 0;width: 710px !important;}
 #page4 .bx-window{
-    min-height: 963px;
+    min-height: 500px;
     padding-left: 0;width: 953px !important;}
 .serv_loc6 .bx-window{height: 750px !important;
     min-height: 750px!important;
@@ -565,7 +565,7 @@ ul li{color: #b3b3b3;
     font-size: 13px;} 
 #slider21 > li{
     width: 710px!important;
-    min-height: 927px!important;
+    min-height: 500px!important;
 }
 #slider31 > li{
     height: 810px !important;
@@ -2478,4 +2478,8 @@ footer {
 }
 .search-btn{
     cursor: pointer;
+}
+/*pagination styles*/
+.pagination-float{
+    float:right;
 }

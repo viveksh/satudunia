@@ -12,7 +12,8 @@
     >
     = link_to "Questions", "/questions"
     >
-    = @question.title
+    %span.underline-decoration-link
+      = link_to "#{@question.title}", "/questions/#{@question.slug}",:style => "color: white;"
   .q_height2
     = link_to image_tag("plus/reiting_num1.png"), "#"
     %p{:class => "reiting_num5"}
@@ -33,8 +34,8 @@
         = link_to tag, "#", :class => "tags2_1"
   %ul{:class => "tags3 tags9_2"}
     %li
-      = link_to "<span>Flag</span>".html_safe, "#", :class => "q_tag1"
-      = link_to "<span>Follow</span>".html_safe, "#", :class => "q_tag2"
+      = link_to "<span class='underline-decoration-link'>Flag</span>".html_safe, "#", :class => "q_tag1 tool-tip",:title=>"Flag this question"
+      = link_to "<span class='underline-decoration-link'>Follow</span>".html_safe, "#", :class => "q_tag2 tool-tip",:title=>"Follow this question"
   .clear
   .tabs4
     %ul{:class => "tabNavigation"}
@@ -68,7 +69,7 @@
               Your Answer
             = image_tag "plus/edit_area.jpg", :class => "Fleft", :style => "margin-top:20px"
             %p
-              = link_to "<span>Post your Answer</span>".html_safe, "#", :class => "q_i1_tag1", :style => "text-decoration: none;"
+              = link_to "<span class='underline-decoration-link'>Post your Answer</span>".html_safe, "#", :class => "q_i1_tag1 tool-tip", :title => "Post your Answer"
 
 .grid_6.omega.body1_about.body_qwest1{:id => "secondElement", :style => "width: 242px !important"}
   .tagsl1
@@ -93,10 +94,7 @@
     %span{:class => "t_l2_3"}
       Followers
   .clear
-  %ul{:class => "sp_bg1111", :style => ""}
-    %li
-      = link_to "Question", "/questions"
-  %p{:class => "i3_11"}
+  %p{:class => "i3_11", :style => "margin-top:100px"}
     %strong
       Related
   %ul{:class => "tags1"}
