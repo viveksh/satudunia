@@ -1,24 +1,130 @@
-
--content_for :header do
-  %h1
+= image_tag "plus/body_about1.jpg", :class => "body_header"
+.alpha.grid_18.body_about{:id => "firstElement", :style => "margin-bottom:20px"}
+  %span{:class => "p_a"}
     = t(".title")
-  %p.description
-    = raw(current_group.question_help)
-
-= form_for(@question, html: {class: "question-form", id: "ask_question", multipart: true, data: {'login-required' => true}}) do |f|
-  =render :partial => "form", :locals => {:f => f}
-
-  .field.form-options
-    .column
+  %span{:class => "p_a1 il_ask"}
+    = link_to "Home", "/"
+    > Ask Question
+  .ask
+    %p{:class => "ask1"}
+      = raw(current_group.question_help)
+    = form_for(@question, html: {class: "question-form", id: "ask_question", multipart: true, data: {'login-required' => true}}) do |f|
+      %p{:class => "ask2"}
+        %strong
+          Title*
+      .search3
+        = f.text_field :title
+      %p{:class => "ask2"}
+        = raw(current_group.question_prompt)
+      %p{:class => "ask2"}
+        %strong
+          Tags
+      .search3
+        = f.select :tags, current_group.default_tags, {},{:multiple => true, :selected => @question.tags}
+      %p{:class => "ask2"}
+        Use tags to add more information about your question.
+      %p{:class => "ask2"}
+        %strong
+          Questions
+      .search3
+        = f.text_area :body, :class => "wysiwyg_editor"
       .checkbox
-        = f.label :wiki, "Wiki"
         = f.check_box :wiki
-    .column
+        Wiki
       .checkbox
-        = f.label :anonymous, t("scaffold.post_as_anonymous")
         = f.check_box :anonymous, {:class => "checkbox"}, true, false
+        = t("scaffold.post_as_anonymous")
+      -if current_group.has_adult_content
+        .checkbox
+          = f.check_box :adult_content, :class => "checkbox"
+          = f.label :adult_content, t(".adult_content"), :class => "radio"
 
-    .buttons
-      = f.submit t('scaffold.create'), :class => "save"
-      = t("global.or")
-      = link_to t('scaffold.cancel'), questions_path
+      #attachments{:style => "margin:20px"}
+        #fields{:style => "margin-bottom:10px; font-size:13px; font-family:Arial;"}
+          .attachment_field.template
+            = f.file_field "attachments[0]"
+            = link_to t('.remove_attachment'), "#", :class => "remove_attachment"
+        = link_to "<span>Upload Image</span>".html_safe, "#", :class => "add_attachment ask_tag1", :style => "margin-left:5px !important;"
+
+
+      = link_to "<span>Ask Now</span>".html_safe, "#", :class => "ask_tag2", :id => "ask_question_link", :style => "margin-bottom: 10px;"
+
+.grid_6.omega.body1_about{:id => "secondElement", :style => "width: 242px !important"}
+  %p.i3_4
+    %strong
+      Recent Tags
+  %ul.tags
+    - current_group.default_tags.each do |tag|
+      %li{:style => "float:left; padding-left:0px !important;"}
+        %span{:class => "tags1_1"}
+          = link_to h(tag).html_safe, tag_path(:id => CGI.escape(tag))
+          %span.avoid_link_color{:style=>"font-weight:600"}
+            = current_group.questions.where(:tags=>tag).count
+    .clear
+  %p{:class => "about1"}
+    %strong
+      Latest Users
+  %ul{:class => "users"}
+    = render :partial => "widgets/plus_users"
+  = link_to "<span style='color:#0075ce;padding-left: 30px;text-decoration: none;font-weight: bold;font-family:Arial'>More>></span>".html_safe, users_path
+
+= render :partial => 'shared/rich_text_partial'
+
+:javascript
+  $(document).ready(function(){
+    var fields = $("#attachments #fields");
+    var template = fields.find(".template");
+    template.find("input").attr("name", "question[attachments[id]]");
+    template.hide();
+
+    $("#attachments #fields .attachment_field .remove_attachment").live("click", function(e) {
+      $(this).parent().remove();
+      return false;
+    });
+
+    $(".remove_attachment_link").live("click", function(e) {
+      var url = $(this).attr("href");
+      var remove = confirm("are you sure?"); //TODO; i18n
+      if (remove) {
+        $.ajax({url: url, dataType: 'json', context: $(this), success: function(data, textStatus, XMLHttpRequest){
+          $(this).parent().remove();
+        }});
+      }
+      return false;
+    });
+
+    var count = -1;
+    $("#attachments .add_attachment").live("click", function(e) {
+      var template = fields.find(".template");
+      var new_field = template.clone();
+      new_field.removeClass("template");
+      count++;
+      var new_name = new_field.find("input").attr("name").replace(/(id)/, count);
+      new_field.find("input").attr("name",new_name)
+
+      new_field.show();
+
+      fields.append(new_field);
+
+      return false;
+    });
+
+    $("#ask_question_link").click(function (){
+      $("#ask_question").submit();
+    });
+
+    $("#question_tags").ajaxChosen({
+      method: 'GET',
+      url: '/questions/tags_for_autocomplete.js',
+      dataType: 'json'
+    }, function (data) {
+      var terms = {};
+      $.each(data, function (i, val) {
+          console.log('i: '+i)
+          console.log('val: '+val)
+        terms[val["value"]] = val["caption"];
+      });
+
+      return terms;
+    });
+  });

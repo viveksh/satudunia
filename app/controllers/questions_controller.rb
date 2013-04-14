@@ -23,7 +23,7 @@ class QuestionsController < ApplicationController
           :show => [[:votes, [:votes_average, Mongo::DESCENDING]], [:oldest, [:created_at, Mongo::ASCENDING]], [:newest, [:created_at, Mongo::DESCENDING]]]
   helper :votes
 
-  layout "plus", :only => ["index", "show","question_search"]
+  layout "plus", :only => ["index", "show","question_search", "new", "create"]
 
   # GET /questions
   # GET /questions.xml
