@@ -1,13 +1,19 @@
-.list-users
-
-  %ul.items{:id => 'users'}
-    - if @news.blank?
-      %li
-        .summary
-          %h3
-            No Recent News Yet
-    -@news.each do |news|
-      = render :partial => "news", :object => news
-      
-  = paginate @news
-    
+.grid_24
+  %img.body_header{:alt => "", :src => "assets/plus/body_news1.jpg"}/
+  #firstElement.alpha.grid_18.body_about
+    %span.p_a News & Activites
+    %span.p_a1.i3__news
+      %a{:href => "index.html"} Home
+      > News & Activites
+    .bx-wrapper
+      %ul#slider31
+        %li.pager.ps1
+          %ul
+            - if @news.blank?
+              %li
+                %h3
+                  No Recent News Yet
+            -@news.each do |news|
+              %li
+                = render :partial => "news", :object => news
+      = paginate @news
