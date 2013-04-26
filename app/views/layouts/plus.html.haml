@@ -347,6 +347,10 @@
   }
 
   $(window).load(function(){
+    // change font size on wysiwyg editor
+    $('iframe').attr('id','editorFrame');
+    $('#editorFrame').contents().find('body').css({'font-size':'13px', 'font-family': 'arial'});
+
     // open popup when coming from auth-provider
     closePopup();
 
