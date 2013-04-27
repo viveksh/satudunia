@@ -117,6 +117,31 @@ module UsersHelper
     end
   end
 
+  def big_avatar_url(user, options)
+    return "" if user.nil?
+    size = options.delete(:size)
+    options[:alt] = user.login
+    options[:title] = user.login
+
+    if user.use_gravatar || !user.has_avatar?
+      options[:size] = "107"
+      # TODO: convert size's name to pixels
+      gravatar_url(user.email.to_s, options)+"&d=#{default_avatar_url(size)}"
+    else
+      options[:class] ||= "gravatar"
+
+      size = "107"
+
+      options[:style] = "height: 107px"
+      avatar_user_path(user, size)
+    end
+  end
+
+  def big_avatar_img(user, options)
+    url = big_avatar_url(user, options)
+    image_tag(url, options)
+  end
+
   def default_avatar_url(size='small')
     "#{request.protocol}#{AppConfig.domain}:#{request.port.to_s}/assets/default-avatar-#{size}.png"
   end

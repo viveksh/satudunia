@@ -32,7 +32,7 @@
             %li
               = tag_link(tag)
           - if logged_in? && (current_user.can_modify?(question) || current_user.can_retag_others_questions_on?(current_group))
-            %li.retag
+            %li.retag{:style => "margin-top: -3px !important;"}
               = link_to t('.retag'), retag_question_path(question),:class => "tags2_1", :style => "margin-right: 10px; padding-left:5px; padding-right:5px;"
         %ul{:class => "tags3"}
           %li

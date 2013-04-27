@@ -35,7 +35,7 @@ class UsersController < ApplicationController
         :expertise => tab_config,
         :feed => tab_config,
         :contributed => tab_config
-  layout "plus", :only => [:index,:new,:create]
+  layout "plus", :only => [:index,:new,:create, :show, :answers, :follows, :activity]
   def index
     set_page_title(t("users.index.title"))
 
@@ -102,6 +102,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @body_id = "page3"
     @resources = @user.questions.where(:group_id => current_group.id,
                                        :banned => false,
                                        :anonymous => false).
@@ -133,6 +134,7 @@ class UsersController < ApplicationController
   end
 
   def answers
+    @body_id = "page3"
     @resources = @user.answers.where(:group_id => current_group.id,
                                      :banned => false,
                                      :anonymous => false).
@@ -144,6 +146,7 @@ class UsersController < ApplicationController
   end
 
   def follows
+    @body_id = "page3"
     case @active_subtab.to_s
     when "following"
       @resources = @user.following(current_group).page(params["page"])
@@ -170,6 +173,7 @@ class UsersController < ApplicationController
   end
 
   def activity
+    @body_id = "page3"
     conds = {}
     case params[:tab]
     when "questions"
