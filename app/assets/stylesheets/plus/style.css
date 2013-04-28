@@ -21,6 +21,15 @@ iframe {
     border: 1px solid #CED1D4;
 }
 
+.center_text{
+    font-family: arial;
+    font-size: 13px;
+    text-align: center;
+    width: 580px;
+    margin-bottom: 15px;
+    margin-top: -15px;
+}
+
 .template{
     display: none;
 }
