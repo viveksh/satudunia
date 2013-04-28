@@ -12,7 +12,7 @@
 .alpha.grid_18.body_about{:id => "firstElement"}
   %span{:class => "p_a"}
     = truncate(strip_tags(@question.title), :length => 45)
-  %span{:class => "p_a1 i3_1", :style => "margin-left: -66px;"}
+  %span{:class => "p_a1 i3_1", :style => "position: absolute !important; left: 20px !important;"}
     = link_to "Home", "/"
     >
     = link_to "Questions", "/questions"
