@@ -2,25 +2,12 @@ class ContactController < ApplicationController
   layout "plus"
 
   def index
-    @contact = StaticPage.where(:static_key => 'contact').first
-
-    if @contact.blank?
-      @contact = StaticPage.new(:latitude => "1.28668", :longitude => "103.853607", :street_address => "3 Fullerton Rd, Singapore")
-      @contact.static_key = "contact"
-      @contact.save
-    end
+    @contact = Contact.new()
   end
   
   def send_contact_us
-    contact = Contact.new(params[:contact])
+    @contact = Contact.new(params[:contact])
 
-    if contact.save
-      flash[:notice] = "Comment Sent"
-      Notifier.contact_us_from_user(contact).deliver
-      redirect_to contact_path
-    else
-      flash[:error] = "Missing Required Data"
-      render :action => :index
-    end
+    redirect_to contact_path
   end
 end
