@@ -1,3 +1,8 @@
+:css
+  .jHtmlArea iframe, .ToolBar iframe{
+    width: 95% !important;
+  }
+
 - content_for :title do
   = @question.title
 
@@ -155,9 +160,9 @@
                 .clear          
       = form_for([@question,@answer],:method=>:post,:html => {:multipart => true,:name=>'answer_form',:id=>'answer_form'}) do |f|
         %p{:style=>"margin-left:30px;"}
-          = f.text_area :body, :class => "wysiwyg_editor",:size=>"50x20"
+          = f.text_area :body, :class => "wysiwyg_editor",:size=>"40x20"
           / = render :partial => 'shared/rich_text_partial'
-        %p
+        %p{:style=>"margin-left:5px; margin-bottom: 30px; top: 15px; position: relative;"}
           = link_to "<span class='underline-decoration-link'>Post your Answer</span>".html_safe, "javascript:void(0)", :class => "q_i1_tag1 tool-tip", :title => "Post your Answer",:onclick=>"document.answer_form.submit();"
 
 .grid_6.omega.body1_about.body_qwest1{:id => "secondElement", :style => "width: 242px !important"}
