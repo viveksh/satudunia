@@ -542,4 +542,40 @@ module ApplicationHelper
   def payment_form(title, options = {})
     render :partial => "invoices/form", :locals => {:opts => options.merge(:title => title)}
   end
+
+  def user_realname(user)
+    realname = "Anonymous"
+    if !user.nil? && !user.hide_realname
+      realname = user.display_name
+    end
+
+    realname
+  end
+
+  def user_age(user)
+    ages = "unknown"
+    if !user.nil? && !user.hide_age && !user.user_age.blank?
+      ages = user.user_age
+    end
+
+    ages
+  end
+
+  def user_country(user)
+    country = "unknown"
+    if !user.nil? && !user.hide_country && !user.country_name.blank?
+      country = user.country_name
+    end
+
+    country
+  end
+
+  def user_hiv_condition(user)
+    hiv_condition = "unknown"
+    if !user.nil? && !user.hide_hiv_condition
+      hiv_condition = user.hiv_condition
+    end
+
+    hiv_condition
+  end
 end

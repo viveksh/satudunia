@@ -13,16 +13,16 @@
         = t("time.ago", :time => time_ago_in_words(membership.joined_at || membership.created_at))
     .com_bg2
       %span{:class => "com_right2"}
-        HIV Condition: Stable
+        HIV Condition: #{user_hiv_condition(user)}
     .bg_people
       .data
         = image_tag "plus/us1.png"
         %span
-          Lives in Singapore
+          Lives in #{user_country(user)}
         %br
         = image_tag "plus/us2.png"
         %span
-          Age: 25
+          Age: #{user_age(user)}
       .CLeft
         %span
           -count = user.questions.where(:group_id => current_group.id).count

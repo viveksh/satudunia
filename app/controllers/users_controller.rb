@@ -35,7 +35,7 @@ class UsersController < ApplicationController
         :expertise => tab_config,
         :feed => tab_config,
         :contributed => tab_config
-  layout "plus", :only => [:index,:new,:create, :show, :answers, :follows, :activity]
+  layout "plus", :only => [:index,:new,:create, :show, :answers, :follows, :activity, :edit]
   def index
     set_page_title(t("users.index.title"))
 
@@ -216,9 +216,9 @@ class UsersController < ApplicationController
       params[:user][:preferred_languages].reject! { |lang| lang.blank? }
     end
     @user.networks = params[:networks]
-    @user.safe_update(%w[preferred_languages login email name
-                         language timezone bio hide_country
-                         website avatar use_gravatar], params[:user])
+    @user.safe_update(%w[preferred_languages login email name hide_realname
+                         language timezone bio hide_country hide_age hide_hiv_condition
+                         country_name user_age hiv_condition website avatar use_gravatar], params[:user])
     @user.notification_opts.safe_update(%w[new_answer give_advice activities reports
        questions_to_twitter badges_to_twitter favorites_to_twitter answers_to_twitter
        comments_to_twitter], params[:user][:notification_opts]) if params[:user][:notification_opts]
@@ -241,7 +241,7 @@ class UsersController < ApplicationController
         @invitation.confirm if @invitation
         redirect_to accept_invitation_path(:step => params[:next_step], :id => params[:invitation_id])
       else
-        redirect_to root_path
+        redirect_to user_path(@user)
       end
     else
       render :action => "edit"

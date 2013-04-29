@@ -1619,6 +1619,31 @@ a.next:hover {background-position:right bottom;}
     width: 215px;
     border:2px solid #d2d5d8;}
     }
+
+    .search4 {
+    color: #A5C8EA;
+    display: inline-block;
+    font-size: 12px;
+    line-height: 16px;
+    padding-left: 0px;
+    z-index: 999;
+    margin-top: -10px;
+    }
+    
+    .search4 input {    
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-radius: 5px 5px 5px 5px;
+    display: inline-block;
+    float: left;
+    font-size: 12px;
+    line-height: 12px;
+    margin-bottom: 15px;
+    min-height: 12px;
+    overflow: hidden;
+    padding: 6px 0 10px 7px;
+    width: 215px;
+    border:2px solid #d2d5d8;}
+    }
     
 
     

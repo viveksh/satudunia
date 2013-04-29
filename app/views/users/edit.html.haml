@@ -1,13 +1,78 @@
-
-=#link_to "leave #{current_group.domain}", leave_users_path
-
 - @user.password = @user.password_confirmation = nil
 
-= error_messages_for :user
+= image_tag "plus/body_about.jpg", :class => "body_header"
+%span{:class => "p_a"}
+  Profile Settings
+%span{:class => "p_a1 i3__news1"}
+  = link_to "Home", "/"
+  >
+  = link_to @user.display_name, user_path(@user)
+  > Profile Settings
+.grid_24.body_about
+  = form_for @user, :html => {:class => "form", :multipart => true, :id => "edit-user-form"} do |f|
+    .grid_11
+      .user_profile
+        .grid_4.img1_profile
+          = big_avatar_img @user, :size => 140
+          = f.file_field :avatar
+        .grid_6.line_profile
+          %p{:class => "ask2_1"}
+            %strong
+              Name*
+          .search4
+            = f.text_field :name
+          %p{:class => "ask2_1"}
+            %strong
+              Login*
+          .search4
+            = f.text_field :login
+          %p{:class => "ask2_1"}
+            %strong
+              Website
+          .search4
+            = f.text_field :website
+          %p{:class => "ask2_1"}
+            %strong
+              Age
+          .search4
+            = f.text_field :user_age
+          %p{:class => "ask2_1"}
+            %strong
+              Country
+          .search4
+            = f.text_field :country_name
+          %p{:class => "ask2_1"}
+            %strong
+              HIV Condition
+          .search4
+            = f.select :hiv_condition, ["Negative","Positive"],{:selected => @user.hiv_condition}, :class => "profile_select1"
+      .clear
+      .save_footer{:style => "margin-top: 30px;"}
+        = link_to "<span>Save</span>".html_safe, "#", :class => "ask_tag5", :id => "edit-user-link"
+    .grid_11
+      .user_profile
+        %p{:class => "ask2_1"}
+          %strong
+            Bio
+        .search4
+          = f.text_area :bio, :style => "font-size: 13px;"
+        .checkbox1
+          = f.check_box :hide_hiv_condition
+          Hide my HIV Condition to other users
+        .checkbox1
+          = f.check_box :hide_country
+          Hide my Country to other users
+        .checkbox1
+          = f.check_box :hide_age
+          Hide my Age to other users
+        .checkbox1
+          = f.check_box :hide_realname
+          Hide my Real Name to other users
 
-= form_for @user, :html => {:class => "form", :multipart => true} do |f|
-  =render :partial => "form", :locals => {:f => f}
 
-  .form-options
-    .buttons
-      = submit_tag t('.submit'), :class => "save"
+:javascript
+  $(window).load(function(){
+    $('#edit-user-link').click(function(){
+      $('#edit-user-form').submit();
+    });
+  });

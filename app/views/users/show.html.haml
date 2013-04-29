@@ -8,14 +8,16 @@
       .a6
         = image_tag "plus/a1.png"
         %span
-          = @user.location
+          Country: 
+          = user_country(@user)
         %br
         = image_tag "plus/a2.png"
         %span
-          Age: 25
+          Age: 
+          = user_age(@user)
     .grid_13
       %p{:class => "a1"}
-        = @user.name
+        = user_realname(@user)
       %p{:class => "a2"}
         Joined 
         = t("time.ago", :time => time_ago_in_words(config.joined_at))
@@ -24,7 +26,7 @@
       %p{:class => "a4"}
         Website:
         = link_to @user.website, @user.website
-      = link_to "<span>HIV Condition: Stable</span>".html_safe, "#", :class => "qwest_tag1"
+      = link_to "<span>HIV Condition: #{user_hiv_condition(@user)}</span>".html_safe, "#", :class => "qwest_tag1"
       = link_to "<span>Edit Profile</span>".html_safe, settings_path, :class => "qwest_tag15"
     - unless @user.profile_tiers.blank?
       = link_to "<span>Sample</span>".html_safe, "#", :class => "qwest_tag12"
