@@ -1553,6 +1553,7 @@ a.next:hover {background-position:right bottom;}
     line-height: 16px;
     padding-left: 25px;
     z-index: 999;
+    width: 675px;
     }
     .search3 input {    
     background: none repeat scroll 0 0 #FFFFFF;
