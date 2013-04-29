@@ -1,6 +1,6 @@
 -title = answer.question.title rescue ""
 
-- unless answer.nil?
+- unless answer.question.nil? || answer.body.nil?
   %li
     .q_ff
       %span{:class => "q_f"}
