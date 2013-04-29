@@ -84,7 +84,7 @@
               %div.tabbertab
                 %h2
                   Newest
-                %p.i4_1.serv_loc6{:id => ""} 
+                %p.i4_1.serv_loc6 
                   - @question.answers.order(:created_at => :desc).each do |answer|
                     %ul{:id => "slider21", :class => "i3_2"}
                       %li{:class => "pager ps1"}
@@ -95,11 +95,11 @@
                               %p{:class => "reiting_num3"}
                                 = answer.votes_count
                               = link_to image_tag("plus/reiting_num2.png"), "#", :class => "reiting_num4"
-                            .grid_14.Fright
+                            .grid_14.Fright{:style => "margin: 10px !important;"}
                               %span{:class => "s1_q_i"}
                                 = answer.body.html_safe
                               %a{:class => "q_i_tag2", :href => "#"}
-                                = image_tag "plus/q_user_i.jpg"
+                                = avatar_img answer.user, :size => "small"
                               
                         .clear
                         / questions comments
@@ -117,7 +117,7 @@
               %div.tabbertab
                 %h2
                   Votes 
-                %p.i4_1.serv_loc6{:id => ""} 
+                %p.i4_1.serv_loc6
                   - @question.answers.order(:votes_up => :desc).each do |answer|
                     %ul{:id => "slider21", :class => "i3_2"}
                       %li{:class => "pager ps1"}
@@ -128,7 +128,7 @@
                               %p{:class => "reiting_num3"}
                                 = answer.votes_count
                               = link_to image_tag("plus/reiting_num2.png"), "#", :class => "reiting_num4"
-                            .grid_14.Fright
+                            .grid_14.Fright{:style => "margin: 10px !important;"}
                               %span{:class => "s1_q_i"}
                                 = answer.body.html_safe
                               %a{:class => "q_i_tag2", :href => "#"}
@@ -138,7 +138,7 @@
               %div.tabbertab
                 %h2
                   Oldest
-                %p.i4_1.serv_loc6{:id => ""} 
+                %p.i4_1.serv_loc6
                   - @question.answers.order(:created_at => :ASC).each do |answer|
                     %ul{:id => "slider21", :class => "i3_2"}
                       %li{:class => "pager ps1"}
@@ -149,7 +149,7 @@
                               %p{:class => "reiting_num3"}
                                 = answer.votes_count
                               = link_to image_tag("plus/reiting_num2.png"), "#", :class => "reiting_num4"
-                            .grid_14.Fright
+                            .grid_14.Fright{:style => "margin: 10px !important;"}
                               %span{:class => "s1_q_i"}
                                 = answer.body.html_safe
                               %a{:class => "q_i_tag2", :href => "#"}
