@@ -72,7 +72,7 @@
   .clear
   / question comments ends
   .tabs4
-    %ul
+    %ul{:style => "margin-bottom: 35px;"}
       %span{:class => "serv_loc1_1"}
         = "#{@question.answers_count} answers"
       %span{:class => "serv_loc1_2", :style => "top:10px"}
@@ -162,8 +162,8 @@
         %p{:style=>"margin-left:30px;"}
           = f.text_area :body, :class => "wysiwyg_editor",:size=>"40x20"
           / = render :partial => 'shared/rich_text_partial'
-        %p{:style=>"margin-left:5px; margin-bottom: 30px; top: 15px; position: relative;"}
-          = link_to "<span class='underline-decoration-link'>Post your Answer</span>".html_safe, "javascript:void(0)", :class => "q_i1_tag1 tool-tip", :title => "Post your Answer",:onclick=>"document.answer_form.submit();"
+
+          = link_to "<span class='underline-decoration-link'>Post your Answer</span>".html_safe, "javascript:void(0)", :class => "q_i1_tag1 tool-tip", :title => "Post your Answer",:onclick=>"document.answer_form.submit();", :style => "position: relative; margin-left: 0px !important"
 
 .grid_6.omega.body1_about.body_qwest1{:id => "secondElement", :style => "width: 242px !important"}
   .clear
