@@ -25,6 +25,6 @@ class Tier1Controller < ApplicationController
       flash[:notice] = "Tier1 update Failed"
     end
 
-    redirect_to tier1_index_path
+    redirect_to "/survey/sample/tier1"
   end
 end

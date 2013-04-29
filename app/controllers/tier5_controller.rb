@@ -25,6 +25,6 @@ class Tier5Controller < ApplicationController
       flash[:error] = "Tier5 update Failed"
     end
 
-    redirect_to tier5_index_path
+    redirect_to "/survey/sample/tier5"
   end
 end
