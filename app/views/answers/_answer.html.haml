@@ -1,18 +1,19 @@
 -title = answer.question.title rescue ""
 
-%li
-  .q_ff
-    %span{:class => "q_f"}
-      = format_number(answer.votes_average)
-    %span{:class => "q_f_1"}
-      votes
-    %span{:class => "q_fs1 vote-up-adjust"}
-      = answer.favoriters_count
-    %span{:class => "q_fs_1"}
-      favorites
-  .grid_14.Fright
-    %span{:class => "s1"}
-      = link_to truncate(strip_tags(answer.body), :length => 200), question_path(answer.question, :anchor => "answer#{answer.id}"), :title => title
-    %p{:class => "my_p1"}
-      = link_to answer.question.title, question_path(answer.question), :title => answer.question.body
-  .clear
+- unless answer.nil?
+  %li
+    .q_ff
+      %span{:class => "q_f"}
+        = format_number(answer.votes_average)
+      %span{:class => "q_f_1"}
+        votes
+      %span{:class => "q_fs1 vote-up-adjust"}
+        = answer.favoriters_count
+      %span{:class => "q_fs_1"}
+        favorites
+    .grid_14.Fright
+      %span{:class => "s1"}
+        = link_to truncate(strip_tags(answer.body), :length => 200), question_path(answer.question, :anchor => "answer#{answer.id}"), :title => title
+      %p{:class => "my_p1"}
+        = link_to answer.question.title, question_path(answer.question), :title => answer.question.body
+    .clear
