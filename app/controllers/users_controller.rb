@@ -3,7 +3,7 @@ class UsersController < ApplicationController
                                            :follow, :follow_tags, :leave,
                                            :unfollow_tags, :connect, :social_connect]
   skip_before_filter :check_group_access, :only => :auth
-  before_filter :find_user, :only => [:show, :answers, :follows, :activity]
+  before_filter :find_user, :only => [:show, :answers, :follows, :activity, :survey]
   tabs :default => :users
 
   before_filter :check_signup_type, :only => [:new]
@@ -35,7 +35,7 @@ class UsersController < ApplicationController
         :expertise => tab_config,
         :feed => tab_config,
         :contributed => tab_config
-  layout "plus", :only => [:index,:new,:create, :show, :answers, :follows, :activity, :edit]
+  layout "plus", :only => [:index,:new,:create, :show, :answers, :follows, :activity, :edit, :survey]
   def index
     set_page_title(t("users.index.title"))
 
@@ -189,6 +189,16 @@ class UsersController < ApplicationController
       conds[:group_id] = current_group.id
     end
     @resources = @user.activities.where(conds).page(params["page"])
+    respond_to do |format|
+      format.html{render :show}
+    end
+  end
+
+  def survey
+    @body_id = "page3"
+
+    @resources = %w{tier-sample tier1 tier2 tier3 tier4 tier5 tier6 tier7}
+
     respond_to do |format|
       format.html{render :show}
     end

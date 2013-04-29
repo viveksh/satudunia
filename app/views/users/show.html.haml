@@ -44,6 +44,7 @@
       = tab_entry "li", t(:answers, :scope => "activerecord.models"), answers_user_path(@user), {:selected => "selected"}, {:class => "answers"}
       = tab_entry "li", t('global.following'), follows_user_path(@user), {:selected => "selected"}
       = tab_entry "li", t(:activity, :scope => "activerecord.models"), activity_user_path(@user), {:selected => "selected"}, {:class => "activity"}
+      = tab_entry "li", "Survey", survey_user_path(@user), {:selected => "selected"}, {:class => "activity"}
     #first1{:style => "display: block"}
       .tabs3
         %ul{:class => "tabNavigation"}
