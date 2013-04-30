@@ -1,150 +1,120 @@
-#users_show{:item_scope => '', :itemtype => "http://schema.org/Person"}
-  %section.userHistory
-    .userDescription.clearfix
-      .basicInfo
-        = avatar_img @user, :size => "medium"
-        %h2{:itemprop => "name"}
-          = @user.name
-        - config = @user.config_for(current_group)
-        - if config
-          -if config.joined_at
-            %small
-              = t(:created_at, :scope => "activerecord.attributes.user")
-              %time{:datetime => config.joined_at.iso8601}
-                = t("time.ago", :time => time_ago_in_words(config.joined_at))
-            |
-          -if config.last_activity_at
-            %small
-              = t(:last_logged_at, :scope => "activerecord.attributes.user")
-              %time{:datetime => config.last_activity_at.iso8601}
-                = t("time.ago", :time => time_ago_in_words(config.last_activity_at))
+- config = @user.config_for(current_group)
 
-        -if @user.website
-          %p
-            =t(:website, :scope => "activerecord.attributes.user")
-            %a{:rel => "nofollow", :href =>  @user.website ,  :itemprop=>"url"}= @user.website
-
-        .description
-          %p{ :itemprop=>"description"}
-            = markdown(@user.bio)
-        -if current_user == @user
-          %p
-            = link_to t('.edit_profile'), settings_path
-
-      %ul.profile-stats
-        %li
-          %strong
-            = format_number(@user.reputation_on(current_group))
-          %small
-            = t(:reputation, :scope => "activerecord.attributes.user")
-
-        %li
-          %strong
-            = format_number(@user.views_on(current_group))
-            %meta{:itemprop=>"interactionCount", :content=>"UserPageVisits:#{@user.views_on(current_group)}"}
-          %small
-            = t(".views")
-        %li
-          %strong
-            = @user.following_count
-          %small
-            = link_to t('.following'), follows_user_path(@user, :sort=>"following")
-        %li
-          %strong
-            = @user.followers_count
-          %small
-            = link_to t('.followers'), follows_user_path(@user, :sort=>"followers")
-        -if current_user != @user && @user.member_of?(current_group)
-          %li.follow
-            = follow_user_link(@user)
-
-    .badges
-      %h3= t("activerecord.models.badges")
-      - unless @user.profile_tiers.blank?
-        = image_tag "badges/netvibes.png"
-      -unless @user.profile_support.nil?
-        = image_tag "badges/reddit.png"
-      -unless @user.profile_tier2.nil?
-        = image_tag "badges/blank_badge_orange.png"
-      -unless @user.profile_tier3.nil?
-        = image_tag "badges/blank_badge_blue.png"
-      -unless @user.profile_tier4.nil?
-        = image_tag "badges/projects_badge.png"
-      -unless @user.profile_tier5.nil?
-        = image_tag "badges/idisk_badge.png"
-      -unless @user.profile_tier6.nil?
-        = image_tag "badges/system_badge.png"
-      -unless @user.profile_tier7.nil?
-        = image_tag "badges/badge.png"
-      %ul.clearfix
-        - @badges.each do |badge|
-          %li
-            .badge_item
-              = pjax_link_to badge.name, "badges", badge_path(:id => badge.token), {:class => "badge #{badge.type}", :title => badge.description}
-
-              -if badge["count"] > 1
-                .counter
-                  × #{badge["count"].to_i}
-
-    #main-content-wrap{:class => @active_tab}
-      %nav{:class => @active_subtab }
-        %ul.content-tabs
-          = tab_entry "li", t(:questions, :scope => "activerecord.models"), user_path(@user), {:selected => "active"}, {:class => "questions"}
-          = tab_entry "li", t(:answers, :scope => "activerecord.models"), answers_user_path(@user), {:selected => "active"}, {:class => "answers"}
-          = tab_entry "li", t('global.following'), follows_user_path(@user), {:selected => "active"}, {:class => "follow"}
-          = tab_entry "li", t(:activity, :scope => "activerecord.models"), activity_user_path(@user), {:selected => "active"}, {:class => "activity"}
-      %section.clearfix.filters.clearfix{:class => @active_subtab }
-        %ul
+= image_tag "plus/body_my_prof.jpg", :class => "body_header1"
+.grid_18{:style => "width: 750px;"}
+  .user_profile1
+    .grid_4
+      = big_avatar_img @user, :size => 140, :class => "a5"
+      .a6
+        = image_tag "plus/a1.png"
+        %span
+          Country: 
+          = user_country(@user)
+        %br
+        = image_tag "plus/a2.png"
+        %span
+          Age: 
+          = user_age(@user)
+    .grid_13
+      %p{:class => "a1"}
+        = user_realname(@user)
+      %p{:class => "a2"}
+        Joined 
+        = t("time.ago", :time => time_ago_in_words(config.joined_at))
+      %p{:class => "a3"}
+        = @user.bio
+      %p{:class => "a4"}
+        Website:
+        = link_to @user.website, @user.website
+      = link_to "<span>HIV Condition: #{user_hiv_condition(@user)}</span>".html_safe, "#", :class => "qwest_tag1"
+      = link_to "<span>Edit Profile</span>".html_safe, settings_path, :class => "qwest_tag15"
+    - unless @user.profile_tiers.blank?
+      = link_to "<span>Sample</span>".html_safe, "#", :class => "qwest_tag12"
+    -unless @user.profile_support.nil?
+      = link_to "<span>Tier 1</span>".html_safe, "#", :class => "qwest_tag12"
+    - for i in 2..7 do
+      -unless eval "@user.profile_tier#{i}.nil?"
+        = link_to "<span>Tier #{i}</span>".html_safe, "#", :class => "qwest_tag12"
+.alpha.grid_18.body_about{:id=>"firstElement", :style => "margin-top: -25px"}
+  .body_tabse
+    123
+  .tabs5
+    %ul{:class => "tabNavigation1"}
+      = tab_entry "li", t(:questions, :scope => "activerecord.models"), user_path(@user), {:selected => "selected"}, {:class => "questions"}
+      = tab_entry "li", t(:answers, :scope => "activerecord.models"), answers_user_path(@user), {:selected => "selected"}, {:class => "answers"}
+      = tab_entry "li", t('global.following'), follows_user_path(@user), {:selected => "selected"}
+      = tab_entry "li", t(:activity, :scope => "activerecord.models"), activity_user_path(@user), {:selected => "selected"}, {:class => "activity"}
+      = tab_entry "li", "Survey", survey_user_path(@user), {:selected => "selected"}, {:class => "activity"}
+    #first1{:style => "display: block"}
+      .tabs3
+        %ul{:class => "tabNavigation"}
           = render "users/show/user_#{params[:action]}_filters"
+        .i4_1{:id => "first"}
+          .bx-wrapper
+            %div.bx-window
+              %ul{:id => "slider21", :class => "i3_2", :style => "position: relative;"}
+                %li{:class => "pager ps1"}
+                  %ul
+                    = render "users/show/user_#{params[:action]}_content"
+.grid_6.omega.body1_about.my_prof12.bdd1{:id => "secondElement1", :style => "margin-top: 19px"}
+  .tagsl1_p1
+    %span{:class => "t_l1"}
+      = @user.reputation_on(current_group).to_i
+    %br
+    %span{:class => "t_l2"}
+      Reputation
+    %span{:class => "t_l1_1"}
+      = @user.following_count
+    %br
+    %span{:class => "t_l2_1"}
+      Following
+    %br
+    %span{:class => "t_l1_2"}
+      0
+    %br
+    %span{:class => "t_l2_2"}
+      View
+    %span{:class => "t_l1_3"}
+      = @user.followers_count
+    %br
+    %span{:class => "t_l2_3"}
+      Followers
+  %p{:class => "about1"}
+    %strong
+      Following Users
+  %ul{:class => "users tags"}
+    - @user.followers.each do |user|
+      %li
+        = avatar_img user, :size => "small"
+        %span{:class => "i3_5"}
+          = user.display_name
 
-      = render "users/show/user_#{params[:action]}_content"
+:javascript
+  $(window).load(function (){
+    $('#sort_newest').removeClass('selected');
+    $('#sort_oldest').removeClass('selected');
+    $('#sort_views').removeClass('selected');
+    $('#sort_votes').removeClass('selected');
 
-    .additional_info
-      = paginate @resources
-
--content_for :sidebar do
-  .networks.clearfix
-    -if username = @user.networks["flickr"]
-      -username = username["nickname"]
-      .one-net.flickr.module
-        %h3 Flickr Feed
-        %section
-          = widget_for(:flickr, {:photos_number=>6, :horizontal=>true, :user=> username,:background  => "#E5DDFF"})
-
-    -if username = @user.networks["youtube"]
-      -username = username["nickname"]
-      .one-net.youtube.module
-        %h3 Youtube  Feed
-        %section
-          = widget_for(:youtube, {:channel => username, :vertical => false, :large => false, :height =>   "260px", :width => "320px" })
-
-    -if username = @user.networks["twitter"]
-      -username = username["nickname"]
-      .one-net.twitter.module
-        %h3 Twitter  Feed
-        %section
-          = widget_for(:twitter, {:user => username, :interval => "10000", :shell_background => "#3e4953", :shell_color => "#fff", :tweets_background=> "#fff" , :tweets_color=> "#666" ,:tweets_links => "#cc6600", })
-
-    -if username = @user.networks["linkedin"]
-      -username = username["nickname"]
-      .one-net.linkedin.module
-        %h3 LinkedIn  Feed
-        %section
-          = widget_for(:linked_in, {:user => username})
+    switch('#{params[:sort]}'){
+      case "oldest":
+        $('#sort_oldest').addClass('selected');
+        break;
+      case "views":
+        $('#sort_views').addClass('selected');
+        break;
+      case "votes":
+        $('#sort_votes').addClass('selected');
+        break;
+      default:
+        $('#sort_newest').addClass('selected');
+        break;
+    }
+  });
 
 
-    -if username = @user.networks["github"]
-      -username = username["nickname"]
-      .one-net.github.module
-        %h3 GitHub  Feed
-        %section
-          = widget_for(:github, {:user => username, :theme => "white", :title => "Github Projects", :list_length => 6, :show_all => "Show All", :head => "h2"})
 
 
-    -if username = @user.networks["ohloh"]
-      -username = username["nickname"]
-      .one-net.ohloh.module
-        %h3 Ohloh  Feed
-        %section
-          = widget_for(:ohloh, {:user => username})
+
+
 

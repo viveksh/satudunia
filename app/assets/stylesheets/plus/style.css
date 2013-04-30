@@ -21,6 +21,15 @@ iframe {
     border: 1px solid #CED1D4;
 }
 
+.center_text{
+    font-family: arial;
+    font-size: 13px;
+    text-align: center;
+    width: 580px;
+    margin-bottom: 15px;
+    margin-top: -15px;
+}
+
 .template{
     display: none;
 }
@@ -49,7 +58,7 @@ margin-bottom:30px;margin-top:30px;}
 .tagsl1_p1{background: url("tagsl1.png") repeat scroll center 0 transparent;
     min-height: 189px;
     position: absolute;
-    top: -420px;
+    top: -390px;
     width: 211px;}
 .t_l1{color: #FFFFFF;
     font-family: Calibri;
@@ -646,6 +655,14 @@ border-bottom: 1px solid #D0D3D6;
     position: relative;
     float: left;
     line-height: 20px;}
+.s1 a{color: #0075CE;
+    font-family: arial;
+    font-size: 18px;
+    left: 15px;
+    position: relative;
+    float: left;
+    line-height: 20px;
+    text-decoration: none;}
 .q_i_tag1{float: right;
     margin-bottom: 10px;
     margin-top: 20px;
@@ -909,6 +926,12 @@ ul.info{margin-top: 30px;}
         font-family:Arial;
         margin-left:15px;
         padding-top: 45px;}
+.my_p1 a{color:#000;
+        font-size:13px;
+        font-family:Arial;
+        margin-left:15px;
+        padding-top: 45px;
+        text-decoration: none;}
 .button span{margin-left:5px}
 .menu li a,
 .list-1 li a,
@@ -927,7 +950,7 @@ ul.info{margin-top: 30px;}
 .tags_pm li{margin-bottom: 15px;
     padding-left: 25px;}
 .tags2{padding-left: 15px; float: left; clear:both !important;}
-.tags3{padding-top: 35px; float: right;}
+.tags3{padding-top: 35px; float: right; margin-bottom: 15px;}
 .tags2 li{border: medium none !important;
     float: left;
     margin-top: 0 !important;
@@ -1115,7 +1138,13 @@ min-height:127px;}
 .com_right{color: #FFFFFF;
     font-size: 18px;
     margin: 10px;
+    z-index: 1;
     position: absolute;}
+.com_right a {
+    color: #FFFFFF;
+    font-size: 18px;
+    text-decoration: none;
+}
 .com_right1{color: #00AEEF;
     font-family: Arial;
     line-height: 15px;
@@ -1524,6 +1553,7 @@ a.next:hover {background-position:right bottom;}
     line-height: 16px;
     padding-left: 25px;
     z-index: 999;
+    width: 675px;
     }
     .search3 input {    
     background: none repeat scroll 0 0 #FFFFFF;
@@ -1577,6 +1607,31 @@ a.next:hover {background-position:right bottom;}
     }
     
         form#search4 input {    
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-radius: 5px 5px 5px 5px;
+    display: inline-block;
+    float: left;
+    font-size: 12px;
+    line-height: 12px;
+    margin-bottom: 15px;
+    min-height: 12px;
+    overflow: hidden;
+    padding: 6px 0 10px 7px;
+    width: 215px;
+    border:2px solid #d2d5d8;}
+    }
+
+    .search4 {
+    color: #A5C8EA;
+    display: inline-block;
+    font-size: 12px;
+    line-height: 16px;
+    padding-left: 0px;
+    z-index: 999;
+    margin-top: -10px;
+    }
+    
+    .search4 input {    
     background: none repeat scroll 0 0 #FFFFFF;
     border-radius: 5px 5px 5px 5px;
     display: inline-block;
@@ -1715,7 +1770,8 @@ a.next:hover {background-position:right bottom;}
     padding-top: 12px;
     position: relative;
     top: 30px;
-    right: -10px;}
+    right: -10px;
+    margin-right: 10px;}
 .qwest_tag13{background: url("ind6_3.jpg") repeat-x scroll 0 0 transparent;
     border-radius: 3px 3px 3px 3px;
     float: left;
@@ -1943,7 +1999,7 @@ height: 1030px !important;
     #page3 .body1_about, #page4 .body1_about{background: none repeat scroll 0 0 #FFFFFF;
     border: 1px solid #D0D3D6;
     border-radius: 0 5px 5px 0;
-    margin-left: -10px;
+    margin-left: -4px;
     padding-right: 0;
     position: relative;
     width: 250px!important;}
@@ -2358,7 +2414,7 @@ aside {
     font-size: 13px;
     position: absolute;
     right: 254px;
-    top: 190px;
+    top: 170px;
     width: 399px;
     z-index: 99999;}
 .mms{background: url("h_teg1.jpg") repeat-x scroll 0 0 transparent;
@@ -2369,7 +2425,7 @@ aside {
     padding-right: 15px;
     position:absolute;
     right: 533px;
-    top: 260px;
+    top: 235px;
     width: 100px;
     z-index: 99999;}
 .mms1{background: url("h_teg2.jpg") repeat-x scroll 0 0 transparent;
@@ -2380,7 +2436,7 @@ aside {
     padding-right: 15px;
     position:absolute;
     right: 533px;
-    top: 320px;
+    top: 235px;
     width: 100px;
     z-index: 99999;}
 .mms2{background: url("h_teg2.jpg") repeat-x scroll 0 0 transparent;
@@ -2391,7 +2447,7 @@ aside {
     padding-right: 15px;
     position:absolute;
     right: 533px;
-    top: 320px;
+    top: 235px;
     width: 102px;
     z-index: 99999;}
 .mms span{color: #FFFFFF;

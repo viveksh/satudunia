@@ -13,7 +13,7 @@ module LayoutHelper
 
     if element != "a"
       content_tag(element, html_opts) do
-        link_to(text, path, options[:link_opts])
+        link_to(text, path, html_opts.merge(options[:link_opts]))
       end
     else
       link_to text, path, html_opts.merge(options[:link_opts])

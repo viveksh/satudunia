@@ -1,79 +1,33 @@
-%script{:src => "http://maps.googleapis.com/maps/api/js?key=AIzaSyBmJE9KrYdmPiW16lAHDJOiCvS1Fwen7BU&sensor=true"}
-:javascript
-  var map;
-  var lat = #{@contact.latitude};
-  var long = #{@contact.longitude};
-  var contact_address = new google.maps.LatLng(lat,long);
-  
-  function initialize() {
-    var mapOptions = {
-      zoom: 15,
-      center: contact_address,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
-    
-    map = new google.maps.Map(document.getElementById('map_canvas'),mapOptions);
-    
-    var coordInfoWindow = new google.maps.InfoWindow();
-    coordInfoWindow.setContent(createInfoWindowContent());
-    coordInfoWindow.setPosition(contact_address);
-    coordInfoWindow.open(map);
-    
-    google.maps.event.addListener(map, 'zoom_changed', function() {
-      coordInfoWindow.setContent(createInfoWindowContent());
-      coordInfoWindow.open(map);
-    });
-    
-  }
-  
-  function createInfoWindowContent() {
-    return [
-      'Webmaster',
-      '#{@contact.street_address_safe}',
-      'webmaster@email.com',
-      '+65 1234 5678'
-    ].join('<br>');
-  }
-  
-  google.maps.event.addDomListener(window, 'load', initialize);
-
 - content_for :title do
   Contact Us
 
 = image_tag "plus/body_about.jpg", :class => "body_header"
-.alpha.grid_24.body_about
+.alpha.grid_24.body_about{:id => "firstElement", :style => "margin-bottom: 15px;width: 958px;"}
   %span{:class => "p_a"}
     Contact Us
   %span{:class => "p_a1", :style => "position: relative !important; left: -169px;"}
     = link_to "Home", "/"
     > Contact Us
-  %h2
-    Contact Us
-  %div{:style => "padding: 10px 30px; font-size: 13px; font-family: Arial; color: #000000"}
-    #map_canvas{:style => "height: 400px; margin-bottom: 10px"}
+  .ask
+    = form_for @contact, :url => send_contact_us_contact_index_path do |f|
+      %p{:class => "ask2"}
+        %strong
+          Name*
+      .search3
+        = f.text_field :name
+      %p{:class => "ask2"}
+        %strong
+          Email*
+      .search3
+        = f.text_field :email
+      %p{:class => "ask2"}
+        %strong
+          Comment*
+      .search3{:style => "width: 100%"}
+        = f.text_area :comment, :style => "width: 621px"
+      .search3
+        = link_to "<span>Submit</span>".html_safe, "#", :class => "ask_tag2", :id => "ask_question_link", :style => "margin-bottom: 10px;"
 
-  .tabs2
-    %div#first.i4_1.serv_loc6
-      %div.bx-wrapper{:style =>"width: 953px; position: relative;"}
-        %div.bx-window{:style=>"width: 953px; height: 963px; position: relative; overflow: hidden;"}
-          %ul#slider41.i3_2
-            %li.pager
-              %ul
-                %li.grid_12.serv_loc4
-                  %span.s1 Webmaster
-                  %br/
-                  %p.srv_loc2
-                    #{@contact.street_address_safe}
-                    = succeed "Phone:" do
-                      %br/
-                    (65) 6555 8000
-                    %br/
-                    Fax: (65) 6602 3700
-                    %br/
-                    Email:
-                    %a{:href => "mailto:webmaster@email.com"} webmaster@email.com
-                  %img.srv_loc3{:alt => "", :src => "assets/gmap_icon.png"}/
-                  %a{:href => "#"} View on map
 
     
 / .grid_5.omega.body1_about
@@ -81,6 +35,10 @@
 
 :javascript
   $('#contact_nav').addClass('active');
+
+  $("#ask_question_link").click(function (){
+    $("#new_contact").submit();
+  });
     
   
 

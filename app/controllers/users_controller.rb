@@ -3,7 +3,7 @@ class UsersController < ApplicationController
                                            :follow, :follow_tags, :leave,
                                            :unfollow_tags, :connect, :social_connect]
   skip_before_filter :check_group_access, :only => :auth
-  before_filter :find_user, :only => [:show, :answers, :follows, :activity]
+  before_filter :find_user, :only => [:show, :answers, :follows, :activity, :survey]
   tabs :default => :users
 
   before_filter :check_signup_type, :only => [:new]
@@ -35,7 +35,7 @@ class UsersController < ApplicationController
         :expertise => tab_config,
         :feed => tab_config,
         :contributed => tab_config
-  layout "plus", :only => [:index,:new,:create]
+  layout "plus", :only => [:index,:new,:create, :show, :answers, :follows, :activity, :edit, :survey]
   def index
     set_page_title(t("users.index.title"))
 
@@ -102,6 +102,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @body_id = "page3"
     @resources = @user.questions.where(:group_id => current_group.id,
                                        :banned => false,
                                        :anonymous => false).
@@ -133,6 +134,7 @@ class UsersController < ApplicationController
   end
 
   def answers
+    @body_id = "page3"
     @resources = @user.answers.where(:group_id => current_group.id,
                                      :banned => false,
                                      :anonymous => false).
@@ -144,6 +146,7 @@ class UsersController < ApplicationController
   end
 
   def follows
+    @body_id = "page3"
     case @active_subtab.to_s
     when "following"
       @resources = @user.following(current_group).page(params["page"])
@@ -170,6 +173,7 @@ class UsersController < ApplicationController
   end
 
   def activity
+    @body_id = "page3"
     conds = {}
     case params[:tab]
     when "questions"
@@ -185,6 +189,16 @@ class UsersController < ApplicationController
       conds[:group_id] = current_group.id
     end
     @resources = @user.activities.where(conds).page(params["page"])
+    respond_to do |format|
+      format.html{render :show}
+    end
+  end
+
+  def survey
+    @body_id = "page3"
+
+    @resources = %w{tier-sample tier1 tier2 tier3 tier4 tier5 tier6 tier7}
+
     respond_to do |format|
       format.html{render :show}
     end
@@ -212,9 +226,9 @@ class UsersController < ApplicationController
       params[:user][:preferred_languages].reject! { |lang| lang.blank? }
     end
     @user.networks = params[:networks]
-    @user.safe_update(%w[preferred_languages login email name
-                         language timezone bio hide_country
-                         website avatar use_gravatar], params[:user])
+    @user.safe_update(%w[preferred_languages login email name hide_realname
+                         language timezone bio hide_country hide_age hide_hiv_condition
+                         country_name user_age hiv_condition website avatar use_gravatar], params[:user])
     @user.notification_opts.safe_update(%w[new_answer give_advice activities reports
        questions_to_twitter badges_to_twitter favorites_to_twitter answers_to_twitter
        comments_to_twitter], params[:user][:notification_opts]) if params[:user][:notification_opts]
@@ -237,7 +251,7 @@ class UsersController < ApplicationController
         @invitation.confirm if @invitation
         redirect_to accept_invitation_path(:step => params[:next_step], :id => params[:invitation_id])
       else
-        redirect_to root_path
+        redirect_to user_path(@user)
       end
     else
       render :action => "edit"

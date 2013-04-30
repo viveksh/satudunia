@@ -85,6 +85,7 @@ Rails.application.routes.draw do
       get :answers
       get :follows
       get :activity
+      get :survey
     end
   end
   resources :countquestions

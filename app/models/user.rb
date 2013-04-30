@@ -25,6 +25,7 @@ class User
   field :website,                   :type => String, :limit => 200
   field :location,                  :type => String, :limit => 200
   field :birthday,                  :type => Time
+  field :user_age,                  :type => String
 
   field :identity_url,              :type => String
   index :identity_url
@@ -43,6 +44,10 @@ class User
   field :country_code,              :type => String
   field :country_name,              :type => String, :default => "unknown"
   field :hide_country,              :type => Boolean, :default => false
+  field :hide_hiv_condition,        :type => Boolean, :default => false
+  field :hide_age,                  :type => Boolean, :default => false
+  field :hiv_condition,             :type => String, :default => "Negative"
+  field :hide_realname,             :type => Boolean, :default => false
 
   field :default_subtab,            :type => Hash, :default => {}
 

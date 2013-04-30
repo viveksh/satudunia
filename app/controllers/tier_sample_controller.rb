@@ -21,6 +21,6 @@ class TierSampleController < ApplicationController
       flash[:notice] = "Tier Sample Updated"
     end
 
-    redirect_to '/tier-sample'
+    redirect_to '/survey/sample/tier-sample'
   end
 end

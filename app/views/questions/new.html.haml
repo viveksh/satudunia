@@ -2,14 +2,12 @@
 .alpha.grid_18.body_about{:id => "firstElement", :style => "margin-bottom:20px"}
   %span{:class => "p_a"}
     = t(".title")
-  %span{:class => "p_a1 il_ask", :style => "left:-224px"}
+  %span{:class => "p_a1 i3_1", :style => "margin-left: -51px;"}
     = link_to "Home", "/"
     > 
-  %span{:class => "p_a1 i3_1", :style => "left:-224px"}
     = link_to "Questions", "/questions"
     >
-    %span.underline-decoration-link
-      = link_to "Ask a Question", "/questions/new",:style => "color: white;"
+    = link_to "Ask a Question", "/questions/new",:style => "color: white;"
   .ask
     %p{:class => "ask1"}
       = raw(current_group.question_help)
@@ -58,7 +56,7 @@
 
       = link_to "<span>Ask Now</span>".html_safe, "#", :class => "ask_tag2", :id => "ask_question_link", :style => "margin-bottom: 10px;"
 
-.grid_6.omega.body1_about{:id => "secondElement", :style => "width: 242px !important"}
+.grid_6.omega.body1_about{:id => "secondElement", :style => "width: 235px !important"}
   %p.i3_4
     %strong
       Recent Tags

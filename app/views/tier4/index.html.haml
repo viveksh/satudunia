@@ -1,38 +1,82 @@
-.top
-  %h1
-    Tier 4
-  %br
-= form_for @profile_tier4, :url => {:controller => :tier4, :action => :create}, :method => :post do |f|
-  .field 
-    = label_tag "Height"
-    = radio_button("profile_tier4", "height_measurement", "inches", :disabled => @is_disable)
-    inches
-    = radio_button("profile_tier4", "height_measurement", "cm", :disabled => @is_disable)
-    cm
-    %br
-    = f.text_field :height, :disabled => @is_disable
-  .field
-    = label_tag "Weight"
-    = radio_button("profile_tier4", "weight_measurement", "kgs", :disabled => @is_disable)
-    kgs
-    = radio_button("profile_tier4", "weight_measurement", "lbs", :disabled => @is_disable)
-    lbs
-    %br
-    = f.text_field :weight, :disabled => @is_disable
-  .field
-    = label_tag "Build"
-    = radio_button("profile_tier4", "body_build", "Lean", :disabled => @is_disable)
-    Lean
-    %br
-    = radio_button("profile_tier4", "body_build", "Athletic", :disabled => @is_disable)
-    Athletic
-    %br
-    = radio_button("profile_tier4", "body_build", "Muscular", :disabled => @is_disable)
-    Muscular
-    %br
-    = radio_button("profile_tier4", "body_build", "Chub", :disabled => @is_disable)
-    Chub
+- content_for :title do
+  Tier 4
     
-  - unless @is_disable
-    .buttons
-      = submit_tag("submit", :class => "save")
+= image_tag "plus/body_about.jpg", :class => "body_header"
+.alpha.grid_24.body_about{:id => "firstElement", :style => "margin-bottom: 15px;width: 958px;"}
+  %span{:class => "p_a"}
+    Tier 4
+  %span{:class => "p_a1", :style => "position: absolute !important; left: 25px;"}
+    = link_to "Home", "/"
+    > Tier 4
+  .ask
+    = form_for @profile_tier4, :url => {:controller => :tier4, :action => :create}, :method => :post do |f|
+      %p{:class => "ask2"}
+        %strong
+          = label_tag "Height"
+      %table
+        %tr
+          %td
+            .checkbox
+              = radio_button("profile_tier4", "height_measurement", "inches", :disabled => @is_disable)
+              inches
+      %table
+        %tr
+          %td
+            .checkbox
+              = radio_button("profile_tier4", "height_measurement", "cm", :disabled => @is_disable)
+              cm
+      .search3
+        = f.text_field :height, :disabled => @is_disable
+      %p{:class => "ask2"}
+        %strong
+          = label_tag "Weight"
+      %table
+        %tr
+          %td
+            .checkbox
+              = radio_button("profile_tier4", "weight_measurement", "kgs", :disabled => @is_disable)
+              kgs
+      %table
+        %tr
+          %td
+            .checkbox
+              = radio_button("profile_tier4", "weight_measurement", "lbs", :disabled => @is_disable)
+              lbs
+      .search3
+        = f.text_field :weight, :disabled => @is_disable
+      %p{:class => "ask2"}
+        %strong
+          = label_tag "Build"
+      %table
+        %tr
+          %td
+            .checkbox
+              = radio_button("profile_tier4", "body_build", "Lean", :disabled => @is_disable)
+              Lean
+      %table
+        %tr
+          %td
+            .checkbox
+              = radio_button("profile_tier4", "body_build", "Athletic", :disabled => @is_disable)
+              Athletic
+      %table
+        %tr
+          %td
+            .checkbox
+              = radio_button("profile_tier4", "body_build", "Muscular", :disabled => @is_disable)
+              Muscular
+      %table
+        %tr
+          %td
+            .checkbox
+              = radio_button("profile_tier4", "body_build", "Chub", :disabled => @is_disable)
+              Chub
+        
+      .search3
+        - unless @is_disable
+          = link_to "<span>Submit</span>".html_safe, "#", :class => "ask_tag2", :id => "ask_question_link", :style => "margin-bottom: 10px;"
+
+:javascript
+  $("#ask_question_link").click(function (){
+    $(".edit_profile_tier4").submit();
+  });

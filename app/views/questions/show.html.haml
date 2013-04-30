@@ -1,3 +1,8 @@
+:css
+  .jHtmlArea iframe, .ToolBar iframe{
+    width: 95% !important;
+  }
+
 - content_for :title do
   = @question.title
 
@@ -6,11 +11,10 @@
 = image_tag "plus/body_about1.jpg", :class => "body_header"
 .alpha.grid_18.body_about{:id => "firstElement"}
   %span{:class => "p_a"}
-    Question
-  %span{:class => "p_a1 i3_1"}
+    = truncate(strip_tags(@question.title), :length => 45)
+  %span{:class => "p_a1 i3_1", :style => "position: absolute !important; left: 20px !important;"}
     = link_to "Home", "/"
     >
-  %span{:class => "p_a1 i3_1"}
     = link_to "Questions", "/questions"
     >
     %span.underline-decoration-link
@@ -68,7 +72,7 @@
   .clear
   / question comments ends
   .tabs4
-    %ul
+    %ul{:style => "margin-bottom: 35px;"}
       %span{:class => "serv_loc1_1"}
         = "#{@question.answers_count} answers"
       %span{:class => "serv_loc1_2", :style => "top:10px"}
@@ -80,7 +84,7 @@
               %div.tabbertab
                 %h2
                   Newest
-                %p.i4_1.serv_loc6{:id => ""} 
+                %p.i4_1.serv_loc6 
                   - @question.answers.order(:created_at => :desc).each do |answer|
                     %ul{:id => "slider21", :class => "i3_2"}
                       %li{:class => "pager ps1"}
@@ -91,7 +95,7 @@
                               %p{:class => "reiting_num3"}
                                 = answer.votes_count
                               = link_to image_tag("plus/reiting_num2.png"), "#", :class => "reiting_num4"
-                            .grid_14.Fright
+                            .grid_14.Fright{:style => "margin: 10px !important;"}
                               %span{:class => "s1_q_i"}
                                 = answer.body.html_safe
                               %a{:class => "q_i_tag2", :href => "#"}
@@ -113,7 +117,7 @@
               %div.tabbertab
                 %h2
                   Votes 
-                %p.i4_1.serv_loc6{:id => ""} 
+                %p.i4_1.serv_loc6
                   - @question.answers.order(:votes_up => :desc).each do |answer|
                     %ul{:id => "slider21", :class => "i3_2"}
                       %li{:class => "pager ps1"}
@@ -124,7 +128,7 @@
                               %p{:class => "reiting_num3"}
                                 = answer.votes_count
                               = link_to image_tag("plus/reiting_num2.png"), "#", :class => "reiting_num4"
-                            .grid_14.Fright
+                            .grid_14.Fright{:style => "margin: 10px !important;"}
                               %span{:class => "s1_q_i"}
                                 = answer.body.html_safe
                               %a{:class => "q_i_tag2", :href => "#"}
@@ -134,7 +138,7 @@
               %div.tabbertab
                 %h2
                   Oldest
-                %p.i4_1.serv_loc6{:id => ""} 
+                %p.i4_1.serv_loc6
                   - @question.answers.order(:created_at => :ASC).each do |answer|
                     %ul{:id => "slider21", :class => "i3_2"}
                       %li{:class => "pager ps1"}
@@ -145,7 +149,7 @@
                               %p{:class => "reiting_num3"}
                                 = answer.votes_count
                               = link_to image_tag("plus/reiting_num2.png"), "#", :class => "reiting_num4"
-                            .grid_14.Fright
+                            .grid_14.Fright{:style => "margin: 10px !important;"}
                               %span{:class => "s1_q_i"}
                                 = answer.body.html_safe
                               %a{:class => "q_i_tag2", :href => "#"}
@@ -156,10 +160,10 @@
                 .clear          
       = form_for([@question,@answer],:method=>:post,:html => {:multipart => true,:name=>'answer_form',:id=>'answer_form'}) do |f|
         %p{:style=>"margin-left:30px;"}
-          = f.text_area :body, :class => "wysiwyg_editor",:size=>"50x20"
+          = f.text_area :body, :class => "wysiwyg_editor",:size=>"40x20"
           / = render :partial => 'shared/rich_text_partial'
-        %p
-          = link_to "<span class='underline-decoration-link'>Post your Answer</span>".html_safe, "javascript:void(0)", :class => "q_i1_tag1 tool-tip", :title => "Post your Answer",:onclick=>"document.answer_form.submit();"
+
+          = link_to "<span class='underline-decoration-link'>Post your Answer</span>".html_safe, "javascript:void(0)", :class => "q_i1_tag1 tool-tip", :title => "Post your Answer",:onclick=>"document.answer_form.submit();", :style => "position: relative; margin-left: 0px !important"
 
 .grid_6.omega.body1_about.body_qwest1{:id => "secondElement", :style => "width: 242px !important"}
   .clear
