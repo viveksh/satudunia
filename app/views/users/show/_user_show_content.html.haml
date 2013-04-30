@@ -1,3 +1,14 @@
 
 -@resources.each do |resource|
   = render :partial => "questions/question", :object => resource
+
+%div.pagination-div
+  = paginate @resources, :left => 5, :right => 1
+  %ul#pagination-digg{:style => "float:right;"}
+    %li.pagination-float
+      = link_to 15, '/questions?per_page=15', :id => "per_page_15"
+    %li.pagination-float
+      = link_to 30, '/questions?per_page=30', :id => "per_page_30"
+    %li.pagination-float
+      = link_to 50, '/questions?per_page=50', :id => "per_page_50"
+.clear

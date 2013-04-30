@@ -82,7 +82,7 @@
                   .logo
                     = link_to image_tag("plus/logo.jpg"), "/"
                     %span
-                      Living positively, together.
+                      = current_group.slogan_short_ask.capitalize
                   .right_l
                     .wrapper1
                       - if current_user.nil?
