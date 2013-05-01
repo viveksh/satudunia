@@ -82,14 +82,17 @@
                   .logo
                     = link_to image_tag("plus/logo.jpg"), "/"
                     %span
-                      = current_group.slogan_short_ask.capitalize
+                      = current_group.site_slogan.capitalize
                   .right_l
                     .wrapper1
                       - if current_user.nil?
                         = link_to image_tag("plus/sign_in.png", :class => "sign_in"), "javascript:void(0);", :id => "trigg", :class => "sign_in"
                       -else
                         .profile_small
-                          = avatar_img(current_user, :size => "small")
+                          -if current_user.use_gravatar?
+                            = image_tag avatar_user_path(current_user),:size=>'35x35',:class => "a5"
+                          -else
+                            = image_tag(default_avatar_url('small'))
                           %span{:class => "wayne"}
                             = h(current_user.display_name)
                           = link_to image_tag("plus/arrows21.jpg"), "javascript:void(0);", :id => "trigg4"

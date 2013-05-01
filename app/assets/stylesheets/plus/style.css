@@ -322,16 +322,7 @@ a:hover {text-decoration:underline;}
     top: 5px;
     }
 .tabNavigation1 li a:hover{background: none repeat scroll 0 0 #FDFDFD;
-    border: 1px solid #CED1D4;
-    border-radius: 5px 5px 0 0;
     color: #000000;
-    float: left;
-    font-family: Calibri;
-    font-size: 18px;
-    padding-bottom: 8px;
-    padding-top: 6px;
-    position: relative;
-    top: 0;
     }
 .profile_select{background: none repeat scroll 0 0 #FFFFFF;
     border-radius: 5px 5px 5px 5px;
@@ -647,13 +638,15 @@ border-bottom: 1px solid #D0D3D6;
     min-height: 140px!important;}
 .Fright3{float: right;
     min-height: 140px !important;
-    width: 570px !important;padding-right: 20px;}
+    /*width: 570px !important;*/
+    padding-right: 27px;}
 .s1{color: #0075CE;
     font-family: arial;
     font-size: 18px;
-    left: 15px;
     position: relative;
     float: left;
+    text-align: justify;
+    width: 553px;
     line-height: 20px;}
 .s1 a{color: #0075CE;
     font-family: arial;
@@ -699,11 +692,11 @@ border-bottom: 1px solid #D0D3D6;
     position: absolute;
     right: 40px;
     top: 355px;}
-.tags9_1{margin-left: 125px;
+.tags9_1{margin-left: 111px;
     margin-top: -80px;}
 .tags9_2{float: left !important;
     margin-bottom: 50px;
-    margin-left: 125px;
+    margin-left: 122px;
     margin-top: -62px;}
 .q_i_tag2{float: right;
     margin-bottom: 20px;
@@ -740,7 +733,7 @@ border-bottom: 1px solid #D0D3D6;
     position: relative;
     word-wrap: break-word;
     float: left;
-    width: 520px;
+    width: 552px;
     line-height: 20px;}
 .serv_loc1_2{bottom: 20px;
     color: #474747;
@@ -912,11 +905,13 @@ ul.info{margin-top: 30px;}
 .img-indent4 {float:left;margin:0px 20px 0 0px;}
 
 .buttons a:hover {cursor:pointer;}
-.ago{left: 15px;
-    position: absolute;
-    top: 98px;
+.ago{clear: both;
+    color: #000000;
     font-weight: bold;
-    color:#000;}
+    left: 15px;
+    position: relative;
+    margin-bottom: 30px;
+    top: 18px;}
 .news_block2{left: 15px;
     position: absolute;
     top: 115px;
@@ -949,8 +944,10 @@ ul.info{margin-top: 30px;}
     padding-left: 25px;}
 .tags_pm li{margin-bottom: 15px;
     padding-left: 25px;}
-.tags2{padding-left: 15px; float: left; clear:both !important;}
-.tags3{padding-top: 35px; float: right; margin-bottom: 15px;}
+.tags2{padding-left: 21px; float: left; clear:both !important;}
+.tags3{ float: right;
+    margin-bottom: 15px;
+    margin-top: -52px;}
 .tags2 li{border: medium none !important;
     float: left;
     margin-top: 0 !important;
@@ -1791,11 +1788,11 @@ a.next:hover {background-position:right bottom;}
 .qwest_tag15{background: url("button_profile.jpg") repeat-x scroll 0 0 transparent;
     border-radius: 3px 3px 3px 3px;
     float: right;
-    left: 203px;
     padding-right: 60px;
     padding-top: 12px;
-    position: relative;
-    top: -35px;
+   /* position: relative;*/
+   margin-top:0px;
+   margin-top: -5px;
 
 }
     .ask_tag4{background: url("remove1.jpg") repeat-x scroll 0 0 transparent;
@@ -2523,7 +2520,8 @@ footer {
     margin-bottom: 10px;}
 .a4{color: #FFFFFF;
     font-family: Arial;
-    font-size: 12px;}
+    font-size: 12px;
+    min-height: 69px;}
 .a4 a{color: #0075CE;}
 /*updated css*/
 .input-class{
@@ -2841,6 +2839,7 @@ footer {
 }
 .sortTab .tabberlive .tabbernav{
     margin-top:1px !important;
+    margin-right:24px
 }
 .sortTab .tabberlive .tabbertab{
     padding-left:0px !important;
@@ -2869,4 +2868,43 @@ footer {
     float: left;
     margin-left: 10px;
     margin-top: -31px;
+}
+#first1 .tabbernav{
+    margin-top:-22px !important;
+}
+.tabbernav li a{
+    color:#183B54 !important;
+}
+.tabbernav li a:hover{
+    color:#000000 !important;
+}
+.active-tab{
+    background: #fff !important;
+}
+.s1_q_i p{
+    margin-left:-14px;
+    padding-right: 15px !important;
+}
+
+.q_ff-container {
+    height: 126px;
+    position: absolute;
+    width: 100px;
+}
+
+.q_ff-bottom {
+    color: #000000;
+    margin-left: 15px;
+    margin-top: 111px;
+    position: absolute;
+    font-weight:500;
+}
+.tags2.tags9_1 > li {
+    margin-right: 10px;
+}
+.s1_q_i a{
+    color:#000 !important;
+}
+.extra-tags{
+    margin-top: -75px;
 }

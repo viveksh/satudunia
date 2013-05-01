@@ -44,7 +44,10 @@
           = time_ago_in_words(@question.created_at)
           Ago
       %br/
-      = image_tag avatar_user_path(@question.user),:class=>"info-image", :style=>"height:32px;width:32px;"
+      -if @question.user.use_gravatar?
+        = image_tag avatar_user_path(@question.user),:size=>'35x35'
+      -else
+        = image_tag(default_avatar_url('small'))
       %a{:style=>"color:#00ADEF; font-size:12px; position:relative; top:3px;"}
         = @question.user.name.capitalize
       / user image box

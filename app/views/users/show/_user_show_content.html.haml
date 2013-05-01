@@ -1,7 +1,6 @@
 
 -@resources.each do |resource|
   = render :partial => "questions/question", :object => resource
-
 %div.pagination-div
   = paginate @resources, :left => 5, :right => 1
   %ul#pagination-digg{:style => "float:right;"}
