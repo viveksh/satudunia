@@ -59,8 +59,6 @@
                   %nav
                     %ul{:class => "menu"}
                       %li
-                        v 1.0
-                      %li
                         = link_to "Home", "/", :id => "home_nav"
                       %li
                         = link_to "About", about_path, :id => "about_nav"
@@ -235,8 +233,6 @@
             .main
               .container_24
                 .wrapper
-                  .grid_6.info
-                    &nbsp;
                   .grid_8
                     %h3{:class => "p4"}
                       Follow Us
@@ -250,7 +246,10 @@
                       %li
                         = link_to image_tag("plus/rss.png", :class => "marker1"), "#", :target => "blank"
                         RSS Feed
-                    
+                  .grid_6.info
+                    %ul{:class => "info"}
+                      %li
+                        &nbsp;  
                   .grid_5
                     .info1
                       %h3{:class => "p4"}
