@@ -105,13 +105,11 @@ class UsersController < ApplicationController
     @body_id = "page3"
     @resources = @user.questions.where(:group_id => current_group.id,
                                        :banned => false,
-                                       :anonymous => false).
-                       order_by(current_order).
-                       page(params["page"])
+                                       :anonymous => false).order_by(current_order).page(params["page"]).per(session[:per_page].blank? ? 15 : session[:per_page])
 
     respond_to do |format|
       format.html
-      format.atom { @questions = @resources }
+      format.atom { @questions = @resources}
       format.json {
         if params[:tooltip]
           html = render_to_string(:partial => "users/show/show_json", :object => @user)

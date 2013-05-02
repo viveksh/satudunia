@@ -107,10 +107,6 @@
 
 :javascript
   $(window).load(function (){
-    $('#sort_newest').removeClass('active-tab');
-    $('#sort_oldest').removeClass('active-tab');
-    $('#sort_views').removeClass('active-tab');
-    $('#sort_votes').removeClass('active-tab');
 
     switch('#{params[:sort]}'){
       case "oldest":
@@ -122,8 +118,30 @@
       case "votes":
         $('#sort_votes').addClass('active-tab');
         break;
+      case "questions":
+        $('#question-tab').addClass('active-tab');
+        $('#question1-tab').addClass('active-tab');
+        break;
+      case "answers":
+        $('#answer-tab').addClass('active-tab');
+        break;
+      case "following":
+        $('#following-tab').addClass('active-tab');
+        break;
+      case "followers":
+        $('#followers-tab').addClass('active-tab');
+        break;
+      case "all":
+        $('#all-tab').addClass('active-tab');
+        break;
+      case "users":
+        $('#user-tab').addClass('active-tab');
+        break;
+      case "pages":
+        $('#page-tab').addClass('active-tab');
+        break;
       default:
-        $('#sort_newest').addClass('active-tab');
+        $('#sort_newest,#question-tab,#all-tab').addClass('active-tab');
         break;
     }
   });

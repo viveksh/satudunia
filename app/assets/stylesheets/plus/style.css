@@ -1719,12 +1719,13 @@ a.next:hover {background-position:right bottom;}
     margin-left: 25px;
     margin-top: 40px;}
 .not a{color: #0075CE;}
-.ask_tag1{background: url("ask_button1.jpg") repeat-x scroll 0 0 transparent;
+.ask_tag1{background: url("ask_button1.jpg") no-repeat scroll 0 0 transparent;
     border: 1px solid #AAB9BF;
     border-radius: 3px 3px 3px 3px;
     margin-left: 25px;
     padding-bottom: 6px;
     padding-right: 15px;
+    background-color: #9C9C9C;
     padding-top: 10px;}
 .ask_tag2{background: url("ask_button2.jpg") repeat-x scroll 0 0 transparent;
     border: 1px solid #AAB9BF;
@@ -1819,7 +1820,7 @@ a.next:hover {background-position:right bottom;}
     border-radius: 0 0 5px 5px;
     height: 56px;
     margin-left: -5px;
-    width: 950px;}
+    width: 955px;}
 .q_tag1 span, .q_tag2 span,.q_tag3 span{color: #FFFFFF;
     font-family: Calibri;
     font-size: 15px;
@@ -2908,3 +2909,9 @@ footer {
 .extra-tags{
     margin-top: -75px;
 }
+.break-line{
+    margin-top:10px;
+}
+.save_footer a:hover{
+    text-decoration: none !important;
+}   
