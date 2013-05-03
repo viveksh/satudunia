@@ -2091,7 +2091,9 @@ position: absolute;
 .ask2{font-size:13px;font-family:Arial;
     margin-left: 25px;}
 .ask2_1{font-size:13px;font-family:Arial;
-    margin-left: 0px;}
+    margin-left: 0px;
+    clear: both;
+}
 #page4 .p2, #page1 .p2, #page2 .p2, #page3 .p2{line-height:25px;}
 /*********************************content*************************************/
 #content {
@@ -2914,4 +2916,94 @@ footer {
 }
 .save_footer a:hover{
     text-decoration: none !important;
-}   
+}
+/*tags appender styles   */
+.list-class{
+    padding-left:5px;
+    padding-right:5px;
+    padding-top:2px;
+    padding-bottom:2px;
+    background-image: url("tags1_1.jpg");
+    float:left;
+    font-weight:600;
+    list-style: none;
+    margin-left:5px;
+    border-radius:2px;
+    font-size: 12px;
+    color:#00415F;
+    border: 1px solid #AAB9BF;
+    margin-top:2px;
+}
+.list-class-active{
+    padding-left:5px;
+    padding-right:5px;
+    padding-top:2px;
+    padding-bottom:2px;
+    background-color: #013A55;
+    font-weight:600;
+    float:left;
+    list-style: none;
+    margin-left:5px;
+    border-radius:4px;
+    font-size: 12px;
+    color:#fff;
+    border: 1px solid #AAB9BF;
+    margin-top:2px;
+}
+.new_tag{
+    border:none;
+    outline:none;
+    margin-left:5px;
+    padding-top:3px;
+    font-size: 15px;
+    height: 24px;
+    width:auto;
+}
+.appender{
+    min-height:24px;
+    width:530px;
+    border-radius:4px;
+    float:left;
+    padding-right:20px;
+    background-color: #fff;
+    border: 1px solid #B9AB96;
+    border-radius:4px;
+    box-shadow: 1px 1px 1px 1px #C6B9A6;
+    
+}
+#appender{
+    width:auto;
+    float:left;
+    
+}
+.loader-gif{
+    background-image: url("/assets/indicator.gif");
+    width:24px;
+    height:24px;
+    float:left;
+    margin-left: -28px;
+    margin-top: 4px;
+    display:none;
+}
+.new-close-tags{
+    cursor:pointer;
+    color:#999999;
+    font-weight:bold;
+}
+.new-close-tags:hover{
+    color:#656565;
+}
+.list-class-active .new-close-tags:hover{
+    color:#FFF;
+}
+.already-exist{
+    color:#E22126;
+    font-size:12px;
+    display:none;
+    margin-left: 10px;
+    padding-top:7px;
+}
+.textarea-width{
+    width:542px;
+    border:2px solid #D3C9BA;
+} 
