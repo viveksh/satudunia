@@ -209,6 +209,9 @@
                 .main
                   .container_24
                     .bg2_1.bg_search
+                      %div#search-container
+                        %span.text-style-drop
+                          No result found!
                       = form_tag "#{question_search_path}",:id => "search" do
                         = text_field_tag "search-ajax", "What is your question?", :class => "search-tag",:alt => "What is your question?",:autocomplete=>"off"
                         = hidden_field_tag "hidden_keys"
