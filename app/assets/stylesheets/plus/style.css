@@ -2909,7 +2909,10 @@ footer {
     color:#000 !important;
 }
 .extra-tags{
-    margin-top: -75px;
+    clear: both;
+    margin-top: -77px;
+    position: relative;
+    top: 25px;
 }
 .break-line{
     margin-top:10px;
