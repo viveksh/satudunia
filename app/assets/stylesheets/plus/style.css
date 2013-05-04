@@ -2910,9 +2910,9 @@ footer {
 }
 .extra-tags{
     clear: both;
-    margin-top: -77px;
-    position: relative;
-    top: 25px;
+    position: absolute;
+    top: -75px;
+    width: 920px;
 }
 .break-line{
     margin-top:10px;
