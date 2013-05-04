@@ -31,26 +31,27 @@
         = link_to @user.website, @user.website
       = link_to "<span>HIV Condition: #{user_hiv_condition(@user)}</span>".html_safe, "#", :class => "qwest_tag1"
       = link_to "<span>Edit Profile</span>".html_safe, settings_path, :class => "qwest_tag15"
-    - unless @user.profile_tiers.blank?
-      = link_to "<span>Sample</span>".html_safe, "#", :class => "qwest_tag12"
-    -unless @user.profile_support.nil?
-      = link_to "<span>Tier 1</span>".html_safe, "#", :class => "qwest_tag12"
-    - for i in 2..7 do
-      -unless eval "@user.profile_tier#{i}.nil?"
-        = link_to "<span>Tier #{i}</span>".html_safe, "#", :class => "qwest_tag12"
-  .extra-tags
-    %a.qwest_tag11
-      %span
-        Addict
-    %a.qwest_tag12
-      %span
-        Commentator
-    %a.qwest_tag13
-      %span
-        Editor
-    %a.qwest_tag14
-      %span
-        Good Answer
+    .extra-tags
+      - unless @user.profile_tiers.blank?
+        = link_to "<span>Sample</span>".html_safe, "#", :class => "qwest_tag12"
+      -unless @user.profile_support.nil?
+        = link_to "<span>Tier 1</span>".html_safe, "#", :class => "qwest_tag12"
+      - for i in 2..7 do
+        -unless eval "@user.profile_tier#{i}.nil?"
+          = link_to "<span>Tier #{i}</span>".html_safe, "#", :class => "qwest_tag12"
+  / .extra-tags
+  /   %a.qwest_tag11
+  /     %span
+  /       Addict
+  /   %a.qwest_tag12
+  /     %span
+  /       Commentator
+  /   %a.qwest_tag13
+  /     %span
+  /       Editor
+  /   %a.qwest_tag14
+  /     %span
+  /       Good Answer
 .alpha.grid_18.body_about{:id=>"firstElement", :style => "margin-top: -25px"}
   .body_tabse
     123
