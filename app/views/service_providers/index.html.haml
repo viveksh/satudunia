@@ -68,6 +68,8 @@
 :javascript
   var map;
   var gl;
+  var currentLatitude = '1.305300';
+  var currentLongitude = '103.835303';
   
   try {
     if (typeof navigator.geolocation === 'undefined'){
@@ -80,23 +82,26 @@
   function initMap() {
     if (gl) {
       gl.getCurrentPosition(function displayMap(position){
-        map = showMap(position, 15, "services_map");
-
-        setMarker();
-
-      }, displayError);
+        generateMap(position.coords.latitude,position.coords.longitude);
+      }, displayErrorWithMap);
     } else {
       displayError();
     }
+  }
+
+  function generateMap(lat,lng){
+    map = showMap(lat,lng,15, "services_map");
+
+    setMarker();
   }
   
   google.maps.event.addDomListener(window, 'load', initMap);
 
   // Show a map centered at (position.coords.latitude, position.coords.longitude).
-  function showMap(position, zoomValue, mapElement){
+  function showMap(posLat,posLng,zoomValue, mapElement){
     var map;
     var mapOptions = {
-      center: new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
+      center: new google.maps.LatLng(posLat, posLng),
       zoom: zoomValue,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };
@@ -128,8 +133,14 @@
   }
 
   // Show location error
+  function displayErrorWithMap(positionError) {
+    console.log("Could not determine location: Geolocation is not supported");
+    generateMap(currentLatitude,currentLongitude);
+  }
+
+  // Show location error
   function displayError(positionError) {
-    alert("Could not determine location.");
+    console.log("Could not determine location: Geolocation is not supported");
   }
 
   // Return facility description for infoWindow
