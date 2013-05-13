@@ -7,7 +7,7 @@
     = link_to image_tag("plus/serch12.png", :class => "img12_1"), "#", :id => "search_services_link"
 
 = image_tag "plus/body_com.jpg", :class => "body_header"
-.alpha.grid24.body_about
+.alpha.grid24.body_about{:id => "firstElement"}
   %span{:class => "p_a"}
     Services Map
   %span{:class => "p_a1", :style => "position: relative !important; left:-219px !important;"}
@@ -16,29 +16,7 @@
 
   #map
     %figure{:class => "p5"}
-      #services_map{:style => "width:760px; height:450px"}
-    #map2
-      %p{:class => "i3_55"}
-        %strong
-          Healthcare
-          %br
-          Service
-          %br
-          Providers
-      %ul{:class => "serv_loc7"}
-        %li
-          %a{:href => "/services-map"} Private Hospitals
-        %li
-          %a{:href => "/services-map"} Latest Developments
-        %li
-          %a{:href => "/services-map"} Restructured Healthcare Clusters
-        %li
-          %a{:href => "/services-map"} Medical Centres
-        %li
-          %a{:href => "/services-map"} Specialist Medical Centres
-        - @categories.each do |category|
-          %li
-            = link_to category.category_name, "/services-map?category_id=#{category.id}"
+      #services_map{:style => "width:955px; height:450px"}
 
   .tabs2
     %div.tabber
