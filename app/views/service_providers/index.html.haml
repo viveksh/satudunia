@@ -7,7 +7,7 @@
     = link_to image_tag("plus/serch12.png", :class => "img12_1"), "#", :id => "search_services_link"
 
 = image_tag "plus/body_com.jpg", :class => "body_header"
-.alpha.grid24.body_about{:id => "firstElement"}
+.alpha.grid24.body_about{:id => "firstElement",:style => "width:955px !important"}
   %span{:class => "p_a"}
     Services Map
   %span{:class => "p_a1", :style => "position: relative !important; left:-219px !important;"}
@@ -26,10 +26,13 @@
         %p.i4_1.serv_loc6{:id => ""} 
           .bx-wrapper
             %div.bx-window
-              %ul{:id => "slider21", :style => "position: relative;"}
+              %ul{:class => "i3_2", :id => "slider41", :style => "position: relative;"}
                 %li{:class => "pager ps1"}
                   %ul
-
+                    - unless @alphabetical_providers[0].nil?
+                      - @alphabetical_providers[0].each do |provider|
+                        - next if provider.blank?
+                        = render "provider", :provider => provider
                   .clear
       %div.tabbertab
         %h2
@@ -37,10 +40,13 @@
         %p.i4_1.serv_loc6{:id => ""} 
           .bx-wrapper
             %div.bx-window
-              %ul{:id => "slider21", :style => "position: relative;"}
+              %ul{:class => "i3_2", :id => "slider41", :style => "position: relative;"}
                 %li{:class => "pager ps1"}
                   %ul
-
+                    - unless @alphabetical_providers[1].nil?
+                      - @alphabetical_providers[1].each do |provider|
+                        - next if provider.blank?
+                        = render "provider", :provider => provider
                   .clear
       %div.tabbertab
         %h2
@@ -48,54 +54,18 @@
         %p.i4_1.serv_loc6{:id => ""} 
           .bx-wrapper
             %div.bx-window
-              %ul{:id => "slider21", :style => "position: relative;"}
+              %ul{:class => "i3_2", :id => "slider41", :style => "position: relative;"}
                 %li{:class => "pager ps1"}
                   %ul
-
+                    - unless @alphabetical_providers[2].nil?
+                      - @alphabetical_providers[2].each do |provider|
+                        - next if provider.blank?
+                        = render "provider", :provider => provider
                   .clear
-      
-    .i4_1.serv_loc6{:id => "first"}
-      %ul{:class => "i3_2", :id => "slider41", :style => "position:relative;"}
-        %li{:class => "pager"}
-          %ul
-            - unless @alphabetical_providers[0].nil?
-              - @alphabetical_providers[0].each do |provider|
-                - next if provider.blank?
-                = render "provider", :provider => provider
-
-    .i4_1.serv_loc6{:id => "second", :style => "display:none;"}
-      %ul{:class => "i3_2", :id => "slider41"}
-        %li{:class => "pager"}
-          %ul
-            - unless @alphabetical_providers[1].nil?
-              - @alphabetical_providers[1].each do |provider|
-                - next if provider.blank?
-                = render "provider", :provider => provider
-
-    .i4_1.serv_loc6{:id => "third", :style => "display:none;"}
-      %ul{:class => "i3_2", :id => "slider41"}
-        %li{:class => "pager"}
-          %ul
-            - unless @alphabetical_providers[2].nil?
-              - @alphabetical_providers[2].each do |provider|
-                - next if provider.blank?
-                = render "provider", :provider => provider
-
+            
 %script{:src => "http://maps.googleapis.com/maps/api/js?key=AIzaSyBmJE9KrYdmPiW16lAHDJOiCvS1Fwen7BU&sensor=true"}
 
 :javascript
-  $(window).load(function(){
-    $('div.tabs2 ul.tabNavigation a').click(function () {
-      $('#first').hide();
-      $('#second').hide();
-      $('#third').hide();
-      $(this.hash).show();
-      $('div.tabs2 ul.tabNavigation a').removeClass('selected');
-      $(this).addClass('selected');
-      return false;
-    });
-  });
-
   var map;
   var gl;
   
