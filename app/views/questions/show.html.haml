@@ -20,10 +20,10 @@
     %span.underline-decoration-link
       = link_to "#{h truncate(@question.title, :length => 95)}", question_path(@question),:style => "color: white;"
   .q_height2
-    = link_to image_tag("plus/reiting_num1.png"), "#"
+    = link_to image_tag("plus/reiting_num1.png"), vote_question_up_path(@question.id,1)
     %p{:class => "reiting_num5"}
-      456
-    = link_to image_tag("plus/reiting_num2.png"), "#", :class => "reiting_num6"
+      =@question.votes_count
+    = link_to image_tag("plus/reiting_num2.png"), vote_question_down_path(@question.id,-1), :class => "reiting_num6"
   .grid_14.Fright3
     %span{:class => "s1"}
       = @question.title

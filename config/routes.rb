@@ -90,6 +90,8 @@ Rails.application.routes.draw do
   end
   # match 'towns' => 'towns#index'
   get 'faq' =>"manage_faqs#public_faq"
+  get 'question/:question_id/votesup/:vote_up'=>"votes#create",:as=>:vote_question_up
+  get 'question/:question_id/votesdown/:vote_down'=>"votes#create",:as=>:vote_question_down
   resources :countquestions
   resources :badges
 
