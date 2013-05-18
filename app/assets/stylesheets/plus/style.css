@@ -2816,15 +2816,22 @@ footer {
 .modal-box-content{
     padding:8px;
     text-align: justify;
-    width: 904px;
+    width: 850px;
     color: #202020;
-    font-size: 12px;
+    font-size: 13px;
+    font-family: arial;
     line-height: 1.5;
-    min-height: 227px;
+    min-height: 500px;
 }
 .modal-box-button{
     float: right;
     margin-right: 70px;
+    height: 30px;
+    width: 95px;
+}
+.modal-box-button input{
+    height: 30px;
+    width: 95px;
 }
 .modal-box-heading{
     font-weight: bold;
@@ -2841,7 +2848,8 @@ footer {
 }
 .modal-box-content ul li{
     color: #202020;
-    font-size:10px;
+    font-size:13px;
+    font-family: arial;
 }
 .sortTab .tabberlive .tabbernav{
     margin-top:1px !important;
