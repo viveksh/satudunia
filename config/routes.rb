@@ -5,6 +5,11 @@ require 'magent_web'
 #require 'bug_hunter'
 
 Rails.application.routes.draw do
+  
+  scope :module => "experimental" do
+    resources :experimental
+  end
+
   get "survey/index"
 
   devise_for(:users, :path => '/',
