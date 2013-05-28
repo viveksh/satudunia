@@ -32,115 +32,9 @@
 		= javascript_include_tag "experimental/experimental"
 		= javascript_include_tag "experimental/plugins.js"
 		= javascript_include_tag "experimental/custom.js"
-		= javascript_include_tag "https://apis.google.com/js/plusone.js"
-		= javascript_include_tag "http://assets.pinterest.com/js/pinit.js"
-		= javascript_include_tag "http://platform.tumblr.com/v1/share.js"
-		= javascript_include_tag "http://platform.twitter.com/widgets.js"
-		= javascript_include_tag "http://widgets.digg.com/buttons.js"
+		
 
 		%body
-			/ .demo-wrapper
-			/ 	.hide-demo{:title=>"Click to hide demo settings.",:onclick=>"hidedemo()"}
-			/ 		="&nbsp;".html_safe()
-			/ 	.show-demo{:title=>"Click to show demo settings.",:onclick=>"showdemo()"}
-			/ 		="&nbsp;".html_safe()
-			/ .demo
-			/ 	.content
-			/ 		.header Demo Settings
-			/ 		#forecolorSelector
-			/ 			%div{:style => "background-color:#C32C0D"}
-			/ 		.label{:style => "width:75px;margin-left:5px;margin-top:10px;"} Main Color
-			/ 		%br.clearer/
-			/ 		.divider  
-			/ 		.label{:style => "margin-left:5px;"} Skin
-			/ 		.floatleft
-			/ 			%a#lightskin.bg{:onclick => "changeskin('light-skin','dark-skin')"}  
-			/ 			%a#darkskin.bg{:onclick => "changeskin('dark-skin','light-skin')"}  
-			/ 		%br.clearer/
-			/ 		.divider  
-			/ 		#colorSelector
-			/ 			%div{:style => "background-color:#E1E1E1"}
-			/ 		.label{:style => "width:75px;margin-left:5px;"}
-			/ 			Background
-			/ 			%br/
-			/ 			%span.note combine with textures below
-			/ 		.label Textures
-			/ 		%br.clearer/
-			/ 		%a#brick1.bg{:onclick => "changebg('brick1','repeat','images/backgrounds/bg-texture-brick1.png')"}  
-			/ 		%a#brick2.bg{:onclick => "changebg('brick2','repeat','images/backgrounds/bg-texture-brick2.png')"}  
-			/ 		%a#brick3.bg{:onclick => "changebg('brick3','repeat','images/backgrounds/bg-texture-brick3.png')"}  
-			/ 		%a#brick4.bg.last{:onclick => "changebg('brick4','repeat','images/backgrounds/bg-texture-brick4.png')"}  
-			/ 		%a#wood1.bg{:onclick => "changebg('wood1','repeat','images/backgrounds/bg-texture-wood1.png')"}  
-			/ 		%a#wood2.bg{:onclick => "changebg('wood2','repeat','images/backgrounds/bg-texture-wood2.png')"}  
-			/ 		%a#wood3.bg{:onclick => "changebg('wood3','repeat','images/backgrounds/bg-texture-wood3.png')"}  
-			/ 		%a#wood4.bg.last{:onclick => "changebg('wood4','repeat','images/backgrounds/bg-texture-wood4.png')"}  
-			/ 		%a#metal1.bg{:onclick => "changebg('metal1','repeat','images/backgrounds/bg-texture-metal1.png')"}  
-			/ 		%a#metal2.bg{:onclick => "changebg('metal2','repeat','images/backgrounds/bg-texture-metal2.png')"}  
-			/ 		%a#metal3.bg{:onclick => "changebg('metal3','repeat','images/backgrounds/bg-texture-metal3.png')"}  
-			/ 		%a#leaf1.bg.last{:onclick => "changebg('leaf1','repeat','images/backgrounds/bg-texture-leaf1.png')"}  
-			/ 		%a#pave1.bg{:onclick => "changebg('pave1','repeat','images/backgrounds/bg-texture-pave1.png')"}  
-			/ 		%a#pave2.bg{:onclick => "changebg('pave2','repeat','images/backgrounds/bg-texture-pave2.png')"}  
-			/ 		%a#pave3.bg{:onclick => "changebg('pave3','repeat','images/backgrounds/bg-texture-pave3.png')"}  
-			/ 		%a#pave4.bg.last{:onclick => "changebg('pave4','repeat','images/backgrounds/bg-texture-pave4.png')"}  
-			/ 		%a#pave5.bg{:onclick => "changebg('pave5','repeat','images/backgrounds/bg-texture-pave5.png')"}  
-			/ 		%a#rock1.bg{:onclick => "changebg('rock1','repeat','images/backgrounds/bg-texture-rock1.png')"}  
-			/ 		%a#rock2.bg{:onclick => "changebg('rock2','repeat','images/backgrounds/bg-texture-rock2.png')"}  
-			/ 		%a#rock3.bg.last{:onclick => "changebg('rock3','repeat','images/backgrounds/bg-texture-rock3.png')"}  
-			/ 		%a#surface1.bg{:onclick => "changebg('surface1','repeat','images/backgrounds/bg-texture-surface1.png')"}  
-			/ 		%a#wallpaper1.bg{:onclick => "changebg('wallpaper1','repeat','images/backgrounds/bg-texture-wallpaper1.png')"}  
-			/ 		%a#wallpaper2.bg{:onclick => "changebg('wallpaper2','repeat','images/backgrounds/bg-texture-wallpaper2.png')"}  
-			/ 		%a#textile1.bg.last{:onclick => "changebg('textile1','repeat','images/backgrounds/bg-texture-textile1.png')"}  
-			/ 		%a#textile2.bg{:onclick => "changebg('textile2','repeat','images/backgrounds/bg-texture-textile2.png')"}  
-			/ 		%a#textile3.bg{:onclick => "changebg('textile3','repeat','images/backgrounds/bg-texture-textile3.png')"}  
-			/ 		%a#textile4.bg{:onclick => "changebg('textile4','repeat','images/backgrounds/bg-texture-textile4.png')"}  
-			/ 		%a#textile5.bg.last{:onclick => "changebg('textile5','repeat','images/backgrounds/bg-texture-textile5.png')"}  
-			/ 		%br.clearer/
-			/ 		.divider  
-			/ 		.label
-			/ 			Backgrounds*
-			/ 			%br/
-			/ 			%span.note (color agnostic)
-			/ 		%br.clearer/
-			/ 		%a#blur17.bg{:onclick => "changebg('blur17','no-repeat','images/backgrounds/bg-blur-17.jpg')"}  
-			/ 		%a#blur23.bg{:onclick => "changebg('blur23','no-repeat','images/backgrounds/bg-blur-23.jpg')"}  
-			/ 		%a#blur25.bg{:onclick => "changebg('blur25','no-repeat','images/backgrounds/bg-blur-25.jpg')"}  
-			/ 		%a#blur26.bg.last{:onclick => "changebg('blur26','no-repeat','images/backgrounds/bg-blur-26.jpg')"}  
-			/ 		%a#blur13.bg{:onclick => "changebg('blur13','no-repeat','images/backgrounds/bg-blur-13.jpg')"}  
-			/ 		%a#blur14.bg{:onclick => "changebg('blur14','no-repeat','images/backgrounds/bg-blur-14.jpg')"}  
-			/ 		%a#blur15.bg{:onclick => "changebg('blur15','no-repeat','images/backgrounds/bg-blur-15.jpg')"}  
-			/ 		%a#blur16.bg.last{:onclick => "changebg('blur16','no-repeat','images/backgrounds/bg-blur-16.jpg')"}  
-			/ 		%a#blur28.bg{:onclick => "changebg('blur28','no-repeat','images/backgrounds/bg-blur-28.jpg')"}  
-			/ 		%a#blur29.bg{:onclick => "changebg('blur29','no-repeat','images/backgrounds/bg-blur-29.jpg')"}  
-			/ 		%a#blur30.bg{:onclick => "changebg('blur30','no-repeat','images/backgrounds/bg-blur-30.jpg')"}  
-			/ 		%a#blur31.bg.last{:onclick => "changebg('blur31','no-repeat','images/backgrounds/bg-blur-31.jpg')"}  
-			/ 		%a#blur3.bg{:onclick => "changebg('blur3','no-repeat','images/backgrounds/bg-blur-3.jpg')"}  
-			/ 		%a#blur7.bg{:onclick => "changebg('blur7','no-repeat','images/backgrounds/bg-blur-7.jpg')"}  
-			/ 		%a#blur11.bg{:onclick => "changebg('blur11','no-repeat','images/backgrounds/bg-blur-11.jpg')"}  
-			/ 		%a#blur12.bg.last{:onclick => "changebg('blur12','no-repeat','images/backgrounds/bg-blur-12.jpg')"}  
-			/ 		%a#grunge1.bg{:onclick => "changebg('grunge1','no-repeat','images/backgrounds/bg-grunge-1.jpg')"}  
-			/ 		%a#grunge2.bg{:onclick => "changebg('grunge2','no-repeat','images/backgrounds/bg-grunge-2.jpg')"}  
-			/ 		%a#grunge3.bg{:onclick => "changebg('grunge3','no-repeat','images/backgrounds/bg-grunge-3.jpg')"}  
-			/ 		%a#grunge4.bg.last{:onclick => "changebg('grunge4','no-repeat','images/backgrounds/bg-grunge-4.jpg')"}  
-			/ 		%a#wave1.bg{:onclick => "changebg('wave1','no-repeat','images/backgrounds/bg-wave-rays-blue.jpg')"}  
-			/ 		%a#wave2.bg{:onclick => "changebg('wave2','no-repeat','images/backgrounds/bg-wave-rays-green-yellow.jpg')"}  
-			/ 		%a#wave3.bg{:onclick => "changebg('wave3','no-repeat','images/backgrounds/bg-wave-rays-orange-green.jpg')"}  
-			/ 		%a#wave4.bg.last{:onclick => "changebg('wave4','no-repeat','images/backgrounds/bg-wave-rays-pink.jpg')"}  
-			/ 		%a#wave5.bg{:onclick => "changebg('wave5','no-repeat','images/backgrounds/bg-wave-grunge-blue-grey.jpg')"}  
-			/ 		%a#wave6.bg{:onclick => "changebg('wave6','no-repeat','images/backgrounds/bg-wave-grunge-green.jpg')"}  
-			/ 		%a#wave7.bg{:onclick => "changebg('wave7','no-repeat','images/backgrounds/bg-wave-grunge-purple-red.jpg')"}  
-			/ 		%a#wave8.bg.last{:onclick => "changebg('wave8','no-repeat','images/backgrounds/bg-wave-grunge-purple.jpg')"}  
-			/ 		%a#vintage1.bg{:onclick => "changebg('vintage1','no-repeat','images/backgrounds/bg-vintage-wallpaper-black.jpg')"}  
-			/ 		%a#vintage2.bg{:onclick => "changebg('vintage2','no-repeat','images/backgrounds/bg-vintage-wallpaper-blue.jpg')"}  
-			/ 		%a#vintage4.bg{:onclick => "changebg('vintage4','no-repeat','images/backgrounds/bg-vintage-wallpaper-green.jpg')"}  
-			/ 		%a#vintage5.bg.last{:onclick => "changebg('vintage5','no-repeat','images/backgrounds/bg-vintage-wallpaper-red.jpg')"}  
-			/ 		%a#vintage6.bg{:onclick => "changebg('vintage6','no-repeat','images/backgrounds/bg-vintage-wallpaper-purple.jpg')"}  
-			/ 		%a#vintage3.bg{:onclick => "changebg('vintage3','no-repeat','images/backgrounds/bg-vintage-wallpaper-light.jpg')"}  
-			/ 		%a#vintage7.bg{:onclick => "changebg('vintage7','no-repeat','images/backgrounds/bg-vintage-wallpaper-brown.jpg')"}  
-			/ 		%a#vintage8.bg.last{:onclick => "changebg('vintage8','no-repeat','images/backgrounds/bg-vintage-wallpaper-gold.jpg')"}  
-			/ 		%br.clearer/
-			/ 		%br/
-			/ 		%span.note *There are 25 additional backgrounds not pictured
-			/ 		%br.clearer/
 			#top-menu-wrapper
 				/ begin top menu
 				.ribbon-shadow-left  
@@ -149,14 +43,7 @@
 						.menu
 							%ul#menu-top-menu
 								%li
-									%a{:href => about_path,:title=>"About",:alt=>"About"} About
-									%ul
-										%li
-											%a{:href => "#",:title=>"Plus",:alt=>"Plus"} Plus
-										/ %li
-										/ 	%a{:href => "#",:title=>"Demo",:alt=>"Demo"} Demo
-										/ %li
-										/ 	%a{:href => "#",:title=>"Demo",:alt=>"Demo"} Demo
+									%a{:href => public_about_experimental_index_path,:title=>"About",:alt=>"About"} About Plus
 								%li
 									%a{:href => questions_path,:title=>"Questions",:alt=>"Questions"} Questions 
 								%li
@@ -165,7 +52,6 @@
 									%a{:href => contact_path,:title=>"Contact",:alt=>"Contact"} Contact
 								%li
 									%a{:href => '/questions/ask-a-question',:title=>"Ask a Question",:alt=>"Ask a Question"} Ask a Question
-						\ 
 						%select#select-menu-top-menu
 							%option Page Navigation
 							%option{:value => "page-jquery-extras.html"} jQuery Extras
@@ -183,7 +69,7 @@
 							%option{:value => "page-contributors.html"} Contributors Listing
 					#top-widget
 						.top-social
-							%a.rss{:href => "#"}  
+							%a.rss{:href => rss_feed_experimental_index_path}  
 							%a.facebook{:href =>"javascript:void(0)",:onclick=>"fb_share()"}  
 							%a.twitter{:href => "https://twitter.com/share","data-count"=>"none",:target=>"_blank"}  
 					#search
@@ -213,7 +99,7 @@
 					#logo-bar-shadow  
 				/ end the logo area
 				#cat-menu.cat-menu
-					%a.home-link{:href => "index.html"}  
+					%a.home-link{:href => experimental_index_path}  
 					%ul#menu-main-menu
 						%li
 							%a{:href => "archive-a.html"} Layouts
@@ -296,7 +182,7 @@
 						%option{:value => "review-directory-b.html"} Review Directory layout B
 					#random-article
 						%a{:href => "single-review-numbers.html", :title => "Random Article"}
-							%img{:alt => "Random Article", :src => "assets/experimental/images/random-article.png"}/
+							%img{:alt => "Random Article", :src => "/assets/experimental/images/random-article.png"}/
 				%br.clearer.hide-responsive-small/
 				.cat-menu.tax
 					%ul#menu-sub-menu.menu
@@ -313,66 +199,19 @@
 				%br.clearer.hide-responsive-small
 				/ page wrapper ends here
 				/ dont miss bar starts from here
-				#dontmiss-bar
-					.ribbon-shadow-left  
-					#dontmiss-header Don't Miss
-					#dontmiss-arrow  
-					#dontmiss.dontmiss
-						.panel
-							.image
-								%a{:href => "single-review-numbers.html"}
-									%img{:alt => "restaurants7", :height => "40", :src => "http://www.industrialthemes.com/made/wp-content/uploads/2012/06/restaurants7-40x40.jpg", :width => "40"}/
-							.title
-								%a{:href => "single-review-numbers.html"}
-									A Sandwich a Day: Fried Scallops from Brucie
-						.panel
-							.image
-								%a{:href => "single-review-numbers.html"}
-									%img{:alt => "fashion4", :height => "40", :src => "http://www.industrialthemes.com/made/wp-content/uploads/2012/06/fashion4-40x40.jpg", :width => "40"}/
-							.title
-								%a{:href => "single-review-numbers.html"}
-									Yohji Yamamoto Autumn (Fall) / Winter 2012 men's
-						.panel
-							.image
-								%a{:href => "single-review-numbers.html"}
-									%img{:alt => "music1", :height => "40", :src => "http://www.industrialthemes.com/made/wp-content/uploads/2012/06/music1-40x40.jpg", :width => "40"}/
-							.title
-								%a{:href => "single-review-numbers.html"}
-									Gotye – Mirrors
-						.panel
-							.image
-								%a{:href => "single-review-numbers.html"}
-									%img{:alt => "movies3", :height => "40", :src => "http://www.industrialthemes.com/made/wp-content/uploads/2012/06/movies3-40x40.jpg", :width => "40"}/
-							.title
-								%a{:href => "single-review-numbers.html"}
-									The Hobbit: An Unexpected Journey
-						.panel
-							.image
-								%a{:href => "single-review-numbers.html"}
-									%img{:alt => "products4", :height => "40", :src => "http://www.industrialthemes.com/made/wp-content/uploads/2012/06/products4-40x40.jpg", :width => "40"}/
-							.title
-								%a{:href => "single-review-numbers.html"}
-									Klipsch Gallery G-17 iPad speaker
-					#dontmiss-email.signup
-						%h3 Get Our Newsletter
-						%form#feedburner_subscribe.subscribe{:action => "http://feedburner.google.com/fb/a/mailverify", :method => "post", :onsubmit => "window.open('http://feedburner.google.com/fb/a/mailverify?uri=brianmcculloh/dtMq', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true", :target => "popupwindow"}
-							.email-wrapper
-								%input{:name => "email", :type => "text"}/
-								%input{:name => "uri", :type => "hidden", :value => "brianmcculloh/dtMq"}/
-								%input{:name => "loc", :type => "hidden", :value => "en_US"}/
-							%input.btn{:onclick => "document.feedburner_subscribe.submit();", :src => "assets/experimental/images/signup.png", :title => "You will receive a daily email with new content from our website.", :type => "image"}/
-						%br.clearer/
-					%br.clearer/
+				= render "experimental/partials/dont_miss_bar"
 				/ end of dont miss bar
 				/ main wrapper starts from here
 				#main-wrapper
 					#main-wrapper-dark
 						= yield
 				/footer
-				= render "footer"
-
-		
-
+				= render "experimental/partials/footer"
+		= javascript_include_tag "https://apis.google.com/js/plusone.js"
+		= javascript_include_tag "http://assets.pinterest.com/js/pinit.js"
+		= javascript_include_tag "http://platform.tumblr.com/v1/share.js"
+		= javascript_include_tag "http://platform.twitter.com/widgets.js"
+		= javascript_include_tag "http://widgets.digg.com/buttons.js"
 
 :javascript
 	jQuery.noConflict();
@@ -458,3 +297,7 @@
 	}
 	// twitter share button code
 	!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+
+	
+
+	

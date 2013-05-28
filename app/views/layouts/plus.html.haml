@@ -188,7 +188,7 @@
         = yield :slider_content
         /==============================content================================
         -requestName = request.fullpath
-        -classNameForSearch = (requestName == "/questions")? '' : 'bg_search'
+        -classNameForSearch = (requestName == "/questions" || "/question/:slug")? '' : 'bg_search'
         %section{:id => "content"}
           - if @body_id == "page1"
             .main
@@ -426,6 +426,7 @@
       window.close();
     }
   }
+  
   $(".authproviders").fancybox({
     'width' : '75%',
     'height' : '75%',

@@ -2,28 +2,20 @@
   / begin footer wrapper
   #footer
     .footer-menu
-      %a.home-link{:href => "index.html"}  
+      %a.home-link{:href => experimental_index_path}  
       %ul#menu-footer-menu.menu
         %li
-          %a{:href => "single-post.html"} Single Blog Post
+          %a{:href => public_about_experimental_index_path, :title=>"About", :alt=>"About"} About Plus
         %li
-          %a{:href => "single-review-numbers.html"} Single Review Page
+          %a{:href => questions_path, :title=>"Questions", :alt=>"Questions"} Questions
         %li
-          %a{:href => "archive-a.html"} Archive A
+          %a{:href => "/services-map", :title=>"Services Map", :alt=>"Services Map"} Services Map
         %li
-          %a{:href => "archive-b.html"} Archive B
+          %a{:href => "/users", :title=>"Community", :alt=>"Community"} Community
         %li
-          %a{:href => "archive-c.html"} Archive C
+          %a{:href => contact_path, :title=>"Contact", :alt=>"Contact"} Contact
         %li
-          %a{:href => "archive-d.html"} Archive D
-        %li
-          %a{:href => "archive-e.html"} Archive E
-        %li
-          %a{:href => "archive-f.html"} Archive F
-        %li
-          %a{:href => "search.html"} Search Results
-        %li
-          %a{:href => "page-contributors.html"} Contributors
+          %a{:href => "/questions/ask-a-question", :title=>"Ask a Question", :alt=>"Ask a Question"} Ask a Question
     %br.clearer/
     .inner
       .panel
@@ -222,7 +214,7 @@
                   refresh_interval: 60					  	
                 });
               });
-                                  .tweet.query.complex-list
+          .tweet.query.complex-list
           .footer-fix  
       .panel.right
         .widget

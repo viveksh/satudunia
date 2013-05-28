@@ -7,8 +7,13 @@ require 'magent_web'
 Rails.application.routes.draw do
   
   scope :module => "experimental" do
-    resources :experimental
-  end
+    resources :experimental do
+      collection do
+        get :public_about,:path=>"about"
+        get :rss_feed,:path=>"rss"
+      end
+    end
+  end 
 
   get "survey/index"
 
