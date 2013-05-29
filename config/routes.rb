@@ -11,6 +11,8 @@ Rails.application.routes.draw do
       collection do
         get :public_about,:path=>"about"
         get :rss_feed,:path=>"rss"
+        get :terms, :path=>"terms-of-use"
+        get :faq
       end
     end
   end 

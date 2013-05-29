@@ -18,7 +18,7 @@
             %a{:href => "#"} Blog
       .ribbon-shadow-right  
       .section-arrow  
-      %h1.title
+      %h1.title 
         =@title.capitalize
       .content-panel
         .article-image
@@ -30,11 +30,11 @@
         / end responsive purposes
         .the-content.justify-content
           .dropcap.prociono
-            -unless @about.static_content.nil? 
-              = @about.static_content.html_safe.capitalize[0..0]
+            -unless @tos.static_content.nil? 
+              = @tos.static_content.html_safe.capitalize[0..0]
           %p
-            -unless @about.static_content.nil?
-              = @about.static_content.html_safe[1..-1]  rescue "" 
+            -unless @tos.static_content.nil?
+              = @tos.static_content.html_safe[1..-1]  rescue "" 
           .pullquote-wrapper.left
             .pullquote.prociono
               = current_group.site_slogan.capitalize
