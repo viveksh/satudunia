@@ -161,6 +161,7 @@
 						= render "experimental/partials/social_side_bar"
 						= yield
 				/footer
+				%iframe.twitter-share-button.twitter-count-vertical{:allowtransparency => "true", "data-twttr-rendered" => "false", :frameborder => "0", :scrolling => "no", :src => "http://platform.twitter.com/widgets/tweet_button.1368146021.html#_=1369838120686&count=vertical&id=twitter-widget-0&lang=en&original_referer=http%3A%2F%2Fwww.industrialthemes.com%2Fmade%2Ffaq%2F&size=m&text=FAQ&url=http%3A%2F%2Fwww.industrialthemes.com%2Fmade%2Ffaq%2F&via=IndustrialTheme", :style => "width: 55px; height: 62px;", :title => "Twitter Tweet Button"}
 				= render "experimental/partials/footer"
 		= javascript_include_tag "https://apis.google.com/js/plusone.js"
 		= javascript_include_tag "http://assets.pinterest.com/js/pinit.js"
@@ -248,10 +249,24 @@
 
 	// facebook share button
 	function fb_share(){
-		window.open("http://www.facebook.com/share.php?u=http://dev3.b-change.org","sharer","width=500,heigth=100, scrollbars='no',resize='yes'");
+		var w = 500;
+		var h = 320;
+		var left = (screen.width/2)-(w/2);
+		var top = (screen.height/2)-(h/2);
+		window.open("http://www.facebook.com/share.php?u=http://dev3.b-change.org","sharer","width="+w+",height="+h+",top="+top+",left="+left+",scrollbars='no',resize='yes'");
 	}
 	// twitter share button code
 	!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+
+	function twitter_twit(){
+		var w = 500;
+		var h = 320;
+		var left = (screen.width/2)-(w/2);
+		var top = (screen.height/2)-(h/2);
+		window.open("https://twitter.com/share","sharer","width="+w+",height="+h+",top="+top+",left="+left+",scrollbars='no',resize='no'");
+
+	}
+
 
 	
 

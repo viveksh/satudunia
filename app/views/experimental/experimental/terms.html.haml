@@ -21,13 +21,6 @@
       %h1.title 
         =@title.capitalize
       .content-panel
-        .article-image
-          %a.darken{:href => "http://www.industrialthemes.com/made/wp-content/uploads/2012/06/misc1-300x225.jpg"}
-            %img{:alt => "misc1", :height => "225", :src => "http://www.industrialthemes.com/made/wp-content/uploads/2012/06/misc1-300x225.jpg", :title => "misc1", :width => "300"}/
-        / responsive purposes - hidden for standard desktop view
-        .article-image.responsive
-          %img{:alt => "misc1", :height => "225", :src => "http://www.industrialthemes.com/made/wp-content/uploads/2012/06/misc1-300x225.jpg", :title => "misc1", :width => "300"}/
-        / end responsive purposes
         .the-content.justify-content
           .dropcap.prociono
             -unless @tos.static_content.nil? 
