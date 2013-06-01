@@ -6,9 +6,11 @@ require 'magent_web'
 
 Rails.application.routes.draw do
   
+  # experimetal routes
   scope :module => "experimental" do
     resources :experimental do
       collection do
+        get :index,:path=>"/index"
         get :public_about,:path=>"about"
         get :rss_feed,:path=>"rss"
         get :terms, :path=>"terms-of-use"
@@ -16,7 +18,8 @@ Rails.application.routes.draw do
       end
     end
   end 
-
+  # experimental routes
+  
   get "survey/index"
 
   devise_for(:users, :path => '/',

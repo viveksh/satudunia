@@ -1,3 +1,7 @@
+#@module      = experimental
+#@created     = May 27 2013
+#@desc        = this controller contains all the actions of experimental module
+
 class Experimental::ExperimentalController < ApplicationController
 	layout 'experiment'
   def index
