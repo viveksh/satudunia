@@ -7,5 +7,6 @@
 //= require 'experimental/plugins'
 //= require 'experimental/custom'
 //= require 'experimental/customFunction'
+//= require tabber.js
 
 

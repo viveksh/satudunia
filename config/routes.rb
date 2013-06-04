@@ -15,6 +15,8 @@ Rails.application.routes.draw do
         get :rss_feed,:path=>"rss"
         get :terms, :path=>"terms-of-use"
         get :faq
+        get :questions
+        get 'questions/:id' => 'experimental#question_show', :as => :question_show
       end
     end
   end 
