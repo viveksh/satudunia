@@ -1,0 +1,103 @@
+$path: "clinic/";
+.s_listing{
+	border:1px solid #ccc;
+	border-bottom:2px solid #ccc;
+	font-size:14px;margin:0 0 14px 0;
+	background-color:#FDFCF7;
+	padding:16px 19px 19px 19px;
+	color:#333;
+}
+.title-clinic{
+	font-size: 24px;
+	color:#7AAF1F;
+	text-transform: capitalize;
+}
+.s_listing_address{
+	margin-top:8px;
+	.icon {
+	    background-attachment: scroll;
+	    background-clip: border-box;
+	    background-color: transparent;
+	    background-image: url($path+"sprite_new.png");
+	    background-origin: padding-box;
+	    background-position: -208px -804px;
+	    background-repeat: no-repeat;
+	    background-size: auto auto;
+	    padding-left: 10px;
+	    padding-right: 10px;
+	    margin-top:5px;
+	}
+}
+.s_listing_text{
+	margin-top:10px;
+	.icon {
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: transparent;
+    background-image: url($path+"sprite_new.png");
+    background-origin: padding-box;
+    background-position: -94px -798px;
+    background-repeat: no-repeat;
+    background-size: auto auto;
+    padding-left: 10px;
+    padding-right: 15px;
+    padding-top:5px;
+    text-transform: capitalize;
+  
+	}
+}
+.clinic-content {
+    color: #333333;
+    font-size: 12px;
+    font-style: italic;
+    text-transform: capitalize;
+}
+.clinic-content-desc {
+  color: #333333;
+  font-size: 14px;
+}
+.details_bar{
+		margin-top:10px;
+		span.bubble {
+    -moz-text-blink: none;
+    -moz-text-decoration-color: -moz-use-text-color;
+    -moz-text-decoration-line: none;
+    -moz-text-decoration-style: solid;
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: transparent;
+    background-image: url($path+"sprite_new.png");
+    background-origin: padding-box;
+    background-repeat: no-repeat;
+    background-size: auto auto;
+    color: #FFFFFF;
+    float: left;
+    font-weight: bold;
+    height: 18px;
+    margin-right: 0;
+    margin-top: -3px;
+    padding-bottom: 0;
+    padding-left: 18px;
+    padding-right: 8px;
+    padding-top: 2px;
+    text-align: center;
+    width: 20px;
+    
+	}
+}
+.clinic-comment{
+	background-position: -761px -120px;
+}
+.clinic-recommendation{
+	background-position: -884px -120px;
+  width: 17px;
+}
+.width-adjust{
+	display: inline-block;
+  padding-left: 85px !important;
+}
+.text-recommendations{
+	float:left;
+	font-size: 10px;
+	color:#00AEEF;
+}

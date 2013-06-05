@@ -122,7 +122,8 @@ Rails.application.routes.draw do
     end
   end
   
-  resources :service_providers, :path=>'services-map'
+  resources :service_providers, :except => [:show], :path=>'services-map'
+  get '/services-map/:id/:slug' => "service_providers#show", :as=>:service_map_provider
   resources :news
   resources :polls
 
