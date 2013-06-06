@@ -18,6 +18,7 @@ class ServiceProvider
   field :email, :type => String
   field :telephone, :type => String
   field :country, :type => String
+  field :recommend, :type => String
   
   xapit do 
     text :name
@@ -29,5 +30,5 @@ class ServiceProvider
   validates_presence_of :name, :message => "Service name can't be blank"
   validates_uniqueness_of :name, :message => "Service name is already taken"
   
-  attr_accessible :name, :description, :url, :address, :email, :telephone, :country
+  attr_accessible :name, :description, :url, :address, :email, :telephone, :country, :recommend
 end

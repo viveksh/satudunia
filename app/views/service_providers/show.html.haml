@@ -32,16 +32,117 @@
   
   google.maps.event.addDomListener(window, 'load', initialize);
 
-.top
-  %h1
-    = @service_provider.name
+= image_tag "plus/body_about1.jpg", :class => "body_header"
+.alpha.grid_18.body_about{:id => "firstElement",:style=>"background-color:#F0EFEA; width:750px"}
+  %span{:class => "p_a"}
+    = truncate(strip_tags(@service_provider.name), :length => 45)
+  %span{:class => "p_a1 i3_1", :style => "position: absolute !important; left: 20px !important;"}
+    = link_to "Home", "/"
+    >
+    = link_to "service Providers", "/questions"
+    >
+    %span.underline-decoration-link
+      = link_to "#{h truncate(@service_provider.name, :length => 95)}", "#",:style => "color: white;"
+  .header-title-clinic
+    %span
+      = @service_provider.name
+    %span.clinic-title-desc
+      = truncate(@service_provider.description,:length=>50)
+  #tabsmenu
+    %ul.ui-tabs-nav
+      %li.tab_overview.ui-tabs-active{"data-find"=>"tab_overview"}
+        %a.ui-tabs-anchor{:href => "javascript:void(0)",  :title => "Overview"}
+          %span.icon
+          Profile
+      %li.tab_prices{"data-find"=>"tab_prices"}
+        %a.ui-tabs-anchor{:href => "javascript:void(0)",  :title => "Treatment & Prices"}
+          %span.icon
+          Treatment & Prices
+      %li.tab_staff{"data-find"=>"tab_staff"}
+        %a.ui-tabs-anchor{:href => "javascript:void(0)",  :title => "Staff"}
+          %span.icon
+          Staff
+      %li.tab_reviews{"data-find"=>"tab_reviews"}
+        %a.ui-tabs-anchor{:href => "javascript:void(0)",  :title => "Review"}
+          %span.icon
+          Review
+      %li.tab_map{"data-find"=>"tab_map"}
+        %a.ui-tabs-anchor{:href => "javascript:void(0)", :title => "Map"}
+          %span.icon
+          Map
+  #main-holder
+    / top contact bar
+    = render "service_providers/partials/contact_bar"
+    #tab_overview.class-hide
+      = render "service_providers/partials/tab_overview"
+      / bw ends here
 
-#map_canvas{:style => "margin-left: 10px"}
-#service_information{:style => "margin: 10px"}
-  = @service_provider.description
-  - @service_provider.attributes.each do |attr|
-    - next if attr.last.blank? || attr.first =~ /id|description|service\_category\_id|slug|name/
-    %br
-    %b
-      = attr.first.capitalize 
-    = attr.last
+
+    / tab overview ends here
+    #tab_prices.class-hide
+      #map_canvas{:style => "margin-left: 10px; clear:both;"}
+      #service_information{:style => "margin: 10px"}
+        = @service_provider.description
+        - @service_provider.attributes.each do |attr|
+          - next if attr.last.blank? || attr.first =~ /id|description|service\_category\_id|slug|name/
+          %br
+          %b
+            = attr.first.capitalize 
+          = attr.last
+    / tab prices ends here
+    #tab_staff.class-hide
+      #map_canvas{:style => "margin-left: 10px; clear:both;"}
+      #service_information{:style => "margin: 10px"}
+        = @service_provider.description
+        - @service_provider.attributes.each do |attr|
+          - next if attr.last.blank? || attr.first =~ /id|description|service\_category\_id|slug|name/
+          %br
+          %b
+            = attr.first.capitalize 
+          = attr.last
+    / tab staff ends here
+    #tab_reviews.class-hide
+      #map_canvas{:style => "margin-left: 10px; clear:both;"}
+      #service_information{:style => "margin: 10px"}
+        = @service_provider.description
+        - @service_provider.attributes.each do |attr|
+          - next if attr.last.blank? || attr.first =~ /id|description|service\_category\_id|slug|name/
+          %br
+          %b
+            = attr.first.capitalize 
+          = attr.last
+    / tab tab_reviews ends here
+    #tab_map.class-hide
+      #map_canvas{:style => "margin-left: 10px; clear:both;"}
+      #service_information{:style => "margin: 10px"}
+        = @service_provider.description
+        - @service_provider.attributes.each do |attr|
+          - next if attr.last.blank? || attr.first =~ /id|description|service\_category\_id|slug|name/
+          %br
+          %b
+            = attr.first.capitalize 
+          = attr.last
+    / tab tab_map ends here
+    /footer partials
+    = render "service_providers/partials/contact_bar"
+    // bw contact ends here
+    = render "service_providers/partials/footer_bar"
+#secondElement.grid_5.omega.body1_about{:style=>"background-color:#F3F7FA; min-height:800px; !important;"}
+  %p{:class => "about"}
+    %strong
+      Services Map
+  = render :partial => "shared/about_nav_bar"
+
+:javascript
+  $("#tab_overview").show();
+  $(".ui-tabs-nav li").click(function(){
+    var thisVar = $(this);
+    var idTaker = thisVar.attr("data-find");
+    // removing all active tabs
+    $(".ui-tabs-nav li").removeClass("ui-tabs-active"); 
+    // adding active class
+    $("."+idTaker).addClass("ui-tabs-active");
+    $(".class-hide").hide();
+    $("#"+idTaker).fadeIn("slow",'linear');
+  });
+  // click function ends here
