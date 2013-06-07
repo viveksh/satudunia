@@ -1,27 +1,45 @@
 .s_listing.i_clinic
-  %div
-    =link_to "#{provider.name}",service_map_provider_path(provider.country.downcase, provider.slug),:class=>"title-clinic"
-  - unless provider.address.blank?
-    .s_listing_address
-      %span.icon
-      %span.clinic-content
-        = provider.address
-  - unless provider.description.blank?
-    .s_listing_text 
-      %span.icon
-      %span.clinic-content-desc
-        = provider.description
-    .details_bar
-      %span.width-adjust
-        %span.bubble.clinic-comment
-          =3
-        %span.text-recommendations
-          ="Comments"
-      %span.width-adjust
-        %span.bubble.clinic-recommendation
-          =3
-        %span.text-recommendations
-          ="Comments"
+  .content-left-listing
+    %div
+      =link_to "#{provider.name}",service_map_provider_path(provider.country.downcase, provider.slug),:class=>"title-clinic"
+    - unless provider.address.blank?
+      .s_listing_address
+        %span.icon
+        %span.clinic-content
+          = provider.address
+    - unless provider.review_text.blank?
+      .s_listing_text 
+        %span.icon
+        %span.clinic-content-desc
+          = truncate(strip_tags(provider.review_text),:length=>200)
+      .details_bar
+        %span.width-adjust
+          %span.bubble.clinic-comment
+            =3
+          %span.text-recommendations
+            ="Comments"
+        %span.width-adjust.rev
+          %span.bubble.clinic-recommendation
+            =provider.review_rating
+          %span.text-recommendations
+            ="Reviews"
+        %span.width-adjust
+          %span.bubble.clinic-recommendation
+            =provider.recommend
+          %span.text-recommendations
+            ="Recommend"
+        %span.expander_link
+          %span.read-more{"data-type"=>"more"}
+            ="Read More..."
+          %span.read-less{"data-type"=>"less"}
+            ="Read Less..."
+      
+  .content-right-listing
+    .s_listing_contact_holder
+      .contact_holder
+        .contact_green
+          Contact Clinic
+
       
 / %li{:class => "grid_12 serv_loc4"}
 /   %span{:class => "s1"}

@@ -4,7 +4,7 @@ $path: "clinic/";
 	border-bottom:2px solid #ccc;
 	font-size:14px;margin:0 0 14px 0;
 	background-color:#FDFCF7;
-	padding:16px 19px 19px 19px;
+	padding:16px 19px 34px 19px;
 	color:#333;
 }
 .title-clinic{
@@ -94,12 +94,13 @@ $path: "clinic/";
 }
 .width-adjust{
 	display: inline-block;
-  padding-left: 85px !important;
+  padding-left: 50px !important;
 }
 .text-recommendations{
 	float:left;
-	font-size: 10px;
+	font-size: 14px;
 	color:#00AEEF;
+  cursor: pointer;
 }
 .header-title-clinic{
   background-color: #4D9AD1;
@@ -922,3 +923,582 @@ $path: "clinic/";
     display: block;
     font-style: italic;
 }
+.expander_link {
+  color:#4CD2F7;
+  cursor:pointer;
+  
+}
+.details_bar .expander_link,.read-less {
+  margin-left: -34px;
+  margin-top: -20px;
+}
+.read-less {
+  display: none;
+}
+.details_bar .rev span.bubble {
+    background-position: -825px -120px;
+    width: 18px;
+}
+.s_listing_contact_holder {
+    border:1px solid #7AAF1F;;
+    float: right;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    width: 120px;
+    margin-top: -100px;
+    width: 120px;
+    margin-left: 8px;
+}
+.content-left-listing{
+  width: 550px;
+}
+.consulation {
+    color: #333333;
+    font-size: 14px;
+    font-style: normal;
+    min-height: 35px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/*tab price starts from here*/
+#tab_prices .icon {
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: transparent;
+    background-image: url($path+"sprite_new.png");
+    background-origin: padding-box;
+    background-repeat: no-repeat;
+    background-size: auto auto;
+    float: left;
+    height: 20px;
+    margin: 3px 8px 0 0;
+    width: 22px;
+}
+.treatment_item .treatment_panel {
+    border-right: 1px solid #CCCCCC;
+    padding: 19px 20px 5px;
+    width: 518px;
+}
+.treatment_panel > span {
+    color: #000000;
+    font-size: 14px;
+}
+.catagory {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 0 10px 20px;
+    width: 665px;
+}
+.treatment_body > span {
+    color: #000000;
+    font-size: 14px;
+}
+.treatment_body1 > span {
+    color: #000000;
+    font-size: 14px;
+}
+.treatment_name > span {
+    color: #000000;
+    font-size: 14px;
+    padding-left: 20px;
+}
+#provider_details div.BW {
+    color: #333333;
+    line-height: 1.25;
+}
+.ads_shown .BW_prices div.panel_wrapper:first-child {
+    border-bottom: 1px solid #CCCCCC;
+}
+.ads_shown div.panel_wrapper {
+    border-bottom: 0 none;
+}
+.BW div.panel_wrapper {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #CCCCCC;
+    clear: both;
+    margin-bottom: 20px;
+}
+.BW_prices .panel_wrapper {
+    padding: 20px 0;
+}
+.BW_prices .image_holder {
+    float: left;
+    height: 126px;
+    width: 126px;
+}
+.BW_prices .payment_info, .BW_prices .insurance_accepted {
+    float: left;
+    margin-left: 12px;
+    width: 260px;
+}
+.BW_prices h4.catagory {
+    color: #000000;
+    font-size: 18px;
+    margin: 0;
+    padding: 10px 0 10px 20px;
+    width: 665px;
+}
+.BW h4 {
+    background-color: transparent;
+    border: 0 none;
+    color: #000000;
+    display: block;
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+h4 {
+    background: none repeat scroll 0 0 #D5E6F3;
+    color: #555555;
+    font-size: 17px;
+    font-weight: bold;
+    margin: 0 0 10px;
+    padding: 13px 0 13px 8px;
+}
+.treatment_item {
+    margin: 0 20px;
+}
+.treatment_item .treatment_price {
+    display: block;
+    float: right;
+    padding: 5px 20px 0 0;
+    text-align: right;
+    width: 107px;
+}
+.treatment_item .price {
+    color: #000000;
+    font-size: 16px;
+    font-weight: bold;
+}
+.treatment_braces .treatment_body {
+    padding-left: 40px;
+    width: 498px;
+}
+.treatment_item .treatment_body {
+    border-right: 1px solid #CCCCCC;
+    padding: 5px 20px;
+    width: 518px;
+    margin-top: 4px;
+}
+.treatment_item .treatment_body1 {
+    border-right: 1px solid #CCCCCC;
+    margin-bottom: 15px;
+    margin-top: 4px;
+    padding: 5px 20px;
+    width: 518px;
+}
+.treatment_item .treatment_name {
+    border-right: 1px solid #CCCCCC;
+    margin-top: 4px;
+    padding: 5px 20px;
+    width: 518px;
+}
+.treatment_item h6 {
+    font-weight: normal;
+    margin: 0;
+}
+.BW h6, .BW h5 {
+    color: #000000;
+    font-size: 14px;
+}
+h6 {
+    color: #555555;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.BW_prices .alternate {
+    background-color: #F0F0F0;
+}
+.sub_tretment {
+    border-top: 0 none;
+}
+.treatment_item {
+    margin: 0 20px;
+}
+.BW_prices .icon_span {
+    padding: 0;
+}
+.icon_span {
+    clear: left;
+    display: block;
+    margin: 0;
+}
+.icon_span {
+    clear: left;
+    display: block;
+    margin: 0;
+    min-height: 19px;
+    padding-left: 20px;
+    font-size: 14px;
+}
+.icon_span span {
+    float: left;
+    height: 12px;
+    margin: 4px 18px 0 0;
+    width: 12px;
+}
+.icon_checked {
+    background: url($path+"sprite_new.png") no-repeat scroll -50px -358px transparent;
+}
+.icon_span p {
+    margin: 0 0 0 30px;
+    padding: 0;
+}
+p {
+    margin: 10px;
+}
+.catagory1 {
+    color: #000000;
+    font-size: 14px;
+    font-weight: bold;
+}
+.treatment_services {
+    margin-top: 5px;
+}
+/*price tab style starts here*/
+
+/*staff tab style starts here*/
+.ads_shown div.panel_wrapper {
+    border-bottom: 0 none;
+}
+#tab_staff .icon {
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: transparent;
+    background-image: url($path+"sprite_new.png");
+    background-origin: padding-box;
+    background-repeat: no-repeat;
+    background-size: auto auto;
+    float: left;
+    height: 20px;
+    margin: 3px 8px 0 0;
+    width: 22px;
+}
+
+.provider_all_staff {
+    padding-top: 20px;
+}
+.staff_preview {
+    border-bottom: 1px solid #CCCCCC;
+    clear: both;
+    margin: 0 19px 19px;
+    padding-bottom: 19px;
+}
+.staff_preview .staff_text {
+    /*float: left;*/
+    width: 404px;
+}
+.staff_preview h4 {
+    font-size: 18px;
+    padding-bottom: 5px;
+}
+.BW h4 {
+    background-color: transparent;
+    border: 0 none;
+    color: #000000;
+    display: block;
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+h4 {
+    background: none repeat scroll 0 0 #D5E6F3;
+    color: #555555;
+    font-size: 17px;
+    font-weight: bold;
+    margin: 0 0 10px;
+    padding: 13px 0 13px 8px;
+}
+.staff_preview .staff_line h5 {
+    display: inline;
+    font-size: 14px;
+    margin-bottom: 0;
+}
+.BW h6, .BW h5 {
+    color: #000000;
+    font-size: 14px;
+}
+h5 {
+    color: #555555;
+    font-size: 20px;
+    font-weight: bold;
+    text-shadow: 0 1px 1px #FFFFFF;
+}
+.staff_text > span {
+    color: #000000;
+    font-size: 18px;
+    font-weight: bold;
+}
+#staff_preview_159305 > span {
+    color: #000000;
+    font-size: 14px;
+    font-weight: bold;
+}
+#providerDetails_providerDetailsTabStaff_staffListRepeater_ctl00_StaffPreview_headJobTitle > b {
+    color: #000000;
+    font-size: 14px;
+    font-weight: bold;
+}
+#providerDetails_providerDetailsTabStaff_staffListRepeater_ctl00_StaffPreview_headJobTitle > span {
+    font-size: 14px;
+}
+#providerDetails_providerDetailsTabStaff_staffListRepeater_ctl00_StaffPreview_headJobTitle{
+    line-height: 1.8em;
+}
+.description > p {
+    font-size: 14px;
+    margin: 10px;
+}
+.staff_preview {
+    border-bottom: 1px solid #CCCCCC;
+    clear: both;
+    margin: 0 19px 19px;
+    padding-bottom: 19px;
+}
+/*staff tab style ends here*/
+
+/*review tab style starts here*/
+#tab_reviews .icon {
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: transparent;
+    background-image: url($path+"sprite_new.png");
+    background-origin: padding-box;
+    background-repeat: no-repeat;
+    background-size: auto auto;
+    float: left;
+    height: 20px;
+    margin: 3px 8px 0 0;
+    width: 22px;
+}
+.provider_all_Reviews .banner {
+    height: 100%;
+    margin: 10px 0 15px;
+    padding: 0 19px;
+}
+.provider_all_Reviews .banner .stats {
+    color: #666666;
+    font-size: 12px;
+    font-style: italic;
+    font-weight: normal;
+}
+.provider_all_Reviews .banner .stats, .provider_all_Reviews .banner .star_box {
+    float: left;
+    height: 75px;
+    width: 260px;
+}
+.provider_all_Reviews .n1 {
+    color: #000000;
+    display: block;
+    font-size: 52px;
+    font-style: normal;
+    font-weight: bold;
+    line-height: 52px;
+}
+.provider_all_Reviews .star_box {
+    margin-left: 15px;
+}
+.provider_all_Reviews .star_box .stars_row {
+    display: block;
+}
+.provider_all_Reviews .star_box .ratingname {
+    clear: left;
+    display: inline;
+    float: left;
+    font-size: 12px;
+    font-style: normal;
+    line-height: 13px;
+    margin: 0 10px 0 0;
+    text-align: left;
+    width: 110px;
+}
+.provider_all_Reviews .rate10 {
+    background-position: -110px -154px;
+}
+.provider_all_Reviews .stars {
+    background: url($path+"sprite_new.png") no-repeat scroll -110px 0 transparent;
+    clear: right;
+    display: block;
+    float: left;
+    height: 13px;
+    margin-top: 0;
+    text-align: left;
+    width: 90px;
+}
+.rate10 {
+    background-position: 0 -16px;
+}
+.provider_all_Reviews .rate10 {
+    background-position: -110px -154px;
+}
+.provider_all_Reviews .rate6 {
+    background-position: -110px -90px;
+}
+.provider_all_Reviews .rate8 {
+    background-position: -110px -122px;
+}
+.provider_all_Reviews .banner .write_review {
+    float: right;
+    font-size: 16px;
+    text-align: center;
+}
+.provider_all_Reviews .banner a.button {
+    background: url($path+"sprite_new.png") no-repeat scroll -356px 0 transparent;
+    border: 0 none;
+    color: #323232;
+    height: 40px;
+    margin-right: 0;
+    text-decoration: none;
+    width: 80px;
+}
+a.button:link, a.button:visited, a.button:active {
+    color: #443617;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+}
+a.button:link, a.button:visited, a.button:active {
+    color: #443617;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+}
+a:link, a:visited, a:active {
+    color: #3587BA;
+    outline: 0 none;
+    text-decoration: none;
+}
+.button {
+    border: 0 none;
+    color: #443617;
+    cursor: pointer;
+    float: right;
+    font: bold 14px/100% Arial,Helvetica,sans-serif;
+    height: 28px;
+    outline: 0 none;
+    padding: 8px 0 0;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 0 1px 0 #FFFFFF;
+    width: 116px;
+}
+a {
+    color: #4990C4;
+    outline: 0 none;
+}
+.provider_all_Reviews .provider_reviews {
+    clear: both;
+    padding: 20px;
+}
+.provider_all_Reviews .review_box {
+    height: 100%;
+    margin: 20px 0;
+}
+.provider_all_Reviews .user_box {
+    float: left;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 1.2;
+    width: 127px;
+}
+.provider_all_Reviews .userpic_holder {
+    float: left;
+    height: 126px;
+    width: 126px;
+}
+.provider_all_Reviews .userpic {
+    background: url($path+"sprite_new.png") no-repeat scroll -861px -176px transparent;
+    float: left;
+    height: 126px;
+    width: 126px;
+}
+.provider_all_Reviews .userpic_holder .confirmed {
+    background: url($path+"sprite_new.png") no-repeat scroll -47px -427px #D9D9D9;
+    float: right;
+    height: 20px;
+    position: relative;
+    top: -20px;
+    width: 20px;
+}
+.provider_all_Reviews .user_box .name {
+    color: #323232;
+    display: inline-block;
+    overflow: hidden;
+}
+.provider_all_Reviews .user_box .date {
+    color: #999999;
+    display: block;
+    font-size: 11px;
+    font-style: italic;
+    font-weight: normal;
+}
+.provider_all_Reviews .user_box .status {
+    color: #555555;
+    display: block;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: normal;
+}
+.provider_all_Reviews .pointballon {
+    background: url($path+"review-baloon.gif") no-repeat scroll left top transparent;
+    float: left;
+    height: 36px;
+    width: 16px;
+}
+.provider_all_Reviews .usertext {
+    background: none repeat scroll 0 0 #F3F3F3;
+    float: left;
+    padding: 20px;
+    width: 500px;
+}
+.provider_all_Reviews .usertext h5 {
+    font-weight: bold;
+    line-height: 30px;
+}
+.provider_all_Reviews .usertext .user_rate {
+    color: #A3CB54;
+    float: right;
+    font-size: 25px;
+    text-align: right;
+    width: 100px;
+}
+.provider_all_Reviews .usertext p {
+    color: #666666;
+    font-size: 12px;
+    font-style: italic;
+    margin: 0 100px 0 0;
+}
+.provider_all_Reviews .usertext b {
+    color: #333333;
+    display: block;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: normal;
+    margin-top: 10px;
+}
+.provider_all_Reviews .report_review {
+    clear: right;
+    float: right;
+}
+.provider_all_Reviews .usertext {
+    background: none repeat scroll 0 0 #F3F3F3;
+    float: left;
+    padding: 20px;
+    width: 485px;
+}
+.user_review_text {
+    color: #000000;
+    font-size: 14px;
+    font-weight: bold;
+}
+.report_review.thickbox {
+    font-size: 14px;
+}
+
+/*review tab style ends here*/

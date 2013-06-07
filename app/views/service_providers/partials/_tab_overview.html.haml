@@ -32,9 +32,7 @@
         %span.day Sun
         %span.hour
     / bm opeinings ends
-    .BW_map
-      %a{:href => "JavaScript:wcBrochureTriggerTab('tab_map');return false;"}
-        %img{:alt => "#{@service_provider.name}", :border => "0", :height => "264", :src => "//maps.googleapis.com/maps/api/staticmap?center=1.305300,103.835303&zoom=14&size=264x264&maptype=roadmap&key=AIzaSyBpiYdgvjqxSg64UCFmvQjNCz9i8zwXbfs&markers=size:mid|color:red|1.30331510663531,103.823834359646&sensor=false", :title => "Click to see larger map for #{@service_provider.name}", :width => "264"}/
+    #services_map_2{:style => "width:265px; height:250px"}
       %span.pseudoLink{:onclick => "JavaScript:wcBrochureTriggerTab('tab_map');"} 
       Click to see larger map for
       =@service_provider.name
@@ -80,9 +78,13 @@
       %span.icon
       .inner_content{:style=>"width: 397px; text-align:justify;"}
         %span.h4-alternate-wos
-          %span About Singapore International Cleft-Craniofacial Team
+          %span
+            About
+            =@service_provider.name 
+            Team
         %div{:property => "description"}
-          %p Children with cleft lip and cleft palate conditions usually need specialized professional help and guidance during their growth and development. Singapore International Cleft-Craniofacial Team is made up of a group of experienced healthcare professionals. Our team provides coordinated, well-integrated care for all ages. Naso-alveolar molding (before surgery) is one of the innovative treatment methods available for infants from birth up to 5 months old.
+          %p
+            =@service_provider.review_text
           %span.button.contact_green.jq_contact{:linkrel => "cid=1&rid=2&dcid=230&location=4312&rpos=0&sids=105010&clinicid=117419&link=4", :trackrel => "4"}
             Get Quote
         .accred_images
