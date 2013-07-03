@@ -181,10 +181,11 @@
         .widget
           %h2 Meta
           %ul
+            - if !current_user.nil? && current_user.owner_of?(current_group)
+              %li
+                = link_to "Admin", "/admin",:target=>"_blank"
             %li
-              %a{:href => "#"} Site Admin
-            %li
-              %a{:href => "#"} Log out
+              = link_to t("layouts.application.logout"), destroy_user_session_path
             %li
               %a{:href => "#", :title => "Syndicate this site using RSS 2.0"}
                 Entries
@@ -193,8 +194,6 @@
               %a{:href => "#", :title => "The latest comments to all posts in RSS"}
                 Comments
                 %abbr{:title => "Really Simple Syndication"} RSS
-            %li
-              %a{:href => "http://wordpress.org/", :title => "Powered by WordPress, state-of-the-art semantic personal publishing platform."} WordPress.org
       .panel
         .widget
           %h2 Latest Tweets
