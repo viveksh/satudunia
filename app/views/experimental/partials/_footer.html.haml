@@ -219,10 +219,10 @@
         .widget
           .textwidget
             %p
-              %img{:alt => "logo", :src => "/assets/plus/logo.jpg"}/
+              %img{:alt => "logo", :src => "/assets/plus/footer_logo.png"}/
             - unless @about.blank?
               %p 
-                = truncate(strip_tags(@about.static_content), :omission => "", :length => 833)
+                = truncate(strip_tags(@aboutContent.static_content), :omission => "", :length => 833)
       %br.clearer/
     .copyright
       .ribbon-shadow-left  
