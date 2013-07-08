@@ -148,7 +148,7 @@ section headers
 .section-wrapper {border:1px solid #E0E0E0;}
 .section {background:#FFF;padding:10px 10px 8px 15px;color:#333;text-transform:uppercase;font-size:18px;font-family:BebasNeueRegular, Arial, Sans-Serif;}
 .section-arrow {position:absolute;width:28px;height:12px;background:url(images/section-wrapper-arrow.png) no-repeat 0px 0px;}
-.section-about {background: none repeat scroll 0 0 #FFFFFF;color: #333333;font-family: BebasNeueRegular,arial,sans-serif;font-size: 18px;padding: 10px 10px 8px 15px;text-transform: uppercase;}
+.section-header {background: none repeat scroll 0 0 #FFF;color: #333;font-size: 18px;padding: 10px 10px 8px 15px;text-transform: uppercase;font-family: BebasNeueRegular,arial,sans-serif;}
 /*************************************************
 ribbon shadows
 *************************************************/
@@ -738,10 +738,10 @@ standard page
 .page-content h1 {font-size:2.2em;}
 .page-content h2 {font-size:1.7em;}
 .page-content h3 {font-size:1.2em;}
-.page-content h4, .page-content h5, .page-content h6 {font-family:BebasNeueRegular, Arial, Sans-Serif;color:#444;font-weight:normal;margin:0px 0px 20px 0px;line-height:1.2em;}
+.page-content h4, .page-content h5, .page-content h6 {font-family:BebasNeueRegular, Arial, Sans-Serif;color:#444;font-weight:normal;line-height:1.2em;}
 .page-content h4 {font-size:2.2em;}
 .page-content h5 {font-size:1.8em;}
-.page-content h6 {font-size:1.4em;}
+.page-content h6 {font-size:1.4em; margin: -5px 0 7px;}
 .page-content h1.title {margin-left:10px;}
 .page-content h1.error {padding:10px 0px 50px 65px;background:url(images/404.png) no-repeat 0px 0px;margin:40px 0px 0px 140px;}
 .page-content p {margin-bottom:20px;}
@@ -1000,7 +1000,7 @@ ol.commentlist ul.children ul.children ul.children ul.children {margin-left:0px;
 /*************************************************
 sidebar
 *************************************************/	
-.sidebar a {line-height:1.5em;}
+
 .sidebar {width:300px;margin-left:25px;margin-right:10px;margin-top:18px;float:left;font-size:12px;color:#777;}
 .sidebar.front-page-large-featured {margin-top:0px;}
 .sidebar .widget-wrapper {background:#FFF;border:1px solid #E0E0E0;margin-bottom:20px;-moz-border-radius: 3px;border-radius: 3px;}
@@ -2270,12 +2270,21 @@ fonts
     border-radius: 2px 2px 2px 2px;
     margin-left: 5px;
     padding: 3px 6px;
+    margin-bottom: 10px;
+    float: left;
     }
 .tags1_2 a {
     color: #003B54;
     font-family: Arial;
     font-size: 12px;
     font-weight: bold;
+}
+.tags-list {
+    border-bottom: 1px solid #D0D3D6;
+    padding-top: 10px;
+    position: relative;
+    display: inline-block;
+    margin :0 10px;
 }
 /*tags list*/
 

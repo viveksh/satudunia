@@ -24,6 +24,7 @@ class Experimental::ExperimentalController < ApplicationController
   def public_about
     @title = "about plus+"
   	@about = StaticPage.where(:static_key => 'about').first
+    @about_content =@about.static_content.split('P',2)
   end
   #rss feed
   def rss_feed
@@ -41,6 +42,7 @@ class Experimental::ExperimentalController < ApplicationController
   # questions
   def questions
     @title = "questions"
+    @tags = current_group.tags
     # code from the plus template
     unless params[:per_page].blank?
       session[:per_page] = params[:per_page]
