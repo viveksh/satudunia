@@ -24,10 +24,10 @@
                 %img{:alt => "movies2", :height => "170", :src => "http://www.industrialthemes.com/made/wp-content/uploads/2012/06/movies2-300x170.jpg", :width => "300"}/
               .inner
                 %h2
-                  %a{:href => "single-review-numbers.html"} 
-                    = current_group.slogan_short_ask.html_safe
+                  %a{:href => "/questions"} 
+                    = current_group.block_one_header.html_safe
                 .excerpt.full-align-style
-                  = current_group.slogan_long_ask.html_safe rescue "" 
+                  = current_group.block_one_info.html_safe rescue "" 
               .more-bar
                 .arrow-catpanel-top  
                 / .rating-wrapper.small
@@ -48,10 +48,10 @@
                 %img{:alt => "fashion3", :height => "170", :src => "http://www.industrialthemes.com/made/wp-content/uploads/2012/06/fashion3-300x170.jpg", :width => "300"}/
               .inner
                 %h2
-                  %a{:href => "single-review-numbers.html"}
-                    =current_group.slogan_short_location.html_safe
+                  %a{:href => service_providers_path}
+                    =current_group.block_two_header.html_safe
                 .excerpt.full-align-style
-                  = current_group.slogan_long_location.html_safe rescue ""
+                  = current_group.block_two_info.html_safe rescue ""
               .more-bar
                 .arrow-catpanel-top  
                 / .rating-wrapper.small
@@ -69,14 +69,14 @@
                 .catname
                   Knowledge Base 
                 .category-arrow  
-              %a.darken.video{:href => "single-review-numbers.html"}
+              %a.darken.video{:href => "/questions/ask-a-question"}
                 %img{:alt => "restaurants6", :height => "170", :src => "http://www.industrialthemes.com/made/wp-content/uploads/2012/06/restaurants6-300x170.jpg", :width => "300"}/
               .inner
                 %h2
-                  %a{:href => "/knowledgebase"} 
-                    =current_group.slogan_short_sign.html_safe
+                  %a{:href => "/questions/ask-a-question"} 
+                    =current_group.block_three_header.html_safe
                 .excerpt.full-align-style
-                  =current_group.slogan_long_sign.html_safe rescue ""
+                  =current_group.block_three_info.html_safe rescue ""
               .more-bar
                 .arrow-catpanel-top  
                 / .rating-wrapper.small
@@ -87,7 +87,7 @@
                 /     .star  
                 /     .star  
                 .comments
-                  %a{:href => "single-review-numbers.html", :title => "Comment on Sugar Rush: Banana Stracciatella Gelato from Eataly"} 0 Views
+                  %a{:href => "/questions/ask-a-question", :title => "Comment on Sugar Rush: Banana Stracciatella Gelato from Eataly"} 0 Views
                 .more
-                  %a{:href => "/knowledgebase"} More
+                  %a{:href => "/questions/ask-a-question"} More
             .clearer
