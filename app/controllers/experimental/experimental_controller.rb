@@ -111,6 +111,22 @@ class Experimental::ExperimentalController < ApplicationController
   def partners
     
   end
+  # action for admin tab
+  def show_member
+    @caseVarible = params[:dataSend]
+    case @caseVarible
+      when "newest"
+        @newest_member = User.order_by(:created_at=>:desc).limit(5)
+        render layout =>false
+      when "active"
+        @active_member = Membership.where(state: "active").limit(5)
+        render layout =>false
+      when "popular"
+        @popular = User.order_by(:created_at=>:desc).limit(5)
+        render layout =>false
+      end
+  end
+
   # before filter action
   def check_age
     @question = current_group.questions.by_slug(params[:id])
