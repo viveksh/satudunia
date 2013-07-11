@@ -24,7 +24,7 @@
                     %div.back-class-exp
                       %ul{:id => "slider21", :style => "position: relative;"}
                         %li{:class => "pager ps1"}
-                          %ul
+                          %ul{:class => "section-width"}
                             - @questions.each do |question|
                               = render "experimental/partials/questions/plus_question", :question => question
                           %div.pagination-div
@@ -42,7 +42,7 @@
                   Hot 
                 %p.i4_1.serv_loc6{:id => ""} 
                   .bx-wrapper
-                    %div.back-class
+                    %div.back-class-exp
                       %ul{:id => "slider21", :style => "position: relative;"}
                         %li{:class => "pager ps1"}
                           %ul
@@ -63,7 +63,7 @@
                   featured
                 %p.i4_1.serv_loc6{:id => ""} 
                   .bx-wrapper
-                    %div.back-class
+                    %div.back-class-exp
                       %ul{:id => "slider21", :style => "position: relative;"}
                         %li{:class => "pager ps1"}
                           %ul
@@ -84,7 +84,7 @@
                   frequent
                 %p.i4_1.serv_loc6{:id => ""} 
                   .bx-wrapper
-                    %div.back-class
+                    %div.back-class-exp
                       %ul{:id => "slider21", :style => "position: relative;"}
                         %li{:class => "pager ps1"}
                           %ul
@@ -105,7 +105,7 @@
                   Votes
                 %p.i4_1.serv_loc6{:id => ""} 
                   .bx-wrapper
-                    %div.back-class
+                    %div.back-class-exp
                       %ul{:id => "slider21", :style => "position: relative;"}
                         %li{:class => "pager ps1"}
                           %ul
@@ -126,7 +126,7 @@
                   Active
                 %p.i4_1.serv_loc6{:id => ""} 
                   .bx-wrapper
-                    %div.back-class
+                    %div.back-class-exp
                       %ul{:id => "slider21", :style => "position: relative;"}
                         %li{:class => "pager ps1"}
                           %ul
@@ -147,12 +147,12 @@
                   unanswered
                 %p.i4_1.serv_loc6{:id => ""} 
                   .bx-wrapper
-                    %div.back-class
+                    %div.back-class-exp
                       %ul{:id => "slider21", :style => "position: relative;"}
                         %li{:class => "pager ps1"}
                           %ul
                             - @questionsUnanswered.each do |question|
-                              = render "questions/plus_question", :question => question
+                              = render "experimental/partials/questions/plus_question", :question => question
                       %div.pagination-div
                         = paginate @questions, :left => 5, :right => 1
                         %ul#pagination-digg{:style => "float:right;"}
