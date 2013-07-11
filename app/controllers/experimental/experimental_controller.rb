@@ -24,6 +24,7 @@ class Experimental::ExperimentalController < ApplicationController
   def public_about
     @title = "about plus+"
   	@about = StaticPage.where(:static_key => 'about').first
+    @about_content =@about.static_content.split('P',2)
   end
   #rss feed
   def rss_feed
@@ -41,6 +42,7 @@ class Experimental::ExperimentalController < ApplicationController
   # questions
   def questions
     @title = "questions"
+    @tags = current_group.tags
     # code from the plus template
     unless params[:per_page].blank?
       session[:per_page] = params[:per_page]
@@ -107,6 +109,25 @@ class Experimental::ExperimentalController < ApplicationController
 
   #partners action
   def partners
+    
+  end
+  # action for admin tab
+  def show_member
+    @caseVarible = params[:dataSend]
+    case @caseVarible
+      when "newest"
+        @newest_member = User.order_by(:created_at=>:desc).limit(5)
+        render layout =>false
+      when "active"
+        @active_member = Membership.where(state: "active").limit(5)
+        render layout =>false
+      when "popular"
+        @popular = User.order_by(:created_at=>:desc).limit(5)
+        render layout =>false
+      end
+  end
+  # community experimental
+  def community
     
   end
   # before filter action

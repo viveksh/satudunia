@@ -17,7 +17,9 @@ Rails.application.routes.draw do
         get :faq
         get :questions
         get :partners
+        get :show_member
         get 'questions/:id' => 'experimental#question_show', :as => :question_show
+        get :community
       end
     end
   end 
