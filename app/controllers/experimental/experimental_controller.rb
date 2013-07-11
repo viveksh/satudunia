@@ -111,6 +111,15 @@ class Experimental::ExperimentalController < ApplicationController
   def partners
     
   end
+
+  #service_providers action
+  def service_providers_show
+    conditions = {:service_category_id => params[:category_id]} if params[:category_id]
+    @service_providers = ServiceProvider.where(conditions)
+    # all service alphabetical_providers
+    @serviceProviders = ServiceProvider.all
+  end
+  
   # action for admin tab
   def show_member
     @caseVarible = params[:dataSend]
@@ -126,10 +135,7 @@ class Experimental::ExperimentalController < ApplicationController
         render layout =>false
       end
   end
-  # community experimental
-  def community
-    
-  end
+
   # before filter action
   def check_age
     @question = current_group.questions.by_slug(params[:id])
