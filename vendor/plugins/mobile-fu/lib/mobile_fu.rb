@@ -27,10 +27,16 @@ module ActionController
       #      has_mobile_fu(true)
       #    end
 
-      def has_mobile_fu(test_mode = false)
+      def has_mobile_fu(enabler = false, &block)
         include ActionController::MobileFu::InstanceMethods
+        enabler = block if block_given?
 
-        if test_mode
+        case enabler
+        when Symbol
+          before_filter { |controller|
+            controller.set_mobile_format if controller.send(enabler)
+          }
+        when true
           before_filter :force_mobile_format
         else
           before_filter :set_mobile_format

@@ -90,6 +90,7 @@
   field :layout, :type => String, :default => 'application'
 
   field :track_users, :type => Boolean, :default => true
+  field :mobile_layout, :type => Boolean, :default => false
 
   # can be:
   # * 'all': email, openid, oauth

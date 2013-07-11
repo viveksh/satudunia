@@ -197,6 +197,13 @@
                 .row-fluid
                   = f.label :slogan_long_sign, "Slogan Long Signup", :class => "form-label span3"
                   = f.text_field :slogan_long_sign, :value => @group.slogan_long_sign, :class => "span9"
+            .form-row.row-fluid
+              .span12
+                .row-fluid
+                  = f.label :enable_mobile, "Enable mobile layout", :class => "form-label span3"
+                  .span8.controls
+                    .left.marginT5
+                      = f.check_box :mobile_layout, :class => "styled"
 
             .form-row.row-fluid
               .span12

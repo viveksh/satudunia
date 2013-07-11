@@ -113,7 +113,7 @@ class GroupsController < ApplicationController
                           custom_favicon custom_shortcut custom_applest custom_metro custom_apple language languages current_theme_id reputation_rewards daily_cap reputation_constrains
                           has_custom_metro has_custom_apple has_custom_applest has_custom_shortcut has_adult_content registered_only enable_anonymous signup_type custom_css wysiwyg_editor layout
                           fb_button notification_opts auth_providers allow_any_openid custom_pagination_length question_default_length slogan_short_ask site_slogan slogan_long_ask
-                          slogan_short_location slogan_long_location slogan_short_sign slogan_long_sign], params[:group])
+                          slogan_short_location slogan_long_location slogan_short_sign slogan_long_sign mobile_layout], params[:group])
     @group.share.safe_update(%w[fb_app_id fb_secret_key fb_active starts_with ends_with enable_twitter twitter_user twitter_pattern], params[:group][:share]) if params[:group][:share]
     @group.safe_update(%w[isolate domain private has_custom_analytics has_custom_html has_custom_js], params[:group]) #if current_user.admin?
     @group.safe_update(%w[analytics_id analytics_vendor], params[:group]) if @group.has_custom_analytics

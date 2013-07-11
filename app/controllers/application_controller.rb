@@ -17,8 +17,6 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  has_mobile_fu
-
   protect_from_forgery
 
   before_filter :check_cookies,:static_content
@@ -31,6 +29,8 @@ class ApplicationController < ActionController::Base
   before_filter :set_custom_headers
   before_filter :check_sidebar
   before_filter :check_mobile_logout
+
+  has_mobile_fu :mobile_enabled
 
   layout :set_layout
 
@@ -57,6 +57,10 @@ class ApplicationController < ActionController::Base
       sign_out current_user
       redirect_to '/questions.mobile'
     end
+  end
+
+  def mobile_enabled
+    current_group.mobile_layout
   end
 
   def check_social
