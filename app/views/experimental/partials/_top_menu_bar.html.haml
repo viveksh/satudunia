@@ -21,8 +21,10 @@
 						- if current_user.nil?
 							%a{:href => '/login',:title=>"Sign in",:alt=>"Sign in"}  Login in / Sign Up 
 						-else
-							= link_to "Login as #{h(current_user.login)}","#",:style=>"color:#027DB2;"
+							= link_to "Login as #{h(current_user.role)}","#",:style=>"color:#027DB2;"
 							%ul
+								%li
+									= link_to current_user.login, user_path(current_user)
 								%li
 									= link_to "Profile Settings", user_path(current_user)
 								%li
