@@ -183,13 +183,12 @@ class Experimental::ExperimentalController < ApplicationController
     
   end
   def ask_question
-     
+    @question = Question.new(params[:question]) 
   end
   #ERROR PAGE FOR EXPERIMENTAL
   def routing_error
     render "404", :status => 404
   end
-
    
  
 end

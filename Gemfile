@@ -43,6 +43,7 @@ gem 'mongo_store', :git => 'https://github.com/Houdini/mongo_store.git'
 gem 'redis'
 gem 'redis-store'
 gem 'redis-rails'
+gem 'html_truncator'
 
 # utils
 gem 'whatlanguage', '1.0.0'

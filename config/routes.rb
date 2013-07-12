@@ -18,9 +18,9 @@ Rails.application.routes.draw do
         get :questions
         get :partners
         get :show_member
+        get '/questions/ask-a-question' => 'experimental#ask_question', :as => :ask_question
         get 'questions/:id' => 'experimental#question_show', :as => :question_show
         get :community
-        get '/questions/ask-a-question' => 'experimental#ask_question', :as => :ask_question
         get 'services-map' => 'experimental#service_providers_show', :as => :service_providers_show
         get :profile
         get :profile_settings, :path=> "/profile/settings"
