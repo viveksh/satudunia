@@ -24,11 +24,14 @@ Rails.application.routes.draw do
         get 'services-map' => 'experimental#service_providers_show', :as => :service_providers_show
         get :profile
         get :profile_settings, :path=> "/profile/settings"
+        # experimental routes
+        get "*a", :to => "experimental#routing_error"
       end
     end
   end 
-  # experimental routes
   
+  
+
   get "survey/index"
 
   devise_for(:users, :path => '/',

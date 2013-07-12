@@ -76,6 +76,8 @@ gem 'multiauth', :git => 'http://github.com/dcu/multiauth.git'
 
 gem 'orm_adapter'
 gem 'devise', '~> 1.4.0'
+gem 'devise_rpx_connectable'
+
 
 gem 'whenever', :require => false
 gem 'rack-ssl', :require => false
@@ -103,7 +105,7 @@ end
 group :scripts do
   gem 'eventmachine', '~> 0.12.10' #'1.0.0'
   gem 'em-websocket', '~> 0.3.0'
-  gem 'twitter', '1.7.2'
+  gem 'twitter', :path => 'twitter-1.7.2'
 end
 
 group :test do
@@ -119,6 +121,8 @@ end
 group :development do
   gem 'pry'
   gem 'pry-rails'
+  gem 'debugger'
+  gem 'quiet_assets'
   gem 'database_cleaner'
   gem 'rspec', '>= 2.0.1'
   gem 'rspec-rails', '>= 2.0.1'
