@@ -9,8 +9,8 @@
         .section-header= @title.upcase
       .section-arrow
       / post by removed from here
-      / %h1.title 
-      /   =@title.upcase
+      %h1.title 
+        =@title.upcase
       .content-panel
         .the-content
           / content from plus template
@@ -165,34 +165,20 @@
                       .clear
 
         /content ends here
-          
 
+/recent tags
+= render "experimental/partials/recent_tags"
 /side bar
 .sidebar
   =# render "experimental/partials/left_bar"
   /widget top
   =# render "experimental/partials/widget_top"
-  / .clearer.hide-responsive
-  / %br.clearer/
-  / newly reviewd
-  .complex-list.all_reviews
-    .widget-wrapper
-      .widget
-        .section-wrapper
-          .section
-            Recent Tags
-        .tags-list
-          - @tags.each do |tag|
-            %span{:class => "tags1_2", :title => "#{tag.name}"}
-              = link_to h(tag.name).html_safe, tag_path(:id => CGI.escape(tag.name))
-        .tabdiv
-          %li.more{:title => "View all Tags"}
-            = link_to "More", tags_path
-          %li.last  
+  /recent tags
+
   /popular box
-  = render "experimental/partials/popular_box"
+  =# render "experimental/partials/popular_box"
   /rating box
-  = render "experimental/partials/rating_box"
+  =# render "experimental/partials/rating_box"
   /banner box
   =# render "experimental/partials/banner_box"
 

@@ -21,7 +21,8 @@
           .dropcap.prociono
           %p 
             -if !@tos.static_content.nil? 
-              = @tos.static_content.html_safe
+              %h1.title= @tou[0].html_safe
+              = @tou[1].html_safe
             
           %p
             / the tabs
@@ -48,7 +49,6 @@
         
   / partial for trending
   = render "experimental/partials/trending_short"
-
 /side bar
 .sidebar
   = render "experimental/partials/left_bar"

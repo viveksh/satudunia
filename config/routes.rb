@@ -20,6 +20,10 @@ Rails.application.routes.draw do
         get :show_member
         get 'questions/:id' => 'experimental#question_show', :as => :question_show
         get :community
+        get '/questions/ask-a-question' => 'experimental#ask_question', :as => :ask_question
+        get 'services-map' => 'experimental#service_providers_show', :as => :service_providers_show
+        get :profile
+        get :profile_settings, :path=> "/profile/settings"
       end
     end
   end 
@@ -50,7 +54,7 @@ Rails.application.routes.draw do
   match '/feedback' => 'welcome#fake_feedback'
   match '/send_feedback' => 'welcome#send_shapado_feedback', :as => :send_feedback
   match '/send_shapado_feedback' => 'welcome#send_feedback', :as => :send_feedback
-  match '/settings' => 'users#edit', :as => :settings
+  match '/profile/settings' => 'users#edit', :as => :settings
   match '/tos' => 'manage_terms#public_terms', :as => :tos
   match '/privacy' => 'manage_privacy#public_privacy', :as => :privacy
   match '/widgets/embedded/:id' => 'widgets#embedded', :as => :embedded_widget
