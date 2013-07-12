@@ -137,7 +137,10 @@ class Experimental::ExperimentalController < ApplicationController
         render layout =>false
       end
   end
-
+  # community experimental
+  def community
+    
+  end
   # before filter action
   def check_age
     @question = current_group.questions.by_slug(params[:id])

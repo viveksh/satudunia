@@ -2270,6 +2270,8 @@ fonts
     border-radius: 2px 2px 2px 2px;
     margin-left: 5px;
     padding: 3px 6px;
+    margin-bottom: 10px;
+    float: left; 
     }
 .tags1_2 a {
     color: #003B54;
@@ -2277,6 +2279,13 @@ fonts
     font-size: 12px;
     font-weight: bold;
 }
+.tags-list {
+    border-bottom: 1px solid #D0D3D6;
+    padding-top: 10px;
+    position: relative;
+    display: inline-block;
+    margin :0 10px;
+} 
 /*tags list*/
 
 /*widget list*/
