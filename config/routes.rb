@@ -396,14 +396,6 @@ Rails.application.routes.draw do
     end
   end 
 
-
-  match '/moderate' => 'moderate/questions#index'
-#   match '/search' => 'searches#index', :as => :search
-  match '/about' => 'groups#show', :as => :about
-  root :to => 'experimental/experimental#index'
-  #match '/:controller(/:action(/:id))'
-  match '*a', :to => 'public_errors#routing'
-
   resources :questions, :except => [:show, :new] do
 
     resources :votes
@@ -456,4 +448,12 @@ Rails.application.routes.draw do
     resources :close_requests
     resources :open_requests
   end
+
+
+  match '/moderate' => 'moderate/questions#index'
+#   match '/search' => 'searches#index', :as => :search
+  match '/about' => 'groups#show', :as => :about
+  root :to => 'experimental/experimental#index'
+  #match '/:controller(/:action(/:id))'
+  match '*a', :to => 'public_errors#routing'
 end
