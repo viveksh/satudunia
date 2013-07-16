@@ -404,4 +404,56 @@ Rails.application.routes.draw do
   #match '/:controller(/:action(/:id))'
   match '*a', :to => 'public_errors#routing'
 
+  resources :questions, :except => [:show, :new] do
+
+    resources :votes
+    resources :flags
+    collection do
+      get :tags_for_autocomplete
+      get :related_questions
+      get 'page/:page', :action => :index
+      match '/:filter' => 'questions#index', :as => :filtered, :constraints => { :filter => /all|unanswered|by_me|feed|preferred|contributed|expertise/ }
+    end
+
+    member do
+      get :solve
+      get :unsolve
+      get :flag
+      get :follow
+      get :unfollow
+      get :history
+      get :revert
+      get :diff
+      get :move
+      put :move_to
+      get :retag
+      put :retag_to
+      get :remove_attachment
+      get :twitter_share
+    end
+
+    resources :comments do
+      resources :votes
+    end
+
+    resources :answers do
+      resources :votes
+      resources :flags
+      member do
+        get :favorite
+        get :unfavorite
+        get :flag
+        get :history
+        get :diff
+        get :revert
+      end
+
+      resources :comments do
+        resources :votes
+      end
+    end
+
+    resources :close_requests
+    resources :open_requests
+  end
 end
