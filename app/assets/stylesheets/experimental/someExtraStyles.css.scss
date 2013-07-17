@@ -148,7 +148,7 @@
     margin-top: -20px;
 }
 .section-width {
-  width :685px;
+  width :678px;
 }
 .qa-vote-up-button, .qa-vote-up-hover, .qa-vote-up-disabled {
     background: url(images/vote-buttons.png) no-repeat scroll 0 0 transparent !important;
@@ -230,6 +230,7 @@
     z-index: 999;
     width: 675px;
 }
+
 
 /*input form styles*/
 form.exp-contact-form{
@@ -318,6 +319,12 @@ form.exp-contact-form{
   font-size: 12px;
   list-style: square;
 }
-.padding-exp{
-    margin: 0 10px;
+.tabs-shortcode .tabdiv-exp {padding: 15px 0 5px;}
+.tabdiv-exp ul {margin-bottom:0px;}
+.head-left {margin-left:20px !important;}
+.review .overview .excerpt-new{font-size: 12px; padding: 15px 15px 5px;}
+.excerpt-new > h1 {
+    background: none repeat scroll 0 0 transparent !important;
+    border: medium none !important;
+    padding: 0 !important;
 }
