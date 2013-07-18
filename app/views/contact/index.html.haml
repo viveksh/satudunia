@@ -12,19 +12,16 @@
         .the-content.justify-content
           / old plus content
           = form_for @contact, :url => send_contact_us_contact_index_path,:html=>{:class=>"exp-contact-form"} do |f|
-            %p{:class => "ask2"}
-              %strong
-                Name*
+            %p{:class => "label"}
+              Name*
               %br
-              = f.text_field :name,:class=>"exp-contact-form"
-            %p{:class => "ask2"}
-              %strong
-                Email*
+              = f.text_field :name
+            %p{:class => "label"}
+              Email*
               %br
               = f.text_field :email
-            %p{:class => "ask2"}
-              %strong
-                Comment*
+            %p{:class => "label"}
+              Comment*
               %br
               = f.text_area :comment, :style => "width: 621px"
               %p
