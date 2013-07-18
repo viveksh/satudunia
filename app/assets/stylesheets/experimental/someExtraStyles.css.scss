@@ -345,3 +345,8 @@ form.exp-contact-form{
     border: medium none !important;
     padding: 0 !important;
 }
+.tag-list li, .tag-list span.tag {
+    display: inline;
+    float: left;
+    height: 25px;
+}
