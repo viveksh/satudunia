@@ -1,59 +1,84 @@
 .clearer.hide-responsive  
 %br.hide-responsive/
 .main-content-left
-  .page-content.review.single-post
-    %link{:href => "http://www.industrialthemes.com/made/wp-content/uploads/2012/06/misc1-160x160.jpg", :rel => "image_src"}/
-    .review-content
-      .ribbon-shadow-left
-      .section-wrapper
-        .section-header="Contact us"
-      .section-arrow
-      .content-panel
-        .the-content.justify-content
-          / old plus content
-          = form_for @contact, :url => send_contact_us_contact_index_path,:html=>{:class=>"exp-contact-form"} do |f|
-            %p{:class => "label"}
-              Name*
-              %br
-              = f.text_field :name
-            %p{:class => "label"}
-              Email*
-              %br
-              = f.text_field :email
-            %p{:class => "label"}
-              Comment*
-              %br
-              = f.text_area :comment, :style => "width: 621px"
-              %p
-                %br
-                = link_to "Submit", "#", :id => "ask_question_link"
-      
+	.page-content.review.single-post
+		%link{:href => "http://www.industrialthemes.com/made/wp-content/uploads/2012/06/misc1-160x160.jpg", :rel => "image_src"}/
+		.review-content
+			.ribbon-shadow-left
+			.section-wrapper
+				.section-header="Contact us"
+			.section-arrow
+			.content-panel
+				.the-content.justify-content
+					/ old plus content
+					= form_for @contact, :url => send_contact_us_contact_index_path,:html=>{:class=>"exp-contact-form"} do |f|
+						%br
+							= f.label "Name*",:class => "label"
+							= f.text_field :name,:placeholder=>"Please Enter Name",:class=>"input-class"
+						%br
+							= f.label "Email*",:class => "label"
+							= f.text_field :email,:placeholder=>"Please Enter Email",:class=>"input-class"
+						%br
+							= f.label "Comment*",:class => "label"
+							= f.text_area :comment, :style => "width: 630px",:placeholder=>"Please Enter Comment"
+							%p
+								%br
+								= f.button "Submit", :id => "ask_question_link",:type=>"submit"
 
+			
 
 /side bar
 .sidebar
-  = render "experimental/partials/left_bar"
-  /widget top
-  = render "experimental/partials/widget_top"
-  / .clearer.hide-responsive
-  / %br.clearer/
-  / newly reviewd
-  = render "experimental/partials/newly_reviewed"
-  /popular box
-  = render "experimental/partials/popular_box"
-  /rating box
-  = render "experimental/partials/rating_box"
-  /banner box
-  = render "experimental/partials/banner_box"
+	= render "experimental/partials/left_bar"
+	/widget top
+	= render "experimental/partials/widget_top"
+	/ .clearer.hide-responsive
+	/ %br.clearer/
+	/ newly reviewd
+	= render "experimental/partials/newly_reviewed"
+	/popular box
+	= render "experimental/partials/popular_box"
+	/rating box
+	= render "experimental/partials/rating_box"
+	/banner box
+	= render "experimental/partials/banner_box"
 
 
 
 :javascript
-  jQuery('#contact_nav').addClass('active');
+	// client side validations
+	jQuery("#new_contact").validate({
 
-  jQuery("#ask_question_link").click(function (){
-    jQuery("#new_contact").submit();
-  });
-    
-  
+			rules:{
+				"contact[name]":{
+					required:true
+				},
+
+				"contact[email]":{
+					required:true
+				},
+
+				"contact[comment]":{
+					required:true
+				}
+
+			},
+			messages:{
+				"contact[name]":{
+					required:"Name Can't be Blank"
+				},
+
+				"contact[email]":{
+					required:"Email Can't be Blank"
+				},
+
+				"contact[comment]":{
+					required:"Comment Can't be Blank"
+				}
+
+			}
+
+	});
+		
+	
 

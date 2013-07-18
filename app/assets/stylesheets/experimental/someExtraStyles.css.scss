@@ -234,7 +234,7 @@
 
 /*input form styles*/
 form.exp-contact-form{
-    input{
+    input.input-class{
         width:625px; 
         height:30px; 
         border:1px solid #E0E0E0;
@@ -251,7 +251,11 @@ form.exp-contact-form{
         font-size: 14px;
         color:#666666;  
    }
-    select{
+   textarea.error{
+
+        border:1px dashed #FF6317;
+    }
+    select.select-class{
         border:1px solid #E0E0E0;
         font-size: 14px;
         color:#666666;
@@ -269,15 +273,26 @@ form.exp-contact-form{
         font-size: 1.4em;
         color:#444444;
    }
-   button,a{
+   button{
     /*background-color: #385F79;*/
     background: -moz-linear-gradient(top, #457798, #385F79);
+    background: -webkit-linear-gradient(top,#457798, #385F79);
+           
+    padding:10px 20px 10px 20px;
+    font-family: BebasNeueRegular,arial,sans-serif !important;
+    color:#fff;
+   }
+   a.submit-button{ /*background-color: #385F79;*/
+    background: -moz-linear-gradient(top, #457798, #385F79);
+    background: -webkit-linear-gradient(top,#457798, #385F79);
+           
     padding:10px 20px 10px 20px;
     font-family: BebasNeueRegular,arial,sans-serif !important;
     color:#fff;
    }
    button:hover,a:hover{
     background: -moz-linear-gradient(bottom, #457798, #385F79);
+    background: -webkit-linear-gradient(bottom,#457798, #385F79);
    }
    
  
@@ -344,4 +359,47 @@ form.exp-contact-form{
     background: none repeat scroll 0 0 transparent !important;
     border: medium none !important;
     padding: 0 !important;
+}
+/*password strength*/
+#passwordStrength
+{
+    height:10px;
+    display:block;
+    float:left;
+}
+
+.strength0
+{
+    width:250px;
+    background:#cccccc;
+}
+
+.strength1
+{
+    width:50px;
+    background:#ff0000;
+}
+
+.strength2
+{
+    width:100px;    
+    background:#ff5f5f;
+}
+
+.strength3
+{
+    width:150px;
+    background:#56e500;
+}
+
+.strength4
+{
+    background:#4dcd00;
+    width:200px;
+}
+
+.strength5
+{
+    background:#399800;
+    width:250px;
 }
