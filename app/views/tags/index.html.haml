@@ -15,7 +15,7 @@
             = t('activerecord.models.tags')
           = form_tag "/questions/tags", :class => "exp-contact-form", :id => "filter_tags", :method => "get" do
             %p
-              = text_field_tag "q", params[:q], placeholder: t(".filter")
+              = text_field_tag "q", params[:q], placeholder: t(".filter"), :class=>"input-class"
             = button_tag("filter", :class => "floatright")
         -if logged_in? && current_user.mod_of?(current_group)
           .add-a-new-tag
