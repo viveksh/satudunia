@@ -259,7 +259,14 @@ form.exp-contact-form{
         border:1px solid #E0E0E0;
         font-size: 14px;
         color:#666666;
-        width:625px;  
+        width:625px;
+        background-color:#fff;
+        height:30px;
+        padding-top:3px;
+        /*appearance:none !important;*/
+        /*-moz-appearance:none !important; /* Firefox */
+        /*-webkit-appearance:none !important; /* Safari and Chrome */
+        /*background-image:url("images/DropArrow.gif") no-repeat right center;   */
    }
    label.error{
 
@@ -290,9 +297,13 @@ form.exp-contact-form{
     font-family: BebasNeueRegular,arial,sans-serif !important;
     color:#fff;
    }
-   button:hover,a:hover{
+   button:hover,a.submit-button:hover{
     background: -moz-linear-gradient(bottom, #457798, #385F79);
     background: -webkit-linear-gradient(bottom,#457798, #385F79);
+   }
+   iframe{
+        border:1px solid #E0E0E0;
+        background-color:#fff;
    }
    
  
@@ -301,19 +312,29 @@ form.exp-contact-form{
 #flash_notice,
 #flash_error,
 #flash_alert {
-  padding: 5px 8px;
+  padding: 7px 8px 7px 25px;
   margin: 10px 0;
+  font-size: 14px;
 }
 
 #flash_notice {
   background-color: #CFC;
   border: solid 1px #6C6;
+  color: #0AAD4B;
+  background-image:url("images/positive-check.png");
+  background-repeat: no-repeat;
+  background-position: top 2px left 5px; 
 }
 
 #flash_error,
 #flash_alert {
   background-color: #FCC;
   border: solid 1px #C66;
+  color:#C32C0D;
+  background-image:url("images/negative-x.png");
+  background-repeat: no-repeat;
+  background-position: top 2px left 5px; 
+  
 }
 
 /*
@@ -407,5 +428,16 @@ form.exp-contact-form{
     display: inline;
     float: left;
     height: 25px;
+}
+.extra-buttons{
+    /*background-image:url("images/aside-bg.jpg");*/
+    background-color:#5B5B5E; 
+    color:#fff !important;
+    font-weight:bold;
+    border-radius: 4px;
+    padding:5px 10px 5px 10px; 
+}
+.extra-buttons:hover{
+    color:#DDDDDD !important; 
 }
 
