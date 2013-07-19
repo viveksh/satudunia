@@ -387,7 +387,6 @@ Rails.application.routes.draw do
         get '/questions/ask-a-question' => 'experimental#ask_question', :as => :ask_question
         get 'questions/:id' => 'experimental#question_show', :as => :question_show
         get :community
-        get 'services-map' => 'experimental#service_providers_show', :as => :service_providers_show
         get :profile
         get :profile_settings, :path=> "/profile/settings"
         # experimental routes
