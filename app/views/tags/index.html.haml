@@ -19,7 +19,7 @@
             = button_tag("filter", :class => "floatright")
         -if logged_in? && current_user.mod_of?(current_group)
           .add-a-new-tag
-            = link_to t("scaffold.new", :model =>"tag"), new_tag_url
+            = link_to "<i class='icon-tag'></i>Add Tag".html_safe, new_tag_url,:class=>"extra-buttons"
       %br
       #tag_table
         = render(:partial => "tag_table", :locals => {:tag_table => @tags})
