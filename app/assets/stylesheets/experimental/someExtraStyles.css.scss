@@ -511,6 +511,7 @@ ul.tabbernav1 {
     text-indent: -9999px;
     width: 24px;
 }
+
 #div-load{
     width:100%; 
     z-index:1000; 
@@ -535,5 +536,13 @@ ul.tabbernav1 {
 .tabbernav1 > li {
     float: left;
     margin-left: 10px;
+}
+
+
+.options-exp{
+    margin: 35px 0 0 0 !important;
+}
+.new-exp-link{
+    display: inline;
 }
 
