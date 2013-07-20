@@ -367,7 +367,7 @@ don't miss
 /*************************************************
 main content wrapper
 *************************************************/	
-#main-wrapper {border-right:1px solid #DDD;border-left:1px solid #DDD;background:#F5F5F5 url(images/main-bg.png) repeat-x 0px 0px;width:998px;margin:0px auto;padding-top:0px;float:left;}
+#main-wrapper {display:none;border-right:1px solid #DDD;border-left:1px solid #DDD;background:#F5F5F5 url(images/main-bg.png) repeat-x 0px 0px;width:998px;margin:0px auto;padding-top:0px;float:left;}
 .main-content-left {width:650px;float:left;}
 .main-content {width:998px;}
 
