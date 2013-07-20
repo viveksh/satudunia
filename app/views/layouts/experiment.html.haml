@@ -164,7 +164,7 @@
 				/ main wrapper starts from here
 				#main-wrapper
 					#main-wrapper-dark
-						/= render "experimental/partials/social_side_bar"
+						= render "experimental/partials/social_side_bar"
 						- flash.each do |name, msg|
 							- if msg.is_a?(String)
 								%div{:class => "alert alert-#{name == :notice ? "success" : "error"}"}
@@ -172,12 +172,12 @@
 									= content_tag :div, msg, :id => "flash_#{name}"
 						= yield
 				/footer
-				/ = render "experimental/partials/footer"
-		/= javascript_include_tag "https://apis.google.com/js/plusone.js"
-		/= javascript_include_tag "http://assets.pinterest.com/js/pinit.js"
-		/= javascript_include_tag "http://platform.tumblr.com/v1/share.js"
-		/= javascript_include_tag "http://platform.twitter.com/widgets.js"
-		/= javascript_include_tag "http://widgets.digg.com/buttons.js"
+				= render "experimental/partials/footer"
+		= javascript_include_tag "https://apis.google.com/js/plusone.js"
+		= javascript_include_tag "http://assets.pinterest.com/js/pinit.js"
+		= javascript_include_tag "http://platform.tumblr.com/v1/share.js"
+		= javascript_include_tag "http://platform.twitter.com/widgets.js"
+		= javascript_include_tag "http://widgets.digg.com/buttons.js"
 
 :javascript
 	jQuery.noConflict();
