@@ -165,8 +165,9 @@
 				/ end of dont miss bar
 				/ main wrapper starts from here
 				#main-wrapper
-					#main-wrapper-dark
-						= render "experimental/partials/social_side_bar"
+					#main-wrapper-dark		
+						- unless check_valid
+							= render "experimental/partials/social_side_bar"
 						- flash.each do |name, msg|
 							- if msg.is_a?(String)
 								%div{:class => "alert alert-#{name == :notice ? "success" : "error"}"}
