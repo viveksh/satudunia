@@ -545,4 +545,15 @@ ul.tabbernav1 {
 .new-exp-link{
     display: inline;
 }
-
+.overview-new > li {
+  list-style: none outside none;
+}
+.review .overview-new .summary1 {
+    background: none !important;
+    border: none;
+    border-radius: 8px 8px 8px 8px;
+    color: #00000;
+    margin-left: 13px;
+    margin-top: 20px;
+    width: 235px;
+}
