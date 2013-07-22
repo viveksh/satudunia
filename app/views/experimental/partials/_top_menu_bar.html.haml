@@ -6,20 +6,26 @@
 			.menu
 				%ul#menu-top-menu
 					%li
-						%a{:href => public_about_experimental_index_path,:title=>"About Plus",:alt=>"About Plus"} About Plus
+						%a{:href => public_about_experimental_index_path,:title=>"About Plus",:alt=>"About Plus"} 
+							="<i class='icon-text-doc'></i>About Plus".html_safe
 					%li
-						%a{:href => questions_experimental_index_path,:title=>"Questions",:alt=>"Questions"} Questions 
+						%a{:href => questions_experimental_index_path,:title=>"Questions",:alt=>"Questions"} 
+							="<i class='icon-help'></i>Questions".html_safe
 					%li
-						%a{:href => service_providers_path,:title=>"Services Map",:alt=>"Services Map"} Services map
+						%a{:href => service_providers_path,:title=>"Services Map",:alt=>"Services Map"} 
+							="<i class='icon-location'></i>Services map".html_safe
 					%li
-						%a{:href => contact_path,:title=>"Contact",:alt=>"Contact"} Contact
+						%a{:href => contact_path,:title=>"Contact",:alt=>"Contact"} 
+							="<i class='icon-phone'></i>Contact".html_safe
 					/ %li
 					/ 	%a{:href => partners_experimental_index_path,:title=>"Partners",:alt=>"Partners"} Partners
 					%li
-						%a{:href => ask_question_experimental_index_path,:title=>"Ask a Question",:alt=>"Ask a Question"} Ask a Question
+						%a{:href => ask_question_experimental_index_path,:title=>"Ask a Question",:alt=>"Ask a Question"} 
+							="<i class='icon-circled-help'></i>Ask a Question".html_safe
 					%li
 						- if current_user.nil?
-							%a{:href => '/login',:title=>"Sign in",:alt=>"Sign in"}  Login in / Sign Up 
+							%a{:href => '/login',:title=>"Sign in",:alt=>"sign in"}  
+								="<i class='icon-login'></i>Login in".html_safe
 						-else
 							= link_to "Login as #{h(current_user.role)}","#",:style=>"color:#027DB2;"
 							%ul
@@ -37,7 +43,7 @@
 									= link_to t("layouts.application.logout"), destroy_user_session_path
 
 					%li
-						= link_to_rpx "Sign up with janrain", user_session_url
+						= link_to_rpx "<i class='icon-plus'></i>sign up".html_safe, user_session_url
 
 								
 			%select#select-menu-top-menu
