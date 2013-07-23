@@ -27,8 +27,9 @@
 		%meta{:content => "#{current_group.metro_color}", :name=>"msapplication-TileColo"}/
 		/ CSS
 		= stylesheet_link_tag "experimental/experimental"
+		
 		/ JS
-		= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js?ver=3.3.1"
+		= javascript_include_tag "experimental/jquery.min.js?ver=3.3.1"
 		= javascript_include_tag "experimental/experimental"
 
 		%body
@@ -350,6 +351,19 @@
 	jQuery(document).ready(function(){
 		jQuery("#main-wrapper").fadeIn('slow','linear');
 	});
+
+	jQuery(function($) {
+		$('.tool-tip').tipsy({
+			delayIn: 50,
+			delayOut: 50,
+			fade: true, 
+			gravity: 'n', 
+			opacity: 100,
+			});
+	});
+
+
+	
 	
 
 
