@@ -47,8 +47,8 @@
               = f.text_field :email, :class=>"input-class-new", :placeholder => "Please Enter Your Registered Email"
             .section-width
               %p
-                = link_to "<span>Resend unlock instructions</span>".html_safe,"javascript:void(0);", :type =>"submit",:class=>"button_link", :id=>"unlock_form_submit"
-                = link_to "<span>Cancel</span>".html_safe, "#", :class=>"button_link red"
+                = link_to "<span><i class='icon-check'></i>Resend unlock instructions</span>".html_safe,"javascript:void(0);", :type =>"submit",:class=>"button_link", :id=>"unlock_form_submit"
+                = link_to "<span><i class='icon-circled-cross'></i>Cancel</span>".html_safe, "#", :class=>"button_link red"
           = render :partial => "shared/devise_links"
 / side bar
 .sidebar

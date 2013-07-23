@@ -20,4 +20,4 @@
   - if devise_mapping.lockable? && controller_name != 'unlocks'
     %span
       %li{:class=>"new-exp-link"}
-        = link_to "<i class='icon-login'></i>Did not receive unlock instructions?".html_safe, new_unlock_path(resource_name), :class=>"extra-buttons"
+        = link_to "<i class='icon-help'></i>Did not receive unlock instructions?".html_safe, new_unlock_path(resource_name), :class=>"extra-buttons"
