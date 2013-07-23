@@ -385,7 +385,7 @@ class QuestionsController < ApplicationController
         format.html { 
           # render :action => "new" 
           redirect_to ask_question_experimental_index_path
-          flash[:notice] = "Question Not Created"
+          flash[:alert] = "Question Not Created"
         }
         format.json { render :json => @question.errors+@question.user.errors }
         format.js { render :json => {:success => false, :message => (@question.errors+@question.user.errors).join(", ")} }
