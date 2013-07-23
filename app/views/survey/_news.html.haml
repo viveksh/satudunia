@@ -1,0 +1,18 @@
+.post-panel
+	.post-thumbnail
+		%a.darken.small{:href => "single-review-numbers.html"}
+			- if news.has_news_image?
+				= image_tag news_image_path(news,"small"), :height => 70,:width=>70, :alt => news.slug
+	.inner
+		%h2
+			%a{:href => "single-review-numbers.html"}
+				= link_to truncate(strip_tags(news.news_title.capitalize),:length=>64), news_path(news.slug),:class=>"avoid_link_color"
+		.category
+			.catname
+				= truncate(strip_tags(news.news_body), :length => 300)
+		.date
+			By #{news.user.name} on #{news.created_at.strftime("%d %b %Y - %I:%M %p")}
+		.more
+			%a{:href => "single-review-numbers.html"} 
+				= link_to "More",news_path(news.slug),:class=>"avoid_link_color"  
+	%br.clearer/
