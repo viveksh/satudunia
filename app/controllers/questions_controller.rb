@@ -382,7 +382,11 @@ class QuestionsController < ApplicationController
         format.js {render :json => {:success => true, :message => flash[:notice], :html => html} }
       else
         @question.errors.add(:captcha, "is invalid") unless recaptcha_valid?
-        format.html { render :action => "new" }
+        format.html { 
+          # render :action => "new" 
+          redirect_to ask_question_experimental_index_path
+          flash[:notice] = "Question Not Created"
+        }
         format.json { render :json => @question.errors+@question.user.errors }
         format.js { render :json => {:success => false, :message => (@question.errors+@question.user.errors).join(", ")} }
       end
