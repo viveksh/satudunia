@@ -66,8 +66,8 @@ Rails.application.routes.draw do
   match '/facts' => redirect("/")
   match '/users/:id/:slug' => redirect("/users/%{slug}"), :as => :user_se_url, :id => /\d+/
   
-
-  resources :users, :except=>[:new] do
+  match '/members' => 'users#index', :as =>:users
+  resources :users, :except=>[:new, :index] do
     collection do
       get :autocomplete_for_user_login
       post :connect
