@@ -210,15 +210,17 @@
 				%br.clearer.hide-responsive-small/
 				.cat-menu.tax
 					%ul#menu-sub-menu.menu
-						%li
+						%li.public_about
 							%a{:href => public_about_experimental_index_path,:title=>"About us",:alt=>"About us"} About us
-						%li
+						%li.terms
 							%a{:href => "/terms",:title=>"Terms of Use",:alt=>"Terms of Use"} Terms of Use
-						%li
+						%li.public_privacy
+							%a{:href => "/privacy-policy",:title=>"privacy-policy",:alt=>"privacy-policy"} Privacy-policy
+						%li.badges
 							%a{:href => "/badges",:title=>"Badges",:alt=>"Badges"} Badges
-						%li
+						%li.polls
 							%a{:href => "/polls",:title=>"Polls",:alt=>"Polls"} Polls
-						%li
+						%li.survey
 							%a{:href => "/survey",:title=>"Survey",:alt=>"Survey"} Surveys
 						%li
 							%a{:href => "/questions",:title=>"Questions",:alt=>"Questions"} Questions 
@@ -239,6 +241,9 @@
 								%div{:class => "alert alert-#{name == :notice ? "success" : "error"}"}
 									/ %a.close{"data-dismiss" => "alert"} ×
 									= content_tag :div, msg, :id => "flash_#{name}"
+						/ =params[:controller]
+						/ %br
+						/ =params[:action]
 						= yield
 				/footer
 				= render "experimental/partials/footer"
@@ -364,7 +369,8 @@
 			});
 	});
 
-
+	// active_tab
+	Experimental.getActiveTab("#{params[:action]}","#{params[:controller]}");
 	
 	
 

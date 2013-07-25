@@ -1,44 +1,47 @@
-/ - user = membership.user
-/ %li{:class => "grid_6", :style => "margin: 0 0 15px 20px; width: 212px !important"}
-/   .wrapper
-/     .com_bg
-/       = avatar_img(user, :size => "medium")
-/       = image_tag "plus/star.png", :class => "star", :style => "display: block; float: left;"
-/       %span{:class => "reit"}
-/         100
-/       %span{:class => "com_right"}
-/         = link_to h(user.display_name), user_path(user)
-/       %span{:class => "com_right1", :style => "padding-top: 35px !important;"}
-/         = t(:created_at, :scope => "activerecord.attributes.user")
-/         = t("time.ago", :time => time_ago_in_words(membership.joined_at || membership.created_at))
-/     .com_bg2
-/       %span{:class => "com_right2"}
-/         HIV Condition: #{user_hiv_condition(user)}
-/     .bg_people
-/       .data
-/         = image_tag "plus/us1.png"
-/         %span
-/           Lives in #{user_country(user)}
-/         %br
-/         = image_tag "plus/us2.png"
-/         %span
-/           Age: #{user_age(user)}
-/       .CLeft
-/         %span
-/           -count = user.questions.where(:group_id => current_group.id).count
-/           =format_number(count)
-/           %br
-/         %span{:class => "fs1"}
-/           Questions
-/       .CRight
-/         %span
-/           -count = user.answers.where(:group_id => current_group.id).count
-/           =format_number(count)
-/           %br
-/         %span{:class => "fs1"}
-/           Answer
-/         = image_tag "plus/line_f.jpg", :class => "line_f"
-/       = link_to "<div class='follow'><span class='c_f'>Follow</span></div>".html_safe
+-user = membership.user
+%li{:class => "grid_6", :style => "margin: 0 0 15px 20px; width: 212px !important"}
+  .wrapper
+    .com_bg
+      = avatar_img(user, :size => "medium")
+      = image_tag "plus/star.png", :class => "star", :style => "display: block; float: left;"
+      %span{:class => "reit"}
+        100
+      %span{:class => "com_right"}
+      -unless user.nil?
+        = link_to h(user.display_name), user_path(user)
+      %span{:class => "com_right1", :style => "padding-top: 35px !important;"}
+        = t(:created_at, :scope => "activerecord.attributes.user")
+        = t("time.ago", :time => time_ago_in_words(membership.joined_at || membership.created_at))
+    .com_bg2
+      %span{:class => "com_right2"}
+        HIV Condition: #{user_hiv_condition(user)}
+    .bg_people
+      .data
+        = image_tag "plus/us1.png"
+        %span
+          Lives in #{user_country(user)}
+        %br
+        = image_tag "plus/us2.png"
+        %span
+          Age: #{user_age(user)}
+      .CLeft
+        %span
+        -unless user.nil?
+          -count = user.questions.where(:group_id => current_group.id).count
+          =format_number(count)
+          %br
+        %span{:class => "fs1"}
+          Questions
+      .CRight
+        %span
+        -unless user.nil?
+          -count = user.answers.where(:group_id => current_group.id).count
+          =format_number(count)
+          %br
+        %span{:class => "fs1"}
+          Answer
+        = image_tag "plus/line_f.jpg", :class => "line_f"
+      = link_to "<div class='follow'><span class='c_f'>Follow</span></div>".html_safe
 
 
 
@@ -47,4 +50,4 @@
 
 
 
-/   
+  
