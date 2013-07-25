@@ -2386,4 +2386,55 @@ fonts
     padding-right: 8px;
     padding-top: 8px;
 }
+ /*some new styles*/
 
+.page-content div#subnav.item-list-tabs {
+    border: 1px solid #E0E0E0;
+    margin: -13px 0 15px;
+    padding-top: 5px;
+}
+.page-content div.item-list-tabs {
+    background: none repeat scroll 0 0 transparent;
+    border: 0 none;
+    margin: 25px 0 12px;
+}
+.page-content div.item-list-tabs ul li {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: #E0E0E0 #E0E0E0 -moz-use-text-color;
+    border-image: none;
+    border-style: solid solid none;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-width: 1px 1px 0;
+    padding: 0;
+}
+.page-content div.item-list-tabs ul {
+    margin: 0;
+}
+.page-content div.item-list-tabs ul li:first-child {
+    margin-left: 10px;
+}
+.page-content div#subnav.item-list-tabs ul li {
+    border: 0 none;
+}
+.page-content .dir-list {
+    padding: 5px 0 25px;
+}
+.page-content .pag-count {
+    float: left;
+}
+.page-content .pagination-links {
+    float: right;
+    height: 25px;
+    margin: 0 0 5px;
+}
+.page-content .dir-list .pagination, .page-content #item-body .pagination {
+    color: #999999;
+    float: none;
+    height: 40px;
+    padding: 10px 0;
+    text-transform: none;
+}

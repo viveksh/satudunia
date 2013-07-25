@@ -1,31 +1,6 @@
 .clearer.hide-responsive  
 %br.hide-responsive/
 .main-content-left
-	.page-content.review.single-post
-		%link{:href => "http://www.industrialthemes.com/made/wp-content/uploads/2012/06/misc1-160x160.jpg", :rel => "image_src"}/
-		.review-content
-			.ribbon-shadow-left
-			.section-wrapper
-				.section-header="Contact us"
-			.section-arrow
-			.content-panel
-				.the-content.justify-content
-					/ old plus content
-					= form_for @contact, :url => send_contact_us_contact_index_path,:html=>{:class=>"exp-contact-form"} do |f|
-						%br
-							= f.label "Name*",:class => "label"
-							= f.text_field :name,:placeholder=>"Please Enter Name",:class=>"input-class"
-						%br
-							= f.label "Email*",:class => "label"
-							= f.text_field :email,:placeholder=>"Please Enter Email",:class=>"input-class"
-						%br
-							= f.label "Comment*",:class => "label"
-							= f.text_area :comment, :style => "width: 630px",:placeholder=>"Please Enter Comment"
-							%p
-								%br
-								= f.button "<i class='icon-check'></i>Submit".html_safe, :id => "ask_question_link",:type=>"submit"
-
-
 	%br.clearer/
 	#spotlight-wrapper
 		.ribbon-shadow-left  
@@ -50,10 +25,9 @@
 						%br
 							= f.label "Comment*",:class => "label"
 							= f.text_area :comment, :style => "width: 595px",:placeholder=>"Please Enter Comment"
-							%p
-								%br
-								= link_to "<span><i class='icon-check'></i>Submit</span>".html_safe, "javascript:void(0);", :id => "send_contact_us_link", :class=>"button_link"
-								= link_to "<span><i class='icon-circled-cross'></i>Cancel</span>".html_safe, "#", :class=>"button_link red"
+						.section-bottom
+							= link_to "<span><i class='icon-check'></i>Submit</span>".html_safe, "javascript:void(0);", :id => "send_contact_us_link", :class=>"button_link"
+							= link_to "<span><i class='icon-circled-cross'></i>Clear</span>".html_safe, "#", :class=>"button_link red"
 /side bar
 .sidebar
 	= render "experimental/partials/left_bar"
