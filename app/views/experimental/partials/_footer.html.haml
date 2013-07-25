@@ -204,10 +204,8 @@
               %a{:href => "#", :title => "The latest comments to all posts in RSS"}
                 Comments
                 %abbr{:title => "Really Simple Syndication"} RSS
-      .panel
-        .widget
-          %h2 Latest Tweets
-          :javascript
+      
+
             jQuery(function($){
                 jQuery(".tweet").tweet({
                   join_text: "auto",
@@ -230,9 +228,9 @@
           .textwidget
             %p
               %img{:alt => "logo", :src => "/assets/plus/footer_logo.png"}/
-            - unless @aboutContent.blank?
+            - unless @footer.blank?
               %p 
-                = truncate(strip_tags(@aboutContent.static_content), :omission => "", :length => 833) rescue ""
+                = truncate(strip_tags(@footer.footer_content), :omission => "", :length => 833) rescue ""
       %br.clearer/
     .copyright
       .ribbon-shadow-left  
@@ -240,7 +238,11 @@
         Copyright 2013 All Rights Reserved
         | 
         %a{:href=>terms_experimental_index_path}
-          Terms of Use
+          Terms of Use 
+        |
+        %a{:href=>"#"}
+          Privacy Policy
+        }
       .floatright
         .floatleft
           .textwidget
