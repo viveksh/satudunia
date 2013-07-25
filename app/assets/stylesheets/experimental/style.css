@@ -2420,3 +2420,21 @@ fonts
 .page-content div#subnav.item-list-tabs ul li {
     border: 0 none;
 }
+.page-content .dir-list {
+    padding: 5px 0 25px;
+}
+.page-content .pag-count {
+    float: left;
+}
+.page-content .pagination-links {
+    float: right;
+    height: 25px;
+    margin: 0 0 5px;
+}
+.page-content .dir-list .pagination, .page-content #item-body .pagination {
+    color: #999999;
+    float: none;
+    height: 40px;
+    padding: 10px 0;
+    text-transform: none;
+}
