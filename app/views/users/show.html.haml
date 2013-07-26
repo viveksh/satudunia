@@ -21,9 +21,10 @@
       #item-header-content
         %h2
           = link_to "#{user_realname(@user)}", user_path(@user)
-        .user-nicename
-          Joined 
-          = t("time.ago", :time => time_ago_in_words(config.joined_at))
+        .item-meta
+          %span{:class=>"activity"}
+            Joined 
+            = t("time.ago", :time => time_ago_in_words(config.joined_at))
         .user-nicename
           Website:
           = link_to @user.website, @user.website
@@ -79,9 +80,9 @@
       #subnav.item-list-tabs.no-ajax{:role => "navigation"}
         %ul
           = render "users/show/user_#{params[:action]}_filters"
-      #members-dir-list.members.dir-list
-        %ul#members-list.items-list
-          = render "users/show/user_#{params[:action]}_content"
+    #members-dir-list.members.dir-list
+      %ul#members-list.items-list
+        = render "users/show/user_#{params[:action]}_content"
 
       / .tabdiv-wrapper
       /   #first1{:style => "display: block"}

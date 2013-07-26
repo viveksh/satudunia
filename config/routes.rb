@@ -38,7 +38,7 @@ Rails.application.routes.draw do
   match '/privacy' => 'manage_privacy#public_privacy', :as => :privacy
   match '/widgets/embedded/:id' => 'widgets#embedded', :as => :embedded_widget
   match '/suggestions' => 'users#suggestions', :as => :suggestions
-  match '/activities' => 'activities#index', :as => :activities
+  match '/activity' => 'activities#index', :as => :activities
   match '/contact' => 'contact#index', :as => :contact
   match '/activities/:id' => 'activities#show', :as => :activity, :method => :get
 

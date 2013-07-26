@@ -2387,7 +2387,14 @@ fonts
     padding-top: 8px;
 }
  /*some new styles*/
-
+.page-content ul.item-list li.activity-list-show {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #E0E0E0;
+    border-radius: 6px 6px 6px 6px;
+    list-style-type: none;
+    margin: 0 0 10px;
+    padding: 10px;
+}
 .page-content div#subnav.item-list-tabs {
     border: 1px solid #E0E0E0;
     margin: -13px 0 15px;
@@ -2438,4 +2445,25 @@ fonts
 }
 .page-content div#item-header h2 a, .page-content ul.item-list li h5 a, .page-content #item-body h4 a{
 	color: #444444;
+}
+.page-content .dir-list {
+    padding: 5px 0 25px;
+}
+.page-content .pag-count {
+    float: left;
+}
+.page-content .pagination-links {
+    float: right;
+    height: 25px;
+    margin: 0 0 5px;
+}
+.page-content .dir-list .pagination, .page-content #item-body .pagination {
+    color: #999999;
+    float: none;
+    height: 40px;
+    padding: 10px 0;
+    text-transform: none;
+}
+.page-content ul.item-list {
+    margin-left: 0;
 }
