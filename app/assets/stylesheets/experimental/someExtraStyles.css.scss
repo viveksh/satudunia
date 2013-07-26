@@ -135,7 +135,7 @@
 		margin-left: -20px;
 }
 .qa-q-item-tags {
-		margin-top: 20px;
+		margin-top: 20px !important;
 }
 .tags-adj{
 	margin-right: 10px;
@@ -618,4 +618,35 @@ div.item-list-tabs ul li.feed a {
 /*important style to hide social icon*/
 #ts_turnsocial_link{
 	display:none !important;
+}
+.items-tags-adj{
+	margin-left: -35px !important;
+}
+.items-linked-new{
+	background: none repeat scroll 0 0 #FFFFFF; border: 1px solid #E0E0E0; border-radius: 6px 6px 6px 6px; list-style-type: none; margin: 0 0 10px -35px; padding: 10px !important;
+}
+.head-test-show{
+	margin-left: 20px;
+	color: #555555;
+	margin-bottom: -25px;
+}
+#pag-top_new > ul {
+    float: left;
+    margin: -10px -5px 30px 305px !important;
+}
+#pag-top_reputation > ul {
+    float: left;
+    margin: -10px -5px 30px 305px !important;
+}
+#pag-top_old > ul {
+    float: left;
+    margin: -10px -5px 30px 305px !important;
+}
+#pag-top_name > ul {
+    float: left;
+    margin: -10px -5px 30px 305px !important;
+}
+#pag-top_nearby > ul {
+    float: left;
+    margin: -10px -5px 30px 305px !important;
 }
