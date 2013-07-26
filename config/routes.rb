@@ -67,7 +67,9 @@ Rails.application.routes.draw do
   match '/users/:id/:slug' => redirect("/users/%{slug}"), :as => :user_se_url, :id => /\d+/
   
   match '/members' => 'users#index', :as =>:users
-  resources :users, :except=>[:new, :index] do
+  match '/members/:id' => 'users#show', :as =>:user
+
+  resources :users, :except=>[:new, :index, :show] do
     collection do
       get :autocomplete_for_user_login
       post :connect
@@ -140,9 +142,13 @@ Rails.application.routes.draw do
 
   match '/answers(.format)' => 'answers#index', :as => :answers
 
-  scope('questions') do
-    resources :tags, :constraints => { :id => /\S+/ }
-  end
+  # can be used in future 
+  # scope('questions') do
+  #   resources :tags, :constraints => { :id => /\S+/ }
+  # end
+
+  resources :tags, :constraints => { :id => /\S+/ }
+
 
   match 'questions/unanswered' => redirect("/questions?unanswered=1")
 
