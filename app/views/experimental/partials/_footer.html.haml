@@ -199,24 +199,12 @@
       .panel
         .widget
           %h2 Latest Tweets
+          %a.twitter-timeline{"data-widget-id" => "360398649064316928", :href => "https://twitter.com/neelesh_v"} Tweets by @neelesh_v
+
           :javascript
-            jQuery(function($){
-                jQuery(".tweet").tweet({
-                  join_text: "auto",
-                  username: "IndustrialTheme",
-                  avatar_size: 32,
-                  count: 5,
-                  auto_join_text_default: "we said,",
-                  auto_join_text_ed: "we",
-                  auto_join_text_ing: "we were",
-                  auto_join_text_reply: "we replied",
-                  auto_join_text_url: "we were checking out",
-                  loading_text: "loading tweets...",
-                  refresh_interval: 60					  	
-                });
-              });
+            !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
           .tweet.query.complex-list
-          .footer-fix  
+          .footer-fix 
       .panel.right
         .widget
           .textwidget
@@ -256,6 +244,10 @@
         | 
         %a{:href=>terms_experimental_index_path}
           Terms of Use
+        |
+        %a{:href=>"/privacy-policy"}
+          Privacy Policy
+        
       .floatright
         .floatleft
           .textwidget
