@@ -614,4 +614,7 @@ div.item-list-tabs ul li.feed a {
     word-wrap: break-word;
     padding-left: 15px
 }
-
+/*important style to hide social icon*/
+#ts_turnsocial_link{
+	display:none !important;
+}

@@ -225,6 +225,29 @@
             - unless @footer.blank?
               %p 
                 =  truncate(strip_tags(@footer.footer_content), :omission => "", :length => 833) rescue ""
+              /added links below plus/
+              .widget
+                %h2 links
+                %ul
+                  %li
+                    = image_tag("sw-facebook17.png")
+                    = link_to "Like Us", "#"
+                  %li
+                    = image_tag("sw-twitter17.png")
+                    = link_to "Follow Us", "#"
+                  %li
+                    = image_tag("sw-twitter17.png")
+                    = link_to "Jobs on Twitter", "#"
+                  %li
+                    = image_tag("rss.png")
+                    = link_to "RSS", "#"
+                  %li
+                    = image_tag("youtube.png")
+                    = link_to "Youtube", ""
+                  %li
+                    = image_tag("mail.png")
+                    = link_to "Contact Us", "#"
+        
       %br.clearer/
     .copyright
       .ribbon-shadow-left  
