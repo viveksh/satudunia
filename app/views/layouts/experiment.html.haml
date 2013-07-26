@@ -186,6 +186,31 @@
 										%li
 											%a{:href => "#"} Inclusion & Discrimination
 						/ question drop ends
+						/ Login drop starts
+						%li
+							- if current_user.nil?
+								%a{:href => '/login'}  
+									="Login in".html_safe
+							-else
+								= link_to "Login as #{h(current_user.role)}","#"
+								%ul
+									- if current_user.present?
+										%li
+											%a{:href => '/profile/settings'}
+												="<i class='icon-lock'></i>Settings".html_safe
+										%li
+											%a{:href => '/connect'}
+												="<i class='icon-retweet'></i>Connect".html_safe
+										%li
+											%a{:href => follows_user_path(current_user)}
+												= "<i class='icon-circled-right'></i>#{t('.following')}".html_safe
+										%li
+											%a{:href => follows_user_path(current_user)+"?sort=followers"	}
+												= "<i class='icon-right'></i>#{t('.followers')}".html_safe	
+										%li
+											%a{:href => '/logout'	}
+												= "<i class='icon-logout'></i>#{t("layouts.application.logout")}".html_safe						
+						/ Login drop ends
 					%select#select-menu-main-menu
 						%option Category Navigation
 						%option{:value => "archive-a.html"} Layouts
