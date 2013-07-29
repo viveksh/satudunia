@@ -189,7 +189,7 @@
 						%li
 							- if current_user.nil?
 								%a{:href => '/login'}  
-									="Login in".html_safe
+									="Login".html_safe
 							-else
 								= link_to "Login as #{h(current_user.role)}","#"
 								%ul
@@ -253,13 +253,13 @@
 				%br.clearer.hide-responsive-small
 				/ page wrapper ends here
 				/ dont miss bar starts from here
-				= render "experimental/partials/dont_miss_bar"
+				=# render "experimental/partials/dont_miss_bar"
 				/ end of dont miss bar
 				/ main wrapper starts from here
 				#main-wrapper
 					#main-wrapper-dark		
 						- unless check_valid
-							/= render "experimental/partials/social_side_bar"
+							= render "experimental/partials/social_side_bar"
 						- flash.each do |name, msg|
 							- if msg.is_a?(String)
 								%div{:class => "alert alert-#{name == :notice ? "success" : "error"}"}
@@ -396,14 +396,14 @@
 	// active_tab
 	Experimental.getActiveTab("#{params[:action]}","#{params[:controller]}");
 	
-	(function()
-	{ 
-		var t = document.createElement('script'); 
-		t.type = 'text/javascript';
-		t.async = true; t.src = "/assets/experimental/turnsocialTooltip.js"; 
-		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(t, s); 
-	}
-	)();
+	//(function()
+	//{ 
+	//	var t = document.createElement('script'); 
+	//	t.type = 'text/javascript';
+	//	t.async = true; t.src = "/assets/experimental/turnsocialTooltip.js"; 
+	//	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(t, s); 
+	//}
+	//)();
 	//to remove social bar icon
 
 	
