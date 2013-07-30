@@ -26,7 +26,7 @@
                 %h2
                   %a{:href => "/questions"}
                   -unless current_group.block_one_header.blank?
-                    = current_group.block_one_header.html_safe
+                    = current_group.block_one_header.html_safe rescue ""
                 .excerpt.full-align-style
                   = current_group.block_one_info.html_safe rescue "" 
               .more-bar
