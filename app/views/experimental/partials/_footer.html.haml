@@ -28,12 +28,12 @@
               %li.first
                 .floatleft
                   %a.thumbnail.darken.small{:href => "single-review-numbers.html", :title => "A Sandwich a Day: Fried Scallops from Brucie"}
-                    %img{:alt => "restaurants7", :height => "40", :src => "http://www.industrialthemes.com/made/wp-content/uploads/2012/06/restaurants7-40x40.jpg", :width => "40"}/
+                    %img{:alt => "restaurants7", :height => "40", :src => "#{local_path_experimental}restaurants7-40x40.jpg", :width => "40"}/
                 .floatleft
                   %a.post-title{:href => "single-review-numbers.html", :title => "A Sandwich a Day: Fried Scallops from Brucie"} A Sandwich a Day: Fried Scallops from Brucie
                   %br.clearer/
                   .icon
-                    %img{:alt => "icon", :height => "16", :src => "http://www.industrialthemes.com/made/wp-content/themes/made/images/review-restaurant-dark.png", :width => "16"}/
+                    %img{:alt => "icon", :height => "16", :src => "#{local_path_experimental}review-restaurant-dark.png", :width => "16"}/
                   .rating-wrapper.small
                     .stars.yellow
                       .star.full  
@@ -45,48 +45,48 @@
               %li
                 .floatleft
                   %a.thumbnail.darken.video.small{:href => "single-review-numbers.html", :title => "Yohji Yamamoto Autumn (Fall) / Winter 2012 men's"}
-                    %img{:alt => "fashion4", :height => "40", :src => "http://www.industrialthemes.com/made/wp-content/uploads/2012/06/fashion4-40x40.jpg", :width => "40"}/
+                    %img{:alt => "fashion4", :height => "40", :src => "#{local_path_experimental}fashion4-40x40.jpg", :width => "40"}/
                 .floatleft
                   %a.post-title{:href => "single-review-numbers.html", :title => "Yohji Yamamoto Autumn (Fall) / Winter 2012 men's"} Yohji Yamamoto Autumn (Fall) / Winter 2012 men's
                   %br.clearer/
                   .icon
-                    %img{:alt => "icon", :height => "16", :src => "http://www.industrialthemes.com/made/wp-content/themes/made/images/review-fashion-dark.png", :width => "16"}/
+                    %img{:alt => "icon", :height => "16", :src => "#{local_path_experimental}review-fashion-dark.png", :width => "16"}/
                   .rating-wrapper.small
                     .letter.color4 B+
                 %br.clearer/
               %li
                 .floatleft
                   %a.thumbnail.darken.small{:href => "single-review-numbers.html", :title => "Gotye – Mirrors"}
-                    %img{:alt => "rock concert", :height => "40", :src => "http://www.industrialthemes.com/made/wp-content/uploads/2012/07/photodune-277307-rock-concert-s-40x40.jpg", :width => "40"}/
+                    %img{:alt => "rock concert", :height => "40", :src => "#{local_path_experimental}photodune-277307-rock-concert-s-40x40.jpg", :width => "40"}/
                 .floatleft
                   %a.post-title{:href => "single-review-numbers.html", :title => "Gotye – Mirrors"} Gotye – Mirrors
                   %br.clearer/
                   .icon
-                    %img{:alt => "icon", :height => "16", :src => "http://www.industrialthemes.com/made/wp-content/themes/made/images/review-music-dark.png", :width => "16"}/
+                    %img{:alt => "icon", :height => "16", :src => "#{local_path_experimental}review-music-dark.png", :width => "16"}/
                   .rating-wrapper.small
                     .number.color4 7.4
                 %br.clearer/
               %li
                 .floatleft
                   %a.thumbnail.darken.video.small{:href => "single-review-numbers.html", :title => "The Hobbit: An Unexpected Journey"}
-                    %img{:alt => "movies3", :height => "40", :src => "http://www.industrialthemes.com/made/wp-content/uploads/2012/06/movies3-40x40.jpg", :width => "40"}/
+                    %img{:alt => "movies3", :height => "40", :src => "#{local_path_experimental}movies3-40x40.jpg", :width => "40"}/
                 .floatleft
                   %a.post-title{:href => "single-review-numbers.html", :title => "The Hobbit: An Unexpected Journey"} The Hobbit: An Unexpected Journey
                   %br.clearer/
                   .icon
-                    %img{:alt => "icon", :height => "16", :src => "http://www.industrialthemes.com/made/wp-content/themes/made/images/review-movie-dark.png", :width => "16"}/
+                    %img{:alt => "icon", :height => "16", :src => "#{local_path_experimental}review-movie-dark.png", :width => "16"}/
                   .rating-wrapper.small
                     .number.color5 88%
                 %br.clearer/
               %li
                 .floatleft
                   %a.thumbnail.darken.video.small{:href => "single-review-numbers.html", :title => "Coffee Common: Bringing Coffee Power to the People"}
-                    %img{:alt => "restaurants9", :height => "40", :src => "http://www.industrialthemes.com/made/wp-content/uploads/2012/06/restaurants9-40x40.jpg", :width => "40"}/
+                    %img{:alt => "restaurants9", :height => "40", :src => "#{local_path_experimental}restaurants9-40x40.jpg", :width => "40"}/
                 .floatleft
                   %a.post-title{:href => "single-review-numbers.html", :title => "Coffee Common: Bringing Coffee Power to the People"} Coffee Common: Bringing Coffee Power to the People
                   %br.clearer/
                   .icon
-                    %img{:alt => "icon", :height => "16", :src => "http://www.industrialthemes.com/made/wp-content/themes/made/images/review-restaurant-dark.png", :width => "16"}/
+                    %img{:alt => "icon", :height => "16", :src => "#{local_path_experimental}review-restaurant-dark.png", :width => "16"}/
                   .rating-wrapper.small
                     .stars.yellow
                       .star.full  
@@ -212,7 +212,7 @@
               %img{:alt => "logo", :src => "/assets/plus/footer_logo.png"}/
             - unless @footer.blank?
               %p 
-                =  truncate(strip_tags(@footer.footer_content), :omission => "", :length => 833) rescue ""
+                =  truncate(@footer.footer_content.sub("\n","<br>"), :omission => "", :length => 833).html_safe rescue ""
               /added links below plus/
               .widget
                 %h2 links
