@@ -189,7 +189,7 @@
 						%li
 							- if current_user.nil?
 								%a{:href => '/login'}  
-									="Login in".html_safe
+									="Login".html_safe
 							-else
 								= link_to "Login as #{h(current_user.role)}","#"
 								%ul
@@ -253,7 +253,7 @@
 				%br.clearer.hide-responsive-small
 				/ page wrapper ends here
 				/ dont miss bar starts from here
-				= render "experimental/partials/dont_miss_bar"
+				=# render "experimental/partials/dont_miss_bar"
 				/ end of dont miss bar
 				/ main wrapper starts from here
 				#main-wrapper
@@ -404,8 +404,6 @@
 		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(t, s); 
 	}
 	)();
-	to remove social bar icon
-
 	
 	
 

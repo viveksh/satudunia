@@ -100,7 +100,7 @@
       .panel
         .widget
           #tabbed-Movie-reviews.simple-list.review-cats
-            .review-header Movie Reviews by category
+            .review-header Questions By Category
             %ul.tabnav
               %li
                 %a.first{:href => "#tabs-movie_genre"} Genre
@@ -115,21 +115,23 @@
               #tabs-movie_genre.tabdiv
                 %ul
                   %li
-                    %a{:href => "archive-a.html", :title => "View all posts filed under Action"} Action
+                    %a{:href => "archive-a.html", :title => "View all posts filed under Travel"} Travel 
                   %li
-                    %a{:href => "archive-a.html", :title => "View all posts filed under Animated"} Animated
+                    %a{:href => "archive-a.html", :title => "View all posts filed under Well being"} Well being
                   %li
-                    %a{:href => "archive-a.html", :title => "View all posts filed under Comedy"} Comedy
+                    %a{:href => "archive-a.html", :title => "View all posts filed under Drugs "} Drugs 
                   %li
-                    %a{:href => "archive-a.html", :title => "View all posts filed under Drama"} Drama
+                    %a{:href => "archive-a.html", :title => "View all posts filed under Relationship"} Relationship
                   %li
-                    %a{:href => "archive-a.html", :title => "View all posts filed under Horror"} Horror
+                    %a{:href => "archive-a.html", :title => "View all posts filed under Sex"} Sex
                   %li
-                    %a{:href => "archive-a.html", :title => "View all posts filed under Independent"} Independent
+                    %a{:href => "archive-a.html", :title => "View all posts filed under Disclosure"} Disclosure
                   %li
-                    %a{:href => "archive-a.html", :title => "View all posts filed under Romantic Comedy"} Romantic Comedy
+                    %a{:href => "archive-a.html", :title => "View all posts filed under Daignosis"} Daignosis
                   %li
-                    %a{:href => "archive-a.html", :title => "View all posts filed under Sci-Fi"} Sci-Fi
+                    %a{:href => "archive-a.html", :title => "View all posts filed under Treatment"} Treatment
+                  %li
+                    %a{:href => "archive-a.html", :title => "View all posts filed under Medication"} Medication
                   %li.last  
               #tabs-movie_director.tabdiv
                 %ul
@@ -199,7 +201,7 @@
       .panel
         .widget
           %h2 Latest Tweets
-          %a.twitter-timeline{"data-widget-id" => "360398649064316928", :href => "https://twitter.com/neelesh_v"} Tweets by @neelesh_v
+          %a.twitter-timeline{"data-widget-id" => "360398649064316928",:height=>"600px",:width=>"250px",:href => "https://twitter.com/neelesh_v"} Tweets by @neelesh_v
 
           :javascript
             !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
@@ -257,3 +259,4 @@
             /     %a{:href => "http://www.industrialthemes.com"} Industrial Themes
       %br.clearer/
       .ribbon-shadow-right  
+
