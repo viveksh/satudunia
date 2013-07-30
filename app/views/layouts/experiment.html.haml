@@ -271,11 +271,13 @@
 						= yield
 				/footer
 				= render "experimental/partials/footer"
-		= javascript_include_tag "https://apis.google.com/js/plusone.js"
-		= javascript_include_tag "http://assets.pinterest.com/js/pinit.js"
+
+		= javascript_include_tag "experimental/plusone.js"
+		= javascript_include_tag "experimental/pinit.js"
 		= javascript_include_tag "http://platform.tumblr.com/v1/share.js"
-		= javascript_include_tag "http://platform.twitter.com/widgets.js"
-		= javascript_include_tag "http://widgets.digg.com/buttons.js"
+		= javascript_include_tag "experimental/widgets.js"
+		= javascript_include_tag "experimental/buttons.js"
+
 
 :javascript
 	jQuery.noConflict();
