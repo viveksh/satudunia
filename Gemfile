@@ -57,7 +57,7 @@ gem 'goalie', '~> 0.0.4'
 gem 'dynamic_form'
 gem 'rinku', '~> 1.2.2', :require => 'rails_rinku'
 
-gem 'rack-recaptcha', '0.2.2', :require => 'rack/recaptcha'
+gem 'rack-recaptcha', '0.6.6', :require => 'rack/recaptcha'
 
 gem 'twitter-text', '1.1.8'
 gem 'twitter_oauth'
