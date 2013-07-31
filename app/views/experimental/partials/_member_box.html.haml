@@ -1,7 +1,9 @@
 .widget-wrapper
   .widget
     .section-wrapper
-      .section Members
+      .section
+        %i.icon-user 
+        Members
     #members-list-options.item-options
       %a#newest-members.ajax-class-call{:href => "#1",:data_send=>"newest"} Newest
       %span{:id=>"newest",:class=>"display-hidden"}

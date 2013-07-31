@@ -191,12 +191,12 @@
 								%a{:href => '/login'}  
 									="Login".html_safe
 							-else
-								= link_to "Login as #{h(current_user.role)}","#"
+								= link_to "Settings","#"
 								%ul
 									- if current_user.present?
 										%li
 											%a{:href => '/profile/settings'}
-												="<i class='icon-lock'></i>Settings".html_safe
+												="<i class='icon-user'></i>Profile".html_safe
 										%li
 											%a{:href => '/connect'}
 												="<i class='icon-retweet'></i>Connect".html_safe
@@ -397,22 +397,15 @@
 
 	// active_tab
 	Experimental.getActiveTab("#{params[:action]}","#{params[:controller]}");
-
-	(function() {
-	  var t = document.createElement('script'); t.type = 'text/javascript'; t.async = true;
-	  t.src = "//turnsocial.com/bar/bcd979c1bc978abc07fc3dee8e0f453b.js";
-	  var s = document.getElementsByTagName('script')[0];
-	  s.parentNode.insertBefore(t, s);
-	})();
 	
-	//(function()
-	//{ 
-	//	var t = document.createElement('script'); 
-	//	t.type = 'text/javascript';
-	//	t.async = true; t.src = "/assets/experimental/turnsocialTooltip.js"; 
-	//	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(t, s); 
-	//}
-	//)();
+	(function()
+	{ 
+		var t = document.createElement('script'); 
+		t.type = 'text/javascript';
+		t.async = true; t.src = "/assets/experimental/turnsocialTooltip.js"; 
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(t, s); 
+	}
+	)();
 
 
 	

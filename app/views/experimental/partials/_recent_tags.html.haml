@@ -2,13 +2,35 @@
   .widget-wrapper
     .widget
       .section-wrapper
-        .section
-          Recent Tags
+        .section{:style=>"background-color:#FAFAFA;"}
+          Question Tags
       .tags-list
         - @tags.each do |tag|
           %span{:class => "tags1_2 floatleft", :title => "#{tag.name}"}
             = link_to h(tag.name).html_safe, tag_path(:id => CGI.escape(tag.name))
+            %span
+              x
+            %span.avoid_link_color{:style=>"font-weight:600"}
+              = current_group.questions.where(:tags=>tag.name).count
       .tabdiv
         %li.more{:title => "View all Tags"}
           = link_to "More", tags_path
         %li.last 
+.complex-list.all_reviews
+  .widget-wrapper-new
+    .widget
+      %fieldset
+        %legend 
+          .recent_tag Recent Tags
+        .tags-list
+          - @tags.each do |tag|
+            %span{:class => "tags1_3_1 floatleft", :title => "#{tag.name}", :id=>"tag#{tag.name}"}
+              = link_to h(tag.name).html_safe, tag_path(:id => CGI.escape(tag.name))
+        
+        .tabdiv 
+          %li{:style=>"border-bottom: 1px solid #eee; margin-top: 8px; margin-bottom: 8px; margin-left:15px;color: #E47911;"}
+            %img{:src => "/assets/experimental/images/oarrow.gif"}/
+            = link_to "View all tags", tags_path
+          %li.last 
+:javascript
+  

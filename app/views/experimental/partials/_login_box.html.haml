@@ -2,7 +2,9 @@
   .widget-wrapper
     .widget
       .section-wrapper
-        .section Login
+        .section 
+          %i.icon-key
+          Login
       .login-form
         = form_for resource, :url => session_path(resource), :html => {:class => "form"} do |f|
           %p.login-username
