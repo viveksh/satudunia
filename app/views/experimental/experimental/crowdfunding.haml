@@ -25,7 +25,7 @@
 							.pullquote-wrapper.left
 								.pullquote.prociono  Living positively,together
 							%p 
-								= @about.static_content.html_safe
+								= @about.static_content.html_safe rescue ""
 			.content-panel
 				#authorbox
 					%h2 Industrial Themes

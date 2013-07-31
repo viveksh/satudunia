@@ -156,58 +156,59 @@ Rails.application.routes.draw do
   match 'question/:id' => 'questions#show', :as => :question
   #match 'questions/ask-a-question' => "questions#new", :as => :new_question
 
-  # resources :questions, :except => [:show, :new] do
+  resources :questions, :except => [:show, :new] do
 
-  #   resources :votes
-  #   resources :flags
-  #   collection do
-  #     get :tags_for_autocomplete
-  #     get :related_questions
-  #     get 'page/:page', :action => :index
-  #     match '/:filter' => 'questions#index', :as => :filtered, :constraints => { :filter => /all|unanswered|by_me|feed|preferred|contributed|expertise/ }
-  #   end
+    resources :votes
+    resources :flags
+    collection do
+      get :tags_for_autocomplete
+      get :related_questions
+      get 'page/:page', :action => :index
+      match '/:filter' => 'questions#index', :as => :filtered, :constraints => { :filter => /all|unanswered|by_me|feed|preferred|contributed|expertise/ }
+    end
 
-  #   member do
-  #     get :solve
-  #     get :unsolve
-  #     get :flag
-  #     get :follow
-  #     get :unfollow
-  #     get :history
-  #     get :revert
-  #     get :diff
-  #     get :move
-  #     put :move_to
-  #     get :retag
-  #     put :retag_to
-  #     get :remove_attachment
-  #     get :twitter_share
-  #   end
+    member do
+      get :solve
+      get :unsolve
+      get :flag
+      get :follow
+      get :unfollow
+      get :history
+      get :revert
+      get :diff
+      get :move
+      put :move_to
+      get :retag
+      put :retag_to
+      get :remove_attachment
+      get :twitter_share
+    end
 
-  #   resources :comments do
-  #     resources :votes
-  #   end
+    resources :comments do
+      resources :votes
+    end
 
-  #   resources :answers do
-  #     resources :votes
-  #     resources :flags
-  #     member do
-  #       get :favorite
-  #       get :unfavorite
-  #       get :flag
-  #       get :history
-  #       get :diff
-  #       get :revert
-  #     end
+    resources :answers do
+      resources :votes
+      resources :flags
+      member do
+        get :favorite
+        get :unfavorite
+        get :flag
+        get :history
+        get :diff
+        get :revert
+      end
 
-  #     resources :comments do
-  #       resources :votes
-  #     end
-  #   end
+      resources :comments do
+        resources :votes
+      end
+    end
 
-  #   resources :close_requests
-  #   resources :open_requests
-  # end
+    resources :close_requests
+    resources :open_requests
+  end
+  
   get '/search_ajax' => 'searches#search_ajax'
   post '/question_search'=>'questions#question_search#index'
 
@@ -392,7 +393,6 @@ Rails.application.routes.draw do
         get :rss_feed,:path=>"rss"
         get :terms
         get :faq
-        get :questions
         get :partners
         get :show_member
         get '/questions/ask-a-question' => 'experimental#ask_question', :as => :ask_question
@@ -400,6 +400,9 @@ Rails.application.routes.draw do
         get :profile
         get :profile_settings, :path=> "/profile/settings"
         get :features
+        get :events
+        get :crowdfunding 
+        get :ajax_entry
         # get :announce, :path=> "/announcements"
 
         # experimental routes
@@ -408,60 +411,6 @@ Rails.application.routes.draw do
       end
     end
   end 
-
-  resources :questions, :except => [:show, :new] do
-
-    resources :votes
-    resources :flags
-    collection do
-      get :tags_for_autocomplete
-      get :related_questions
-      get 'page/:page', :action => :index
-      match '/:filter' => 'questions#index', :as => :filtered, :constraints => { :filter => /all|unanswered|by_me|feed|preferred|contributed|expertise/ }
-    end
-
-    member do
-      get :solve
-      get :unsolve
-      get :flag
-      get :follow
-      get :unfollow
-      get :history
-      get :revert
-      get :diff
-      get :move
-      put :move_to
-      get :retag
-      put :retag_to
-      get :remove_attachment
-      get :twitter_share
-    end
-
-    resources :comments do
-      resources :votes
-    end
-
-    resources :answers do
-      resources :votes
-      resources :flags
-      member do
-        get :favorite
-        get :unfavorite
-        get :flag
-        get :history
-        get :diff
-        get :revert
-      end
-
-      resources :comments do
-        resources :votes
-      end
-    end
-
-    resources :close_requests
-    resources :open_requests
-  end
-
 
   match '/moderate' => 'moderate/questions#index'
 #   match '/search' => 'searches#index', :as => :search

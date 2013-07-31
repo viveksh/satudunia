@@ -1,18 +1,20 @@
-#main-wrapper-dark
-	/ this is only used for the dark skin since it already uses an image for the background texture and light does not
-	.main-content-left
-		%br.clearer/
-		#spotlight-wrapper
-		.page-content.review.single-post
-			.ribbon-shadow-left  
+.clearer.hide-responsive  
+%br.hide-responsive/
+.main-content-left
+	.page-content.review.single-post
+		%link{:href => "http://www.industrialthemes.com/made/wp-content/uploads/2012/06/misc1-160x160.jpg", :rel => "image_src"}/
+		.review-content
+			.ribbon-shadow-left
 			.section-wrapper
-				/ spotlight section header
 				.section
 					.comment-bubble
 						%a{:href => "#respond", :title => "Comment on Made Magazine Is The First Responsive Theme Released By IndustrialThemes"} 0
-					Badges
-			.section-arrow  
-.main-content-left
+					/ making title stronger
+					.section-for-header
+						%i.icon-bookmark
+						Badges
+			.section-arrow 
+		/ content area 
 	#content.page-content.badges-title-adj
 		%form#members-directory-form.dir-form{:action => "", :method => "post"}
 			#members-dir-search.dir-search{:role => "search"}
@@ -30,10 +32,10 @@
 				%li#members-order-select.last.filter
 					%label{:for => "members-order-by"} Filter:
 					%select#activity-filter-by
-						%option{:value => "new-show"} All
-						%option{:value => "reputation-show"} Gold
-						%option{:value => "old-show"} Silver
-						%option{:value => "name-show"} Bronze
+						%option{:value => 100} All
+						%option{:value => 20} Gold
+						%option{:value => 10} Silver
+						%option{:value => 5} Bronze
 	.page-content.review
 		.overview-wrapper
 			%h2
@@ -59,7 +61,7 @@
 										.badge_description
 											=badge.description
 
-.sidebar.badges-margin-top
+.sidebar
 	= render "experimental/partials/login_box"
 	= render "experimental/partials/left_bar"
 	/widget top
@@ -74,8 +76,28 @@
 	= render "experimental/partials/rating_box"
 	/banner box
 	= render "experimental/partials/banner_box"
+:javascript
+	jQuery("#activity-filter-by").change(function(){
+		//variable value taker
+		jQuery('.current_page_parent').html("<div class=ajax-loader></div>");
+		var valueTaker = jQuery(this).val();
+		jQuery.ajax({
+			type:"GET",
+			url:"/ajax_entry",
+			data:"queryData="+valueTaker,
+			dataType:"script",
+			error:function(errorObject){
+				alert(errorObject.toSource());
 
+			},
+			success:function(successObject){
+					//alert(successObject);
+					jQuery('.current_page_parent').html(eval(successObject));
+			}
+		});
+	});
 
+		
 
 
 

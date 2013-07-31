@@ -39,22 +39,6 @@ class Experimental::ExperimentalController < ApplicationController
     @title = "faq"
     @faq = StaticPage.where(:static_key => 'tos').first
   end
-  # questions
-  def questions
-     if current_user.present?
-      @title = "questions"
-      @tags = current_group.tags
-      # code from the plus template
-      unless params[:per_page].blank?
-        session[:per_page] = params[:per_page]
-      end
-      current_order = (params[:current_order].nil?)? 'created_at' : params[:current_order]
-      find_questions
-      # code from the plus template
-    else 
-      redirect_to new_user_session_path
-    end
-  end
 
   #partners action
   def partners
@@ -131,5 +115,24 @@ class Experimental::ExperimentalController < ApplicationController
 
   def features
      @title = "Features"
+  end
+  # action events
+  def events
+    @title="Events"   
+  end
+  #action crowd funding
+  def crowdfunding
+    @title="Crowd Funding"
   end 
+  # ajax_entry
+  def ajax_entry
+    @badges=Badge.TOKENS[0..params[:queryData].to_i]
+    respond_to do |format|
+      format.js {}
+    end
+    
+  end
+  
+
+
 end
