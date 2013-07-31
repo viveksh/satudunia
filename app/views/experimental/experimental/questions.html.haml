@@ -1,165 +1,165 @@
-.clearer.hide-responsive  
-%br.hide-responsive/
-.main-content-left{:style=>"width:70%"}
-  .page-content.review.single-post
-    %link{:href => "http://www.industrialthemes.com/made/wp-content/uploads/2012/06/misc1-160x160.jpg", :rel => "image_src"}/
-    .review-content
-      .ribbon-shadow-left
-      .section-wrapper
-        .section-header
-          Questions and Answers
-      .section-arrow
-      / post by removed from here
-      %h1.title 
-        =@title.upcase
-      .content-panel
-        .the-content.justify-content
-          .tabs-shortcode
-            %ul.tabnav
-              %li
-                %a{:href => "#1"} Newest
-              %li
-                %a{:href => "#2"} Hot
-              %li
-                %a{:href => "#3"} Featured
-              %li
-                %a{:href => "#4"} Votes
-              %li
-                %a{:href => "#5"} Unanswered
-              %li
-                %a{:href => "#6"} XXX
-            .tabdiv-wrapper
-              #1.tabdiv-exp
-                %h3.head-left Newest
-                %p
-                  %ul{:id => "slider21", :style => "position: relative;"}
-                    %li{:class => "pager ps1"}
-                      %ul{:class => "section-width"}
-                        - @questions.each do |question|
-                          = render "experimental/partials/questions/plus_question", :question => question
-                %div.pagination-div
-                  = paginate @questions, :left => 5, :right => 1
-                  %ul#pagination-digg{:style => "float:right;",:class=>"apart-class"}
-                    %li.pagination-float
-                      = link_to 15, '/questions?per_page=15', :id => "per_page_15"
-                    %li.pagination-float
-                      = link_to 30, '/questions?per_page=30', :id => "per_page_30"
-                    %li.pagination-float
-                      = link_to 50, '/questions?per_page=50', :id => "per_page_50"
-                .clear
+/ .clearer.hide-responsive  
+/ %br.hide-responsive/
+/ .main-content-left{:style=>"width:70%"}
+/   .page-content.review.single-post
+/     %link{:href => "http://www.industrialthemes.com/made/wp-content/uploads/2012/06/misc1-160x160.jpg", :rel => "image_src"}/
+/     .review-content
+/       .ribbon-shadow-left
+/       .section-wrapper
+/         .section-header
+/           Questions and Answers
+/       .section-arrow
+/       / post by removed from here
+/       %h1.title 
+/         =@title.upcase
+/       .content-panel
+/         .the-content.justify-content
+/           .tabs-shortcode
+/             %ul.tabnav
+/               %li
+/                 %a{:href => "#1"} Newest
+/               %li
+/                 %a{:href => "#2"} Hot
+/               %li
+/                 %a{:href => "#3"} Featured
+/               %li
+/                 %a{:href => "#4"} Votes
+/               %li
+/                 %a{:href => "#5"} Unanswered
+/               %li
+/                 %a{:href => "#6"} XXX
+/             .tabdiv-wrapper
+/               #1.tabdiv-exp
+/                 %h3.head-left Newest
+/                 %p
+/                   %ul{:id => "slider21", :style => "position: relative;"}
+/                     %li{:class => "pager ps1"}
+/                       %ul{:class => "section-width"}
+/                         - @questions.each do |question|
+/                           = render "experimental/partials/questions/plus_question", :question => question
+/                 %div.pagination-div
+/                   = paginate @questions, :left => 5, :right => 1
+/                   %ul#pagination-digg{:style => "float:right;",:class=>"apart-class"}
+/                     %li.pagination-float
+/                       = link_to 15, '/questions?per_page=15', :id => "per_page_15"
+/                     %li.pagination-float
+/                       = link_to 30, '/questions?per_page=30', :id => "per_page_30"
+/                     %li.pagination-float
+/                       = link_to 50, '/questions?per_page=50', :id => "per_page_50"
+/                 .clear
                  
-              #2.tabdiv-exp
-                %h3.head-left Hot
-                %p
-                  %ul{:id => "slider21", :style => "position: relative;"}
-                    %li{:class => "pager ps1"}
-                      %ul{:class => "section-width"}
-                        - @questionsHot.each do |question|
-                          = render "experimental/partials/questions/plus_question", :question => question
-                %div.pagination-div
-                  = paginate @questions, :left => 5, :right => 1
-                  %ul#pagination-digg{:style => "float:right;",:class=>"apart-class"}
-                    %li.pagination-float
-                      = link_to 15, '/questions?per_page=15', :id => "per_page_15"
-                    %li.pagination-float
-                      = link_to 30, '/questions?per_page=30', :id => "per_page_30"
-                    %li.pagination-float
-                      = link_to 50, '/questions?per_page=50', :id => "per_page_50"
-                .clear
-              #3.tabdiv-exp
-                %h3.head-left Featured
-                %p
-                  %ul{:id => "slider21", :style => "position: relative;"}
-                    %li{:class => "pager ps1"}
-                      %ul{:class => "section-width"}
-                        - @questionsViews.each do |question|
-                          = render "experimental/partials/questions/plus_question", :question => question
-                %div.pagination-div
-                  = paginate @questions, :left => 5, :right => 1
-                  %ul#pagination-digg{:style => "float:right;",:class=>"apart-class"}
-                    %li.pagination-float
-                      = link_to 15, '/questions?per_page=15', :id => "per_page_15"
-                    %li.pagination-float
-                      = link_to 30, '/questions?per_page=30', :id => "per_page_30"
-                    %li.pagination-float
-                      = link_to 50, '/questions?per_page=50', :id => "per_page_50"
-                .clear
-              #4.tabdiv-exp
-                %h3.head-left Votes
-                %p
-                  %ul{:id => "slider21", :style => "position: relative;"}
-                    %li{:class => "pager ps1"}
-                      %ul{:class => "section-width"}
-                        - @questionsVotes.each do |question|
-                          = render "experimental/partials/questions/plus_question", :question => question
-                %div.pagination-div
-                  = paginate @questions, :left => 5, :right => 1
-                  %ul#pagination-digg{:style => "float:right;",:class=>"apart-class"}
-                    %li.pagination-float
-                      = link_to 15, '/questions?per_page=15', :id => "per_page_15"
-                    %li.pagination-float
-                      = link_to 30, '/questions?per_page=30', :id => "per_page_30"
-                    %li.pagination-float
-                      = link_to 50, '/questions?per_page=50', :id => "per_page_50"
-                .clear
-              #5.tabdiv-exp
-                %h3.head-left Unanswered
-                %p
-                  %ul{:id => "slider21", :style => "position: relative;"}
-                    %li{:class => "pager ps1"}
-                      %ul{:class => "section-width"}
-                        - @questionsUnanswered.each do |question|
-                          = render "experimental/partials/questions/plus_question", :question => question
-                %div.pagination-div
-                  = paginate @questions, :left => 5, :right => 1
-                  %ul#pagination-digg{:style => "float:right;",:class=>"apart-class"}
-                    %li.pagination-float
-                      = link_to 15, '/questions?per_page=15', :id => "per_page_15"
-                    %li.pagination-float
-                      = link_to 30, '/questions?per_page=30', :id => "per_page_30"
-                    %li.pagination-float
-                      = link_to 50, '/questions?per_page=50', :id => "per_page_50"
-                .clear
-              #6.tabdiv-exp
-                %h3.head-left XXX
-                %p
+/               #2.tabdiv-exp
+/                 %h3.head-left Hot
+/                 %p
+/                   %ul{:id => "slider21", :style => "position: relative;"}
+/                     %li{:class => "pager ps1"}
+/                       %ul{:class => "section-width"}
+/                         - @questionsHot.each do |question|
+/                           = render "experimental/partials/questions/plus_question", :question => question
+/                 %div.pagination-div
+/                   = paginate @questions, :left => 5, :right => 1
+/                   %ul#pagination-digg{:style => "float:right;",:class=>"apart-class"}
+/                     %li.pagination-float
+/                       = link_to 15, '/questions?per_page=15', :id => "per_page_15"
+/                     %li.pagination-float
+/                       = link_to 30, '/questions?per_page=30', :id => "per_page_30"
+/                     %li.pagination-float
+/                       = link_to 50, '/questions?per_page=50', :id => "per_page_50"
+/                 .clear
+/               #3.tabdiv-exp
+/                 %h3.head-left Featured
+/                 %p
+/                   %ul{:id => "slider21", :style => "position: relative;"}
+/                     %li{:class => "pager ps1"}
+/                       %ul{:class => "section-width"}
+/                         - @questionsViews.each do |question|
+/                           = render "experimental/partials/questions/plus_question", :question => question
+/                 %div.pagination-div
+/                   = paginate @questions, :left => 5, :right => 1
+/                   %ul#pagination-digg{:style => "float:right;",:class=>"apart-class"}
+/                     %li.pagination-float
+/                       = link_to 15, '/questions?per_page=15', :id => "per_page_15"
+/                     %li.pagination-float
+/                       = link_to 30, '/questions?per_page=30', :id => "per_page_30"
+/                     %li.pagination-float
+/                       = link_to 50, '/questions?per_page=50', :id => "per_page_50"
+/                 .clear
+/               #4.tabdiv-exp
+/                 %h3.head-left Votes
+/                 %p
+/                   %ul{:id => "slider21", :style => "position: relative;"}
+/                     %li{:class => "pager ps1"}
+/                       %ul{:class => "section-width"}
+/                         - @questionsVotes.each do |question|
+/                           = render "experimental/partials/questions/plus_question", :question => question
+/                 %div.pagination-div
+/                   = paginate @questions, :left => 5, :right => 1
+/                   %ul#pagination-digg{:style => "float:right;",:class=>"apart-class"}
+/                     %li.pagination-float
+/                       = link_to 15, '/questions?per_page=15', :id => "per_page_15"
+/                     %li.pagination-float
+/                       = link_to 30, '/questions?per_page=30', :id => "per_page_30"
+/                     %li.pagination-float
+/                       = link_to 50, '/questions?per_page=50', :id => "per_page_50"
+/                 .clear
+/               #5.tabdiv-exp
+/                 %h3.head-left Unanswered
+/                 %p
+/                   %ul{:id => "slider21", :style => "position: relative;"}
+/                     %li{:class => "pager ps1"}
+/                       %ul{:class => "section-width"}
+/                         - @questionsUnanswered.each do |question|
+/                           = render "experimental/partials/questions/plus_question", :question => question
+/                 %div.pagination-div
+/                   = paginate @questions, :left => 5, :right => 1
+/                   %ul#pagination-digg{:style => "float:right;",:class=>"apart-class"}
+/                     %li.pagination-float
+/                       = link_to 15, '/questions?per_page=15', :id => "per_page_15"
+/                     %li.pagination-float
+/                       = link_to 30, '/questions?per_page=30', :id => "per_page_30"
+/                     %li.pagination-float
+/                       = link_to 50, '/questions?per_page=50', :id => "per_page_50"
+/                 .clear
+/               #6.tabdiv-exp
+/                 %h3.head-left XXX
+/                 %p
                   
-        /content ends here
+/         /content ends here
 
 
-.sidebar-new
-  = render "experimental/partials/recent_tags"
-  = render "experimental/partials/left_bar"
-  /widget top
-  =# render "experimental/partials/widget_top"
-  /recent tags
+/ .sidebar-new
+/   = render "experimental/partials/recent_tags"
+/   = render "experimental/partials/left_bar"
+/   /widget top
+/   =# render "experimental/partials/widget_top"
+/   /recent tags
 
-  /popular box
-  =# render "experimental/partials/popular_box"
-  /rating box
-  =# render "experimental/partials/rating_box"
-  /banner box
-  =# render "experimental/partials/banner_box"
+/   /popular box
+/   =# render "experimental/partials/popular_box"
+/   /rating box
+/   =# render "experimental/partials/rating_box"
+/   /banner box
+/   =# render "experimental/partials/banner_box"
 
-:javascript
-  jQuery.noConflict();
-  jQuery(document).ready(function() { 
+/ :javascript
+/   jQuery.noConflict();
+/   jQuery(document).ready(function() { 
   
-    jQuery('#related > ul').tabs({ fx: { opacity: 'toggle', duration: 150 } });
-    // code for page limit
-    jQuery(window).load(function(){
-      var sessionPerPage = '#{session[:per_page].blank? ? 15 : session[:per_page]}';
-      if (sessionPerPage == '15'){
-        jQuery('a#per_page_15').parent().addClass('active').html("15");
-        jQuery(this).remove();
-      } else if (sessionPerPage == '30'){
-        jQuery('a#per_page_30').parent().addClass('active').html("30");
-        jQuery(this).remove();
-      } else if (sessionPerPage == '50'){
-        jQuery('a#per_page_50').parent().addClass('active').html("50");
-        jQuery(this).remove();
-      }
-    });
+/     jQuery('#related > ul').tabs({ fx: { opacity: 'toggle', duration: 150 } });
+/     // code for page limit
+/     jQuery(window).load(function(){
+/       var sessionPerPage = '#{session[:per_page].blank? ? 15 : session[:per_page]}';
+/       if (sessionPerPage == '15'){
+/         jQuery('a#per_page_15').parent().addClass('active').html("15");
+/         jQuery(this).remove();
+/       } else if (sessionPerPage == '30'){
+/         jQuery('a#per_page_30').parent().addClass('active').html("30");
+/         jQuery(this).remove();
+/       } else if (sessionPerPage == '50'){
+/         jQuery('a#per_page_50').parent().addClass('active').html("50");
+/         jQuery(this).remove();
+/       }
+/     });
 
     
-  });
+/   });
