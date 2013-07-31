@@ -654,11 +654,6 @@ div.item-list-tabs ul li.feed a {
     float: left;
     margin: -10px -5px 30px 305px !important;
 }
-.badges-margin-top{
-	margin-top: -92px;
-	float: left;
-	margin: -10px -5px 30px 305px !important;
-}
 
 .post-loop .more1 a {
     background: url("images/arrow-right-small.png") no-repeat scroll right 9px transparent;
@@ -670,4 +665,11 @@ div.item-list-tabs ul li.feed a {
     margin-right: -7px;
     padding: 8px 11px 0 10px;
 
+}
+.ajax-loader{
+	background-image:url("images/ajax-loader.gif"); 
+	height:300px !important; 
+	width:100% !important; 
+	background-position:center center; 
+	background-repeat:no-repeat;
 }

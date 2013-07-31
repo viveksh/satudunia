@@ -400,6 +400,9 @@ Rails.application.routes.draw do
         get :profile
         get :profile_settings, :path=> "/profile/settings"
         get :features
+        get :events
+        get :crowdfunding 
+        get :ajax_entry
         # get :announce, :path=> "/announcements"
 
         # experimental routes

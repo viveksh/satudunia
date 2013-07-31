@@ -1,3 +1,5 @@
+.clearer.hide-responsive  
+%br.hide-responsive/
 #main-wrapper-dark
   / this is only used for the dark skin since it already uses an image for the background texture and light does not
   =# render "experimental/partials/wrapper_box"
@@ -7,7 +9,9 @@
       .ribbon-shadow-left  
       .section-wrapper
         / spotlight section header
-        .section TERMS OF USE
+        .section
+          %i.icon-text-doc
+          TERMS OF USE
       .ribbon-shadow-right  
       .section-arrow  
     .page-content.review
