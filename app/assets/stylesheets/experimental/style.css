@@ -2590,7 +2590,7 @@ table.forum tr th#th-question, table.forum tr th#th-poster, table.forum tr th#th
     border-image: none;
     border-right: 1px solid #E0E0E0;
     border-style: none solid solid none;
-    border-width: 0 1px 1px 0;
+    border-width: 0 0px 1px 0;
     color: #777777;
     font-family: BebasNeueRegular,Arial,Sans-Serif;
     font-size: 1.5em;
