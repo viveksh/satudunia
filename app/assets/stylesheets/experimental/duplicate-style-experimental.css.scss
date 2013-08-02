@@ -169,3 +169,16 @@ form.exp-contact-form-new{
     margin-bottom: 2px;
     padding: 3px;
 }
+/*pagination styles*/
+#pagination-digg{
+	display: inline-block;
+	float: right;
+	margin-top: -7px;
+	li{
+		display: inline;
+		padding:0px;
+	}
+	li.current{
+		padding: 6px 8px !important;
+	}
+}
