@@ -1,4 +1,5 @@
 class SurveyController < ApplicationController
+  before_filter :login_required
   def index
     set_page_title("Surveys")
     @surveys= current_user.profile_tiers
