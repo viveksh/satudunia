@@ -603,17 +603,19 @@ div.item-list-tabs ul li.feed a {
 		border-radius: 6px 6px 6px 6px;
 		list-style-type: none;
 		margin: 0 0px 10px ;
-		padding: none;
-		height:130px;
+		padding: 10px;
+		
 
 }
 .activity-list .activity-content .activity-inner, .activity-list .activity-content blockquote {
-		margin: 10px 10px 5px 0;
+		/*margin: 10px 10px 5px 0;*/
 		overflow: visible;
+		border-left: 2px solid #EAEAEA !important;
+    	margin-left: 5px !important;
+    	padding-left: 10px !important;
 }
 .activity-header a, .comment-meta a, .acomment-meta a {
 		text-decoration: none;
-		padding-left: 10px;
 }
 .activity-inner > p {
 		word-wrap: break-word;

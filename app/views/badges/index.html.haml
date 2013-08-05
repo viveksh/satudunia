@@ -77,25 +77,7 @@
 	/banner box
 	= render "experimental/partials/banner_box"
 :javascript
-	jQuery("#activity-filter-by").change(function(){
-		//variable value taker
-		jQuery('.current_page_parent').html("<div class=ajax-loader></div>");
-		var valueTaker = jQuery(this).val();
-		jQuery.ajax({
-			type:"GET",
-			url:"/ajax_entry",
-			data:"queryData="+valueTaker,
-			dataType:"script",
-			error:function(errorObject){
-				alert(errorObject.toSource());
-
-			},
-			success:function(successObject){
-					//alert(successObject);
-					jQuery('.current_page_parent').html(eval(successObject));
-			}
-		});
-	});
+	Experimental.getAjaxData("/ajax_entry","GET",".current_page_parent");
 
 		
 

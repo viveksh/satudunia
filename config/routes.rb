@@ -157,7 +157,7 @@ Rails.application.routes.draw do
   #match 'questions/ask-a-question' => "questions#new", :as => :new_question
 
   resources :questions, :except => [:show, :new] do
-
+    # some routes written by vivek
     resources :votes
     resources :flags
     collection do
@@ -208,7 +208,7 @@ Rails.application.routes.draw do
     resources :close_requests
     resources :open_requests
   end
-  
+  get '/answer_ajax' =>"answers#answer_ajax"
   get '/search_ajax' => 'searches#search_ajax'
   post '/question_search'=>'questions#question_search#index'
 
@@ -411,7 +411,6 @@ Rails.application.routes.draw do
       end
     end
   end 
-
   match '/moderate' => 'moderate/questions#index'
 #   match '/search' => 'searches#index', :as => :search
   match '/about' => 'groups#show', :as => :about

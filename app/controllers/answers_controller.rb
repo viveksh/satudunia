@@ -1,5 +1,5 @@
 class AnswersController < ApplicationController
-  before_filter :login_required, :except => [:show, :create, :index, :history, :diff]
+  before_filter :login_required, :except => [:show,:answer_ajax, :create, :index, :history, :diff]
   before_filter :check_permissions, :only => [:destroy, :create]
   before_filter :check_update_permissions, :only => [:edit, :update, :revert]
   before_filter :track_pageview
@@ -12,7 +12,7 @@ class AnswersController < ApplicationController
       @question = current_group.questions.by_slug(params[:question_id])
       @answers = @question.answers.without(exclude).page(params["page"])
     else
-      @answers = current_group.answers.without(exclude).page(params["page"])
+      @answers = current_group.answers.without(exclude).page(params["page"]).per(15)
     end
 
     respond_to do |format|
@@ -250,7 +250,12 @@ class AnswersController < ApplicationController
       format.json  { head :ok }
     end
   end
-
+  # ajax fetching answers
+  def answer_ajax
+    exclude = [:votes, :_keywords]
+    @answers = current_group.answers.without(exclude).page(params["page"]).per(15)
+    
+  end
   protected
   def check_permissions
     if params[:id]

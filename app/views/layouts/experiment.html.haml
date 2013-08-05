@@ -265,25 +265,23 @@
 								%div{:class => "alert alert-#{name == :notice ? "success" : "error"}"}
 									/ %a.close{"data-dismiss" => "alert"} ×
 									= content_tag :div, msg, :id => "flash_#{name}"
-						/ =params[:controller]
-						/ %br
-						/ =params[:action]
 						= yield
 				/footer
 				= render "experimental/partials/footer"
 
 		= javascript_include_tag "experimental/plusone.js"
 		= javascript_include_tag "experimental/pinit.js"
-		//= javascript_include_tag "http://platform.tumblr.com/v1/share.js"
+		= javascript_include_tag "experimental/share.js"
 		%script
-			jQuery.getScript("http://platform.tumblr.com/v1/share.js",function(data, textStatus, jqxhr) {
-			console.log(data); //data returned
-			console.log(textStatus); //success
-			console.log(jqxhr.status); //200
-			console.log('Load was performed.');
-			}).fail(function(jqxhr, settings, exception) {
-			console.log(jqxhr);
-			});
+			// imp code to load imp jquery outside from the server
+			//jQuery.getScript("http://platform.tumblr.com/v1/share.js",function(data, textStatus, jqxhr) {
+			//console.log(data); //data returned
+			//console.log(textStatus); //success
+			//console.log(jqxhr.status); //200
+			//console.log('Load was performed.');
+			//}).fail(function(jqxhr, settings, exception) {
+			//console.log(jqxhr);
+			//});
 
 		= javascript_include_tag "experimental/widgets.js"
 		= javascript_include_tag "experimental/buttons.js"

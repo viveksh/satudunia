@@ -48,7 +48,9 @@
         = link_to t('layouts.manage.actions'), "#"
         %ul.drop-menu
           %li.action
-            = link_to t("questions.show.follow_up"), new_question_path(:original_question_id => question.id, :original_answer_id => @answer.id), :class => "pjax", :"data-layout" => "new-question"
+            /= link_to t("questions.show.follow_up"), new_question_path(:original_question_id => question.id, :original_answer_id => @answer.id), :class => "pjax", :"data-layout" => "new-question"
+            = link_to t("questions.show.follow_up"), ask_question_experimental_index_path(:original_question_id => question.id, :original_answer_id => @answer.id), :class => "pjax", :"data-layout" => "new-question"
+            
           - if (current_user.can_modify?(answer) || current_user.mod_of?(question.group))
             %li
               = link_to t("scaffold.destroy"), question_answer_path(question.id, answer.id), :confirm => t('scaffold.are_you_sure'), :method => :delete

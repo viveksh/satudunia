@@ -23,7 +23,7 @@ class ServiceProvidersController < ApplicationController
     end
     @categories = ServiceCategory.all
     # all service alphabetical_providers
-    @serviceProviders = ServiceProvider.all
+    @serviceProviders = ServiceProvider.all.page(params["page"]).per(15)
   end
 
   def show
