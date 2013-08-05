@@ -25,6 +25,7 @@ class Experimental::ExperimentalController < ApplicationController
     @title = "about plus+"
   	@about = StaticPage.where(:static_key => 'about').first
     @about_content =@about.static_content.split('P',2)
+    @news = News.where(:is_archive => false, :is_active => true).page(params[:page]).order(:created_at=>:desc)
   end
   #rss feed
   def rss_feed
