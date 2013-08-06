@@ -129,7 +129,7 @@ class Experimental::ExperimentalController < ApplicationController
   def ajax_entry
     @badges=Badge.TOKENS[0..params[:queryData].to_i]
     respond_to do |format|
-      format.js {}
+      format.js 
     end
     
   end

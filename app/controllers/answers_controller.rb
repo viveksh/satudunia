@@ -254,6 +254,9 @@ class AnswersController < ApplicationController
   def answer_ajax
     exclude = [:votes, :_keywords]
     @answers = current_group.answers.without(exclude).page(params["page"]).per(15)
+    respond_to do |format|
+      format.js{render "/experimental/experimental/ajax_entry"}
+    end
     
   end
   protected

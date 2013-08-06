@@ -1,0 +1,10 @@
+%table
+	%tbody
+	-@badges.each do |badge|
+		%tr
+			%td
+				.badge_item
+					=link_to badge,"#",:class=>"badge"
+			%td
+				.badge_description
+					= badge

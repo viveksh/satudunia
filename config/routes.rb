@@ -209,6 +209,7 @@ Rails.application.routes.draw do
     resources :open_requests
   end
   get '/answer_ajax' =>"answers#answer_ajax"
+  get '/question_ajax' =>"questions#question_ajax"
   get '/search_ajax' => 'searches#search_ajax'
   post '/question_search'=>'questions#question_search#index'
 

@@ -45,7 +45,7 @@
 					Viewing questions #{@questions.options[:skip]} to #{@questions.options[:skip]+@questions.options[:limit]} (of #{@questions.count} active members)
 				#members-dir-list.members.dir-list1
 					= paginate @questions
-			%table.forum
+			%table.forum#question_ajax
 				%thead
 					%tr
 						/%h2 Newest
@@ -56,94 +56,94 @@
 				%tbody
 					- @questions.each do |question|
 						= render "questions/plus_question", :question => question
-		#forums-dir-list-hot.dir-list{:style=>"display:none;"}
-			#pag-top.pagination
-				#member-dir-count-top.pag-count
-					Viewing questions #{@questionsHot.options[:skip]} to #{@questionsHot.options[:skip]+@questionsHot.options[:limit]} (of #{@questionsHot.count} active members)
-				#members-dir-list.members.dir-list1
-					= paginate @questionsHot
-			%table.forum
-				%thead
-					%tr
-						/%h2 Hot
-						%th#th-votes Votes
-						%th#th-answers Answers
-						/ %th#th-views Views
-						%th#th-question Question
-				%tbody
-					- @questionsHot.each do |question|
-						= render "questions/plus_question", :question => question
-		#forums-dir-list-featured.dir-list{:style=>"display:none;"}
-			#pag-top.pagination
-				#member-dir-count-top.pag-count
-					Viewing questions #{@questionsViews.options[:skip]} to #{@questionsViews.options[:skip]+@questionsViews.options[:limit]} (of #{@questionsViews.count} active members)
-				#members-dir-list.members.dir-list1
-					= paginate @questionsViews
-			%table.forum
-				%thead
-					%tr
-						/%h2 Featured
-						%th#th-votes Votes
-						%th#th-answers Answers
-						/ %th#th-views Views
-						%th#th-question Question
-				%tbody
-					- @questionsViews.each do |question|
-						= render "questions/plus_question", :question => question
-		#forums-dir-list-votes.dir-list{:style=>"display:none;"}
-			#pag-top.pagination
-				#member-dir-count-top.pag-count
-					Viewing questions #{@questionsVotes.options[:skip]} to #{@questionsVotes.options[:skip]+@questionsVotes.options[:limit]} (of #{@questionsVotes.count} active members)
-				#members-dir-list.members.dir-list1
-					= paginate @questionsVotes
-			%table.forum
-				%thead
-					%tr
-						/%h2 Votes
-						%th#th-votes Votes
-						%th#th-answers Answers
-						/ %th#th-views Views
-						%th#th-question Question
-				%tbody
-					- @questionsVotes.each do |question|
-						= render "questions/plus_question", :question => question
-		#forums-dir-list-unanswered.dir-list{:style=>"display:none;"}
-			#pag-top.pagination
-				#member-dir-count-top.pag-count
-					Viewing questions #{@questionsUnanswered.options[:skip]} to #{@questionsUnanswered.options[:skip]+@questionsUnanswered.options[:limit]} (of #{@questionsUnanswered.count} active members)
-				#members-dir-list.members.dir-list1
-					= paginate @questionsUnanswered
-			%table.forum
-				%thead
-					%tr
-						/%h2 Unanswered
-						%th#th-votes Votes
-						%th#th-answers Answers
-						/ %th#th-views Views
-						%th#th-question Question
-				%tbody
-					- @questionsUnanswered.each do |question|
-						= render "questions/plus_question", :question => question
-		#forums-dir-list-xxx.dir-list{:style=>"display:none;"}
-			#pag-top.pagination
-				#member-dir-count-top.pag-count
-					Viewing questions 0 (of 0 active members)
-			%table.forum
-				%thead
-					%tr
-						/%h2 XXX
-						%th#th-votes Votes
-						%th#th-answers Answers
-						/ %th#th-views Views
-						%th#th-question Question
-				%tbody
-					%p xxx
-		#forums-dir-list-newest.dir-list
-			#pag-top.pagination
-				#member-dir-count-top.pag-count
-					Viewing questions #{@questions.options[:skip]} to #{@questions.options[:skip]+@questions.options[:limit]} (of #{@questions.count} active members)
-				#members-dir-list.members.dir-list1
-					= paginate @questions
+		/ #forums-dir-list-hot.dir-list{:style=>"display:none;"}
+		/ 	#pag-top.pagination
+		/ 		#member-dir-count-top.pag-count
+		/ 			Viewing questions #{@questionsHot.options[:skip]} to #{@questionsHot.options[:skip]+@questionsHot.options[:limit]} (of #{@questionsHot.count} active members)
+		/ 		#members-dir-list.members.dir-list1
+		/ 			= paginate @questionsHot
+		/ 	%table.forum
+		/ 		%thead
+		/ 			%tr
+		/ 				/%h2 Hot
+		/ 				%th#th-votes Votes
+		/ 				%th#th-answers Answers
+		/ 				/ %th#th-views Views
+		/ 				%th#th-question Question
+		/ 		%tbody
+		/ 			- @questionsHot.each do |question|
+		/ 				= render "questions/plus_question", :question => question
+		/ #forums-dir-list-featured.dir-list{:style=>"display:none;"}
+		/ 	#pag-top.pagination
+		/ 		#member-dir-count-top.pag-count
+		/ 			Viewing questions #{@questionsViews.options[:skip]} to #{@questionsViews.options[:skip]+@questionsViews.options[:limit]} (of #{@questionsViews.count} active members)
+		/ 		#members-dir-list.members.dir-list1
+		/ 			= paginate @questionsViews
+		/ 	%table.forum
+		/ 		%thead
+		/ 			%tr
+		/ 				/%h2 Featured
+		/ 				%th#th-votes Votes
+		/ 				%th#th-answers Answers
+		/ 				/ %th#th-views Views
+		/ 				%th#th-question Question
+		/ 		%tbody
+		/ 			- @questionsViews.each do |question|
+		/ 				= render "questions/plus_question", :question => question
+		/ #forums-dir-list-votes.dir-list{:style=>"display:none;"}
+		/ 	#pag-top.pagination
+		/ 		#member-dir-count-top.pag-count
+		/ 			Viewing questions #{@questionsVotes.options[:skip]} to #{@questionsVotes.options[:skip]+@questionsVotes.options[:limit]} (of #{@questionsVotes.count} active members)
+		/ 		#members-dir-list.members.dir-list1
+		/ 			= paginate @questionsVotes
+		/ 	%table.forum
+		/ 		%thead
+		/ 			%tr
+		/ 				/%h2 Votes
+		/ 				%th#th-votes Votes
+		/ 				%th#th-answers Answers
+		/ 				/ %th#th-views Views
+		/ 				%th#th-question Question
+		/ 		%tbody
+		/ 			- @questionsVotes.each do |question|
+		/ 				= render "questions/plus_question", :question => question
+		/ #forums-dir-list-unanswered.dir-list{:style=>"display:none;"}
+		/ 	#pag-top.pagination
+		/ 		#member-dir-count-top.pag-count
+		/ 			Viewing questions #{@questionsUnanswered.options[:skip]} to #{@questionsUnanswered.options[:skip]+@questionsUnanswered.options[:limit]} (of #{@questionsUnanswered.count} active members)
+		/ 		#members-dir-list.members.dir-list1
+		/ 			= paginate @questionsUnanswered
+		/ 	%table.forum
+		/ 		%thead
+		/ 			%tr
+		/ 				/%h2 Unanswered
+		/ 				%th#th-votes Votes
+		/ 				%th#th-answers Answers
+		/ 				/ %th#th-views Views
+		/ 				%th#th-question Question
+		/ 		%tbody
+		/ 			- @questionsUnanswered.each do |question|
+		/ 				= render "questions/plus_question", :question => question
+		/ #forums-dir-list-xxx.dir-list{:style=>"display:none;"}
+		/ 	#pag-top.pagination
+		/ 		#member-dir-count-top.pag-count
+		/ 			Viewing questions 0 (of 0 active members)
+		/ 	%table.forum
+		/ 		%thead
+		/ 			%tr
+		/ 				/%h2 XXX
+		/ 				%th#th-votes Votes
+		/ 				%th#th-answers Answers
+		/ 				/ %th#th-views Views
+		/ 				%th#th-question Question
+		/ 		%tbody
+		/ 			%p xxx
+		/ #forums-dir-list-newest.dir-list
+		/ 	#pag-top.pagination
+		/ 		#member-dir-count-top.pag-count
+		/ 			Viewing questions #{@questions.options[:skip]} to #{@questions.options[:skip]+@questions.options[:limit]} (of #{@questions.count} active members)
+		/ 		#members-dir-list.members.dir-list1
+		/ 			= paginate @questions
 
 	.page-content.review.single-post
 		%link{:href => "http://www.industrialthemes.com/made/wp-content/uploads/2012/06/misc1-160x160.jpg", :rel => "image_src"}/
@@ -187,6 +187,7 @@
 						/%i.icon-vcard
 						Disqus
 			.section-arrow 
+
 			
 
 
@@ -207,15 +208,17 @@
 
 
 :javascript
-	jQuery(document).ready(function($){
-		$("#activity-filter-by").change(function(){
-			//alert("asdf");
-			//event.preventDefault();
-			var valueTaker = $(this).val().split("-");
+	// jQuery(document).ready(function($){
+	// 	$("#activity-filter-by").change(function(){
+	// 		//alert("asdf");
+	// 		//event.preventDefault();
+	// 		var valueTaker = $(this).val().split("-");
 
-			$(".dir-list").fadeOut('slow');
-			$("#forums-dir-list-"+valueTaker[0]).fadeIn('slow','linear');
+	// 		$(".dir-list").fadeOut('slow');
+	// 		$("#forums-dir-list-"+valueTaker[0]).fadeIn('slow','linear');
 			
 			
-		});
-	});
+	// 	});
+	// });
+	// get ajax data
+	Experimental.getAjaxData("#activity-filter-by","/question_ajax","GET","question_ajax  tbody","question_ajax");
