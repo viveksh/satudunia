@@ -24,8 +24,17 @@ class Experimental::ExperimentalController < ApplicationController
   def public_about
     @title = "about plus+"
   	@about = StaticPage.where(:static_key => 'about').first
+    @about_user = User.find(@about.user_id) if @about.user_id?
+
+    # fetching data data to show in related box
+    @tos = StaticPage.where(:static_key => 'tos').first
+    @eula = StaticPage.where(:static_key => 'eula').first
+    @privacy = StaticPage.where(:static_key => 'privacy').first
+    # fetching data data to show in related box
+
     @about_content =@about.static_content.split('P',2)
     @news = News.where(:is_archive => false, :is_active => true).page(params[:page]).order(:created_at=>:desc)
+    @articles = Article.where(:is_archive => false, :is_active => true).page(params[:page]).order(:created_at=>:desc)
   end
   #rss feed
   def rss_feed
