@@ -2476,7 +2476,7 @@ fonts
     margin: 15px 0 5px;
 }
 .standard-form input[type="text"], .standard-form textarea, .form-allowed-tags, #commentform input[type="text"], #commentform textarea {
-    width: 90% !important;
+    width: 90%;
 }
 .standard-form input[type="text"] {
     width: 75%;
