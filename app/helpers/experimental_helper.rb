@@ -7,4 +7,7 @@ module ExperimentalHelper
 		(params[:controller] == "experimental/experimental" && params[:action] == "index") 
 	end
 
+	def filter_updated_at
+		return [@privacy, @eula, @tos, @about].sort_by{|e| e[:updated_at]}
+	end
 end

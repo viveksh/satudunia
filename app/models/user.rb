@@ -87,6 +87,7 @@ class User
   references_many :invitations, :dependent => :destroy, :validate => false
   references_many :news, :dependent => :destroy, :validate => false
   references_many :article, :dependent => :destroy, :validate => false
+  references_many :static_page
   references_many :polls
   references_many :profile_tiers
   references_many :countquestions,:dependent => :destroy
