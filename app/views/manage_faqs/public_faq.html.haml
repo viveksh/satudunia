@@ -40,12 +40,12 @@
     .review-content
       .ribbon-shadow-left
       .section-wrapper
-        .section-header
-          / .comment-bubble
-          /   #{image_tag("experimental/images/comment-tiny.png")} 0
-          Disqus
-          = succeed "." do
+        .section
+          .comment-bubble
             %a{:href => "http://disqus.com.html#disqus_thread"} Link
+          / making title stronger
+          .section-for-header
+            Disqus
       .section-arrow
       #disqus_thread
       :javascript

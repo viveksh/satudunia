@@ -96,9 +96,12 @@
         .review-content
           .ribbon-shadow-left
           .section-wrapper
-            .section-header
-              Disqus
-              %a{:href => "http://disqus.com.html#disqus_thread"} Link
+            .section
+              .comment-bubble
+                %a{:href => "http://disqus.com.html#disqus_thread"} Link
+              / making title stronger
+              .section-for-header
+                Disqus
           .section-arrow 
           #disqus_thread
           :javascript
