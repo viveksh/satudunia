@@ -33,10 +33,10 @@
 				%li#members-order-select.last.filter
 					%label{:for => "members-order-by"} Filter:
 					%select#activity-filter-by
-						%option{:value => 100} All
-						%option{:value => 20} Gold
-						%option{:value => 10} Silver
-						%option{:value => 5} Bronze
+						%option{:value => "all"} All
+						%option{:value => "gold"} Gold
+						%option{:value => "silver"} Silver
+						%option{:value => "bronze"} Bronze
 	.page-content.review
 		.overview-wrapper
 			
@@ -78,4 +78,4 @@
 	/banner box
 	= render "experimental/partials/banner_box"
 :javascript
-	Experimental.getAjaxData("#activity-filter-by","/ajax_entry","GET","badges_ajax","badges_list");
+	Experimental.getAjaxData("#activity-filter-by","/badges","GET","badges_ajax","badges_list");
