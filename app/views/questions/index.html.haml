@@ -45,7 +45,7 @@
 					Viewing questions #{@questions.options[:skip]} to #{@questions.options[:skip]+@questions.options[:limit]} (of #{@questions.count} active members)
 				#members-dir-list.members.dir-list1
 					= paginate @questions
-			%table.forum
+			%table.forum#question_ajax
 				%thead
 					%tr
 						/%h2 Newest
@@ -56,88 +56,88 @@
 				%tbody
 					- @questions.each do |question|
 						= render "questions/plus_question", :question => question
-		#forums-dir-list-hot.dir-list{:style=>"display:none;"}
-			#pag-top.pagination
-				#member-dir-count-top.pag-count
-					Viewing questions #{@questionsHot.options[:skip]} to #{@questionsHot.options[:skip]+@questionsHot.options[:limit]} (of #{@questionsHot.count} active members)
-				#members-dir-list.members.dir-list1
-					= paginate @questionsHot
-			%table.forum
-				%thead
-					%tr
-						/%h2 Hot
-						%th#th-votes Votes
-						%th#th-answers Answers
-						/ %th#th-views Views
-						%th#th-question Question
-				%tbody
-					- @questionsHot.each do |question|
-						= render "questions/plus_question", :question => question
-		#forums-dir-list-featured.dir-list{:style=>"display:none;"}
-			#pag-top.pagination
-				#member-dir-count-top.pag-count
-					Viewing questions #{@questionsViews.options[:skip]} to #{@questionsViews.options[:skip]+@questionsViews.options[:limit]} (of #{@questionsViews.count} active members)
-				#members-dir-list.members.dir-list1
-					= paginate @questionsViews
-			%table.forum
-				%thead
-					%tr
-						/%h2 Featured
-						%th#th-votes Votes
-						%th#th-answers Answers
-						/ %th#th-views Views
-						%th#th-question Question
-				%tbody
-					- @questionsViews.each do |question|
-						= render "questions/plus_question", :question => question
-		#forums-dir-list-votes.dir-list{:style=>"display:none;"}
-			#pag-top.pagination
-				#member-dir-count-top.pag-count
-					Viewing questions #{@questionsVotes.options[:skip]} to #{@questionsVotes.options[:skip]+@questionsVotes.options[:limit]} (of #{@questionsVotes.count} active members)
-				#members-dir-list.members.dir-list1
-					= paginate @questionsVotes
-			%table.forum
-				%thead
-					%tr
-						/%h2 Votes
-						%th#th-votes Votes
-						%th#th-answers Answers
-						/ %th#th-views Views
-						%th#th-question Question
-				%tbody
-					- @questionsVotes.each do |question|
-						= render "questions/plus_question", :question => question
-		#forums-dir-list-unanswered.dir-list{:style=>"display:none;"}
-			#pag-top.pagination
-				#member-dir-count-top.pag-count
-					Viewing questions #{@questionsUnanswered.options[:skip]} to #{@questionsUnanswered.options[:skip]+@questionsUnanswered.options[:limit]} (of #{@questionsUnanswered.count} active members)
-				#members-dir-list.members.dir-list1
-					= paginate @questionsUnanswered
-			%table.forum
-				%thead
-					%tr
-						/%h2 Unanswered
-						%th#th-votes Votes
-						%th#th-answers Answers
-						/ %th#th-views Views
-						%th#th-question Question
-				%tbody
-					- @questionsUnanswered.each do |question|
-						= render "questions/plus_question", :question => question
-		#forums-dir-list-xxx.dir-list{:style=>"display:none;"}
-			#pag-top.pagination
-				#member-dir-count-top.pag-count
-					Viewing questions 0 (of 0 active members)
-			%table.forum
-				%thead
-					%tr
-						/%h2 XXX
-						%th#th-votes Votes
-						%th#th-answers Answers
-						/ %th#th-views Views
-						%th#th-question Question
-				%tbody
-					%p xxx
+		/ #forums-dir-list-hot.dir-list{:style=>"display:none;"}
+		/ 	#pag-top.pagination
+		/ 		#member-dir-count-top.pag-count
+		/ 			Viewing questions #{@questionsHot.options[:skip]} to #{@questionsHot.options[:skip]+@questionsHot.options[:limit]} (of #{@questionsHot.count} active members)
+		/ 		#members-dir-list.members.dir-list1
+		/ 			= paginate @questionsHot
+		/ 	%table.forum
+		/ 		%thead
+		/ 			%tr
+		/ 				/%h2 Hot
+		/ 				%th#th-votes Votes
+		/ 				%th#th-answers Answers
+		/ 				/ %th#th-views Views
+		/ 				%th#th-question Question
+		/ 		%tbody
+		/ 			- @questionsHot.each do |question|
+		/ 				= render "questions/plus_question", :question => question
+		/ #forums-dir-list-featured.dir-list{:style=>"display:none;"}
+		/ 	#pag-top.pagination
+		/ 		#member-dir-count-top.pag-count
+		/ 			Viewing questions #{@questionsViews.options[:skip]} to #{@questionsViews.options[:skip]+@questionsViews.options[:limit]} (of #{@questionsViews.count} active members)
+		/ 		#members-dir-list.members.dir-list1
+		/ 			= paginate @questionsViews
+		/ 	%table.forum
+		/ 		%thead
+		/ 			%tr
+		/ 				/%h2 Featured
+		/ 				%th#th-votes Votes
+		/ 				%th#th-answers Answers
+		/ 				/ %th#th-views Views
+		/ 				%th#th-question Question
+		/ 		%tbody
+		/ 			- @questionsViews.each do |question|
+		/ 				= render "questions/plus_question", :question => question
+		/ #forums-dir-list-votes.dir-list{:style=>"display:none;"}
+		/ 	#pag-top.pagination
+		/ 		#member-dir-count-top.pag-count
+		/ 			Viewing questions #{@questionsVotes.options[:skip]} to #{@questionsVotes.options[:skip]+@questionsVotes.options[:limit]} (of #{@questionsVotes.count} active members)
+		/ 		#members-dir-list.members.dir-list1
+		/ 			= paginate @questionsVotes
+		/ 	%table.forum
+		/ 		%thead
+		/ 			%tr
+		/ 				/%h2 Votes
+		/ 				%th#th-votes Votes
+		/ 				%th#th-answers Answers
+		/ 				/ %th#th-views Views
+		/ 				%th#th-question Question
+		/ 		%tbody
+		/ 			- @questionsVotes.each do |question|
+		/ 				= render "questions/plus_question", :question => question
+		/ #forums-dir-list-unanswered.dir-list{:style=>"display:none;"}
+		/ 	#pag-top.pagination
+		/ 		#member-dir-count-top.pag-count
+		/ 			Viewing questions #{@questionsUnanswered.options[:skip]} to #{@questionsUnanswered.options[:skip]+@questionsUnanswered.options[:limit]} (of #{@questionsUnanswered.count} active members)
+		/ 		#members-dir-list.members.dir-list1
+		/ 			= paginate @questionsUnanswered
+		/ 	%table.forum
+		/ 		%thead
+		/ 			%tr
+		/ 				/%h2 Unanswered
+		/ 				%th#th-votes Votes
+		/ 				%th#th-answers Answers
+		/ 				/ %th#th-views Views
+		/ 				%th#th-question Question
+		/ 		%tbody
+		/ 			- @questionsUnanswered.each do |question|
+		/ 				= render "questions/plus_question", :question => question
+		/ #forums-dir-list-xxx.dir-list{:style=>"display:none;"}
+		/ 	#pag-top.pagination
+		/ 		#member-dir-count-top.pag-count
+		/ 			Viewing questions 0 (of 0 active members)
+		/ 	%table.forum
+		/ 		%thead
+		/ 			%tr
+		/ 				/%h2 XXX
+		/ 				%th#th-votes Votes
+		/ 				%th#th-answers Answers
+		/ 				/ %th#th-views Views
+		/ 				%th#th-question Question
+		/ 		%tbody
+		/ 			%p xxx
 		#forums-dir-list-newest.dir-list
 			#pag-top.pagination
 				#member-dir-count-top.pag-count
@@ -158,22 +158,22 @@
 						/%i.icon-vcard
 						Other Topics
 			.section-arrow 
-			.post-loop.directory
-				.post-panel{:style => "width:605px;"}
-					.header
-						.more
-							%a{:href => "single-review-numbers.html"} More
-						%h2{:style => "background:url(http://www.industrialthemes.com/made/wp-content/themes/made/images/review-product-dark.png) no-repeat 0px 0px;"} Non-Review
-						.arrow-catpanel-bottom{:style=>"left:200px;"}
-					%a.title.first{:href => "single-review-numbers.html", :style => "color:#262626"} Klipsch Gallery G-17 iPad speaker
-					%a.title.alt{:href => "single-review-numbers.html", :style => "color:#262626"} Kiss removable phone batteries goodbye
-					%a.title{:href => "single-review-numbers.html", :style => "color:#262626"} Graffiti artist unlikely winner in Facebook IPO
-					%a.title.alt{:href => "single-review-numbers.html", :style => "color:#262626"} BitTorrent revolutionizes live streaming
-					%a.title{:href => "single-review-numbers.html", :style => "color:#262626"} LG Spectrum for Verizonx
-					%a.title.alt{:href => "single-review-numbers.html", :style => "color:#262626"} Toshiba Satellite Intel Dual Core 2GHz 16″ LED Laptop for $380 + free shipping
-					%a.title{:href => "single-review-numbers.html", :style => "color:#262626"} Samsung Series 3 AMD Quad Core 1.6GHz 16″ Laptop for $450 + free shipping
-					%a.title.alt.last{:href => "single-review-numbers.html", :style => "color:#262626"} HP Envy 15 (winter 2012)
-				%br.clearer/
+	.post-loop.directory
+		.post-panel.wide
+			.header
+				.more
+					%a{:href => "single-review-numbers.html"} More
+				%h2{:style => "background:url(http://www.industrialthemes.com/made/wp-content/themes/made/images/review-product-dark.png) no-repeat 0px 0px;"} Non-Review
+				.arrow-catpanel-bottom  
+			%a.title.first{:href => "single-review-numbers.html", :style => "color:#262626"} Klipsch Gallery G-17 iPad speaker
+			%a.title.alt{:href => "single-review-numbers.html", :style => "color:#262626"} Kiss removable phone batteries goodbye
+			%a.title{:href => "single-review-numbers.html", :style => "color:#262626"} Graffiti artist unlikely winner in Facebook IPO
+			%a.title.alt{:href => "single-review-numbers.html", :style => "color:#262626"} BitTorrent revolutionizes live streaming
+			%a.title{:href => "single-review-numbers.html", :style => "color:#262626"} LG Spectrum for Verizonx
+			%a.title.alt{:href => "single-review-numbers.html", :style => "color:#262626"} Toshiba Satellite Intel Dual Core 2GHz 16″ LED Laptop for $380 + free shipping
+			%a.title{:href => "single-review-numbers.html", :style => "color:#262626"} Samsung Series 3 AMD Quad Core 1.6GHz 16″ Laptop for $450 + free shipping
+			%a.title.alt.last{:href => "single-review-numbers.html", :style => "color:#262626"} HP Envy 15 (winter 2012)
+		%br.clearer/
 	.page-content.review.single-post
 		%link{:href => "http://www.industrialthemes.com/made/wp-content/uploads/2012/06/misc1-160x160.jpg", :rel => "image_src"}/
 		.review-content
@@ -181,14 +181,39 @@
 			.section-wrapper
 				.section
 					.comment-bubble
-						%a{:href => "#respond", :title => "Comment on Made Magazine Is The First Responsive Theme Released By IndustrialThemes"} 0
+						%a{:href => "http://disqus.com.html#disqus_thread"} Link
 					/ making title stronger
 					.section-for-header
-						/%i.icon-vcard
 						Disqus
 			.section-arrow 
-			
 
+			
+			#disqus_thread
+			:javascript
+				/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+				var disqus_shortname = 'plusbchange'; // required: replace example with your forum shortname
+
+				/* * * DON'T EDIT BELOW THIS LINE * * */
+				(function() {
+					var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+					dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js'; 
+					(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq); 
+				})();
+			%noscript 
+				Please enable JavaScript to view the 
+				%a{:href => "http://disqus.com/?ref_noscript"} comments powered by Disqus
+			%a.dsq-brlink{:href => "http://disqus.com"}
+				comments powered by
+				%span.logo-disqus Disqus
+			:javascript
+				var disqus_shortname = 'plusbchange'; // required: replace example with your forum shortname
+				// required: replace example with your forum shortname
+				(function () {
+					var s = document.createElement('script'); s.async = true;
+					s.type = 'text/javascript';
+					s.src = '//'+disqus_shortname+'.disqus.com/count.js';
+					(document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+				}());
 
 .sidebar
 	= render "experimental/partials/recent_tags"
@@ -207,15 +232,17 @@
 
 
 :javascript
-	jQuery(document).ready(function($){
-		$("#activity-filter-by").change(function(){
-			//alert("asdf");
-			//event.preventDefault();
-			var valueTaker = $(this).val().split("-");
+	// jQuery(document).ready(function($){
+	// 	$("#activity-filter-by").change(function(){
+	// 		//alert("asdf");
+	// 		//event.preventDefault();
+	// 		var valueTaker = $(this).val().split("-");
 
-			$(".dir-list").fadeOut('slow');
-			$("#forums-dir-list-"+valueTaker[0]).fadeIn('slow','linear');
+	// 		$(".dir-list").fadeOut('slow');
+	// 		$("#forums-dir-list-"+valueTaker[0]).fadeIn('slow','linear');
 			
 			
-		});
-	});
+	// 	});
+	// });
+	// get ajax data
+	Experimental.getAjaxData("#activity-filter-by","/question_ajax","GET","question_ajax  tbody","question_ajax");

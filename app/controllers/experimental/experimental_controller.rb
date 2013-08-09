@@ -133,16 +133,6 @@ class Experimental::ExperimentalController < ApplicationController
   #action crowd funding
   def crowdfunding
     @title="Crowd Funding"
-  end 
-  # ajax_entry
-  def ajax_entry
-    @badges=Badge.TOKENS[0..params[:queryData].to_i]
-    respond_to do |format|
-      format.js {}
-    end
-    
   end
-  
-
 
 end

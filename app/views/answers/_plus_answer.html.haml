@@ -4,27 +4,31 @@
     .overview1.nopadding-top
       .excerpt-new.justify-content
         %p.filter-content-new
-          %h1.title 
-            Re: #{@title.upcase}
-          %p 
-            Posted By: #{answer.user.login}
-          %p
-            Posted On: #{answer.created_at.to_datetime.strftime("%d %b %Y - %I:%M %p")}
+          %table{:style=>"width:45%;"}
+            %tbody
+              %tr
+                %td
+                  = link_to image_tag("to_vote_up.png")
+                  %p.reiting_num3{:style => "padding-left:10px;"}
+                    = answer.votes_count
+                  = link_to image_tag("to_vote_down.png"), "#", :class => "reiting_num4"
+                %td
+                  %h6
+                    Re: #{@title.upcase} 
+                  %p 
+                    Posted By: #{answer.user.login}
+                  %p
+                    Posted On: #{answer.created_at.to_datetime.strftime("%d %b %Y - %I:%M %p")}
         %p
           %ul{:id => "slider22", :class => "i3_2"}
             %li.pager.ps2
-              %ul
+              %ul.page
                 %li
-                  / .q_height
-                  /   = link_to image_tag("favorites.png")
-                  /   = answer.votes_count
                   .grid_14.Fright1{:style => "margin: 10px !important;"}
                     %span{:class => "s1_q_i"}
-                      = link_to image_tag("favorites.png")
-                      = answer.votes_count
                       = answer.body.html_safe
-                    / %a{:class => "q_i_tag2", :href => "#"}
-                    /   = image_tag "plus/q_user_i.jpg"
+                    
+                
                     
               .clear
               / questions comments

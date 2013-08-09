@@ -646,11 +646,14 @@ div.item-list-tabs ul li.feed a {
 
 }
 .ajax-loader{
-	background-image:url("images/ajax-loader.gif"); 
-	height:300px !important; 
-	width:100% !important; 
-	background-position:center center; 
-	background-repeat:no-repeat;
+	background-image: url("images/pre-loader");
+    background-position: center center;
+    background-repeat: no-repeat;
+    float: right;
+    height: 23px !important;
+    margin-left: 5px;
+    width: 15px !important;
+    display: none;
 }
 .contact-button{
 		background: -moz-linear-gradient(center top , #FFFFFF 0%, #EDEDED 100%) repeat scroll 0 0 transparent;
@@ -720,4 +723,8 @@ div.item-list-tabs ul li.feed a {
 .fright1{
 	float:left;
 	width:515px;
+}
+
+.page{
+	margin-top:0px !important;
 }
