@@ -8,6 +8,6 @@ module ExperimentalHelper
 	end
 
 	def filter_updated_at
-		return [@privacy, @eula, @tos, @about].sort_by{|e| e[:updated_at]}
+		return [@privacy, @eula, @tos, @about].sort_by{|e| e[:updated_at]}.reverse
 	end
 end
