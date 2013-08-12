@@ -134,5 +134,33 @@ class Experimental::ExperimentalController < ApplicationController
   def crowdfunding
     @title="Crowd Funding"
   end
+  #action dashboard
+  def dashboard
+    exclude = [:votes, :_keywords]
+    @body_id = "page3"
+    @user= current_user
+    @resources = Question.all.order_by(current_order).page(params["page"]).per(session[:per_page].blank? ? 15 : session[:per_page])
+    resources_conditional_fetch(params[:queryData],exclude)
+    respond_to do |format|
+      format.html
+      format.json { render :json => @resources } 
+      format.js{render "/experimental/experimental/ajax_entry"}
+    end
+  end
+  #action for dashboard
+  def resources_conditional_fetch(queryData,exclude)
+    # unless condition for ajax condition
+    unless queryData.blank?
+      case queryData
+        when "newest"
+          @resources = Question.all.order(:created_at=>:desc).page(params["page"]).per(15)
+        else
+          #@resources = Question.all.page(params["page"]).per(15) 
+          #.order_by(current_order).page(params["page"]).per(session[:per_page].blank? ? 2 : session[:per_page])
+          @answers = nil
+      end
+    end  
+
+  end
 
 end
