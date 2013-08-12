@@ -53,24 +53,16 @@
           %li.selected
             %a{:href=>"javascript:void(0)"}
               Questions
-              %span
-                = @resources.count rescue ""
               .ajax-loader
           %li
             %a{:href=>"javascript:void(0)"}
               answers
-              %span
-                0
           %li
             %a{:href=>"javascript:void(0)"}
               following
-              %span
-                0
           %li
             %a{:href=>"javascript:void(0)"}
               starred
-              %span
-                0
       #subnav.item-list-tabs.no-ajax{:role => "navigation"}
         %ul
           %li#activity-filter-select.last.filter
@@ -123,7 +115,9 @@
 
     
 .sidebar
-  = render "experimental/partials/left_bar"
+  = render "experimental/partials/user_info"
+
+
 :javascript
   jQuery("#object-nav_firstElement > ul > li").click(function(){
     jQuery("#object-nav_firstElement > ul > li").removeClass('selected');

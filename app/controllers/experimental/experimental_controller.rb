@@ -109,7 +109,10 @@ class Experimental::ExperimentalController < ApplicationController
   end
 
   def profile
-    
+    redirect_to :controller=>'experimental/experimental', :action => 'dashboard'
+  end
+
+  def dashboard
   end
 
   def profile_settings
