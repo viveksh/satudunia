@@ -226,7 +226,7 @@ class UsersController < ApplicationController
 
     @user = current_user
 
-    if params[:current_password] && @user.valid_password?(params[:current_password])
+    if params[:user][:current_password] && @user.valid_password?(params[:user][:current_password])
       @user.encrypted_password = ""
       @user.password = params[:user][:password]
       @user.password_confirmation = params[:user][:password_confirmation]
@@ -260,7 +260,7 @@ class UsersController < ApplicationController
         @invitation.confirm if @invitation
         redirect_to accept_invitation_path(:step => params[:next_step], :id => params[:invitation_id])
       else
-        redirect_to user_path(@user)
+        redirect_to "/profile/settings"
       end
     else
       render :action => "edit"
