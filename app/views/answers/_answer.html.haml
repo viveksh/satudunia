@@ -1,7 +1,7 @@
 %ul#activity-stream.activity-list.item-list
-	-if @answers.blanky?
+	-if @answers.blank?
 		= render "experimental/partials/_emty_record_message"
-	-else
+	-else 	
 		-@answers.each do |answer|
 			-@question = answer.question
 			-next if @question.nil?

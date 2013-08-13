@@ -140,6 +140,7 @@ class UsersController < ApplicationController
                               page(params["page"])
     respond_to do |format|
       format.html{render :show}
+      format.js{render "/experimental/experimental/ajax_entry"}
     end
   end
 
@@ -166,7 +167,8 @@ class UsersController < ApplicationController
                           page(params["page"])
     end
     respond_to do |format|
-      format.html{render :show}
+      # format.html{render :show}
+      format.js{render "/experimental/experimental/ajax_entry"}
     end
   end
 
@@ -453,5 +455,7 @@ class UsersController < ApplicationController
 
     @user.viewed_on!(current_group, request.remote_ip) if @user != current_user && !is_bot?
   end
+
+
 end
 

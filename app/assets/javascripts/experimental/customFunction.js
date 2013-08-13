@@ -24,8 +24,8 @@ var Experimental = {
 	//method = method of sending data
 	//idToLoader = where you want to loade loader and data
 	//nameOfPartial = partial name to show
-	getAjaxData:function(actionId,url,method,idToLoader,nameOfPartial){
-		jQuery(actionId).change(function(){
+	getAjaxData:function(event,actionId,url,method,idToLoader,nameOfPartial){
+		jQuery(actionId).on(event,function(){
 		//variable value taker
 		jQuery(".ajax-loader").show();
 		var valueTaker = jQuery(this).val();
