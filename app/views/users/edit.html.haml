@@ -31,6 +31,7 @@
 						%a#user-xprofile{:href => "javascript:void(0)",:data_send=>"profile",:user_id=>"#{@user.id}"} Profile
 					
 					=# tab_entry "li", "Survey", survey_user_path(@user), {:selected => "selected"}, {:class => "activity"}
+
 			#subnav.item-list-tabs.no-ajax.activity_sub{:role => "navigation"}
 				%ul
 					= render "users/activity_subtabs"
@@ -39,20 +40,15 @@
 					= render "users/profile_subtabs"
 			#members-dir-list.members.dir-list.activity_tab{:style =>"display:none"}
 				%ul#members-list.items-list
-					= render "users/edit_activity"
-			.review-content.user_profile_tab
-				.content-panel
-					.the-content
-						/ old plus content
-						%h1= link_to @user.display_name, user_path(@user)
-					= render "users/edit"
-		 
+					= render "users/show/user_activity_content"
+			.review-content#user_profile_tab
+				.overview-wrapper
+					.overview-new
+						.left-panel
+							/ %h1{:style=>"background:none; border:none"}
+							/ 	= link_to @user.display_name, user_path(@user)
+							= render "users/edit"
 
-
-
-
-			
- 
 /side bar
 .sidebar
 	=# render "experimental/partials/left_bar"
@@ -72,15 +68,12 @@
 
 
 :javascript
-	//jQuery(window).load(function(){
-	//	jQuery('#edit-user-link').click(function(){
-	//		jQuery('#edit-user-form').submit();
-	//	});
-	//});
+	
 	jQuery("#object-nav_firstElement > ul > li").click(function(){
 		jQuery("#object-nav_firstElement > ul > li").removeClass('selected');
 		jQuery(this).addClass('selected');
 	});
+	
 	jQuery("#user-activity").click(function(){
 		jQuery(".activity_sub").show();
 		jQuery(".profile_sub").hide();
@@ -93,3 +86,5 @@
 		jQuery(".activity_tab").hide();
 		jQuery(".user_profile_tab").show();
 	});	
+	// ajax function
+	
