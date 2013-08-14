@@ -39,7 +39,7 @@ var Experimental = {
 
 			},
 			success:function(successObject){
-				jQuery(".ajax-loader").hide();
+				jQuery(loaderIdOrClass).removeClass("ajax-loader");
 				jQuery("#"+idToLoader).fadeIn('slow');
 				//alert(successObject);
 				//jQuery(classToShow).html(eval(successObject));
