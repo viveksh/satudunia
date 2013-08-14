@@ -24,10 +24,10 @@ var Experimental = {
 	//method = method of sending data
 	//idToLoader = where you want to loade loader and data
 	//nameOfPartial = partial name to show
-	getAjaxData:function(event,actionId,url,method,idToLoader,nameOfPartial){
+	getAjaxData:function(event,actionId,url,method,idToLoader,nameOfPartial,loaderIdOrClass){
 		jQuery(actionId).on(event,function(){
 		//variable value taker
-		jQuery(".ajax-loader").show();
+		jQuery(loaderIdOrClass).addClass("ajax-loader");
 		var valueTaker = jQuery(this).val();
 		jQuery.ajax({
 			type:method,

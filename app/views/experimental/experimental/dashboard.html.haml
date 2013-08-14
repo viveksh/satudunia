@@ -53,16 +53,27 @@
           %li.selected.user-xprofile
             %a{:href=>"javascript:void(0)",:id=>"questions-ajax"}
               Questions
-              /.ajax-loader
+              %span
+                0
+              .loader
           %li.user-xprofile
             %a{:href=>"javascript:void(0)",:id=>"answer-ajax"}
               answers
+              %span
+                0
+              .loader
           %li.user-following
             %a{:href=>"javascript:void(0)",:id=>"following-ajax"}
               following
+              %span
+                0
+              .loader
           %li.user-xprofile
             %a{:href=>"javascript:void(0)",:id=>"starred-ajax"}
               starred
+              %span
+                0
+              .loader
       #subnav.item-list-tabs.no-ajax{:role => "navigation"}
         %ul
           = render "users/show/user_dashboard_filters"
@@ -95,23 +106,20 @@
     });
   });
   // ajax function
-  Experimental.getAjaxData("click","#answer-ajax","/answers","GET","activity-stream","answer");
-  Experimental.getAjaxData("click","#questions-ajax","/profile/dashboard","GET","activity-stream","questions");
-  //Experimental.getAjaxData("click","#following-ajax","/users/#{current_user.id}/follow","GET","activity-stream","following");
-  // jQuery(".hide_div").click(funcation(){
-  //   jQuery(this).show();
-
+  Experimental.getAjaxData("click","#answer-ajax","/answers","GET","activity-stream","answer","#answer-ajax .loader");
+  Experimental.getAjaxData("click","#questions-ajax","/profile/dashboard","GET","activity-stream","questions","#questions-ajax .loader");
+  Experimental.getAjaxData("click","#following-ajax","/users/#{current_user.id}/follows","GET","activity-stream","user_follows_content","#following-ajax .loader");
+  
+  // jQuery(".user-following").click(function(){
+  //   jQuery(".content_div").hide();
+  //   jQuery(".follows_div").show();
+    
   // });
-  jQuery(".user-following").click(function(){
-    jQuery(".content_div").hide();
-    jQuery(".follows_div").show();
+  // jQuery(".user-xprofile").click(function(){
+  //   jQuery(".content_div").show();
+  //   jQuery(".follows_div").hide();
     
-  });
-  jQuery(".user-xprofile").click(function(){
-    jQuery(".content_div").show();
-    jQuery(".follows_div").hide();
-    
-  });
+  // });
 
 
 
