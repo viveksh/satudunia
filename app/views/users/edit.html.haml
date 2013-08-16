@@ -26,28 +26,30 @@
 			#object-nav.item-list-tabs{:id=>"firstElement"}
 				%ul
 					%li
-						%a#user-activity{:href => "javascript:void(0)",:data_send=>"activity"} Activity
+						%a#user-activity{:href=>"javascript:void(0)"}
+							Activity
+							%span
+								= (@resources.blank?)? 0 : @resources.count
+							.loader
 					%li.selected
 						%a#user-xprofile{:href => "javascript:void(0)",:data_send=>"profile",:user_id=>"#{@user.id}"} Profile
 					
-					=# tab_entry "li", "Survey", survey_user_path(@user), {:selected => "selected"}, {:class => "activity"}
-
-			#subnav.item-list-tabs.no-ajax.activity_sub{:role => "navigation"}
-				%ul
+			#subtabs
+				.activity_sub
 					= render "users/activity_subtabs"
-			#subnav.item-list-tabs.no-ajax.profile_sub{:role => "navigation"}
-				%ul
+				.profile_sub
 					= render "users/profile_subtabs"
-			#members-dir-list.members.dir-list.activity_tab{:style =>"display:none"}
-				%ul#members-list.items-list
-					= render "users/show/user_activity_content"
-			.review-content#user_profile_tab
-				.overview-wrapper
-					.overview-new
-						.left-panel
-							/ %h1{:style=>"background:none; border:none"}
-							/ 	= link_to @user.display_name, user_path(@user)
-							= render "users/edit"
+			#activity_tab1
+				#members-dir-list.members.dir-list#activity_tab{:style =>"display:none"}
+					%ul#members-list.items-list
+						= render "users/show/user_activity_content"
+				.review-content#user_profile_tab
+					.overview-wrapper
+						.overview-new
+							.left-panel
+								/ %h1{:style=>"background:none; border:none"}
+								/ 	= link_to @user.display_name, user_path(@user)
+								= render "users/edit"
 
 /side bar
 .sidebar
@@ -74,17 +76,20 @@
 		jQuery(this).addClass('selected');
 	});
 	
-	jQuery("#user-activity").click(function(){
-		jQuery(".activity_sub").show();
-		jQuery(".profile_sub").hide();
-		jQuery(".activity_tab").show();
-		jQuery(".user_profile_tab").hide();
-	});
-	jQuery("#user-xprofile").click(function(){
-		jQuery(".activity_sub").hide();
-		jQuery(".profile_sub").show();
-		jQuery(".activity_tab").hide();
-		jQuery(".user_profile_tab").show();
-	});	
+	// jQuery("#user-activity").click(function(){
+	// 	jQuery(".activity_sub").show();
+	// 	jQuery(".profile_sub").hide();
+	// 	jQuery(".activity_tab").show();
+	// 	jQuery(".user_profile_tab").hide();
+	// });
+	// jQuery("#user-xprofile").click(function(){
+	// 	jQuery(".activity_sub").hide();
+	// 	jQuery(".profile_sub").show();
+	// 	jQuery(".activity_tab").hide();
+	// 	jQuery(".user_profile_tab").show();
+	// });	
 	// ajax function
+	Experimental.getAjaxData("click","#user-activity","/profile/settings","GET","activity_tab1","users/user_activity_content","#user-activity.loader","subtabs","users/activity_subtabs");
+
+	Experimental.getAjaxData("click","#user-xprofile","/profile/settings","GET","activity_tab1","users/edit","#user-xprofile.loader","subtabs","users/profile_subtabs");
 	

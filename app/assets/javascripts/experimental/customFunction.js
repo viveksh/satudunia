@@ -7,8 +7,8 @@
 var Experimental = {
 	getMainContent: function(contentVariable){
 		// for making first character styled
-    	var firstCharacter = contentVariable.trim().substr(1);
-    	jQuery(".filter-content").html(firstCharacter); 
+			var firstCharacter = contentVariable.trim().substr(1);
+			jQuery(".filter-content").html(firstCharacter); 
 	},
 	// getMainContentEnds here
 	// making current tab active
@@ -24,20 +24,20 @@ var Experimental = {
 	//method = method of sending data
 	//idToLoader = where you want to loade loader and data
 	//nameOfPartial = partial name to show
-	getAjaxData:function(event,actionId,url,method,idToLoader,nameOfPartial,loaderIdOrClass){
+	getAjaxData:function(event,actionId,url,method,idToLoader,nameOfPartial,loaderIdOrClass,subTabId,subTabPartial){
 		jQuery(actionId).on(event,function(){
+		var subTab = (subTabId.length==0)? "":"&subTabId="+subTabId+"&subTabPartial="+subTabPartial
 		//variable value taker
 		jQuery(loaderIdOrClass).addClass("ajax-loader");
 		var valueTaker = jQuery(this).val();
 		jQuery.ajax({
 			type:method,
 			url:url,
-			data:"queryData="+valueTaker+"&idLoad="+idToLoader+"&nameOfPartial="+nameOfPartial,
+			data:"queryData="+valueTaker+"&idLoad="+idToLoader+"&nameOfPartial="+nameOfPartial+subTab,
 			dataType:"script",
 			error:function(errorObject){
-				jQuery(loaderIdOrClass).removeClass("ajax-loader");
-				jQuery("#"+idToLoader).html("<span style='color:red'>Something went wrong please check your console for more detail</span>");
-				console.log(errorObject);
+				alert(errorObject.toSource());
+
 			},
 			success:function(successObject){
 				jQuery(loaderIdOrClass).removeClass("ajax-loader");
