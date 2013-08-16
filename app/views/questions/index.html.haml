@@ -129,22 +129,8 @@
 	/banner box
 	=# render "experimental/partials/banner_box"
 
-
-
 :javascript
-	// jQuery(document).ready(function($){
-	// 	$("#activity-filter-by").change(function(){
-	// 		//alert("asdf");
-	// 		//event.preventDefault();
-	// 		var valueTaker = $(this).val().split("-");
-
-	// 		$(".dir-list").fadeOut('slow');
-	// 		$("#forums-dir-list-"+valueTaker[0]).fadeIn('slow','linear');
-			
-			
-	// 	});
-	// });
-	// get ajax data
-	Experimental.getAjaxData("change","#activity-filter-by","/question_ajax","GET","question_ajax","question_ajax",".loader","");
-	//pagination
-	Experimental.getAjaxData("click","#questions_pagination .pagination-ajax","/question_ajax","GET","question_ajax","question_ajax",".loader","yes");
+	// get ajax data by sort 
+	Experimental.getAjaxData("change","#activity-filter-by","/question_ajax","GET","question_ajax","question_ajax",".loader","","","");
+	//get ajax data by sort  using pagination
+	Experimental.getAjaxData("click","#questions_pagination .pagination-ajax","/question_ajax","GET","question_ajax","question_ajax",".loader","","","yes");
