@@ -25,11 +25,12 @@ class BadgesController < ApplicationController
         end
       end
     end
-
+    debugger
+    
     if params[:badge_search]
       @badges = []
       Badge.TOKENS.each do |token|
-        if params[:badge_search].strip.downcase == token
+        if params[:badge_search].strip.downcase.tr(" ", "_") == token
           badge = Badge.new(:token => token)
           @badges << badge
         end
