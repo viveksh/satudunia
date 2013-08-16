@@ -1,11 +1,12 @@
+
 %ul{:id => "slider21", :style => "position: relative;"}
-  %li{:class => "pager ps1"}
-    %ul
-      -if @resources.empty?
-        = render "shared/empty", :type => "activities", :url => ""
-      -else
-        - @resources.each do |activity|
-          = render "activities/activity", :activity => activity
+	%li{:class => "pager ps1"}
+		%ul
+			-if @resources.empty?
+				= render "shared/empty", :type => "activities", :url => ""
+			-else
+				- @resources.each do |activity|
+					= render "activities/activity", :activity => activity
 / pagination    
 -@paginator = @resources
-= render :partial =>"pagination/pagination"
+= render :partial =>"pagination/pagination",:locals => {:paginationType=>"activities"}
