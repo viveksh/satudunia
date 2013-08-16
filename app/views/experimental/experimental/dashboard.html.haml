@@ -54,13 +54,13 @@
             %a{:href=>"javascript:void(0)",:id=>"questions-ajax"}
               Questions
               %span
-                0
+                = (@questions.blank?)? 0 : @questions.count
               .loader
           %li.user-xprofile
             %a{:href=>"javascript:void(0)",:id=>"answer-ajax"}
               answers
               %span
-                0
+                = (@answers.blank?)? 0 : @answers.count
               .loader
           %li.user-following
             %a{:href=>"javascript:void(0)",:id=>"following-ajax"}
@@ -81,8 +81,8 @@
       %ul#members-list.items-list
         = render "users/show/user_#{params[:action]}_content"
     #members-dir-list.members.dir-list.follows_div{:style=>"display:none"}
-      %ul#members-list.items-list
-        = render "users/show/user_follows_content"
+      / %ul#members-list.items-list
+      /   = render "users/show/user_follows_content"
 .sidebar
   = render "experimental/partials/user_info"
 
@@ -106,9 +106,9 @@
     });
   });
   // ajax function
-  Experimental.getAjaxData("click","#answer-ajax","/answers","GET","activity-stream","answer","#answer-ajax .loader");
-  Experimental.getAjaxData("click","#questions-ajax","/profile/dashboard","GET","activity-stream","questions","#questions-ajax .loader");
-  Experimental.getAjaxData("click","#following-ajax","/users/#{current_user.id}/follows","GET","activity-stream","user_follows_content","#following-ajax .loader");
+  Experimental.getAjaxData("click","#answer-ajax","/answers","GET","return-data-ajax","answer","#answer-ajax .loader");
+  Experimental.getAjaxData("click","#questions-ajax","/profile/dashboard","GET","return-data-ajax","questions","#questions-ajax .loader");
+  Experimental.getAjaxData("click","#following-ajax","/users/#{current_user.id}/follows","GET","return-data-ajax","user_follows_content","#following-ajax .loader");
   
   // jQuery(".user-following").click(function(){
   //   jQuery(".content_div").hide();

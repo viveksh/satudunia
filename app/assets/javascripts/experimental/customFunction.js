@@ -35,8 +35,9 @@ var Experimental = {
 			data:"queryData="+valueTaker+"&idLoad="+idToLoader+"&nameOfPartial="+nameOfPartial,
 			dataType:"script",
 			error:function(errorObject){
-				alert(errorObject.toSource());
-
+				jQuery(loaderIdOrClass).removeClass("ajax-loader");
+				jQuery("#"+idToLoader).html("<span style='color:red'>Something went wrong please check your console for more detail</span>");
+				console.log(errorObject);
 			},
 			success:function(successObject){
 				jQuery(loaderIdOrClass).removeClass("ajax-loader");
