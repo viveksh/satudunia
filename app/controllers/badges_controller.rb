@@ -25,7 +25,6 @@ class BadgesController < ApplicationController
         end
       end
     end
-    debugger
     
     if params[:badge_search]
       @badges = []
