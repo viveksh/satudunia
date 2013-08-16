@@ -1,12 +1,31 @@
--className = (params[:queryData]=="all")? "" : params[:queryData]
-%table
-	%tbody
-	- @badges.sort_by{|b| b.name}.each do |badge|
-		%tr
-			-if badge.type == className  || className.blank?
-				%td
-					.badge_item
-						=link_to badge.name,"#",:class=>"badge #{badge.type}"
-				%td
-					.badge_description
-						= badge.description
+- if params[:queryData]
+	-className = ((params[:queryData]=="all")? "" : params[:queryData])
+	%table
+		%tbody
+		- @badges.sort_by{|b| b.name}.each do |badge|
+			%tr
+				-if badge.type == className  || className.blank?
+					%td
+						.badge_item
+							=link_to badge.name,"#",:class=>"badge #{badge.type}"
+					%td
+						.badge_description
+							= badge.description
+- else 
+	- if params[:badge_search].present?
+		%table
+			%tbody
+			- if @badges.present?
+				- @badges.sort_by{|b| b.name}.each do |badge|
+					%tr
+						%td
+							.badge_item
+								=link_to badge.name,"#",:class=>"badge #{badge.type}"
+						%td
+							.badge_description
+								= badge.description
+			- else
+				= render "experimental/partials/empty_record_message"
+	- else
+		#message.info
+			%p Please Enter the Field and try Again.
