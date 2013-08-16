@@ -8,4 +8,4 @@
           = render "activities/activity", :activity => activity
 / pagination    
 -@paginator = @resources
-= render :partial =>"pagination/pagination"
+= render :partial =>"pagination/pagination",:locals => {:paginationType=>"activity"}
