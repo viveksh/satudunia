@@ -28,7 +28,7 @@
 					%a{:href => "http://www.industrialthemes.com/made/activity/", :title => "The public activity for everyone on this site."}
 						All Questions
 						%span= @questions.count
-						/ .ajax-loader
+						.loader
 		#subnav.item-list-tabs{:role => "navigation"}
 			%ul
 				%li#members-order-select.last.filter
@@ -40,20 +40,8 @@
 						%option{:value => "votes-question-show"} Votes
 						%option{:value => "unanswered-question-show"} Unanswered
 						%option{:value => "xxx-question-show"} XXX
-		#forums-dir-list-newest.dir-list
-			#pag-top.pagination
-				#member-dir-count-top.pag-count
-					Viewing questions #{@questions.options[:skip]} to #{@questions.options[:skip]+@questions.options[:limit]} (of #{@questions.count} active members)
-				#members-dir-list.members.dir-list1
-					= paginate @questions
-			%table.forum#question_ajax
-				= render "questions/plus_question"
-		#forums-dir-list-newest.dir-list
-			#pag-top.pagination
-				#member-dir-count-top.pag-count
-					Viewing questions #{@questions.options[:skip]} to #{@questions.options[:skip]+@questions.options[:limit]} (of #{@questions.count} active members)
-				#members-dir-list.members.dir-list1
-					= paginate @questions
+		#question_ajax
+			= render "questions/plus_question"
 
 	.page-content.review.single-post
 		%link{:href => "http://www.industrialthemes.com/made/wp-content/uploads/2012/06/misc1-160x160.jpg", :rel => "image_src"}/
@@ -157,4 +145,6 @@
 	// 	});
 	// });
 	// get ajax data
-	Experimental.getAjaxData("#activity-filter-by","/question_ajax","GET","question_ajax  ","question_ajax");
+	Experimental.getAjaxData("change","#activity-filter-by","/question_ajax","GET","question_ajax","question_ajax",".loader","");
+	//pagination
+	Experimental.getAjaxData("click","#questions_pagination .pagination-ajax","/question_ajax","GET","question_ajax","question_ajax",".loader","yes");

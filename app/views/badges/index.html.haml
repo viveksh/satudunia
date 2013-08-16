@@ -27,7 +27,7 @@
 					%a{:href => "http://www.industrialthemes.com/made/activity/", :title => "The public activity for everyone on this site."}
 						All Badges
 						%span= @badges.count
-						.ajax-loader
+						.loader
 		#subnav.item-list-tabs{:role => "navigation"}
 			%ul
 				%li#members-order-select.last.filter
@@ -78,4 +78,5 @@
 	/banner box
 	= render "experimental/partials/banner_box"
 :javascript
-	Experimental.getAjaxData("change","#activity-filter-by","/badges","GET","badges_ajax","badges_list");
+	Experimental.getAjaxData("change","#activity-filter-by","/badges","GET","badges_ajax","badges_list",".loader","");
+	

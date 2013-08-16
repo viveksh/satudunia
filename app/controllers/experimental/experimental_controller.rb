@@ -139,11 +139,13 @@ class Experimental::ExperimentalController < ApplicationController
   def dashboard
     @user = current_user
     current_order = (params[:order_by].nil?)? "created_at desc" :  params[:order_by]
-    @resources = Question.all.order_by(current_order).page(params["page"]).per(15)
-    @questions = @user.questions.all.order_by(current_order).page(params["page"]).per(15)
-    @answers = @user.answers.page(params["page"]).per(15)
-    # @answers =  @user.answer.all.order_by(current_order).page(params["page"]).per(15)
-    #resources_conditional_fetch(params[:queryData],exclude)
+    # @resources = Question.all.order_by(current_order).page(params["page"]).per(15)
+    # question variable
+    @questions = @user.questions.all.order_by(current_order).page(params[:page]).per(15)
+    # answer variable
+    @answers = @user.answers.page(params[:page]).per(15)
+    #following variable
+    @following = ""
     respond_to do |format|
       format.html
       # format.json { render :json => @resources } 

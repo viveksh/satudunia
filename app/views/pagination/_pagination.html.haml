@@ -1,6 +1,7 @@
 #forums-dir-list-newest.dir-list
-  #pag-top.pagination
-    #member-dir-count-top.pag-count
-      Viewing Questions #{@paginator.options[:skip]} to #{@paginator.options[:skip]+@paginator.options[:limit]} (of #{@paginator.count} active members)
-    #members-dir-list.members.dir-list1
-      = paginate @paginator
+	#pag-top.pagination
+		#member-dir-count-top.pag-count
+			Viewing #{paginationType.capitalize} #{@paginator.options[:skip]} to #{@paginator.options[:skip]+@paginator.options[:limit]} (of #{@paginator.count} #{paginationType.capitalize})
+		%div{:id=>"#{paginationType}_pagination"}
+			#members-dir-list.members.dir-list1
+				= paginate @paginator 

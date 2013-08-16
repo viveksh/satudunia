@@ -24,15 +24,16 @@ var Experimental = {
 	//method = method of sending data
 	//idToLoader = where you want to loade loader and data
 	//nameOfPartial = partial name to show
-	getAjaxData:function(event,actionId,url,method,idToLoader,nameOfPartial,loaderIdOrClass){
-		jQuery(actionId).on(event,function(){
+	getAjaxData:function(event,actionId,url,method,idToLoader,nameOfPartial,loaderIdOrClass,pagination){
+		jQuery(document).on(event,actionId,function(){
 		//variable value taker
 		jQuery(loaderIdOrClass).addClass("ajax-loader");
-		var valueTaker = jQuery(this).val();
+		var valueTaker = (typeof(jQuery(this).attr("value"))=="undefined")? "" : jQuery(this).attr("value");
+		var paginationVar = (pagination.length==0)? "&page=" : "&page="+valueTaker;
 		jQuery.ajax({
 			type:method,
 			url:url,
-			data:"queryData="+valueTaker+"&idLoad="+idToLoader+"&nameOfPartial="+nameOfPartial,
+			data:"queryData="+valueTaker+"&idLoad="+idToLoader+"&nameOfPartial="+nameOfPartial+paginationVar,
 			dataType:"script",
 			error:function(errorObject){
 				jQuery(loaderIdOrClass).removeClass("ajax-loader");
