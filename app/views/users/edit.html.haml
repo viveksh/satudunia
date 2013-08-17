@@ -32,7 +32,10 @@
 								= (@resources.blank?)? 0 : @resources.count
 							.loader
 					%li.selected
-						%a#user-xprofile{:href => "javascript:void(0)",:data_send=>"profile",:user_id=>"#{@user.id}"} Profile
+						%a#user-xprofile{:href=>"javascript:void(0)",:data_send=>"profile",:user_id=>"#{@user.id}"}
+							Profile
+							.loader
+						
 					
 			#subtabs
 				.activity_sub
@@ -74,7 +77,7 @@
 		jQuery(this).addClass('selected');
 	});
 	// ajax function
-	Experimental.getAjaxData("click","#user-activity","/profile/settings","GET","activity_tab1","users/user_activity_content","#user-activity.loader","subtabs","users/activity_subtabs","");
+	Experimental.getAjaxData("click","#user-activity,#activities_pagination .pagination-ajax","/profile/settings","GET","activity_tab1","users/user_activity_content","#user-activity .loader","subtabs","users/activity_subtabs","yes");
 
-	Experimental.getAjaxData("click","#user-xprofile","/profile/settings","GET","activity_tab1","users/edit","#user-xprofile.loader","subtabs","users/profile_subtabs","");
+	Experimental.getAjaxData("click","#user-xprofile","/profile/settings","GET","activity_tab1","users/edit","#user-xprofile .loader","subtabs","users/profile_subtabs","");
 	
