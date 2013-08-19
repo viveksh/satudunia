@@ -8,7 +8,8 @@
 			.section-wrapper
 				.section
 					.comment-bubble
-						%a{:href => "#respond", :title => "Comment on Made Magazine Is The First Responsive Theme Released By IndustrialThemes"} 0
+						%a{:href => "#respond", :title => "Comment on Made Magazine Is The First Responsive Theme Released By IndustrialThemes"}
+							= @questions.count
 					/ making title stronger
 					.section-for-header
 						/%i.icon-vcard
@@ -16,7 +17,7 @@
 			.section-arrow 
 	#content.page-content
 		%form#members-directory-form.dir-form{:action => "", :method => "post"}
-			%h3 Questions
+			/ %h3 Questions
 			#members-dir-search.dir-search{:role => "search"}
 				%label
 					%input#members_search{:name => "s", :placeholder => "Search Questions...", :type => "text"}/
@@ -43,21 +44,25 @@
 		#question_ajax
 			= render "questions/plus_question"
 
-	.page-content.review.single-post
-		%link{:href => "http://www.industrialthemes.com/made/wp-content/uploads/2012/06/misc1-160x160.jpg", :rel => "image_src"}/
-		.review-content
-			.ribbon-shadow-left
-			.section-wrapper
-				.section
-					.comment-bubble
-						%a{:href => "#respond", :title => "Comment on Made Magazine Is The First Responsive Theme Released By IndustrialThemes"} 0
-					/ making title stronger
-					.section-for-header
-						/%i.icon-vcard
-						Other Topics
-			.section-arrow 
+	/ .page-content.review.single-post
+	/ 	%link{:href => "http://www.industrialthemes.com/made/wp-content/uploads/2012/06/misc1-160x160.jpg", :rel => "image_src"}/
+	/ 	.review-content
+	/ 		.ribbon-shadow-left
+	/ 		.section-wrapper
+	/ 			.section
+	/ 				/ .comment-bubble
+	/ 				/ 	%a{:href => "#respond", :title => "Comment on Made Magazine Is The First Responsive Theme Released By IndustrialThemes"} 0
+	/ 				/ making title stronger
+	/ 				.section-for-header
+	/ 					/%i.icon-vcard
+	/ 					Other Topics
+	/ 		.section-arrow 
+	.cat-menu.tax{:style=>"margin-top:-30px"}
+		%ul#menu-sub-menu.menu
+			= render "experimental/partials/subnavigation/questions_subnavigation"
+	
 	.post-loop.directory
-		.post-panel.wide
+		.post-panel.wide{:style=>"margin-top:25px"}
 			.header
 				.more
 					%a{:href => "single-review-numbers.html"} More
@@ -134,4 +139,4 @@
 	// get ajax data by sort 
 	Experimental.getAjaxData("change","#activity-filter-by","/question_ajax","GET","question_ajax","question_ajax",".loader","","","");
 	//get ajax data by sort  using pagination
-	Experimental.getAjaxData("click","#questions_pagination .pagination-ajax","/question_ajax","GET","question_ajax","question_ajax",".loader","","","yes");
+	Experimental.getAjaxData("click","#questions_pagination .pagination-ajax","/question_ajax","GET","question_ajax","question_ajax",".loader","","","yes","#activity-filter-by");
