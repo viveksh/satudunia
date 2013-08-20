@@ -404,6 +404,7 @@ Rails.application.routes.draw do
         get :events
         get :crowdfunding 
         get :dashboard, :path=> "/profile/dashboard"
+        get :social
         # get :announce, :path=> "/announcements"
         # experimental routes
         get "*a", :to => "experimental#routing_error"

@@ -153,6 +153,13 @@ class Experimental::ExperimentalController < ApplicationController
     end
   end
   # action dashboard ends here
+  #action_social starts from here
+  def social
+    @title="social login"
+    
+  end
+
+  #action_social ends here
 
   #action for dashboard
   def resources_conditional_fetch(queryData,exclude)
