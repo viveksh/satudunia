@@ -390,6 +390,7 @@ Rails.application.routes.draw do
     resources :experimental, :path => "/" do
       collection do
         get :index,:path=>"/index"
+        get :index_experimental,:path=>"/index1"
         get :public_about,:path=>"/about"
         get :rss_feed,:path=>"rss"
         get :terms
