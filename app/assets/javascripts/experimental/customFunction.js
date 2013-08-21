@@ -25,7 +25,7 @@ var Experimental = {
 	//method = method of sending data
 	//idToLoader = where you want to loade loader and data
 	//nameOfPartial = partial name to show
-	getAjaxData:function(event,actionId,url,method,idToLoader,nameOfPartial,loaderIdOrClass,subTabId,subTabPartial,pagination,data=null){
+	getAjaxData:function(event,actionId,url,method,idToLoader,nameOfPartial,loaderIdOrClass,subTabId,subTabPartial,pagination,data){
 		jQuery(document).on(event,actionId,function(){
 		var subTab = (subTabId.length==0)? "":"&subTabId="+subTabId+"&subTabPartial="+subTabPartial
 		//variable value taker
