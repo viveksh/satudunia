@@ -18,12 +18,12 @@
 						/%i.icon-vcard
 						Services Map
 			.section-arrow 
-	#content.page-content
-		%form#members-directory-form.dir-form{:action => "", :method => "post"}
+	%form#content.page-content
+		#members-directory-form.dir-form{:action => "/services-map"}
 			%h3 Mapping
 			#members-dir-search.dir-search{:role => "search"}
 				%label
-					%input#members_search{:name => "service_search", :placeholder => "Search Services...", :type => "text"}/
+					%input#members_search{:name => "service_search", :placeholder => "Search Services...", :type => "text" ,:value=>params[:service_search]}/
 				%input#members_search_submit{:name => "members_search_submit", :type => "submit", :value => "Search"}/
 				%input#members_search_submit{:name => "members_search_submit", :type => "reset", :value => "x", :style=>"opacity:1;"}/
 		.item-list-tabs.activity-type-tabs{:role => "navigation"}
@@ -36,11 +36,11 @@
 			%ul
 				%li#members-order-select.last.filter
 					%label{:for => "members-order-by"} Order By:
-					%select#activity-filter-by
-						%option{:value => ""} Singapore
-						%option{:value => ""} Thailand
-						%option{:value => ""} Indonesia
-						%option{:value => ""} Philippines
+					%select#activity-filter-by{:name=>'country'}
+						%option{:value => "Singapore"} Singapore
+						%option{:value => "Thailand"} Thailand
+						%option{:value => "Indonesia"} Indonesia
+						%option{:value => "Philippines"} Philippines
 		/ #forums-dir-list-newest.dir-list
 		/   #pag-top.pagination
 		/     #member-dir-count-top.pag-count
@@ -131,24 +131,28 @@
 %script{:src => "http://maps.googleapis.com/maps/api/js?key=AIzaSyBmJE9KrYdmPiW16lAHDJOiCvS1Fwen7BU&sensor=true"}
 
 :javascript
-	jQuery('#members_search_submit').click(function(e){
-		
-		var service_search = jQuery("#members_search").val();
-		e.preventDefault();
-		jQuery(".loader").addClass("ajax-loader");
-		jQuery.ajax({     
-			url:'/services-map?nameOfPartial=service_search&idLoad=return-data-ajax',
-			data:{ service_search: service_search},
-			dataType:"script",
-			error:function(errorObject){        
+	jQuery(document).ready(function(jQ){
+		jQ("#content").submit(function(e){			
+			e.preventDefault()
+			jQuery.ajax({     
+				url:'/services-map',
+				data: jQ('form#content').serialize(),
+				dataType:"script",				
+				success:function(successObject){
+					jQuery(".loader").removeClass("ajax-loader");
+				}
+			});
+		})
+		jQ('#activity-filter-by').change(function(){			
+			jQ('#content').submit();
+		})
 
-			},
-			success:function(successObject){
-				jQuery(".loader").removeClass("ajax-loader");
-				
-			}
-		});
-	})
+		jQ('#pagination-digg li a').live('click',function(e){
+			e.preventDefault();
+			jQuery.ajax({url:jQ(this).attr('href'),dataType:"script"})
+		})
+		
+	})	
 	var map;
 	var gl;
 	var currentLatitude = '1.305300';
@@ -235,7 +239,7 @@
 		return completeDescription;
 	}
 
-	Experimental.getAjaxData("click","#service-providers-list,#serviceProviders_pagination .pagination-ajax","/services-map","GET","return-data-ajax","provider","#service-providers-list .loader","","","yes");
+	
 
 %script
 	function setMarker() {
