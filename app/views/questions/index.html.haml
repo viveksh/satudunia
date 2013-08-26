@@ -149,3 +149,8 @@
 	Experimental.getAjaxData("change","#activity-filter-by","/question_ajax","GET","question_ajax","question_ajax",".loader","","","");
 	//get ajax data by sort  using pagination
 	Experimental.getAjaxData("click","#questions_pagination .pagination-ajax","/question_ajax","GET","question_ajax","question_ajax",".loader","","","yes","#activity-filter-by");
+	jQuery(document).ready(function(jQ){
+		jQ('#pagination-digg li a').live('click',function(e){
+			e.preventDefault();
+		})
+	})
