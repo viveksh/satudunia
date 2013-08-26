@@ -15,12 +15,12 @@
 							= @service_providers.count
 					/ making title stronger
 					.section-for-header
-						/%i.icon-vcard
+						%i.icon-location
 						Services Map
 			.section-arrow 
 	#content.page-content
 		%form#members-directory-form.dir-form{:action => "", :method => "post"}
-			%h3 Mapping
+			/ %h3 Mapping
 			#members-dir-search.dir-search{:role => "search"}
 				%label
 					%input#members_search{:name => "service_search", :placeholder => "Search Services...", :type => "text"}/
@@ -35,8 +35,9 @@
 		#subnav.item-list-tabs{:role => "navigation"}
 			%ul
 				%li#members-order-select.last.filter
-					%label{:for => "members-order-by"} Order By:
+					%label{:for => "members-order-by"} Filter By:
 					%select#activity-filter-by
+						%option{:value => ""} All
 						%option{:value => ""} Singapore
 						%option{:value => ""} Thailand
 						%option{:value => ""} Indonesia
@@ -51,7 +52,7 @@
 	/ 	- unless @serviceProviders.nil?
 	/ 	  - @serviceProviders.all.each do |provider|
 	/ 	    - next if provider.blank?
-	#return-data-ajax
+	#return-data-ajax.services-top-adj
 		= render "experimental/partials/provider"
 	/ #content.page-content
 	/ 	#forums-dir-list-newest.dir-list
@@ -64,7 +65,7 @@
 		.ribbon-shadow-left  
 		.section-wrapper
 			.section
-				XXXXXXXX
+				Available Countries
 		.ribbon-shadow-right  
 		.section-arrow 
 		/ county box partial
