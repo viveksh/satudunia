@@ -13,5 +13,9 @@
     -@polls.each do |poll|
       = render :partial => "poll", :object => poll
 .sidebar
-  = render "experimental/partials/login_box"
-  = render "experimental/partials/left_bar"
+  - if current_user.nil?
+    /login box
+    = render "experimental/partials/login_box"
+  -else
+    /profile box
+    = render "experimental/partials/profile_box"

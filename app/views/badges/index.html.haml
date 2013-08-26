@@ -63,7 +63,12 @@
 											=badge.description
 
 .sidebar
-	= render "experimental/partials/login_box"
+	- if current_user.nil?
+		/login box
+		= render "experimental/partials/login_box"
+	-else
+		/profile box
+		= render "experimental/partials/profile_box"
 	= render "experimental/partials/left_bar"
 	/widget top
 	= render "experimental/partials/widget_top"
@@ -81,7 +86,7 @@
 	Experimental.getAjaxData("change","#activity-filter-by","/badges","GET","badges_ajax","badges_list",".loader","","","");
 	jQuery('#members_search_submit').click(function(e){
 	
-	  var badge_search = jQuery("#members_search").val();
+		var badge_search = jQuery("#members_search").val();
 		e.preventDefault();
 		jQuery(".loader").addClass("ajax-loader");
 		jQuery.ajax({			
