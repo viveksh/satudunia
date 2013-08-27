@@ -102,6 +102,7 @@ class UsersController < ApplicationController
 	end
 
 	def show
+		
 		@body_id = "page3"
 		@resources = @user.questions.where(:group_id => current_group.id,
 																			 :banned => false,
@@ -133,7 +134,7 @@ class UsersController < ApplicationController
 
 	def answers
 		@body_id = "page3"
-		@resources = @user.answers.where(:group_id => current_group.id,
+		@answers = @user.answers.where(:group_id => current_group.id,
 																		 :banned => false,
 																		 :anonymous => false).
 															order_by(current_order).
@@ -197,7 +198,15 @@ class UsersController < ApplicationController
 	def survey
 		@body_id = "page3"
 
-		@resources = %w{tier-sample tier1 tier2 tier3 tier4 tier5 tier6 tier7}
+		# @resources = %w{tier-sample tier1 tier2 tier3 tier4 tier5 tier6 tier7}
+		@surveys= current_user.profile_tiers
+    @survey1= current_user.profile_support
+    @survey2 = current_user.profile_tier2
+    @survey3 = current_user.profile_tier3
+    @survey4 = current_user.profile_tier4
+    @survey5 = current_user.profile_tier5
+    @survey6 = current_user.profile_tier6
+    @survey7 = current_user.profile_tier7
 
 		respond_to do |format|
 			format.html{render :show}

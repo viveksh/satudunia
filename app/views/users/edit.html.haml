@@ -22,6 +22,30 @@
 					%span{:class=>"activity"}
 						Joined 
 						= t("time.ago", :time => time_ago_in_words(@user.created_at))
+				.user-nicename
+					Website:
+					= link_to @user.website, @user.website
+				.user-nicename
+					= link_to "<span>HIV Condition: #{user_hiv_condition(@user)}</span>".html_safe, "#", :class => "qwest_tag1"
+					=# link_to "<span>Edit Profile</span>".html_safe, settings_path, :class => "qwest_tag15"
+				/ .extra-tags
+				/ 	- unless @user.profile_tiers.blank?
+				/ 		= link_to "<span>Sample</span>".html_safe, "#", :class => "qwest_tag12"
+				/ 	-unless @user.profile_support.nil?
+				/ 		= link_to "<span>Tier 1</span>".html_safe, "#", :class => "qwest_tag12"
+				/ 	- for i in 2..7 do
+				/ 		-unless eval "@user.profile_tier#{i}.nil?"
+				/ 			= link_to "<span>Tier #{i}</span>".html_safe, "#", :class => "qwest_tag12"
+				.a6
+					= image_tag "plus/a1.png"
+					%span
+						Country: 
+						= user_country(@user)
+					%br
+					= image_tag "plus/a2.png"
+					%span
+						Age: 
+						= user_age(@user)
 		#item-nav
 			#object-nav.item-list-tabs{:id=>"firstElement"}
 				%ul
