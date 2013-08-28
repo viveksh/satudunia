@@ -60,6 +60,10 @@
 						%a#user-xprofile{:href=>"javascript:void(0)",:data_send=>"profile",:user_id=>"#{@user.id}"}
 							Profile
 							.loader
+					%li
+						%a#user-profile{:href=>"javascript:void(0)",:user_id=>"#{@user.id}"}
+							Privacy
+							.loader
 						
 					
 			#subtabs
@@ -72,12 +76,10 @@
 					%ul#members-list.items-list
 						= render "users/show/user_activity_content"
 				.review-content#user_profile_tab
-					.overview-wrapper
-						.overview-new
-							.left-panel
-								/ %h1{:style=>"background:none; border:none"}
-								/ 	= link_to @user.display_name, user_path(@user)
-								= render "users/edit"
+					= render "users/edit"
+					/ %h1{:style=>"background:none; border:none"}
+					/ 	= link_to @user.display_name, user_path(@user)
+								
 
 /side bar
 .sidebar
@@ -111,9 +113,15 @@
 	Experimental.getAjaxData("click","#user-activity,#activities_pagination .pagination-ajax","/profile/settings","GET","activity_tab1","users/user_activity_content","#user-activity .loader","subtabs","users/activity_subtabs","yes");
 
 	Experimental.getAjaxData("click","#user-xprofile","/profile/settings","GET","activity_tab1","users/edit","#user-xprofile .loader","subtabs","users/profile_subtabs","");
+
+	Experimental.getAjaxData("click","#user-profile","/profile/settings","GET","activity_tab1","users/user_privacy","#user-profile .loader","","","");
 	
 	jQuery(document).ready(function(jQ){
 		jQ('#pagination-digg a').live('click',function(e){
 			e.preventDefault();
 		})
 	})
+
+	jQuery('#item-header-avatar').click(function(){
+		jQuery('#user_avatar').click();
+	});

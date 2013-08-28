@@ -40,6 +40,7 @@ class ServiceProvidersController < ApplicationController
   end
 
   def show
+    
       @service_provider = ServiceProvider.by_slug(params[:slug])
 
       if @service_provider.nil?
