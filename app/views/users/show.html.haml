@@ -21,10 +21,10 @@
       #item-header-content
         %h2
           = link_to "#{user_realname(@user)}", user_path(@user)
-        .item-meta
-          %span{:class=>"activity"}
-            Joined 
-            = t("time.ago", :time => time_ago_in_words(config.joined_at))
+        / .item-meta
+        /   %span{:class=>"activity"}
+        /     Joined 
+        /     = t("time.ago", :time => time_ago_in_words(config.joined_at))
         .user-nicename
           Website:
           = link_to @user.website, @user.website

@@ -66,10 +66,10 @@ Rails.application.routes.draw do
   match '/facts' => redirect("/")
   match '/users/:id/:slug' => redirect("/users/%{slug}"), :as => :user_se_url, :id => /\d+/
   
-  match '/members' => 'users#index', :as =>:users
-  match '/members/:id' => 'users#show', :as =>:user
+  # match '/members' => 'users#index', :as =>:users
+  # match '/members/:id' => 'users#show', :as =>:user
 
-  resources :users, :except=>[:new, :index, :show] do
+  resources :users, :except=>[:new] do
     collection do
       get :autocomplete_for_user_login
       post :connect

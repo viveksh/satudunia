@@ -18,10 +18,10 @@
 			#item-header-content
 				%h2
 					= link_to "#{user_realname(@user)}", user_path(@user)
-				.item-meta
-					%span{:class=>"activity"}
-						Joined 
-						= t("time.ago", :time => time_ago_in_words(@user.created_at))
+				/ .item-meta
+				/ 	%span{:class=>"activity"}
+				/ 		Joined 
+				/ 	= t("time.ago", :time => time_ago_in_words(@user.created_at))
 		#item-nav
 			#object-nav.item-list-tabs{:id=>"firstElement"}
 				%ul
@@ -56,6 +56,12 @@
 
 /side bar
 .sidebar
+	- if current_user.nil?
+		/login box
+		= render "experimental/partials/login_box"
+	-else
+		/profile box
+		= render "experimental/partials/profile_box"
 	=# render "experimental/partials/left_bar"
 	/widget top
 	= render "experimental/partials/widget_top"
