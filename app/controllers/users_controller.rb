@@ -145,7 +145,43 @@ class UsersController < ApplicationController
 		end
 	end
 
+	def change_answer
+		case params[:value]
+      when "newest"
+        @answers = current_group.answers.order(:created_at=>:desc).page(params["page"]).per(15)
+      when "oldest"
+        @answers = current_group.answers.order(:created_at=>:asc).page(params["page"]).per(15)
+      when "votes"
+        @answers = current_group.answers.not_in(:votes_count => [0]).order(:created_at=>:desc).page(params["page"]).per(15)
+      else
+        @answers = current_group.answers.order(:created_at=>:desc).page(params["page"]).per(15)
+      end
+    respond_to do |format|
+      format.js
+    end
+	end
+
+	def change_question
+		
+    @query=params[:value]
+    case @query
+      when "newest"
+        @resources = current_group.questions.order(:created_at=>:desc).page(params["page"]).per(15)
+      when "hot"
+        @resources=current_group.questions.not_in(:hotness => [0]).order(:created_at=>:desc).page(params["page"]).per(15)
+      when "votes"
+        @resources=current_group.questions.not_in(:votes_count => [0]).order(:created_at=>:desc).page(params["page"]).per(15)
+      when "views"
+        @resources=current_group.questions.where(:answers_count=>"0").order(:created_at=>:desc).page(params["page"]).per(15)
+      else
+        @resources = nil
+      end
+    respond_to do |format|
+      format.js
+    end
+  end
 	def follows
+	
 		@body_id = "page3"
 		case @active_subtab.to_s
 		when "following"
@@ -168,7 +204,7 @@ class UsersController < ApplicationController
 													page(params["page"])
 		end
 		respond_to do |format|
-			# format.html{render :show}
+			format.html{render :show}
 			format.js{render "/experimental/experimental/ajax_entry"}
 		end
 	end

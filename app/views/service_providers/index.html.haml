@@ -148,7 +148,7 @@
 			jQ('#content').submit();
 		})
 
-		jQ('#pagination-digg li a').live('click',function(e){
+		jQ('#pagination-digg a').live('click',function(e){
 			e.preventDefault();
 			jQuery.ajax({url:jQ(this).attr('href'),dataType:"script"})
 		})
@@ -254,4 +254,4 @@
 		});
 	}
 
-  
+	

@@ -5,7 +5,7 @@
 / = render :partial =>"pagination/pagination",:locals => {:paginationType=>"answers"}
 
 
-.answer-page
+.answer-page#return-data-ajax
 	%ul#activity-stream.activity-list.item-list
 		-if @answers.blank?
 			= render "experimental/partials/empty_record_message"
