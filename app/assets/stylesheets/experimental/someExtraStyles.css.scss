@@ -337,13 +337,15 @@ form.exp-contact-form{
 
 #flash_error,
 #flash_alert {
-	background-color: #FCC;
-	border: solid 1px #C66;
-	color:#C32C0D;
-	background-image:url("images/negative-x.png");
-	background-repeat: no-repeat;
-	background-position: top 2px left 5px; 
-	
+  background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0)) repeat scroll 0 0 #FFEAA6;
+    border: 1px solid #D55353;
+    border-radius: 3px 3px 3px 3px;
+    font-weight: normal;
+    margin-top: 3px;
+    text-decoration: none;
+    background-color:#C00000;
+    padding :10px 15px;
+    font-size:12px !important;
 }
 
 /*
