@@ -86,14 +86,9 @@
 							/%a{:href => "single-review-numbers.html"} Service Areas
 							=link_to 'Service Areas', service_providers_path
 							%ul
-								%li
-									%a{:href => "single-review-numbers.html"} Singapore 
-								%li
-									%a{:href => "single-review-percentages.html"} Thailand 
-								%li
-									%a{:href => "single-review-stars.html"} Indonesia 
-								%li
-									%a{:href => "single-review-letters.html"} philippines 
+								-	get_country_name(@service_providers).each do |provider|
+									%li
+										= link_to "#{provider}",service_providers_path(country: provider.downcase)
 						/ question drop starts
 						%li
 							%a{:href => "/questions"} Questions
