@@ -424,6 +424,6 @@
 	//use for close button of success message flash
 	jQuery('#close').click(function(e){
 		e.preventDefault();
-		jQuery('#flash_notice').fadeOut();
+		jQuery("#flash_alert,#flash_notice").fadeOut(500);
 		jQuery(this).hide();
 	})
