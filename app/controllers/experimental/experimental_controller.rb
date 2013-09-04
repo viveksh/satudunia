@@ -19,11 +19,15 @@ class Experimental::ExperimentalController < ApplicationController
 
   def index
     @active_member = Membership.where(state: "active").limit(3)
+    @announcements = Announcement.all
+    @news = News.all
   end
 
   # copy of index action
   def index_experimental
     @active_member = Membership.where(state: "active").limit(3)
+    @announcements = Announcement.all
+    @news = News.all
   end
 
   # action public about
