@@ -938,3 +938,11 @@ form#search input {
 #set-margin{
 	margin-top: 20px !important;
 }
+#hr-shades-end{
+	background-image: -moz-linear-gradient(left center , transparent, rgba(0, 0, 0, 0.75), transparent);
+	border: 0 none;
+	height: 1px;
+}
+.bbp-reply-author img {
+    margin-top: 10px;
+}
