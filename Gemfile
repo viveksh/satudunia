@@ -26,6 +26,7 @@ gem 'fancy-buttons', '1.1.1'
 gem 'kaminari'
 gem 'mustache'
 gem 'poirot', :git => 'git://github.com/dcu/poirot.git'
+gem "breadcrumbs_on_rails"
 
 gem 'htmlentities'
 
@@ -108,7 +109,7 @@ end
 group :scripts do
   gem 'eventmachine', '~> 0.12.10' #'1.0.0'
   gem 'em-websocket', '~> 0.3.0'
-  gem 'twitter', '1.7.2'
+  gem 'twitter', :path => 'twitter-1.7.2'
 end
 
 group :test do

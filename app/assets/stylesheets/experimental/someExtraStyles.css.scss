@@ -671,6 +671,7 @@ div.item-list-tabs ul li.feed a {
 		height: 23px !important;
 		margin-left: 5px;
 		width: 15px !important;
+
 }
 .contact-button{
 		background: -moz-linear-gradient(center top , #FFFFFF 0%, #EDEDED 100%) repeat scroll 0 0 transparent;
@@ -937,4 +938,40 @@ form#search input {
 
 #set-margin{
 	margin-top: 20px !important;
+}
+
+/*breadcrumb css starts here*/
+.bread-crumb {
+	border:1px solid #E0E0E0;
+	background:url(images/cat-menu-bg.png) repeat-x scroll 0 0 #3E3E40;
+}
+.bread-crumb-section {
+	padding:10px 10px 8px 15px;
+	color:#333;
+	text-transform:uppercase;
+	font-size:18px;
+}
+.bread-crumb-header {
+    color: #A8A2BD;
+    font-family: BebasNeueRegular,Arial,Sans-Serif !important;
+    font-size: 18px !important;
+    text-transform: uppercase !important;
+}
+.bread-crumb-header > a:hover {
+   	background-color: none;
+}
+.bread-crumb-header > a {
+   	color:#DF1515;
+}
+.bread-crumb-header > a:last-of-type {
+    color: #FFFFFF;
+}
+/*breadcrumb css starts here*/
+
+.loader-adjust{
+	min-width: 125px;
+	display: inline-block;
+}
+.badge_item > h2 {
+    color: #3587BA;
 }
