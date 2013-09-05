@@ -945,8 +945,8 @@ form#search input {
 	height: 1px;
 }
 .bbp-reply-author img {
-    margin-top: 10px;
-  }
+		margin-top: 10px;
+	}
 #set-page{
 	margin-top:-50px !important;
 }
@@ -962,19 +962,19 @@ form#search input {
 	font-size:18px;
 }
 .bread-crumb-header {
-    color: #A8A2BD;
-    font-family: BebasNeueRegular,Arial,Sans-Serif !important;
-    font-size: 18px !important;
-    text-transform: uppercase !important;
+		color: #A8A2BD;
+		font-family: BebasNeueRegular,Arial,Sans-Serif !important;
+		font-size: 18px !important;
+		text-transform: uppercase !important;
 }
 .bread-crumb-header > a:hover {
-   	background-color: none;
+		background-color: none;
 }
 .bread-crumb-header > a {
-   	color:#DF1515;
+		color:#DF1515;
 }
 .bread-crumb-header > a:last-of-type {
-    color: #FFFFFF;
+		color: #FFFFFF;
 }
 /*breadcrumb css ends here*/
 
@@ -983,5 +983,15 @@ form#search input {
 	display: inline-block;
 }
 .badge_item > h2 {
-    color: #3587BA;
+		color: #3587BA;
 }
+
+.tags1_2_3 {
+	background: url("images/tags1_1.jpg") repeat-x scroll 0 0 transparent;
+    border: 1px solid #AAB9BF;
+    border-radius: 2px 2px 2px 2px;
+    margin-left: 5px;
+    padding: 1px 6px;
+	float:left;
+	line-height: 18px;
+    }
