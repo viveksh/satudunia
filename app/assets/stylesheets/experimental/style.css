@@ -2279,15 +2279,7 @@ fonts
     padding: 3px 6px;
     margin-bottom: 10px;
     }
-.tags1_2_3 {
-	background: url("images/tags1_1.jpg") repeat-x scroll 0 0 transparent;
-    border: 1px solid #AAB9BF;
-    border-radius: 2px 2px 2px 2px;
-    margin-left: 5px;
-    padding: 1px 6px;
-	float:left;
-	line-height: 18px;
-    }
+
 .tags1_2 a {
     color: #003B54;
     font-family: Arial;
