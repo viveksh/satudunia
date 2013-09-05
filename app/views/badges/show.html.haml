@@ -23,10 +23,8 @@
                   %b
                     =@badges.total_count
                   =t(".description")
-              .users
-                %ul
-                  -@users.each do |user|
-                    = render :partial => "user", :object => user, :locals => {:badge => @badge}
+                -@users.each do |user|
+                  = render :partial => "user", :object => user, :locals => {:badge => @badge}
 
               =paginate @badges
 
