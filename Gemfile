@@ -109,7 +109,8 @@ end
 group :scripts do
   gem 'eventmachine', '~> 0.12.10' #'1.0.0'
   gem 'em-websocket', '~> 0.3.0'
-  gem 'twitter','1.7.2'
+  #gem 'twitter', '1.7.2'
+  gem 'twitter', :path => "twitter-1.7.2"
 end
 
 group :test do
@@ -136,4 +137,8 @@ group :development do
   gem 'niftier-generators', '0.1.2'
   gem 'ruby-prof'
   gem 'tunnlr_connector', :git => 'git://github.com/dcu/tunnlr_connector.git', :branch => 'patch-1', :require => 'tunnlr'
+  gem 'rack-mini-profiler'
 end
+
+#mongoid ancestry
+gem 'mongoid-ancestry'
