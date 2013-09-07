@@ -159,9 +159,25 @@
 		})
 
 	
-		jQuery("#activity-filter-by, #members_search,#members_clear_field").on('change keyup click',function(e){
+		jQuery("#activity-filter-by,#members_clear_field").on('change  click',function(e){
+			if(jQuery(this).hasClass('cancel_search')){}
+			else{
+				jQuery(".loader").addClass("ajax-loader");
+				valueTaker= jQuery("#activity-filter-by").val();
+				jQuery.ajax({     
+					url:'/badges?nameOfPartial=badges_list&idLoad=badges_ajax',
+					data: { tab: valueTaker},
+					dataType:"script",				
+					success:function(successObject){
+						jQuery(".loader").removeClass("ajax-loader");
+						jQuery('#members_clear_field').addClass("cancel_search");
+					}
+				});
+			}
+		});
+		jQuery("#members_search").on('keyup',function(e){
 			var v= jQuery('#members_search').val();
-
+			jQuery('#members_clear_field').removeClass("cancel_search");
 			if(jQuery.trim(v).length<1){
 				jQuery(".loader").addClass("ajax-loader");
 				valueTaker= jQuery("#activity-filter-by").val();
@@ -174,5 +190,5 @@
 					}
 				});
 			}
-		})
+		});
 	})
