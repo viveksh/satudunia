@@ -2,30 +2,15 @@ class BadgeCommentsController < ApplicationController
   def index
     @badge_comments = BadgeComment.scoped
     @badge_comment = BadgeComment.new
-
-    # respond_to do |format|
-    #   format.html # index.html.erb
-    #   format.json { render json: @badge_comments }
-    # end
   end
 
   def show
     @badge_comment = BadgeComment.find(params[:id])
-
-    # respond_to do |format|
-    #   format.html # show.html.erb
-    #   format.json { render json: @badge_comment }
-    # end
   end
 
 
   def new
     @badge_comment = BadgeComment.new(:parent_id => params[:parent_id])
-
-    # respond_to do |format|
-    #   format.html # new.html.erb
-    #   format.json { render json: @badge_comment }
-    # end
   end
 
   # def edit

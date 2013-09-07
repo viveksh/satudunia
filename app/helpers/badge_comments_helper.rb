@@ -9,4 +9,8 @@ module BadgeCommentsHelper
   def commentor_image(badge_comment)
   	avatar_user_path(User.find(badge_comment.user_id))
   end
+
+  def commentor_name(badge_comment)
+  	User.find(badge_comment.user_id).name
+  end
 end
