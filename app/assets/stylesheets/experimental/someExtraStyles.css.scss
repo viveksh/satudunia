@@ -814,7 +814,7 @@ form#search button {
 		position: absolute;
 		right: 30px;
 		text-indent: -99999px;
-		top: 18px;
+		top: 16px;
 		width: 53px;
 }
 form#search {
@@ -831,6 +831,7 @@ form#search input[value="What is your question?"] {
 		font-family: Calibri;
 		font-size: 18px;
 		min-height: 19px;
+		border: none;
 }
 form#search input {
 		background: none repeat scroll 0 0 #FFFFFF;
