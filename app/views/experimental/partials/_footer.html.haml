@@ -199,6 +199,12 @@
               %a{:href => "#", :title => "The latest comments to all posts in RSS"}
                 Comments
                 %abbr{:title => "Really Simple Syndication"} RSS
+            %li
+              = link_to "Rss Feed(Service Providers)",service_providers_path(:atom)                
+              = image_tag 'rss.png',alt: "Rss"  
+            %li
+              = link_to "Rss_Feed_questions",questions_path(:atom)
+              = image_tag 'rss.png',alt: "Rss"
       .panel
         .widget
           %h2 Latest Tweets
