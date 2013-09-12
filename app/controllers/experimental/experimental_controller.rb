@@ -5,6 +5,7 @@
 class Experimental::ExperimentalController < ApplicationController
 	layout 'experiment'
   before_filter :check_age, :only => [:question_show]
+  before_filter :login_required, :only=>[:ask_question,:dashboard]
   # code from the plus template in order to set current order
   subtabs :index => [[:activity, [:activity_at, :desc]],
                    [:newest, [:created_at, Mongo::DESCENDING]],
