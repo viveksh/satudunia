@@ -22,6 +22,12 @@ class Experimental::ExperimentalController < ApplicationController
     @active_member = Membership.where(state: "active").limit(3)
     @announcements = Announcement.all
     @news = News.all
+    # fetching data data to show in related box
+    @about = StaticPage.where(:static_key => 'about').first
+    @tos = StaticPage.where(:static_key => 'tos').first
+    @eula = StaticPage.where(:static_key => 'eula').first
+    @privacy = StaticPage.where(:static_key => 'privacy').first
+    # fetching data data to show in related box
   end
 
   # copy of index action
@@ -35,8 +41,7 @@ class Experimental::ExperimentalController < ApplicationController
   # action public about
   def public_about
     
-    # add_breadcrumb "About", :public_about_experimental_index_path
-    
+    add_breadcrumb "About", (public_about_experimental_index_path).gsub("/","")
     @title = "about plus+"
   	@about = StaticPage.where(:static_key => 'about').first
     @about_user = User.find(@about.user_id) if @about.user_id?
@@ -56,6 +61,8 @@ class Experimental::ExperimentalController < ApplicationController
   end
   # terms of use
   def terms
+    
+    add_breadcrumb "Terms", terms_experimental_index_path.gsub("/","") 
     @title = "terms of use"
     @tos = StaticPage.where(:static_key => 'tos').first
   end
