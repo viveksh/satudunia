@@ -40,7 +40,7 @@ namespace :update_tags do
       unless tag[1].nil?
         tag[1].each do |subtag|
           if Question.any_in(:tags=>[subtag.to_s]).count.equal? 0
-            question = "Lorem Ipsum simply dummy text for printing and typesetting questions".split("").shuffle.join
+            question = "Lorem Ipsum simply dummy text for printing and typesetting questions #{subtag}".split("").shuffle.join
             question1 = "Lorem Ipsum simply dummy text for printing and typesetting anotherquestion".split("").shuffle.join
             body = "Lorem Ipsum  simply dummy text for body of the question".split("").shuffle.join
             body1 = "Lorem Ipsum  simply dummy text for body of the second question".split("").shuffle.join
