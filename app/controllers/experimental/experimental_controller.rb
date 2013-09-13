@@ -19,6 +19,7 @@ class Experimental::ExperimentalController < ApplicationController
   # code from the plus template in order to set current order
 
   def index
+    add_breadcrumb "Index", 'index' 
     @active_member = Membership.where(state: "active").limit(3)
     @announcements = Announcement.all
     @news = News.all
