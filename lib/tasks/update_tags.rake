@@ -28,18 +28,26 @@ namespace :update_tags do
       
       if Question.any_in(:tags=>[tag[0].to_s]).count.equal? 0
         question = "Lorem Ipsum simply dummy text for printing and typesetting questions".split("").shuffle.join
+        question1 = "Lorem Ipsum simply dummy text for printing and typesetting anotherquestion".split("").shuffle.join
         body = "Lorem Ipsum  simply dummy text for body of the question".split("").shuffle.join
+        body1 = "Lorem Ipsum  simply dummy text for body of the second question".split("").shuffle.join
         questionHash = {title: question, tags: tag[0].to_s, group_id: @group.id, body: body}
+        questionHash1 = {title: question1, tags: tag[0].to_s, group_id: @group.id, body: body1}
         @user.questions.create!(questionHash)
+        @user.questions.create!(questionHash1)
         puts "Question created main tag"
       end
       unless tag[1].nil?
         tag[1].each do |subtag|
           if Question.any_in(:tags=>[subtag.to_s]).count.equal? 0
             question = "Lorem Ipsum simply dummy text for printing and typesetting questions".split("").shuffle.join
+            question1 = "Lorem Ipsum simply dummy text for printing and typesetting anotherquestion".split("").shuffle.join
             body = "Lorem Ipsum  simply dummy text for body of the question".split("").shuffle.join
+            body1 = "Lorem Ipsum  simply dummy text for body of the second question".split("").shuffle.join
             questionHash = {title: question, tags: [subtag.to_s], group_id: @group.id,body: body}
+            questionHash1 = {title: question1, tags: tag[0].to_s, group_id: @group.id, body: body1}
             @user.questions.create!(questionHash)
+            @user.questions.create!(questionHash1)
             puts "Question created for subtag"
           end
         end
