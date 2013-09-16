@@ -10,7 +10,7 @@ class QuestionsController < ApplicationController
   before_filter :check_retag_permissions, :only => [:retag, :retag_to]
   before_filter :track_pageview
 
-  add_breadcrumb "Questions", :questions_path
+  add_breadcrumb "Questions", 'questions'
 
   tabs :default => :questions, :tags => :tags,
        :new => :ask_question
