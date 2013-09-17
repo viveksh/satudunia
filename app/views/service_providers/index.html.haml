@@ -164,8 +164,6 @@
 		});
 		
 	})	
-
-
 	var geocoder;
 	var map;
 	var markersArray = [];
@@ -178,7 +176,6 @@
 	function initialize() {
 			geocoder = new google.maps.Geocoder();
 			bounds = new google.maps.LatLngBounds ();
-
 			var myOptions = {
 					zoom: 2, 
 					mapTypeId: google.maps.MapTypeId.ROADMAP,
@@ -186,9 +183,7 @@
 							style: google.maps.NavigationControlStyle.SMALL
 					}
 			};
-			map = new google.maps.Map(document.getElementById("services_map"), myOptions);
-
-			
+			map = new google.maps.Map(document.getElementById("services_map"), myOptions);		
 
 			plotMarkers();
 	}
@@ -200,7 +195,6 @@
 					codeAddresses(locationsArray[i]);
 			}
 	}
-
 	function codeAddresses(address){
 			geocoder.geocode( { 'address': address[3]}, function(results, status) { 
 					if (status == google.maps.GeocoderStatus.OK) {
