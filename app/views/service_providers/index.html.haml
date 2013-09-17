@@ -1,10 +1,11 @@
 - services_array = []
 - if params[:country].blank?
 	- @serviceProviders.each do |services_area|
-		- services_array << [services_area.name.gsub(",",""),services_area.description.gsub(",","") ,services_area.telephone + " " + services_area.email,services_area.address.gsub(",","")]
+		- services_array << [strip_tags(services_area.name.gsub(",","")),strip_tags(services_area.description.gsub(",","")) ,strip_tags(services_area.telephone) + " " + strip_tags(services_area.email),strip_tags(services_area.address.gsub(",",""))]
+
 - else
 	- @service_providers.where(:country => "#{params[:country]}".humanize).each do |services_area|
-		- services_array << [services_area.name.gsub(",",""),services_area.description.gsub(",","") ,services_area.telephone + " " + services_area.email,services_area.address.gsub(",","")]
+		- services_array << [strip_tags(services_area.name.gsub(",","")),strip_tags(services_area.description.gsub(",","")) ,strip_tags(services_area.telephone) + " " + strip_tags(services_area.email),strip_tags(services_area.address.gsub(",",""))]
 
 #map
 	%figure{:class => "p5"}
