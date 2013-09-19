@@ -166,7 +166,7 @@
 	/popular box
 	= render "experimental/partials/popular_box"
 	/rating box
-	= render "experimental/partials/rating_box"
+	/ = render "experimental/partials/rating_box"
 	/banner box
 	= render "experimental/partials/banner_box"
 
@@ -191,7 +191,7 @@
 
 					},
 					success:function(successObject){
-					jQuery('html, body').animate({ scrollTop: jQuery(".overview-new").offset().top });
+					//jQuery('html, body').animate({ scrollTop: jQuery(".overview-new").offset().top });
 					jQuery(".loader").removeClass("ajax-loader");
 
 					}
@@ -211,7 +211,6 @@
 					data: { tab: valueTaker},
 					dataType:"script",				
 					success:function(successObject){
-						jQuery('html, body').animate({ scrollTop: 50 });
 						jQuery(".loader").removeClass("ajax-loader");
 						jQuery('#members_clear_field').addClass("cancel_search");
 						
