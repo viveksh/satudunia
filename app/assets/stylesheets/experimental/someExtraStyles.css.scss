@@ -1184,3 +1184,18 @@ form#search input {
 	background: none repeat scroll 0 0 #F6F8F9;
 	display: none;
 }
+
+ /*For country-Select */
+.select-text-adj > select{
+	width:100%;
+}
+
+.set-box{
+	width:15% !important;
+	font-size: 12px !important;
+}
+
+.set-box-phone{
+	width:30% !important;
+	font-size: 12px !important;
+}

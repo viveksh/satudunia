@@ -23,6 +23,7 @@ class Experimental::ExperimentalController < ApplicationController
     @active_member = Membership.where(state: "active").limit(3)
     @announcements = Announcement.all
     @news = News.all
+    @tags = Tag.all
     @random_tags = Tag.all.sample(4).map(&:name)
     @questions = Question.all
     # fetching data data to show in related box

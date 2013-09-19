@@ -26,6 +26,12 @@
 							.basicInfo{:style => "margin-left: 10px !important"}
 								%h2
 									= @news.news_title
+								.rating-wrapper.small
+									%input.star.star-rating-sivan{name: "star1", type: "radio"}/
+									%input.star.star-rating-sivan{name: "star1", type: "radio"}/
+									%input.star.star-rating-sivan{name: "star1", type: "radio"}/
+									%input.star.star-rating-sivan{name: "star1", type: "radio"}/
+									%input.star.star-rating-sivan{name: "star1", type: "radio"}/
 								%small
 									by #{@news.user.name} on #{@news.created_at.strftime("%d %b %Y - %I:%M %p")}
 						- if @news.has_news_image?

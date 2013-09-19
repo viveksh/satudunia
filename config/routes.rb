@@ -43,7 +43,7 @@ Rails.application.routes.draw do
   match '/widgets/embedded/:id' => 'widgets#embedded', :as => :embedded_widget
   match '/suggestions' => 'users#suggestions', :as => :suggestions
   match '/activity' => 'activities#index', :as => :activities
-  match '/contact' => 'contact#index', :as => :contact
+  # match '/contact' => 'contact#index', :as => :contact
   match '/activities/:id' => 'activities#show', :as => :activity, :method => :get
 
   match '/update_stripe' => 'invoices#webhook', :method => :post
@@ -197,7 +197,7 @@ Rails.application.routes.draw do
     resources :comments do
       resources :votes
     end
-
+    
     resources :answers do
       resources :votes
       resources :flags
