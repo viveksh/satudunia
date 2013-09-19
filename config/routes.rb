@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   get "survey/index"
 
-  devise_for(:users, :path_names => { :sign_in => "login", :sign_out => "logout"}, :controllers => {:registrations => 'users', :omniauth_callbacks => "multiauth/sessions"}) do
+  devise_for(:users,:path=>"/members", :path_names => { :sign_in => "login", :sign_out => "logout"}, :controllers => {:registrations => 'users', :omniauth_callbacks => "multiauth/sessions"}) do
     
     match "login" => "devise/sessions#new", :as => :new_user_session 
     match "logout" => "devise/sessions#destroy", :as => :destroy_user_session
@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   :as => 'check_custom_domain'
   match '/groups/:group_id/reset_custom_domain' => 'groups#reset_custom_domain',
    :method => :post, :as => 'reset_custom_domain'
+  # for user index
+  # match '/members' =>"users#index" , :method=>:get, 
   match '/connect' => 'users#social_connect', :method => :get, :as => :social_connect
   match '/invitations/accept' => 'invitations#accept', :method => :get, :as => :accept_invitation
   match '/disconnect_twitter_group' => 'groups#disconnect_twitter_group', :method => :get
@@ -73,7 +75,7 @@ Rails.application.routes.draw do
   # match '/members' => 'users#index', :as =>:users
   # match '/members/:id' => 'users#show', :as =>:user
 
-  resources :users, :except=>[:new] do
+  resources :users, :path=>"/members", :except=>[:new] do
     collection do
       get :autocomplete_for_user_login
       post :connect
@@ -394,7 +396,7 @@ Rails.application.routes.draw do
         put :ban
       end
     end
-    resources :users
+    resources :users, :path=>"/members"
   end
 
    # experimetal routes

@@ -33,7 +33,7 @@
             .item-meta{:style => "padding-left: 125px;"}
               =link_to "<i class='icon-logout'></i>Signout".html_safe,destroy_user_session_path
 
-:javascript
-  jQuery(".avatar").error(function () {
-    jQuery(this).unbind("error").attr("src", "#{local_path_experimental}member.jpeg");
-  });
+  :javascript
+    jQuery(".avatar").error(function () {
+      jQuery(this).unbind("error").attr("src", "#{local_path_experimental}member.jpeg");
+    });
