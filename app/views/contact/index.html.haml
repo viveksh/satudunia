@@ -62,8 +62,7 @@
 									= f.label "Other Comments"
 									= f.text_area :comment, :style => "width: 250px",:placeholder=>"Please Enter Comment"    
 					.contact-section-bottom-button
-						
-						= link_to "Clear".html_safe, contact_index_path, :class=>"contact-button", :id=> "align"
+						= link_to "Cancel".html_safe, contact_index_path, :class=>"contact-button"
 						= f.submit "Submit", :class=>"contact-button", :id=> "align"
 	%br.clearer/
 /side bar
