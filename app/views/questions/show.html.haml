@@ -89,14 +89,13 @@
 											- if current_user.use_gravatar?
 												=link_to image_tag avatar_user_path(current_user),:size=>'30x30'
 											- else
-												%img.avatar.user-1227-avatar.avatar-50.photo{:alt => "Profile picture of zicrainnyRV", :height => "50", :src => "http://gravatar.com/avatar/5a0a1a5e96f190c339221f66d7b09b00?d=http://www.industrialthemes.com/made/wp-content/plugins/buddypress/bp-core/images/mystery-man.jpg&s=50&r=G", :width => "50"}/
-										%span
-											= comments.body
+												%img.avatar.user-1227-avatar.avatar-50.photo{:alt => "Profile picture of zicrainnyRV", :height => "30", :src => "http://gravatar.com/avatar/5a0a1a5e96f190c339221f66d7b09b00?d=http://www.industrialthemes.com/made/wp-content/plugins/buddypress/bp-core/images/mystery-man.jpg&s=50&r=G", :width => "30"}/
+										.set-comments-show
 											.by-user
-												="-"
 												=comments.user.login.capitalize
+												="-"
+											= comments.body
 									
-
 							/ .panel-link-comment1{:id => "question-comment-panel-link"}
 							/ 	= link_to "<i class='icon-comment'></i>Comments".html_safe,"javascript:void(0)", :class => "extra-buttons", :id => "question-comment-link",:title => "Post your Answer"
 							.panel-comments.set-left{:id => "question-comment-panel"}
@@ -107,7 +106,7 @@
 										- if current_user.use_gravatar?
 											=link_to image_tag avatar_user_path(current_user),:size=>'30x30'
 										- else
-											%img.avatar.user-1227-avatar.avatar-50.photo{:alt => "Profile picture of zicrainnyRV", :height => "50", :src => "http://gravatar.com/avatar/5a0a1a5e96f190c339221f66d7b09b00?d=http://www.industrialthemes.com/made/wp-content/plugins/buddypress/bp-core/images/mystery-man.jpg&s=50&r=G", :width => "50"}/
+											%img.avatar.user-1227-avatar.avatar-50.photo{:alt => "Profile picture of zicrainnyRV", :height => "30", :src => "http://gravatar.com/avatar/5a0a1a5e96f190c339221f66d7b09b00?d=http://www.industrialthemes.com/made/wp-content/plugins/buddypress/bp-core/images/mystery-man.jpg&s=50&r=G", :width => "30"}/
 										=# f.text_area :body, :size=>"20x3", :style => "margin: 10px; width: 560px;"
 										= f.text_area :body, :size=>"0", :placeholder => "write a comment...", :id=> "enter-comment"
 									%p
