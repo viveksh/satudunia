@@ -123,7 +123,8 @@ Rails.application.routes.draw do
 
   resources :service_providers, :except => [:show], :path=>'services-map'
   get '/services-map/:id/:slug' => "service_providers#show", :as=>:service_map_provider
-  resources :news
+  resources :news 
+  match "/news/:id/rating" => "news#rating"
   resources :polls
 
   resources :pages do
@@ -420,6 +421,7 @@ Rails.application.routes.draw do
         get :crowdfunding 
         get :dashboard, :path=> "/profile/dashboard"
         get :social
+        get :comments_rss
         # get :announce, :path=> "/announcements"
         # experimental routes
         get "*a", :to => "experimental#routing_error"

@@ -17,8 +17,3 @@
 //= require 'experimental/jquery.tipsy'  
 //= require 'experimental/addthis_widget.js'
 //= require 'experimental/turnsocialTooltip.js'
-
-
-
-
-

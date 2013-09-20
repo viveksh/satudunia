@@ -202,6 +202,15 @@ class Experimental::ExperimentalController < ApplicationController
       end
     end  
   end
+
+  def comments_rss
+
+    @question_comments_feed = (Question.order_by(:'comments.updated_at'.desc).limit(1).only(:comments).first.comments) + (Answer.order_by(:'comments.updated_at'.desc).limit(1).only(:comments).first.comments)
+
+    respond_to do |format|
+      format.atom
+    end
+  end
   
 
 end

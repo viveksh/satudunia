@@ -153,7 +153,7 @@
                 = link_to "Log in", destroy_user_session_path
 
             %li
-              = link_to "Comments RSS",service_providers_path(:atom)
+              = link_to "Comments RSS",comments_rss_experimental_index_path(:atom)
               = image_tag 'rss.png',alt: "Rss"
             %li
               = link_to "Service Providers RSS",service_providers_path(:atom)

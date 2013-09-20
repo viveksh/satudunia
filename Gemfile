@@ -144,3 +144,6 @@ gem 'mongoid-ancestry'
 
 gem 'country_select'
 gem 'countries'
+
+#rating
+gem 'mongoid_rateable'
