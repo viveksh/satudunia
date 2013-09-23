@@ -49,7 +49,7 @@ class Experimental::ExperimentalController < ApplicationController
     @title = "about plus+"
   	@about = StaticPage.where(:static_key => 'about').first
     @about_user = User.find(@about.user_id) if @about.user_id?
-
+    
     # fetching data data to show in related box
     @tos = StaticPage.where(:static_key => 'tos').first
     @eula = StaticPage.where(:static_key => 'eula').first
@@ -66,9 +66,10 @@ class Experimental::ExperimentalController < ApplicationController
   # terms of use
   def terms
     
-    add_breadcrumb "Terms", terms_experimental_index_path.gsub("/","") 
+    add_breadcrumb "Terms of Service", terms_experimental_index_path.gsub("/","") 
     @title = "terms of use"
     @tos = StaticPage.where(:static_key => 'tos').first
+    @questions = Question.all
   end
   #faq
   def faq
