@@ -36,10 +36,10 @@ namespace :update_tags do
         question1 = "#{tag[0].to_s} Second questions All the Lorem Ipsum" 
         body = "#{tag[0].to_s} First body the Lorem Ipsum" 
         body1 = "#{tag[0].to_s} second body Lorem Ipsum " 
-        questionHash = {title: question, tags: tag[0].to_s, group_id: @group.id, body: body}
-        questionHash1 = {title: question1, tags: tag[0].to_s, group_id: @group.id, body: body1}
-        @user.questions.create!(questionHash)
-        @user.questions.create!(questionHash1)
+        questionHash = {user_id: @user, title: question, tags: tag[0].to_s, group_id: @group.id, body: body}
+        questionHash1 = {user_id: @user, title: question1, tags: tag[0].to_s, group_id: @group.id, body: body1}
+        Question.create(questionHash)
+        Question.create(questionHash1)
         puts "Question created main tag"
       end
       unless tag[1].nil?
@@ -49,10 +49,10 @@ namespace :update_tags do
             question1 = "#{subtag.to_s} Second questions All the Lorem Ipsum" 
             body = "#{subtag.to_s} First body the Lorem Ipsum"
             body1 = "#{subtag.to_s} second body Lorem Ipsum " 
-            questionHash = {title: question, tags: [subtag.to_s], group_id: @group.id,body: body}
-            questionHash1 = {title: question1, tags: tag[0].to_s, group_id: @group.id, body: body1}
-            @user.questions.create!(questionHash)
-            @user.questions.create!(questionHash1)
+            questionHash = {user_id: @user, title: question, tags: [subtag.to_s], group_id: @group.id,body: body}
+            questionHash1 = {user_id: @user, title: question1, tags: tag[0].to_s, group_id: @group.id, body: body1}
+            Question.create(questionHash)
+            Question.create(questionHash1)
             puts "Question created for subtag"
           end
         end
