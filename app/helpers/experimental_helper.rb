@@ -26,6 +26,11 @@ module ExperimentalHelper
 	end
 
 	def fetch_latest_comments
-		(Question.order_by(:'comments.updated_at'.desc).limit(1).only(:comments).first.comments.map(&:body).first(5)) + (Answer.order_by(:'comments.updated_at'.desc).limit(1).only(:comments).first.comments.map(&:body).first(5))
+		question = Question.order_by(:'comments.updated_at'.desc).limit(1).only(:comments)
+		unless question
+			(question.first.comments.map(&:body).first(5)) + (Answer.order_by(:'comments.updated_at'.desc).limit(1).only(:comments).first.comments.map(&:body).first(5))
+		else
+			[]
+		end
 	end
 end
