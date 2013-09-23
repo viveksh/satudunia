@@ -1,17 +1,21 @@
 .widget-wrapper
   .widget
-    #tabbed-reviews-compact.complex-list.compact
-      %ul.tabnav.ui-tabs-nav
+    #tabbed-posts.complex-list
+      %ul.tabnav
         %li
           %a{:href => "#tabs-comments"} Comments
       - if @questions
         - fetch_latest_comments.each do |comment|   
+         
           %br.clearer/
           .tabdiv-wrapper
             #tabs-comments.tabdiv
               %ul
                 %li
-                  %a{:href => "/"}
-                    = truncate(comment.body,:limit => 50)
-                    %span -  #{comment.user.name}
-                %li.last
+                  %a.first{:href => "single-review-numbers.html"}
+                    = truncate(comment,:limit => 50)
+                    %span - Brian McCulloh
+                %li.last  
+
+
+        
