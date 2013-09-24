@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   get "survey/index"
 
-  devise_for(:users,:path=>"/users", :path_names => { :sign_in => "login", :sign_out => "logout"}, :controllers => {:registrations => 'users', :omniauth_callbacks => "multiauth/sessions"}) do
+  devise_for(:users,:path=>"/members", :path_names => { :sign_in => "login", :sign_out => "logout"}, :controllers => {:registrations => 'users', :omniauth_callbacks => "multiauth/sessions"}) do
     
     match "login" => "devise/sessions#new", :as => :new_user_session 
     match "logout" => "devise/sessions#destroy", :as => :destroy_user_session
@@ -75,7 +75,7 @@ Rails.application.routes.draw do
   # match '/members' => 'users#index', :as =>:users
   # match '/members/:id' => 'users#show', :as =>:user
 
-  resources :users, :except=>[:new] do
+  resources :users, :path=>"/members", :except=>[:new] do
     collection do
       get :autocomplete_for_user_login
       post :connect
