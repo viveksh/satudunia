@@ -169,6 +169,8 @@ Rails.application.routes.draw do
   match 'question/:id' => 'questions#show', :as => :question
   #match 'questions/ask-a-question' => "questions#new", :as => :new_question
 
+  match '/questions/:question_id/comments/:id' => 'comments#show', :as=>:question_comment, :path=>'/question/:question_id/comments/:id'
+
   resources :questions, :except => [:show, :new] do
     # some routes written by vivek
     resources :votes
@@ -197,7 +199,7 @@ Rails.application.routes.draw do
       get :twitter_share
     end
 
-    resources :comments do
+    resources :comments, :except=> [:show] do
       resources :votes
     end
     

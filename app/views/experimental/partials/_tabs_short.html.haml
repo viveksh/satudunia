@@ -25,8 +25,9 @@
 							= image_tag (announcement_image_path(announcement,"small")) , :height => 109,:width=>163
 						- else
 							= image_tag ("banner-250x250.jpg") , :height => 109,:width=>163
-					%a.post-title{:href => announcement_path(announcement), :title => "Gotye – Mirrors"}= truncate("#{announcement.message}",:length=>25)
-			.clearer.hide-responsive
+					%a.post-title{:href => announcement_path(announcement), :title => "Gotye – Mirrors"}= announcement.message
+				- if @class == 'right'
+					%br.clearer.hide-responsive
 			/ .panel
 			/   .rating-wrapper.small
 			/     .letter.color2 D-
@@ -84,6 +85,8 @@
 					%a.post-title{:href => news_path(news.slug), :title => "Coffee Common: Bringing Coffee Power to the People"} #{news.news_title}
 					%script
 						jQuery("#news-rating_#{news.id}").raty({ readOnly: true,score: "#{news.rating}",path: '../assets'});
+				- if @class == 'right'
+					%br.clearer.hide-responsive
 
 
 
