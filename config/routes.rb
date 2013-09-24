@@ -422,7 +422,7 @@ Rails.application.routes.draw do
         get :events
         get :crowdfunding 
         get :dashboard, :path=> "/profile/dashboard"
-        get :social
+        get 'social/:via' => :social ,:as=> :social
         get :comments_rss
         # get :announce, :path=> "/announcements"
         # experimental routes
