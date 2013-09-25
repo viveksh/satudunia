@@ -26,6 +26,6 @@ class NewsController < ApplicationController
     render :nothing => true
   end
   def set_breadcrumb
-    add_breadcrumb "Announcements", :announcements_path
+    add_breadcrumb "News", news_index_path
   end
 end
