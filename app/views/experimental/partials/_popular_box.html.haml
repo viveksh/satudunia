@@ -8,7 +8,7 @@
         #tabs-comments.tabdiv
           %br.clearer
           - if @questions
-            - fetch_latest_comments.each do |comment_array|   
+            - fetch_latest_comments.first(3).each do |comment_array|   
               - comment_array.each do |comment|
                 %ul
                   %li
