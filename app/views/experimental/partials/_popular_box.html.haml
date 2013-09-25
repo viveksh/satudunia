@@ -11,11 +11,10 @@
             - fetch_latest_comments.each do |comment|   
               %ul
                 %li
-                  -if comment._parent.is_a? (Question)
-                    = link_to (question_path(comment._parent)) do
-                      = truncate(comment.body, :length=>30)
-                      %span -
-                      %span= comment.user.login
+                  = link_to (question_path(comment._parent)) do
+                    = truncate(comment.body, :length=>30)
+                    %span -
+                    %span= comment.user.login
 
 
 
