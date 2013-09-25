@@ -37,7 +37,7 @@ module ExperimentalHelper
 		@answer_with_comments_id.each do |answer|
 			@answer_comments << Answer.find(answer).comments.order_by(:'updated_at'.desc).entries.flatten
 		end
-		return (@question_comments.flatten.first(3) + @answer_comments.flatten.first(2))
+		return (@question_comments.flatten.sample(3) + @answer_comments.flatten.sample(2))
 	end
 
 	def tags_collection_footer
