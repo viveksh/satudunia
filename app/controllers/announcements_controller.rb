@@ -49,11 +49,11 @@ class AnnouncementsController < ApplicationController
   # DELETE /announcements/1
   # DELETE /announcements/1.json
   def destroy
-    @announcement = current_group.announcements.find(params[:id])
+    @announcement = current_group.announcements.by_slug(params[:id])
     @announcement.destroy
-
+    flash[:notice] = "Announcement deleted"
     respond_to do |format|
-      format.html { redirect_to(announcements_url) }
+      format.html { redirect_to(admin_announcements_path) }
       format.json  { head :ok }
     end
   end
