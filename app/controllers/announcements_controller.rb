@@ -1,6 +1,6 @@
 class AnnouncementsController < ApplicationController
-  before_filter :login_required, :except => [:hide]
-  before_filter :check_permissions, :except => [:hide]
+  before_filter :login_required, :except => [:hide,:show,:announce]
+  before_filter :check_permissions, :except => [:index,:hide,:show,:announce]
   layout "supr"
   tabs :default => :announcements
   before_filter :set_breadcrumb ,:except => [:index,:announce]
@@ -78,16 +78,16 @@ class AnnouncementsController < ApplicationController
     
     #@announcement = Announcement.find(params[:id])
     @announcement = Announcement.by_slug(params[:id])
+    @related_announcement = Announcement.all.order('articles.impressions_count DESC').limit(6)
     add_breadcrumb @announcement.message, @announcement.slug
     render :layout => "experiment"
-    
   end
 
   def rating
     @announcement = Announcement.find(params[:id])
     @announcement.rate params[:score] ,current_user
-    @announcement.save
-    render :nothing => true
+    @announcement.save    
+    render :layout =>false
   end
 
   protected

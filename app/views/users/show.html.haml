@@ -51,6 +51,10 @@
 					%span
 						Age: 
 						= user_age(@user)
+					%br
+					-if current_user != @user && @user.member_of?(current_group)
+						.follow
+							= follow_user_link(@user) 
 		#item-nav
 			#object-nav.item-list-tabs{:id=>"firstElement"}
 				%ul

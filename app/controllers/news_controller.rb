@@ -23,7 +23,7 @@ class NewsController < ApplicationController
     @news = News.find(params[:id])
     @news.rate params[:score] ,current_user
     @news.save
-    render :nothing => true
+    render :layout =>false
   end
   def set_breadcrumb
     add_breadcrumb "News", news_index_path
