@@ -1,6 +1,6 @@
 class AnnouncementsController < ApplicationController
-  before_filter :login_required, :except => [:hide]
-  before_filter :check_permissions, :except => [:hide]
+  before_filter :login_required, :except => [:hide,:announce]
+  before_filter :check_permissions, :except => [:hide,:announce]
   layout "supr"
   tabs :default => :announcements
   before_filter :set_breadcrumb ,:except => [:index,:announce]
