@@ -1260,5 +1260,28 @@ form#search input {
 }
 
 .set-padding-right{
-	padding-right: 40px !important;
+	padding-right: 20px !important;
 }
+
+.no-margin-left{
+	margin-left:-35px !important;
+}
+
+.item-meta-answers {
+    margin-top: -22px !important;
+    padding-left: 220px !important;
+}
+
+.item-meta-reputation {
+    margin-top: -22px !important;
+    padding-left: 345px !important;
+}
+
+.user-data-following {
+    color: #555555;
+    font-family: BebasNeueRegular,arial,sans-serif !important;
+    font-size: 16px;
+    margin-bottom: -15px;
+    margin-top: 3px;
+}
+
