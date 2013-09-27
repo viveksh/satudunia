@@ -10,7 +10,7 @@ class NewsController < ApplicationController
   def show
     @news = News.by_slug(params[:id])
     add_breadcrumb @news.news_title, @news.slug
-
+    @related_news = News.all.order('articles.impressions_count DESC').limit(6)
     if @news.nil? || !@news.is_active
       flash[:error] = "News not found"
       redirect_to news_index_path
