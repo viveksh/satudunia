@@ -64,25 +64,25 @@ namespace :update_tags do
     #   # conditional statement ends here
     # end
     # # loop ends here
-    namespace :update_tags do
-  desc "To update Default tags"
-  task :updateDefaultTags => :environment do
+  #   namespace :update_tags do
+  # desc "To update Default tags"
+  # task :updateDefaultTags => :environment do
 
-    @tags={:disclosure=>["casual_partners","family","friends","regular_partners"],
-    :drugs=>["partying","sex"],:first_diagnosis=>["situation"],
-    :maintaining_treatment=>["compliance","regular_access_to_medication"],
-    :relationships=>["dating","family","friends"],:sex=>["minimising-risk","safer_sex"],
-    :starting_medication=>["accessing_medication","cost","selecting_medication",
-    "side_effects"],:starting_treatment=>["clinics","cost","doctors"],
-    :travel=>["migration","tourism"],:well_being=>["fitness","nutrition"],
-    :work=>["health_checks","health_insurance","inclusion_&_iscrimination"]}
-    # conditional statemnets
-    if Group.last.update_attributes(:default_tags=>@tags)
-      puts "Default tags updated"
-    else
-      Puts "Something went wrong"
-    end
-  end
+  #   @tags={:disclosure=>["casual_partners","family","friends","regular_partners"],
+  #   :drugs=>["partying","sex"],:first_diagnosis=>["situation"],
+  #   :maintaining_treatment=>["compliance","regular_access_to_medication"],
+  #   :relationships=>["dating","family","friends"],:sex=>["minimising-risk","safer_sex"],
+  #   :starting_medication=>["accessing_medication","cost","selecting_medication",
+  #   "side_effects"],:starting_treatment=>["clinics","cost","doctors"],
+  #   :travel=>["migration","tourism"],:well_being=>["fitness","nutrition"],
+  #   :work=>["health_checks","health_insurance","inclusion_&_iscrimination"]}
+  #   # conditional statemnets
+  #   if Group.last.update_attributes(:default_tags=>@tags)
+  #     puts "Default tags updated"
+  #   else
+  #     Puts "Something went wrong"
+  #   end
+  # end
 
   desc "To update Default tags Questions"
   task :updateTagsQuestions => :environment do
