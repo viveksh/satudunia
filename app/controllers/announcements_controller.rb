@@ -73,7 +73,8 @@ class AnnouncementsController < ApplicationController
 
   def announce
     add_breadcrumb "Announcements", "announcements"
-    @announcements = Announcement.all.page(params["page"]).per(2)
+    @announcements = Announcement.all.page(params["page"]).per(6)
+
     # render :layout => "experiment"
     # @announcement = Announcement.where(:only_anonymous=> false ).page(params[:page])
     respond_to do |format|
