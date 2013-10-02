@@ -643,9 +643,6 @@ namespace :update_tags do
           puts "Routes created"
         end
     end
-end
-
-  end
 
 
   desc "To update Default tags Questions Answers"
