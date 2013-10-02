@@ -22,8 +22,8 @@ namespace :update_tags do
     end
   end
 
-  desc "To update Default tags Questions"
-  task :updateTagsQuestions => :environment do
+  # desc "To update Default tags Questions"
+  # task :updateTagsQuestions => :environment do
     # default tags
     # to delete all the question
     # Question.delete_all
