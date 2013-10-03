@@ -35,16 +35,24 @@
             %a{:href => "#{@about_user.google_plus_profile_url}", :title => "google+"}  
           -else
             %a{:href => "https://plus.google.com/", :title => "google+"}  
-        / %li.youtube
-        /   %a{:href => "http://www.youtube.com/user/brianmcculloh/", :title => "YouTube"}  
-        / %li.flickr
-        /   %a{:href => "http://www.flickr.com/photos/brianmcculloh/", :title => "Flickr"}  
-        / %li.digg
-        /   %a{:href => "http://digg.com/users/digg", :title => "Digg"}  
-        / %li.email
-        /   %a{:href => "mailto:brianmcculloh@gmail.com", :title => "Email"}  
-        / %li.url
-        /   %a{:href => "http://www.outerspiceweb.com", :title => "Website"}  
+        %li.youtube
+          - if @about_user.youtube_profile_url.present?
+            %a{:href => "#{@about_user.youtube_profile_url}", :title => "YouTube"} 
+          - else 
+            %a{:href => "http://www.youtube.com/user/brianmcculloh/", :title => "YouTube"}
+        %li.flickr
+          - if @about_user.flickr_profile_url.present?
+            %a{:href => "#{@about_user.flickr_profile_url}", :title => "Flickr"} 
+          -else
+            %a{:href => "http://www.flickr.com/photos/brianmcculloh/", :title => "Flickr"} 
+        %li.digg
+          - if @about_user.digg_profile_url.present?
+            %a{:href => "#{@about_user.digg_profile_url}", :title => "Digg"}
+          - else
+            %a{:href => "http://digg.com/users/digg", :title => "Digg"}     
+        - if @about_user.url_profile_url.present?
+          %li.url
+            %a{:href => "#{@about_user.url_profile_url}", :title => "Website"}  
       %br.clearer/
       .more-articles
         More articles by
