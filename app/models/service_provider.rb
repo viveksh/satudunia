@@ -2,6 +2,7 @@ class ServiceProvider
   include Mongoid::Document
   include MongoidExt::Slugizer
 
+
   slug_key :name, :unique => true
   
   #paginates_per 25
@@ -28,6 +29,9 @@ class ServiceProvider
   field :review_rating, :type=>Integer, :default => 0
   field :recommend, :type => Integer, :default => 0
   field :consultation, :type => String
+  field :valid_provider, :type => Boolean
+  field :correct_provider, :type => Boolean
+  field :valid_prices_provider, :type => Boolean
   
   xapit do 
     text :name
@@ -39,7 +43,7 @@ class ServiceProvider
   validates_presence_of :name, :message => "Service name can't be blank"
   validates_uniqueness_of :name, :message => "Service name is already taken"
   
-  attr_accessible :name, :description, :url, :address, :email, :telephone, :country, :recommend
+  attr_accessible :name, :description, :url, :address, :email, :telephone, :country, :recommend,:valid_provider,:correct_provider,:valid_prices_provider
 
   def self.update_service_provider_views
     @service_providers_index_views = ViewsCount.where(:type => "service_providers_index").first

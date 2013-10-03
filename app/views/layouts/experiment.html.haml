@@ -159,10 +159,16 @@
 							= render "experimental/partials/social_side_bar"
 						- flash.each do |name, msg|
 							- if msg.is_a?(String)
-								%div{:class => "alert alert-#{name == :notice ? "success" : "error"}"}
-									/ %a.close{"data-dismiss" => "alert"} ×
-									= link_to "×",'',:id=>"close", :class=>"msg-alert"
-									= content_tag :div, msg, :id => "flash_#{name}"
+								- if flash[:alert] == "rpx_invalid"
+									.alert.alert-error
+										%a#close.msg-alert{href: ""} ×
+										#flash_alert 
+											This user is already registered in our website. Please login to continue.
+								- else 
+									%div{:class => "alert alert-#{name == :notice ? "success" : "error"}"}
+										/ %a.close{"data-dismiss" => "alert"} ×
+										= link_to "×",'',:id=>"close", :class=>"msg-alert"
+										= content_tag :div, msg, :id => "flash_#{name}"
 						= yield
 				// Begin TranslateThis Button
 				/ #translate-this
