@@ -1,0 +1,21 @@
+= form_for (@user),:url=>{:action => "update"}, :html => {:class => "standard-form", :multipart => true, :id => "edit-user-form-privacy"} do |f|
+	.overview-wrapper
+		.overview-new
+			.left-panel
+				.category
+					.catname
+						Social
+					.category-arrow
+				= f.label :facebook_profile_url, "Facebook URL"
+				= f.text_field :facebook_profile_url
+				= f.label :linkedin_profile_url, "LinkedIn URL"
+				= f.text_field :linkedin_profile_url
+				= f.label :twitter_profile_url, "Twitter URL"
+				= f.text_field :twitter_profile_url
+				= f.label :google_plus_profile_url, "Google+ URL"
+				= f.text_field :google_plus_profile_url
+				%br
+				%br
+		.contact-section-bottom
+			= f.submit "Save", :class=>"contact-button contact-button-single"
+		%br
