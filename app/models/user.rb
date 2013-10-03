@@ -31,6 +31,11 @@ class User
   field :identity_url,              :type => String
   index :identity_url
 
+  field :facebook_profile_url,      :type => String
+  field :linkedin_profile_url,      :type => String
+  field :twitter_profile_url,       :type => String
+  field :google_plus_profile_url,   :type => String
+
   field :role,                      :type => String, :default => "user"
   field :last_logged_at,            :type => Time
 
