@@ -19,7 +19,7 @@ class Experimental::ExperimentalController < ApplicationController
   # code from the plus template in order to set current order
 
   def index
-    add_breadcrumb "Index", 'index' 
+    # add_breadcrumb "Index", 'index' 
     @active_member = Membership.where(state: "active").limit(3)
     @announcements = Announcement.all
     @news = News.all
@@ -75,8 +75,7 @@ class Experimental::ExperimentalController < ApplicationController
     add_breadcrumb "RSS", 'rss'
   end
   # terms of use
-  def terms
-    
+  def terms    
     add_breadcrumb "Terms of Service", terms_experimental_index_path.gsub("/","") 
     @title = "terms of use"
     @tos = StaticPage.where(:static_key => 'tos').first

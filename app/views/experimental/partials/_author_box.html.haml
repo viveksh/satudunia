@@ -16,25 +16,25 @@
       %br.clearer/
       %ul.social-links
         %li.twitter
-          - if @about_user.twitter_login.present?
-            %a{:href => "http://twitter.com/#{@about_user.twitter_login}", :title => "Twitter"}  
+          - if @about_user. twitter_profile_url.present?
+            %a{:href => "#{@about_user. twitter_profile_url}", :title => "Twitter"}  
           -else
             %a{:href => "http://twitter.com/", :title => "Twitter"}
         %li.facebook
-          - if @about_user.facebook_id.present?
-            %a{:href => "http://www.facebook.com/#{@about_user.facebook_id}", :title => "Facebook"}  
+          - if @about_user.facebook_profile_url.present?
+            %a{:href => "#{@about_user.facebook_profile_url}", :title => "Facebook"}  
           -else
             %a{:href => "http://www.facebook.com/", :title => "Facebook"}  
         %li.linkedin
-          - if @about_user.linked_in_id.present?
-            %a{:href => "http://www.linkedin.com/", :title => "LinkedIn"}  
+          - if @about_user.linkedin_profile_url.present?
+            %a{:href => "#{@about_user.linkedin_profile_url}", :title => "LinkedIn"}  
           - else
             %a{:href => "http://www.linkedin.com/", :title => "LinkedIn"}
         %li.googleplus
-          - if @about_user.github_login.present?
-            %a{:href => "https://github.com/#{@about_user.github_login}", :title => "github"}  
+          - if @about_user.google_plus_profile_url.present?
+            %a{:href => "#{@about_user.google_plus_profile_url}", :title => "google+"}  
           -else
-            %a{:href => "https://github.com/", :title => "github"}  
+            %a{:href => "https://plus.google.com/", :title => "google+"}  
         / %li.youtube
         /   %a{:href => "http://www.youtube.com/user/brianmcculloh/", :title => "YouTube"}  
         / %li.flickr
