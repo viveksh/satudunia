@@ -1258,25 +1258,20 @@ form#search input {
 .comments-rss-header {
   margin-top: -20px !important;
 }
-
 .set-padding-right{
 	padding-right: 40px !important;
 }
-
 .no-margin-left{
 	margin-left:-35px !important;
 }
-
 .item-meta-answers {
     margin-top: -22px !important;
     padding-left: 220px !important;
 }
-
 .item-meta-reputation {
     margin-top: -22px !important;
     padding-left: 345px !important;
 }
-
 .user-data-following {
     color: #555555;
     font-family: BebasNeueRegular,arial,sans-serif !important;
@@ -1284,29 +1279,36 @@ form#search input {
     margin-bottom: -15px;
     margin-top: 3px;
 }
-
 .set-box-margin{
 	margin-top: 4px;
 	margin-left: 4px;
 }
-
 .margin-related{
 	margin-left:7px;
 }
-
 .btn.disqus-btn{
   background:none repeat scroll 0 0 #5D6B72 !important;
   font-family: inherit !important;
   font-weight: 700 !important;
 }
-
 .temp-post.btn{
   margin-bottom: -1px;
   text-align: right;
   width: 528px;
 }
-
 .create-question-button{
 	margin-top:-60px;
 	float:right;
+}
+.create-question-button.create-button{
+	float: right;
+    margin-right: -208px;
+    margin-top: -74px;
+}
+.item-list-tabs.activity-type-tabs.table-margin{
+	margin-top: 90px !important;
+}
+
+.dir-search.search-margin{
+	margin-top: -10px;
 }

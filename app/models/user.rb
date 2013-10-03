@@ -971,8 +971,15 @@ Time.zone.now ? 1 : 0)
 
   # rpx success
   def before_rpx_auto_create(rpx_user)
-    self[:login]=rpx_user[:username] if rpx_user[:username]
-  end
-  
+    # self[:login]=rpx_user[:username] if rpx_user[:username]
+    if rpx_user[:email]
+      @registered_user = User.where(:email => rpx_user[:email])
+      if @registered_user.present?
+        redirect_to '/members/login'
+      else
+        self[:login]=rpx_user[:username] if rpx_user[:username]
+      end
+    end
+  end  
 
 end
