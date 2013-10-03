@@ -336,7 +336,7 @@
 	}
 	)();
 	//use for close button of success message flash
-	jQuery('#close').live(function(e){
+	jQuery('#close').on('click',function(e){
 		e.preventDefault();
 		jQuery("#flash_alert,#flash_notice").fadeOut(500);
 		jQuery(this).hide();
