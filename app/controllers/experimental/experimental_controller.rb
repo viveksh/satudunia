@@ -155,6 +155,7 @@ class Experimental::ExperimentalController < ApplicationController
     
   end
   def ask_question
+    add_breadcrumb "Ask Question", "ask-a-question"
     @question = Question.new(params[:question]) 
     Question.update_ask_question_views
   end
