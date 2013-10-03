@@ -865,7 +865,7 @@ form#search input {
 	position: absolute;
 	top: 287px;
 	width: 606px;
-	z-index: 100000;
+	z-index: 1;
 }
 .survey.current_page_parent {
 		margin-left: -50px;
@@ -1310,10 +1310,3 @@ form#search input {
 	margin-top:-60px;
 	float:right;
 }
-
-@media screen and (-webkit-min-device-pixel-ratio:0) { 
-  #search-container { width:448px; left: 206px;} 
-  form#search input{width: 441px; padding-left: 12px;}
-} 
-
-#authorbox ul li.github a {background:url(images/github_icon.png) no-repeat 0px 0px;}
