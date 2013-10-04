@@ -120,6 +120,7 @@ Rails.application.routes.draw do
   end
   
   get '/services-map/:country' =>"service_providers#country" , :as => :country_services_map
+  match 'provider_validate' => "service_providers#provider_validate", :as => :provider_validate,:via =>[:post]
 
   resources :service_providers, :except => [:show], :path=>'services-map'
   get '/services-map/:id/:slug' => "service_providers#show", :as=>:service_map_provider

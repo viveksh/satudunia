@@ -1331,3 +1331,47 @@ form#search input {
 .dir-search.search-margin{
 	margin-top: -10px;
 }
+#close-box{
+	cursor: pointer;
+		height: 34px;
+		position: absolute;
+		right: -4px;
+		top: -4px;
+		width: 34px;
+}
+.reveal-modal.show-box1{
+	margin-top: 50px;
+}
+
+#validate-box{
+	text-align: center;
+}
+.service-name-box {
+    background: none repeat scroll 0 0 #3C3C3E;
+    border-bottom: 1px solid #E0E0E0;
+    margin: -30px 0 25px -40px;
+    padding: 20px 0 20px 0;
+    width: 600px;
+    border-radius: 4px 0 0 0;
+    color: white;
+    font-weight: 700;
+}
+.valid-service {
+    margin-left: -35px;
+}
+.prices-service {
+    margin-left: -18px;
+}
+.service-form-validate{
+	color: #64554F;
+	font-weight: 600;
+}
+.prices-service > span {
+    margin-left: -25px;
+}
+.correct-service > span {
+    margin-left: -40px;
+}
+.service-validate-submit > input {
+    margin-left: -53px;
+}

@@ -28,8 +28,9 @@
 				%a{:href => "#Review"} Review
 			%li
 				%a{:href => "#Map" ,:id => "map-tab"} Map
-			%li
-				%a{:href => "#Validate" ,:id => "validate-tab", :class=>"fancybox", "data-reveal-id"=>"myModalShow"} Validate
+			- unless current_user.nil?
+				%li
+					%a{:href => "#Validate" ,:id => "validate-tab", :class=>"fancybox", "data-reveal-id"=>"myModalShow"} Validate
 		/ top contact bar
 		= render "service_providers/partials/contact_bar"
 		.tabdiv-wrapper
@@ -47,38 +48,51 @@
 		/ bottom contact bar
 		= render "service_providers/partials/footer_bar"
 
-/ #myModalShow.reveal-modal.show-box
-/ 	/ %h1 Modal Title
-/ 	= form_for @service_provider do |f|
-/ 		%p
-/ 			Is this a valid place?
-/ 			= f.label "Yes"
-/ 			= f.radio_button :valid_provider,1
-/ 			= f.label "No"
-/ 			= f.radio_button :valid_provider,0
-/ 			%br
-/ 			%br
-/ 			Are the services correct? 
-/ 			= f.label "Yes"
-/ 			= f.radio_button :correct_provider,1
-/ 			= f.label "No"
-/ 			= f.radio_button :correct_provider,0
-/ 			%br
-/ 			%br
-/ 			Are the prices correct? 
-/ 			= f.label "Yes"
-/ 			= f.radio_button :valid_prices_provider,1
-/ 			= f.label "No"
-/ 			= f.radio_button :valid_prices_provider,0
-/ 			%br
-/ 		=# link_to "<i class='icon-key'></i>Sign Up with Email".html_safe,signup_path,:html=>{:title=>"Sign up",:class=>"tool-tip"}
-/ 		= f.submit "Submit", :html=>{:title=>"Submit",:class=>"tool-tip"}
-/ 		%br
-/ 		%br
-		
-/ 		= link_to "<i class='icon-key'></i>Sign Up with Social+ Networks".html_safe,social_experimental_index_path(:via=>"networks")
-/ 	%a.close-reveal-modal#close-box
-/ 		%img{:alt => "close", :src => "http://cdn.rpxnow.com/rel/img/43f137c98b7a6562f6ad5f076fce376b.png", :style => "width: 34px; top: -4px; right: -4px; position: absolute; height: 34px; cursor: pointer;"}/
+- unless current_user.nil?
+	#myModalShow.reveal-modal.show-box1
+		/ %h1 Modal Title
+		#validate-box
+			.service-name-box
+				Please give your valuable feedback on #{@service_provider.name.titleize}
+			= form_for @service_provider_validate, :url => provider_validate_path do |f|
+				.service-form-validate
+					.valid-service
+						Is this a valid place?
+						%br.clearer
+						%span
+							= f.label "Yes"
+							= f.radio_button :valid_provider,1
+							= f.label "No"
+							= f.radio_button :valid_provider,0
+						%br
+						%br
+					.correct-service
+						Are the services correct? 
+						%br.clearer
+						%span
+							= f.label "Yes"
+							= f.radio_button :correct_provider,1
+							= f.label "No"
+							= f.radio_button :correct_provider,0
+						%br
+						%br
+					.prices-service
+						Are the prices correct? 
+						%br.clearer
+						%span
+							= f.label "Yes"
+							= f.radio_button :valid_prices_provider,1
+							= f.label "No"
+							= f.radio_button :valid_prices_provider,0
+						%br
+				= hidden_field_tag :service_provider_id,@service_provider.slug
+				%br
+				%br
+				.service-validate-submit
+					= f.submit "Submit", :html=>{:title=>"Submit",:class=>"tool-tip"}
+				
+		%a.close-reveal-modal#close-box1
+			%img{:alt => "close", :src => "http://cdn.rpxnow.com/rel/img/43f137c98b7a6562f6ad5f076fce376b.png", :style => "width: 34px; top: -22px; right: -25px; position: absolute; height: 34px; cursor: pointer;"}/
 				
 /side bar
 .sidebar

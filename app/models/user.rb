@@ -94,6 +94,7 @@ class User
   references_many :news, :dependent => :destroy, :validate => false
   references_many :announcements, :dependent => :destroy, :validate => false
   references_many :article, :dependent => :destroy, :validate => false
+  references_many :service_provider_validates, :dependent => :destroy, :validate => false
   references_many :static_page
   references_many :polls
   references_many :profile_tiers
