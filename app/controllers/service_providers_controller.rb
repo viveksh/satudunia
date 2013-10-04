@@ -75,12 +75,19 @@ class ServiceProvidersController < ApplicationController
   end
 
   def provider_validate
+
     @service_provider_val = ServiceProvider.by_slug(params[:service_provider_id])
-    @service_provider_validation = @service_provider_val.service_provider_validates.new
-    @service_provider_validation.user_id = current_user.id
-    @service_provider_validation.update_attributes(params[:service_provider_validate])
+    if ServiceProviderValidate.where(:service_provider_id => @service_provider_val.id ,:user_id => current_user.id).blank?
+      @service_provider_validation = @service_provider_val.service_provider_validates.new
+      @service_provider_validation.user_id = current_user.id
+      @service_provider_validation.update_attributes(params[:service_provider_validate])
+      flash[:notice] = "Thank You for Validating"
+    else
+      @service_provider_validation = @service_provider_val.service_provider_validates.first
+      @service_provider_validation.update_attributes(params[:service_provider_validate])
+      flash[:notice] = "Thank You for Validating Again"
+    end
     redirect_to service_map_provider_path(@service_provider_val.country, @service_provider_val.slug)
-    flash[:notice] = "Thank You for Validating"
   end
   
   protected
