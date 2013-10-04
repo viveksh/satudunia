@@ -35,6 +35,10 @@ class User
   field :linkedin_profile_url,      :type => String
   field :twitter_profile_url,       :type => String
   field :google_plus_profile_url,   :type => String
+  field :youtube_profile_url,       :type => String
+  field :flickr_profile_url,       :type => String
+  field :digg_profile_url,          :type => String
+  field :url_profile_url,           :type => String
 
   field :role,                      :type => String, :default => "user"
   field :last_logged_at,            :type => Time

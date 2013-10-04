@@ -307,7 +307,7 @@ class UsersController < ApplicationController
 		@user.safe_update(%w[preferred_languages login email name hide_realname
 												 language timezone bio hide_country hide_age hide_hiv_condition
 												 country_name user_age hiv_condition website avatar use_gravatar facebook_profile_url 
-												 linkedin_profile_url twitter_profile_url google_plus_profile_url], @paramsUpdated)
+												 linkedin_profile_url twitter_profile_url google_plus_profile_url youtube_profile_url flickr_profile_url digg_profile_url url_profile_url ], @paramsUpdated)
 		@user.notification_opts.safe_update(%w[new_answer give_advice activities reports
 			 questions_to_twitter badges_to_twitter favorites_to_twitter answers_to_twitter
 			 comments_to_twitter], params[:user][:notification_opts]) if params[:user][:notification_opts]
