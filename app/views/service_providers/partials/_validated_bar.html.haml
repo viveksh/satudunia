@@ -7,10 +7,6 @@
 						Validated
 					.category-arrow  
 				.tags-list-about#set-margin
-					%span.tags1_2.set-fonts
-						%a{:href => "/tags/technology"} User1
-					%span.tags1_2.set-fonts
-						%a{:href => "/tags/business"} User2
-					%span.tags1_2.set-fonts
-						%a{:href => "/tags/science"} User3
-					%br
+					- @service_provider.service_provider_validates.limit(3).map(&:user).each do |user|
+						%span.tags1_2.set-fonts
+							%a{:href => ""}= user.login
