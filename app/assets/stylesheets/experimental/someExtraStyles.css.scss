@@ -124,7 +124,7 @@
 		word-wrap: break-word;
 		padding-bottom: 10px;
 }
-.back-class-exp {
+.backclass-exp {
 		background-color: #FFFFFF;
 		border: 1px solid #E0E0E0;
 		border-radius: 3px 3px 3px 3px;
@@ -957,7 +957,7 @@ form#search input {
 }
 /*breadcrumb css starts here*/
 .bread-crumb {
-	border:1px solid #E0E0E0;
+	border:1px solid #3E3E40;
 	background:url(images/cat-menu-bg.png) repeat-x scroll 0 0 #3E3E40;
 }
 .bread-crumb-section {
@@ -1209,42 +1209,33 @@ form#search input {
 .set-comments{
 	background-color: #EDEFF4
 }
-
 .set-left {
     margin-left: 34px;
 }
-
 .set-comments-show{
 	margin-top:-29px;
 	margin-left:40px;
 	word-wrap: break-word;
 }
-
 .set-topper{
 	margin-top:-2px !important;
 }
-
 .set-comment-area{
 	width:526px !important;
 }
-
 .rating-news{
 	margin-left:500px !important;
 }
-
 .set-fonts a{
 	font-size: 13px !important;
 	font-weight: 600 !important;
 }
-
 #set-top {
 	margin-top: -25px;
 }
-
 .set-padding{
 	padding-bottom:20px !important;
 }
-	
 .comments-rss-show {
     color: #333333;
     font-family: Arial;
@@ -1254,7 +1245,6 @@ form#search input {
     padding-right: 10px;
     text-align: justify;
 }
-
 .comments-rss-header {
   margin-top: -20px !important;
 }
@@ -1357,3 +1347,53 @@ form#search input {
     margin-left: -53px;
 }
 
+/*CSS for dark skin*/
+.dark-skin #main-wrapper-dark{
+	height: 0px;
+}
+.review .overview-new{
+	background: none repeat scroll 0 0 transparent !important;
+	border: none !important;
+}
+.title.margin-zero,.arrow.margin-zero{
+	margin: 0px !important;
+}
+ul.item-list li{
+	border-bottom: 1px solid #323232;
+  border-top: 1px solid #1C1C1C;
+  color: #777777;
+}
+.dark-skin .section-arrow{
+	top:41px;
+}
+#top-menu.darkskin{
+	background-color: #C74E01 ;
+}
+
+.dark-skin .page-content div#subnav.item-list-tabs {
+    border: 1px solid #313131;
+}
+.dark-skin div.item-list-tabs ul li.selected a, .dark-skin div.item-list-tabs ul li.current a, .dark-skin div#subnav.item-list-tabs {
+    background: none repeat scroll 0 0 #292929;
+}
+.page-content div.item-list-tabs ul li:first-child{
+	border: none;
+}
+.review .overview-wrapper{
+	background: none repeat scroll 0 0 #292929;
+}
+
+.page-content ul.item-list.activity-list li, .page-content ul.item-list li {
+    background: none repeat scroll 0 0 #292929;
+    border: 1px solid #292929;
+}
+
+.contact-section-bottom-button {
+    background-color: #1E1E1E;
+    border: 1px solid #424242;
+}
+
+.section-bottom {
+    background-color: #292929 !important;
+    border: 1px solid #424242 !important;
+}
