@@ -1403,7 +1403,12 @@ ul.item-list li{
     border: 1px solid #424242;
 }
 
-.section-bottom {
+.section-bottom, .contact-section-bottom {
     background-color: #292929 !important;
     border: 1px solid #424242 !important;
+}
+.dark-skin .search-loop .inner {
+    margin-left: -10px;
+    padding-bottom: 20px;
+    padding-right: 8px;
 }
