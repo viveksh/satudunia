@@ -1362,7 +1362,7 @@ form#search input {
 	height: 0px;
 }
 .review .overview-new{
-	background: none repeat scroll 0 0 transparent !important;
+	/*background: none repeat scroll 0 0 transparent !important;*/
 	border: none !important;
 }
 .title.margin-zero,.arrow.margin-zero{
@@ -1377,7 +1377,7 @@ ul.item-list li{
 	top:41px;
 }
 #top-menu.darkskin{
-	background-color: #C74E01 ;
+	background-color: #9ACD32 ;
 }
 
 .dark-skin .page-content div#subnav.item-list-tabs {
@@ -1406,4 +1406,24 @@ ul.item-list li{
 .section-bottom {
     background-color: #292929 !important;
     border: 1px solid #424242 !important;
+}
+
+.page-content table.forum tr td.td-question a.topic-title.set-color-title{
+	color:#fff;
+}
+
+.page-content table.forum td.set-border-color{
+	border:1px solid #424242;
+}
+
+table thead tr.set-background-head{
+	background-color:#232323;
+}
+
+.page-content table.forum td{
+	background:#292929;
+}
+
+.page-content table.forum thead tr th.set-border{
+	border:1px solid #424242;
 }
