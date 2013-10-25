@@ -874,7 +874,7 @@ form#search input {
 }
 
 .a6{
-	margin-left:-15px;
+	margin-left:0px;
 	float:left;
 }
 
@@ -1463,4 +1463,8 @@ table thead tr.set-background-head{
 #bbpress-forums ul.bbp-lead-topic, #bbpress-forums ul.bbp-topics, #bbpress-forums ul.bbp-forums, #bbpress-forums ul.bbp-replies, #bbpress-forums ul.bbp-search-results{
 	border:none;
 
+}
+
+.overview-new.no-background{
+	background: none !important;
 }
