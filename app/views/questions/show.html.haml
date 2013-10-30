@@ -87,50 +87,39 @@
 					.section-arrow 
 					.overview-wrapper
 						/ %h1.title Login
-						.overview-new.nopadding-top
-							.overview1.nopadding-top
-								.excerpt-new.justify-content
-									%p.filter-content-new
-										/ %h1.title 
-										/   =@title.upcase
-									%p
-										
-										= form_for([@question,@answer],:method=>:post,:url=>question_answers_path(@question.slug),remote: true,:html => {:multipart => true,:name=>'answer_form',:id=>'answer_form',:class=>'exp-contact-form'}) do |f|
-											=# f.text_area :body, :class => "wysiwyg_editor",:size=>"40x20"
-											=# f.label :body, "Your Answer", :class=>"label"
-											=# f.text_area :body, :class => "text-default wysiwyg_editor textarea-class"
-											- if current_user.use_gravatar?
-												=link_to image_tag avatar_user_path(current_user),:size=>'30x30'
-											- else
-												%img.avatar.user-1227-avatar.avatar-50.photo{:alt => "Profile picture of zicrainnyRV", :height => "50", :src => "http://gravatar.com/avatar/5a0a1a5e96f190c339221f66d7b09b00?d=http://www.industrialthemes.com/made/wp-content/plugins/buddypress/bp-core/images/mystery-man.jpg&s=50&r=G", :width => "50"}/
-											=# f.text_area :body, :size=>"20x3", :style => "margin: 10px; width: 560px;"
-											.textarea-wrapper
-												= f.text_area :body, :size=>"0", :placeholder => "write your answer...", :class=> "textarea"
-												.post-actions
-													- if current_user.present?
-														.logged-in.auth-section
-															%section
-																.temp-post.btn
-																	%button.btn.disqus-btn{:id=>"question-ans"}
-																		Post as
-																		%span{"data-role" => "username"} 
-																			= current_user.login
+						.overview-new.no-background
+							/ .overview1.nopadding-top
+							.excerpt-new.justify-content
+								%p.filter-content-new
+									/ %h1.title 
+									/   =@title.upcase
+								%p
+									
+									= form_for([@question,@answer],:method=>:post,:url=>question_answers_path(@question.slug),remote: true,:html => {:multipart => true,:name=>'answer_form',:id=>'answer_form',:class=>'exp-contact-form'}) do |f|
+										=# f.text_area :body, :class => "wysiwyg_editor",:size=>"40x20"
+										=# f.label :body, "Your Answer", :class=>"label"
+										=# f.text_area :body, :class => "text-default wysiwyg_editor textarea-class"
+										- if current_user.use_gravatar?
+											=link_to image_tag avatar_user_path(current_user),:size=>'30x30'
+										- else
+											%img.avatar.user-1227-avatar.avatar-50.photo{:alt => "Profile picture of zicrainnyRV", :height => "50", :src => "http://gravatar.com/avatar/5a0a1a5e96f190c339221f66d7b09b00?d=http://www.industrialthemes.com/made/wp-content/plugins/buddypress/bp-core/images/mystery-man.jpg&s=50&r=G", :width => "50"}/
+										=# f.text_area :body, :size=>"20x3", :style => "margin: 10px; width: 560px;"
+										.textarea-wrapper
+											= f.text_area :body, :size=>"0", :placeholder => "write your answer...", :class=> "textarea"
+											.post-actions
+												- if current_user.present?
+													.logged-in.auth-section
+														%section
+															.temp-post.btn
+																%button.btn.disqus-btn{:id=>"question-ans"}
+																	Post as
+																	%span{"data-role" => "username"} 
+																		= current_user.login
 											/ = render :partial => 'shared/rich_text_partial'
 											%br.clearer/
-											/ %p
-											/ 	= link_to "<i class='icon-paper-plane'></i>Post your Answer".html_safe,"javascript:void(0)", :class => "submit-button", :id => "edit-user-link",:title => "Post your Answer",:onclick=>"document.answer_form.submit();"
-					/ 	.contact-section-bottom-button
-
-					/ 		/ = link_to "Cancel".html_safe, question_path(@question), :class=>"contact-button", :id=> "align"
-					/ 		/ = link_to "Submit".html_safe, "javascript:void(0);", :id => "edit-user-link", :class=>"contact-button", :id=> "align",:title => "Post your Answer",:onclick=>"document.answer_form.submit();"
-					/ %br.clearer/
-					/ %br.clearer/
-					/ .signoff-wrapper
-					/ 	.signoff Not the answer you're looking for? Browse other questions tag related to the question or #{link_to "create page for question", "/question/ask_a_question"}.
+					%br.clearer/
+											
 		
-		%br.clearer/
-		%br
-		%br
 		.main-content-left#set-page
 			.page-content.review.single-post
 				%link{:href => "http://www.industrialthemes.com/made/wp-content/uploads/2012/06/misc1-160x160.jpg", :rel => "image_src"}/
@@ -144,8 +133,9 @@
 							.section-for-header
 								Disqus
 					.section-arrow 
+					%br.clearer/
 					.overview-wrapper
-						.overview-new
+						.overview-new.no-background
 							.left-panel
 								#disqus_thread
 								:javascript
@@ -172,6 +162,7 @@
 										s.src = '//'+disqus_shortname+'.disqus.com/count.js';
 										(document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
 									}());
+				%br.clearer/
 		%br.clearer/	
 	
 

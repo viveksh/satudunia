@@ -42,7 +42,7 @@
 		.page-content.review
 			.overview-wrapper
 				
-				.overview-new
+				.overview-new.no-background
 					%h2.justify-content.badges-description-adj
 						= t("badges.index.description")
 					.left-panel
@@ -88,7 +88,7 @@
 									PLUS+ Comments
 						.section-arrow 
 						.overview-wrapper
-							.overview-new
+							.overview-new.no-background
 								.left-panel
 									%h2.comment-count-font #{@badge_comments_count.count} comments
 									%br/
@@ -120,8 +120,9 @@
 							.section-for-header
 								Disqus
 					.section-arrow 
+					%br.clearer/
 					.overview-wrapper
-						.overview-new
+						.overview-new.no-background
 							.left-panel
 								#disqus_thread
 								:javascript

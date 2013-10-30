@@ -73,9 +73,10 @@
 					/ making title stronger
 					.section-for-header
 						Disqus
-			.section-arrow 
+			.section-arrow
+			%br.clearer/ 
 			.overview-wrapper
-				.overview-new
+				.overview-new.no-background
 					.left-panel
 						#disqus_thread
 						:javascript
@@ -103,7 +104,7 @@
 								(document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
 							}());
 
-	%br.clearer/
+			%br.clearer/
 /side bar
 .sidebar
 	- if current_user.nil?

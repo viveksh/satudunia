@@ -47,8 +47,9 @@
 					.section-for-header
 						Disqus
 			.section-arrow
+			%br.clearer/
 			.overview-wrapper
-				.overview-new
+				.overview-new.no-background
 					.left-panel
 						#disqus_thread
 						:javascript
@@ -75,7 +76,7 @@
 								s.src = '//'+disqus_shortname+'.disqus.com/count.js';
 								(document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
 							}());
-
+			%br.clearer/
 
 			/   %iframe#dsq1{:allowtransparency => "true", "data-disqus-uid" => "1", :frameborder => "0", :horizontalscrolling => "no", :role => "complementary", :scrolling => "no", :src => "http://disqus.com/embed/comments/?f=bchange1&t_u=http://localhost.lan:3000/&t_d=&t_t=&s_o=default&disqus_version=1375300265#1", :style => "width: 100%; border: medium none; overflow: hidden; height: 75px;", :verticalscrolling => "no", :width => "100%"}
 			/ :javascript
