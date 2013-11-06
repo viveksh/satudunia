@@ -125,7 +125,6 @@ namespace :update_tags do
     #   # conditional statement ends here
     # end
     # # loop ends here
-    Question.destroy_all
     User.first.questions.create!(:title => 'Why did the IRS issue internal guidance regarding offshore activities now?', :body => "IRS Criminal Investigation has determined preliminary acceptance into the voluntary disclosure program", :tags=>"disclosure", :group_id=>Group.first.id)
     User.first.questions.create!(:title => 'Why should I make a voluntary disclosure?', :body => "Taxpayers with undisclosed foreign accounts or entities should make a voluntary disclosure because it enables them to become compliant, avoid substantial civil penalties and generally eliminate the risk of criminal prosecution.", :tags=>"disclosure", :group_id=>Group.first.id)
     User.first.questions.create!(:title => 'Will I have to file or amend my old tax returns?', :body => "In addition, any inaccurate returns for any of the 6 years must be amended by the taxpayer.", :tags=>"disclosure", :group_id=>Group.first.id)
