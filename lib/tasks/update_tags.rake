@@ -2,8 +2,7 @@ namespace :update_tags do
   desc "To update Default tags"
   task :updateDefaultTags => :environment do
 
-    Tag.destroy_all
-    ["casual_partners","family","friends","regular_partners","partying","sex","situation","compliance","regular_access_to_medication","dating","family","friends","minimising-risk","safer_sex","accessing_medication","cost","selecting_medication","side_effects","clinics","cost","doctors","migration","tourism","fitness","nutrition","health_checks","health_insurance","inclusion_&_iscrimination"].each do |tag|
+    ["casual_partners","family","friends","regular_partners","partying","sex","situation","compliance","regular_access_to_medication","dating","family","friends","minimising-risk","safer_sex","accessing_medication","cost","selecting_medication","side_effects","clinics","cost","doctors","migration","tourism","fitness","nutrition","health_checks","health_insurance","inclusion_&_iscrimination","technology","business","science","politics","religion","sports","entertainment","gaming","lifestyle","offbeat","sexy_baby","sexy","testing-tags","new_tag1","test_tag1","sexman","medication","disclosure"].each do |tag|
       Tag.create(:name => tag)
     end
     @tags={:disclosure=>["casual_partners","family","friends","regular_partners"],
