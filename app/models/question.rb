@@ -137,7 +137,7 @@ class Question
   validate :update_language, :on => :create
 
   validate :group_language
-  validate :disallow_spam
+  #validate :disallow_spam
   validate :check_useful
 
   xapit do
