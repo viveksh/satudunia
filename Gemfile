@@ -100,9 +100,10 @@ gem 'yui-compressor'
 gem 'jquery-rails'
 
 group :deploy do
-  gem 'capistrano', '2.9.0', :require => false
-  gem 'ricodigo-capistrano-recipes', '~> 0.1.3', :require => false
-  gem 'unicorn', '4.1.1', :require => false
+  gem 'capistrano', '2.9.0'
+  gem 'rvm-capistrano'
+  gem 'ricodigo-capistrano-recipes', '~> 0.1.3'
+  gem 'unicorn', '4.1.1'
   gem 'therubyracer'
 end
 
