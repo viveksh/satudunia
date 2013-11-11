@@ -83,17 +83,6 @@ namespace :update_tags do
   #   end
   # end
 
-  desc "To update Default tags Questions Disclosure"
-  task :updateTagsQuestionsDisclosure => :environment do
-
-   
-    User.first.questions.create!(:title => 'Why is there no vaccine against HIV/AIDS so far?', :body => "There are many reasons for this. Among the most important are: the virus mutates very rapidly, so using a part of the virus or an attenuated version of the virus to prime the immune system is not safe as the vaccine itself could mutate into the deadly version;  since the human immune system cannot clear the virus even after years of very low viral load, the vaccine will have to be prevent infection from even taking hold such vaccines are called sterilizing vaccines;", :tags=>"accessing_medication", :group_id=>Group.first.id)
-    User.first.questions.create!(:title => 'Will trial participants increase their risk behavior when they begin taking daily pills?', :body => "Several critical steps are being taken to guard against this possibility. First, it is important to ensure that participants understand that trial participation may not protect them from HIV infection because they may receive a placebo, or they may receive the study drug, the efficacy of which remains unproven. This and other key aspects of the trial, including potential risks and benefits of participation, are explained to potential volunteers in depth in language they understand, prior to their enrollment. To ensure participants fully understand all aspects of their participation, all volunteers are required to pass a comprehension test prior to providing written informed consent.", :tags=>"accessing_medication", :group_id=>Group.first.id)
-    User.first.questions.create!(:title => 'What other issues will the trials examine?', :body => "CDCs trials are also designed to address several issues that will be critical to the design of future studies, as well as HIV prevention and treatment programs.", :tags=>"accessing_medication", :group_id=>Group.first.id)
-    User.first.questions.create!(:title => 'Why study two different drugs?', :body => "Globally, more than 7,000 new HIV infections occur daily, and additional prevention approaches are urgently needed. A combination of studies of both tenofovir alone and tenofovir plus emtricitabine will allow us to move forward as quickly and effectively as possible in the search for new solutions.", :tags=>"accessing_medication", :group_id=>Group.first.id)
-    
-  end
-
   desc "To update Default tags Questions"
   task :updateTagsQuestions => :environment do
     # default tags
