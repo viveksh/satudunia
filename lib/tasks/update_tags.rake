@@ -87,9 +87,7 @@ namespace :update_tags do
   task :updateTagsQuestionsDisclosure => :environment do
     User.first.questions.create!(:title => 'Why did the IRS issue internal guidance regarding offshore activities now?', :body => "IRS Criminal Investigation has determined preliminary acceptance into the voluntary disclosure program", :tags=>"disclosure", :group_id=>Group.first.id)
     User.first.questions.create!(:title => 'Why should I make a voluntary disclosure?', :body => "Taxpayers with undisclosed foreign accounts or entities should make a voluntary disclosure because it enables them to become compliant, avoid substantial civil penalties and generally eliminate the risk of criminal prosecution.", :tags=>"disclosure", :group_id=>Group.first.id)
-    User.first.questions.create!(:title => 'Will I have to file or amend my old tax returns?', :body => "In addition, any inaccurate returns for any of the 6 years must be amended by the taxpayer.", :tags=>"disclosure", :group_id=>Group.first.id)
-    User.first.questions.create!(:title => 'What should I do if I am having difficulty obtaining my records from overseas?', :body => " If assistance is needed, the agent assigned to a case will work with the taxpayer in preparing a request that should be acceptable to the foreign bank", :tags=>"disclosure", :group_id=>Group.first.id)
-    User.first.questions.create!(:title => 'How does the penalty framework work?  Can you give us an example?', :body => "Although the amount on deposit may have been in the account for many years, it is assumed for purposes of the example that it is not unreported income", :tags=>"disclosure", :group_id=>Group.first.id)
+    
     
   end
 
