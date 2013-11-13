@@ -4,7 +4,7 @@ css reset and general setup
 *************************************************/
 * { margin: 0; padding: 0; }
 body { font-family:Arial, Helvetica, sans-serif; background-color:#E1E1E1;
-	background-image: url("images/background.jpg"); 
+	background:none no-repeat fixed center top #FFFFFF; 
 	background-attachment: fixed; 
 	background-position:center top;
 	background-repeat: no-repeat;
@@ -261,9 +261,8 @@ a.selectBox {display:none !important;}
 header area
 *************************************************/
 #page-wrapper {width:1000px;margin:0px auto;}
-#logo-bar-wrapper {background-color:#004969;
-	 box-shadow: 0 5px 30px -5px;
-	 background-image: url(/assets/experimental/images/new_header.jpg); background-repeat:no-repeat; height: 120px;}
+#logo-bar-wrapper {background-color:#ff6600;
+	 box-shadow: 0 5px 30px -5px;}
 #logo-bar-shadow {width:1000px;height:12px;background:url(images/logo-bar-shadow.png) repeat-x 0px 0px;}
 #logo-bar {padding:20px 20px 0px 30px;}
 #logo-wrapper {float:left;}
@@ -271,7 +270,7 @@ header area
 #site-logo-iphone {display:none;}
 #site-logo-ipad {display:none;}
 .subtitle {padding-top:5px;color:#FFF;font-size:.8em;}
-#ad-header {float:right;}
+#ad-header {float:right;margin-top:30px;margin-right:35px;color:#FFFFFF;}
 
 /*************************************************
 category menu
@@ -279,7 +278,7 @@ category menu
 select#select-menu-main-menu {display:none;}
 #menu-main-menu {width:910px;}
 .cat-menu #random-article {float:right;padding:10px 10px 0px 0px;}
-.cat-menu {width:1000px;margin:0px auto;float:left;background:#3E3E40 url(images/cat-menu-bg.png) repeat-x 0px 0px;position:relative;z-index:30;border-top:1px solid #909090;}
+.cat-menu {width:1000px;margin:0px auto;float:left;background:#AE4517  repeat-x 0px 0px;position:relative;z-index:30;border-top:1px solid ##AE4517;}
 .cat-menu a.home-link {display:block;float:left;width:50px;height:38px;background:url(images/menu-home.png) no-repeat 24px 13px;}
 .cat-menu a.home-link:hover {background:url(images/menu-home.png) no-repeat 24px -26px;}
 .cat-menu ul {float:left;list-style-type:none;margin:0px;padding:0px;position:relative;z-index:99;margin-top:-1px;}
@@ -337,7 +336,7 @@ select#select-menu-main-menu {display:none;}
 .cat-menu ul li ul li.over > a > .sf-sub-indicator {background-position: -10px 0;}
 
 /*taxonomy menu*/
-.cat-menu.tax {height:38px;overflow:hidden;position:relative;z-index:20;background:url(images/sub-menu-bg.png) repeat-x 0px 0px;border-top:1px solid #222;}
+.cat-menu.tax {height:38px;overflow:hidden;position:relative;z-index:20;background:#ff6600 repeat-x 0px 0px;border-top:1px solid #ff6600;}
 .cat-menu.tax ul {padding-left:15px;}
 .cat-menu.tax ul li a {height:20px;font-size:12px;padding:6px 13px 9px 13px;margin-top:6px;border:none;text-transform:none;font-weight:normal;color:#CCC;}
 .cat-menu.tax ul li:hover a, 
@@ -1344,19 +1343,19 @@ dark skin
 /*one-offs*/
 .dark-skin #top-menu-wrapper .ribbon-shadow-left {background: url(images/ribbon-shadow-left-dark.png);}
 .dark-skin #top-menu-wrapper .ribbon-shadow-right {background: url(images/ribbon-shadow-right-dark.png);}
-.dark-skin #main-wrapper {border-right:1px solid #292929;border-left:1px solid #292929;background:url(images/main-bg-dark.png) repeat 0px 0px;}
+.dark-skin #main-wrapper {border-right:1px solid #fff;border-left:1px solid #fff;background-color:#fff;}
 .dark-skin #main-wrapper-dark {background:url(images/latest-wrapper-bg-dark.png) repeat-x 0px 0px;}
 .dark-skin .page-content .searchform input#s {border:1px solid #292929;background:#191919;color:#EEE;}
 .dark-skin .cat-menu.tax ul li a:hover, .dark-skin .cat-menu.tax ul li.current_page_item a, .dark-skin .cat-menu.tax ul li.current_page_ancestor a, .dark-skin .cat-menu.tax ul li.current_page_parent a {background:#1C1C1C;color:#FFF;border-top:0px;}
 .dark-skin .signup form.subscribe input.btn {background:none;}
 .dark-skin #sharebox {background:#181818 url(images/sharebox-bg-dark.png) repeat-y right 0px;border:1px solid #272727;border-right:0px;}
 /*dont miss bar*/
-.dark-skin #dontmiss-bar {background:url(images/dontmiss-slider-bg-dark.jpg) no-repeat 0px 0px;border-bottom:1px solid #222;}
-.dark-skin #dontmiss-header {background:url(images/dontmiss-header-bg-dark.jpg) no-repeat 0px 0px;color:#EEE !important;border-left:1px solid #222;}
-.dark-skin #dontmiss-arrow {background:url(images/dontmiss-arrow-dark.png) no-repeat 0px 0px;}
+.dark-skin #dontmiss-bar {border-bottom:1px solid #FFFFFF;}
+.dark-skin #dontmiss-header {background:none repeat scroll 0 0 #55774F;color:#EEE !important;border-left:1px solid #222;}
+.dark-skin #dontmiss-arrow {}
 .dark-skin .dontmiss .panel .title a {color:#AAA;}
 .dark-skin .dontmiss .panel .title a:hover {color:#888;}
-.dark-skin #dontmiss-email {background:url(images/dontmiss-email-bg-dark.jpg) no-repeat 0px 0px;color:#939393;border-left:1px solid #222;}
+.dark-skin #dontmiss-email {background:none repeat scroll 0 0 #55784F;color:#939393;border-left:1px solid #55784F;}
 .dark-skin .signup .email-wrapper {border:1px solid #000;background:#1A1A1A;}
 .dark-skin .signup form.subscribe input {background:#1A1A1A;color:#CCC;}
 .dark-skin .ribbon-shadow-left {background:url(images/ribbon-shadow-left-dark.png);}

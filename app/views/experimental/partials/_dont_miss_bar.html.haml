@@ -3,7 +3,7 @@
 		No result found!
 #dontmiss-bar
 	.ribbon-shadow-left  
-	#dontmiss-header Ask Now!
+	#dontmiss-header.set-dont-miss-background Ask Now!
 	#dontmiss-arrow  
 	#dontmiss.dontmiss
 		/ / condition is temporary for ticket #1048
@@ -49,7 +49,7 @@
 				= text_field_tag "search_ajax", "What is your question?", :class => "search-tag",:alt => "What is your question?",:autocomplete=>"off","data-show"=>"What is your question?"
 				= hidden_field_tag "hidden_keys"
 				= button_tag "search",:class=>"search-btn"
-	#dontmiss-email.signup
+	#dontmiss-email.signup.set-dont-miss-background
 		%h3 Get Our Newsletter
 		%form#feedburner_subscribe.subscribe{:action => "http://feedburner.google.com/fb/a/mailverify", :method => "post", :onsubmit => "window.open('http://feedburner.google.com/fb/a/mailverify?uri=brianmcculloh/dtMq', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true", :target => "popupwindow"}
 			.email-wrapper

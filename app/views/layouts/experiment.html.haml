@@ -32,7 +32,7 @@
 		= csrf_meta_tag
 
 
-		%body.dark-skin
+		%body
 			/ page loader starts
 			- if check_pre_loader
 				#div-load
@@ -46,13 +46,13 @@
 				#logo-bar-wrapper
 					/ begin the main header logo area
 					#logo-bar
-						#logo-wrapper
+						#logo-wrapper.set-margin-logo
 							#logo
 								/ logo and section header area
 								%a{:href => root_path,:title=>"Plus Home",:title=>"Plus Home"}
 									/ %img#site-logo{:alt => "plus", :src => "/assets/plus/logo.png"}/
-									%img#site-logo{:alt => "plus", :src => "/assets/beingme-logo.png"}/
-									
+									/ %img#site-logo{:alt => "plus", :src => "/assets/beingme-logo.png"}/
+									%img#site-logo{:alt => "plus", :src => "/assets/logo-footer.png"}
 									%img#site-logo-iphone{:alt => "plus", :src => "/assets/plus/logo.png"}/
 									%img#site-logo-ipad{:alt => "plus", :src => "/assets/plus/logo.png"}/
 							%br.clearer/
@@ -60,7 +60,8 @@
 						#ad-header
 							/ header ad
 							%a{:href => "#"}
-							%img{:src => "/assets/experimental/images/images_live/ad-top.png"}/
+							/ %img{:src => "/assets/experimental/images/images_live/ad-top.png"}/
+							Where we can be ourselves and be there for each other
 						%br.clearer/
 					#logo-bar-shadow  
 				/ end the logo area
@@ -156,7 +157,7 @@
 				/ main wrapper starts from here
 				#main-wrapper
 					#main-wrapper-dark
-						- unless params[:controller]=="experimental/experimental" && params[:action]=="index"
+						- unless params[:controller]=="experimental/experimental" && params[:action]=="index" || params[:action]=="index_experimental"
 							= render "experimental/partials/bread_crumb_experimental"
 						- unless check_valid
 							=# render "experimental/partials/social_side_bar"
