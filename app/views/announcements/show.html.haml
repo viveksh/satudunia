@@ -2,92 +2,92 @@
 .clearer.hide-responsive  
 %br.hide-responsive/
 .main-content-left
-	.page-content.review.single-post
-		%link{:href => "http://www.industrialthemes.com/made/wp-content/uploads/2012/06/misc1-160x160.jpg", :rel => "image_src"}/
-		.review-content
-			.ribbon-shadow-left
-			.section-wrapper
-				.section-header
-					Announcements
-			.section-arrow
-			/ post by removed from here
-			.overview-wrapper
-				.overview-new
-					- if current_user && !(@announcement.rated_by? current_user)
-						.rating-news#user-announcement-rating{:id => @announcement.id}
-					- else
-						.rating-news#no_login_announcement-rating{:id => @announcement.id}
-					.section-bottom1
-						.category.qa-q-item-tags
-							.catname
-								#{@announcement.created_at.strftime("%d %b %Y")}
-							.category-arrow
-					.left-panel
-						.content-panel
-							.the-content.justify-content			
-								.userDescription
-									.basicInfo{:style => "margin-left: 10px !important"}
-										%h2
-											= @announcement.message rescue ""
+  .page-content.review.single-post
+    %link{:href => "http://www.industrialthemes.com/made/wp-content/uploads/2012/06/misc1-160x160.jpg", :rel => "image_src"}/
+    .review-content
+      .ribbon-shadow-left
+      .section-wrapper
+        .section-header
+          Announcements
+      .section-arrow
+      / post by removed from here
+      .overview-wrapper
+        .overview-new
+          - if current_user && !(@announcement.rated_by? current_user)
+            .rating-news#user-announcement-rating{:id => @announcement.id}
+          - else
+            .rating-news#no_login_announcement-rating{:id => @announcement.id}
+          .section-bottom1
+            .category.qa-q-item-tags
+              .catname
+                #{@announcement.created_at.strftime("%d %b %Y")}
+              .category-arrow
+          .left-panel
+            .content-panel
+              .the-content.justify-content      
+                .userDescription
+                  .basicInfo{:style => "margin-left: 10px !important"}
+                    %h2
+                      = @announcement.message rescue ""
 
-								=# image_tag ("banner-250x250.jpg"), :class => 'gravatar', :style => "margin: 10px", :size=>'500x400'
-								- if @announcement.has_announcement_image?
-									= image_tag (announcement_image_path(@announcement,"small")), :class => 'gravatar', :size=>'500x400'
-								- else
-									= image_tag ("banner-250x250.jpg"), :class => 'gravatar' , :size=>'500x400'
-									
-								#service_information{:style => "margin: 10px"}
-									= @announcement.message rescue ""
-									= link_to "Back", announce_announcements_path
-				%br.clearer/
-				.content-panel.post-loop
-					/ authorbox
-					= render "announcements/author_box"
-					= render 'announcements/related_box'
+                =# image_tag ("banner-250x250.jpg"), :class => 'gravatar', :style => "margin: 10px", :size=>'500x400'
+                - if @announcement.has_announcement_image?
+                  = image_tag (announcement_image_path(@announcement,"small")), :class => 'gravatar', :size=>'500x400'
+                - else
+                  = image_tag ("banner-250x250.jpg"), :class => 'gravatar' , :size=>'500x400'
+                  
+                #service_information{:style => "margin: 10px"}
+                  = @announcement.message rescue ""
+                  = link_to "Back", announce_announcements_path
+        %br.clearer/
+        .content-panel.post-loop
+          / authorbox
+          = render "announcements/author_box"
+          = render 'announcements/related_box'
 /side bar
 .sidebar
-	- if current_user.nil?
-		/login box
-		= render "experimental/partials/login_box"
-	-else
-		/profile box
-		= render "experimental/partials/profile_box"
+  - if current_user.nil?
+    /login box
+    = render "experimental/partials/login_box"
+  -else
+    /profile box
+    = render "experimental/partials/profile_box"
 
-	/ social login box
-	= render "experimental/partials/social_login_box"
-	/ member box
-	= render "experimental/partials/member_box"
-	/rating box
-	= render "experimental/partials/rating_box"
-	/rating box
-	= render "experimental/partials/rating_box2"
-	/ left bar
-	/ = render "experimental/partials/left_bar"
-	/widget top
-	= render "experimental/partials/widget_top"
-	/ .clearer.hide-responsive
-	/ %br.clearer/
-	/ newly reviewd
-	= render "experimental/partials/newly_reviewed"
-	/popular box
-	= render "experimental/partials/popular_box"
-	/banner box
-	= render "experimental/partials/banner_box"
+  / social login box
+  = render "experimental/partials/social_login_box"
+  / member box
+  /= render "experimental/partials/member_box"
+  /rating box
+  = render "experimental/partials/rating_box"
+  /rating box
+  = render "experimental/partials/rating_box2"
+  / left bar
+  / = render "experimental/partials/left_bar"
+  /widget top
+  = render "experimental/partials/widget_top"
+  / .clearer.hide-responsive
+  / %br.clearer/
+  / newly reviewd
+  /= render "experimental/partials/newly_reviewed"
+  /popular box
+  = render "experimental/partials/popular_box"
+  /banner box
+  = render "experimental/partials/banner_box"
 
 
 :javascript
-	jQuery("#user-announcement-rating_#{@announcement.id}").raty({
-		path: '../assets',
-		score: "#{@announcement.rating}",
-		precision: true,
-		click: function(score, evt) {
-			jQuery.ajax({
-				url: "/announcements/#{@announcement._id.to_s}/rating",
-				data: {score: score},
-				success:function(){
-				}
-			});
-		}
-	});
+  jQuery("#user-announcement-rating_#{@announcement.id}").raty({
+    path: '../assets',
+    score: "#{@announcement.rating}",
+    precision: true,
+    click: function(score, evt) {
+      jQuery.ajax({
+        url: "/announcements/#{@announcement._id.to_s}/rating",
+        data: {score: score},
+        success:function(){
+        }
+      });
+    }
+  });
 
-	jQuery("#no_login_announcement-rating_#{@announcement.id}").raty({ readOnly: true,score: "#{@announcement.rating}",path: '../assets'}); 
+  jQuery("#no_login_announcement-rating_#{@announcement.id}").raty({ readOnly: true,score: "#{@announcement.rating}",path: '../assets'}); 

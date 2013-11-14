@@ -1,206 +1,206 @@
 :css
-	.profile_tabs{
-		(-bracket-:hack;
-		  width:auto;
-		);
-		}
-	.chrome_loader{
-		(-bracket-:hack;
-		  margin:-20px 0px 0px 108px;
-		);
-	}
+  .profile_tabs{
+    (-bracket-:hack;
+      width:auto;
+    );
+    }
+  .chrome_loader{
+    (-bracket-:hack;
+      margin:-20px 0px 0px 108px;
+    );
+  }
 .clearer.hide-responsive  
 %br.hide-responsive/
 .main-content-left
-	.page-content.review.single-post
-		%link{:href => "http://www.industrialthemes.com/made/wp-content/uploads/2012/06/misc1-160x160.jpg", :rel => "image_src"}/
-		.review-content
-			.ribbon-shadow-left
-			.section-wrapper
-				.section
-					.comment-bubble
-						%a{:title => "Comment on Made Magazine Is The First Responsive Theme Released By IndustrialThemes"} 
-							= @answers.count
-					/ making title stronger
-					.section-for-header
-						/%i.icon-vcard
-						Answers  
-			.section-arrow 
-	#content.page-content
-		%form#content-form
-			#members-directory-form.dir-form{:action => "", :method => "post"}
-				/ %h3 Questions
-				#members-dir-search.dir-search{:role => "search"}
-					%label
-						%input#members_search.search_textbox_height{:name => "answer_search", :placeholder => "Search Answers...", :type => "text",:value=>params[:answer_search]}/
-					%input#members_search_cancel{:name => "members_search_submit", :type => "reset", :value => "x", :style=>"opacity:1;"}/
-			.item-list-tabs.activity-type-tabs{:role => "navigation"}
-				%ul
-					%li#members-order-select.selected
-						%a{:href => "", :title => "The public activity for everyone on this site."}
-							All Answers
-							%span= @answers.count rescue ""
-							.loader.chrome_loader
-			#subnav.item-list-tabs{:role => "navigation"}
-				%ul
-					%li#members-order-select.last.filter
-						%label{:for => "members-order-by"} Order By:
-						%select#activity-filter-by.activity-filter
-							%option{:value => "newest"} Newest
-							%option{:value => "hot"} Hot 
-							%option{:value => "featured"} Featured
-							%option{:value => "votes"} Votes
-							%option{:value => "unanswerd"} Unanswered
-							/ %option{:value => "xxx"} XXX
-		/ #forums-dir-list-newest.dir-list
-		/   #pag-top.pagination
-		/     #member-dir-count-top.pag-count
-		/       Viewing questions #{@answers.options[:skip]} to #{@answers.options[:skip]+@answers.options[:limit]} (of #{@answers.count} active members)
-		/     #members-dir-list.members.dir-list1
-		/       = paginate @answers
-		#return-data-ajax
-			/ partial for answer
-			=render 'experimental/partials/answer',:question => @question
+  .page-content.review.single-post
+    %link{:href => "http://www.industrialthemes.com/made/wp-content/uploads/2012/06/misc1-160x160.jpg", :rel => "image_src"}/
+    .review-content
+      .ribbon-shadow-left
+      .section-wrapper
+        .section
+          .comment-bubble
+            %a{:title => "Comment on Made Magazine Is The First Responsive Theme Released By IndustrialThemes"} 
+              = @answers.count
+          / making title stronger
+          .section-for-header
+            /%i.icon-vcard
+            Answers  
+      .section-arrow 
+  #content.page-content
+    %form#content-form
+      #members-directory-form.dir-form{:action => "", :method => "post"}
+        / %h3 Questions
+        #members-dir-search.dir-search{:role => "search"}
+          %label
+            %input#members_search.search_textbox_height{:name => "answer_search", :placeholder => "Search Answers...", :type => "text",:value=>params[:answer_search]}/
+          %input#members_search_cancel{:name => "members_search_submit", :type => "reset", :value => "x", :style=>"opacity:1;"}/
+      .item-list-tabs.activity-type-tabs{:role => "navigation"}
+        %ul
+          %li#members-order-select.selected
+            %a{:href => "", :title => "The public activity for everyone on this site."}
+              All Answers
+              %span= @answers.count rescue ""
+              .loader.chrome_loader
+      #subnav.item-list-tabs{:role => "navigation"}
+        %ul
+          %li#members-order-select.last.filter
+            %label{:for => "members-order-by"} Order By:
+            %select#activity-filter-by.activity-filter
+              %option{:value => "newest"} Newest
+              %option{:value => "hot"} Hot 
+              %option{:value => "featured"} Featured
+              %option{:value => "votes"} Votes
+              %option{:value => "unanswerd"} Unanswered
+              / %option{:value => "xxx"} XXX
+    / #forums-dir-list-newest.dir-list
+    /   #pag-top.pagination
+    /     #member-dir-count-top.pag-count
+    /       Viewing questions #{@answers.options[:skip]} to #{@answers.options[:skip]+@answers.options[:limit]} (of #{@answers.count} active members)
+    /     #members-dir-list.members.dir-list1
+    /       = paginate @answers
+    #return-data-ajax
+      / partial for answer
+      =render 'experimental/partials/answer',:question => @question
 
 
-	.page-content.review.single-post
-		%link{:href => "http://www.industrialthemes.com/made/wp-content/uploads/2012/06/misc1-160x160.jpg", :rel => "image_src"}/
-		.review-content
-			.ribbon-shadow-left
-			.section-wrapper
-				.section
-					.comment-bubble
-						%a{:href => badges_path(:anchor => "disqus_thread")} Link
-					/ making title stronger
-					.section-for-header
-						Disqus
-			.section-arrow 
-			.overview-wrapper
-				.overview-new
-					.left-panel
-						#disqus_thread
-						:javascript
-							/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-							var disqus_shortname = 'plusbchange'; // required: replace example with your forum shortname
+  .page-content.review.single-post
+    %link{:href => "http://www.industrialthemes.com/made/wp-content/uploads/2012/06/misc1-160x160.jpg", :rel => "image_src"}/
+    .review-content
+      .ribbon-shadow-left
+      .section-wrapper
+        .section
+          .comment-bubble
+            %a{:href => badges_path(:anchor => "disqus_thread")} Link
+          / making title stronger
+          .section-for-header
+            Disqus
+      .section-arrow 
+      .overview-wrapper
+        .overview-new
+          .left-panel
+            #disqus_thread
+            :javascript
+              /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+              var disqus_shortname = 'plusbchange'; // required: replace example with your forum shortname
 
-							/* * * DON'T EDIT BELOW THIS LINE * * */
-							(function() {
-								var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-								dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js'; 
-								(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq); 
-							})();
-						%noscript 
-							Please enable JavaScript to view the 
-							%a{:href => "http://disqus.com/?ref_noscript"} comments powered by Disqus
-						%a.dsq-brlink{:href => "http://disqus.com"}
-							comments powered by
-							%span.logo-disqus Disqus
-						:javascript
-							var disqus_shortname = 'plusbchange'; // required: replace example with your forum shortname
-							// required: replace example with your forum shortname
-							(function () {
-								var s = document.createElement('script'); s.async = true;
-								s.type = 'text/javascript';
-								s.src = '//'+disqus_shortname+'.disqus.com/count.js';
-								(document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-							}());
+              /* * * DON'T EDIT BELOW THIS LINE * * */
+              (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js'; 
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq); 
+              })();
+            %noscript 
+              Please enable JavaScript to view the 
+              %a{:href => "http://disqus.com/?ref_noscript"} comments powered by Disqus
+            %a.dsq-brlink{:href => "http://disqus.com"}
+              comments powered by
+              %span.logo-disqus Disqus
+            :javascript
+              var disqus_shortname = 'plusbchange'; // required: replace example with your forum shortname
+              // required: replace example with your forum shortname
+              (function () {
+                var s = document.createElement('script'); s.async = true;
+                s.type = 'text/javascript';
+                s.src = '//'+disqus_shortname+'.disqus.com/count.js';
+                (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+              }());
 
 .sidebar
-	- if current_user.nil?
-		/login box
-		= render "experimental/partials/login_box"
-	-else
-		/profile box
-		= render "experimental/partials/profile_box"
-	/= render "experimental/partials/recent_tags"
-	/ = render "experimental/partials/left_bar"
-	= render "experimental/partials/social_login_box"
-	/ member box
-	= render "experimental/partials/member_box"
-	/rating box
-	= render "experimental/partials/rating_box"
-	/rating box
-	= render "experimental/partials/rating_box2"
-	= render "experimental/partials/widget_top"
-	= render "experimental/partials/newly_reviewed"
-	= render "experimental/partials/popular_box"
-	= render "experimental/partials/banner_box"
+  - if current_user.nil?
+    /login box
+    = render "experimental/partials/login_box"
+  -else
+    /profile box
+    = render "experimental/partials/profile_box"
+  /= render "experimental/partials/recent_tags"
+  / = render "experimental/partials/left_bar"
+  = render "experimental/partials/social_login_box"
+  / member box
+  = render "experimental/partials/member_box"
+  /rating box
+  = render "experimental/partials/rating_box"
+  /rating box
+  = render "experimental/partials/rating_box2"
+  = render "experimental/partials/widget_top"
+  / = render "experimental/partials/newly_reviewed"
+  = render "experimental/partials/popular_box"
+  = render "experimental/partials/banner_box"
 :javascript
 
-	// ajax function
-	// Experimental.getAjaxData("change","#activity-filter-by","/answers","GET","return-data-ajax","answer",".loader","","","");
-	//pagination_ajax
-	// Experimental.getAjaxData("click","#answers_pagination .pagination-ajax","/answers","GET","return-data-ajax","answer",".loader","","","yes","#activity-filter-by");
-	
-	jQuery(document).ready(function(jQ){
+  // ajax function
+  // Experimental.getAjaxData("change","#activity-filter-by","/answers","GET","return-data-ajax","answer",".loader","","","");
+  //pagination_ajax
+  // Experimental.getAjaxData("click","#answers_pagination .pagination-ajax","/answers","GET","return-data-ajax","answer",".loader","","","yes","#activity-filter-by");
+  
+  jQuery(document).ready(function(jQ){
 
-		jQ("#content-form").submit(function(e){	
-			jQuery(".loader").addClass("ajax-loader");		
-			e.preventDefault()
-			jQuery.ajax({     
-				url:'/answers_tab',
-				data: jQ('form#content-form').serialize(),
-				dataType:"script",				
-				success:function(successObject){
-					jQuery(".loader").removeClass("ajax-loader");
-				}
-			});
-		})
+    jQ("#content-form").submit(function(e){ 
+      jQuery(".loader").addClass("ajax-loader");    
+      e.preventDefault()
+      jQuery.ajax({     
+        url:'/answers_tab',
+        data: jQ('form#content-form').serialize(),
+        dataType:"script",        
+        success:function(successObject){
+          jQuery(".loader").removeClass("ajax-loader");
+        }
+      });
+    })
 
-		jQ("#activity-filter-by,#members_search_cancel").on('change click',function(){
-			valueTaker = jQuery(this).val();
-			jQuery(".loader").addClass("ajax-loader");
-			jQuery.ajax({     
-				url:'/answers_tab',
-				data: { value: valueTaker},
-				dataType:"script",				
-				success:function(successObject){
-					jQuery(".loader").removeClass("ajax-loader");
-				}
-			});
-		})
-		//show answers after cancel button
-		jQ("#members_search_cancel").on('click',function(){
-			valueTaker = jQuery('##activity-filter-by').val();
-			if(jQuery(this).hasClass('clear_text')){}
-			else{
-				//jQuery('#members_search_cancel').removeClass("clear_text");
-				jQuery(".loader").addClass("ajax-loader");
-				jQuery.ajax({     
-					url:'/answers_tab',
-					data: { value: valueTaker},
-					dataType:"script",				
-					success:function(successObject){
-						jQuery(".loader").removeClass("ajax-loader");
-						
-					}
-				});
-			}
-		})
+    jQ("#activity-filter-by,#members_search_cancel").on('change click',function(){
+      valueTaker = jQuery(this).val();
+      jQuery(".loader").addClass("ajax-loader");
+      jQuery.ajax({     
+        url:'/answers_tab',
+        data: { value: valueTaker},
+        dataType:"script",        
+        success:function(successObject){
+          jQuery(".loader").removeClass("ajax-loader");
+        }
+      });
+    })
+    //show answers after cancel button
+    jQ("#members_search_cancel").on('click',function(){
+      valueTaker = jQuery('##activity-filter-by').val();
+      if(jQuery(this).hasClass('clear_text')){}
+      else{
+        //jQuery('#members_search_cancel').removeClass("clear_text");
+        jQuery(".loader").addClass("ajax-loader");
+        jQuery.ajax({     
+          url:'/answers_tab',
+          data: { value: valueTaker},
+          dataType:"script",        
+          success:function(successObject){
+            jQuery(".loader").removeClass("ajax-loader");
+            
+          }
+        });
+      }
+    })
 
-		jQ('#pagination-digg  a').live('click',function(e){
-			e.preventDefault();
-			jQuery.ajax({url:jQ(this).attr('href'),dataType:"script"})
-		})
+    jQ('#pagination-digg  a').live('click',function(e){
+      e.preventDefault();
+      jQuery.ajax({url:jQ(this).attr('href'),dataType:"script"})
+    })
 
-		jQuery('#members_search').keypress(function(e) {
-						
-			if (e.which == '13') {
-				jQuery('#members_search_submit').click();
-			}
-		});
-		//searching by textbox
-		jQ("#members_search").on('keyup',function(){
-			valueTaker = jQuery(this).val();
-			//jQ('#members_search_cancel').addClass('clear_text');
-			//jQuery(".loader").addClass("ajax-loader");
-			jQuery.ajax({     
-				url:'/answers_tab',
-				data: { value: valueTaker,type: "textbox_search",pate: ""},
-				dataType:"script",				
-				success:function(successObject){
-					jQuery(".loader").removeClass("ajax-loader");
-				}
-			});
-		})
-	})
+    jQuery('#members_search').keypress(function(e) {
+            
+      if (e.which == '13') {
+        jQuery('#members_search_submit').click();
+      }
+    });
+    //searching by textbox
+    jQ("#members_search").on('keyup',function(){
+      valueTaker = jQuery(this).val();
+      //jQ('#members_search_cancel').addClass('clear_text');
+      //jQuery(".loader").addClass("ajax-loader");
+      jQuery.ajax({     
+        url:'/answers_tab',
+        data: { value: valueTaker,type: "textbox_search",pate: ""},
+        dataType:"script",        
+        success:function(successObject){
+          jQuery(".loader").removeClass("ajax-loader");
+        }
+      });
+    })
+  })

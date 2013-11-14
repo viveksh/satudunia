@@ -527,6 +527,7 @@ ul.button-nav li.current a {
 }
 .standard-form select {
 	padding: 3px;
+	width: 87%;
 }
 .standard-form input[type=password] {
 	margin-bottom: 5px;

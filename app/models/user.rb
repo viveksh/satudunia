@@ -21,7 +21,8 @@ class User
   index :login
 
   field :name,                      :type => String, :limit => 100, :default => '', :null => true
-
+  field :first_name,                :type => String, :limit => 100, :default => '', :null => true
+  field :last_name,                 :type => String, :limit => 100, :default => '', :null => true
   field :bio,                       :type => String, :limit => 200
   field :website,                   :type => String, :limit => 200
   field :location,                  :type => String, :limit => 200
@@ -130,7 +131,8 @@ class User
     # v.validates_format_of       :login,    :with => /\w+/
   end
 
-  validates_length_of       :name,     :maximum => 100
+  validates_length_of       :name,          :maximum => 100
+  
 
   validates_presence_of     :email,    :if => lambda { |e| !e.openid_login? && !e.twitter_login? }
   validates_uniqueness_of   :email,    :if => lambda { |e| e.anonymous || (!e.openid_login? && !e.twitter_login?) }

@@ -2,98 +2,98 @@
 .clearer.hide-responsive  
 %br.hide-responsive/
 .main-content-left
-	.page-content.review.single-post
-		%link{:href => "http://www.industrialthemes.com/made/wp-content/uploads/2012/06/misc1-160x160.jpg", :rel => "image_src"}/
-		.review-content
-			.ribbon-shadow-left
-			.section-wrapper
-				.section
-					.comment-bubble
-						%a{:title => "Comment on Made Magazine Is The First Responsive Theme Released By IndustrialThemes"} 0
-					%span.posted-label Posted
-					#{@news.created_at.strftime("%d %b %Y - %I:%M %p")} by 
-					%a{:href => "http://www.industrialthemes.com", :rel => "author external", :title => "Visit Brian McCulloh’s website"} #{@news.user.login}
-					%span.category-label
-						in
-						%a{:href => "#"} News
-				.ribbon-shadow-right 
-					= @news.news_title
-				.section-arrow
-			/ post by removed from here
-			.overview-new
-				.section-bottom1
-					- if current_user && !(@news.rated_by? current_user)
-						.rating-news#user-news-rating{:id => @news.id}
-					- else
-						.rating-news#no-login-user-news-rating{:id => @news.id}
-					.category.qa-q-item-tags
-						.catname
-							#{@news.created_at.strftime("%d %b %Y")}
-						.category-arrow
-				.left-panel
-					.the-content.justify-content			
-						.userDescription
-							.basicInfo{:style => "margin-left: 10px !important"}
-								%h2
-									= @news.news_title
-								%small
-									by #{@news.user.name} on #{@news.created_at.strftime("%d %b %Y - %I:%M %p")}
-						- if @news.has_news_image?
-							= image_tag news_image_path(@news,"small"), :alt => @news.slug, :class => 'gravatar', :style => "margin: 10px", :size=>'500x400'
-						#service_information{:style => "margin: 10px"}
-							= @news.news_body.html_safe
-		
-			
-			/ authorbox box partial 
-			= render "news/author_box"
-			/ related box partial 
-			= render "news/related_box"
-			.clearer.hide-responsive  
-			%br.hide-responsive/
+  .page-content.review.single-post
+    %link{:href => "http://www.industrialthemes.com/made/wp-content/uploads/2012/06/misc1-160x160.jpg", :rel => "image_src"}/
+    .review-content
+      .ribbon-shadow-left
+      .section-wrapper
+        .section
+          .comment-bubble
+            %a{:title => "Comment on Made Magazine Is The First Responsive Theme Released By IndustrialThemes"} 0
+          %span.posted-label Posted
+          #{@news.created_at.strftime("%d %b %Y - %I:%M %p")} by 
+          %a{:href => "http://www.industrialthemes.com", :rel => "author external", :title => "Visit Brian McCulloh’s website"} #{@news.user.login}
+          %span.category-label
+            in
+            %a{:href => "#"} News
+        .ribbon-shadow-right 
+          = @news.news_title
+        .section-arrow
+      / post by removed from here
+      .overview-new
+        .section-bottom1
+          - if current_user && !(@news.rated_by? current_user)
+            .rating-news#user-news-rating{:id => @news.id}
+          - else
+            .rating-news#no-login-user-news-rating{:id => @news.id}
+          .category.qa-q-item-tags
+            .catname
+              #{@news.created_at.strftime("%d %b %Y")}
+            .category-arrow
+        .left-panel
+          .the-content.justify-content      
+            .userDescription
+              .basicInfo{:style => "margin-left: 10px !important"}
+                %h2
+                  = @news.news_title
+                %small
+                  by #{@news.user.name} on #{@news.created_at.strftime("%d %b %Y - %I:%M %p")}
+            - if @news.has_news_image?
+              = image_tag news_image_path(@news,"small"), :alt => @news.slug, :class => 'gravatar', :style => "margin: 10px", :size=>'500x400'
+            #service_information{:style => "margin: 10px"}
+              = @news.news_body.html_safe
+    
+      
+      / authorbox box partial 
+      = render "news/author_box"
+      / related box partial 
+      = render "news/related_box"
+      .clearer.hide-responsive  
+      %br.hide-responsive/
 /side bar
 .sidebar
-	- if current_user.nil?
-		/login box
-		= render "experimental/partials/login_box"
-	-else
-		/profile box
-		= render "experimental/partials/profile_box"
+  - if current_user.nil?
+    /login box
+    = render "experimental/partials/login_box"
+  -else
+    /profile box
+    = render "experimental/partials/profile_box"
 
-	/ social login box
-	= render "experimental/partials/social_login_box"
-	/ member box
-	= render "experimental/partials/member_box"
-	/rating box
-	= render "experimental/partials/rating_box"
-	/rating box
-	= render "experimental/partials/rating_box2"
-	/ left bar
-	/ = render "experimental/partials/left_bar"
-	/widget top
-	= render "experimental/partials/widget_top"
-	/ .clearer.hide-responsive
-	/ %br.clearer/
-	/ newly reviewd
-	= render "experimental/partials/newly_reviewed"
-	/popular box
-	= render "experimental/partials/popular_box"
-	/banner box
-	= render "experimental/partials/banner_box"
+  / social login box
+  = render "experimental/partials/social_login_box"
+  / member box
+  /= render "experimental/partials/member_box"
+  /rating box
+  = render "experimental/partials/rating_box"
+  /rating box
+  = render "experimental/partials/rating_box2"
+  / left bar
+  / = render "experimental/partials/left_bar"
+  /widget top
+  = render "experimental/partials/widget_top"
+  / .clearer.hide-responsive
+  / %br.clearer/
+  / newly reviewd
+  /= render "experimental/partials/newly_reviewed"
+  /popular box
+  = render "experimental/partials/popular_box"
+  /banner box
+  = render "experimental/partials/banner_box"
 
 
 :javascript
-	jQuery("#user-news-rating_#{@news.id}").raty({
-		path: '../assets',
-		score: "#{@news.rating}",
-		precision: true,
-		click: function(score, evt) {
-			jQuery.ajax({
-				url: "/news/#{@news._id.to_s}/rating",
-				data: {score: score},
-				success:function(){
+  jQuery("#user-news-rating_#{@news.id}").raty({
+    path: '../assets',
+    score: "#{@news.rating}",
+    precision: true,
+    click: function(score, evt) {
+      jQuery.ajax({
+        url: "/news/#{@news._id.to_s}/rating",
+        data: {score: score},
+        success:function(){
 
-				}
-			});
-		}
-	});
-	jQuery("#no-login-user-news-rating_#{@news.id}").raty({ readOnly: true,score: "#{@news.rating}",path: '../assets'}); 
+        }
+      });
+    }
+  });
+  jQuery("#no-login-user-news-rating_#{@news.id}").raty({ readOnly: true,score: "#{@news.rating}",path: '../assets'}); 

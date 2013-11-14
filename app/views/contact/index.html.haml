@@ -1,140 +1,141 @@
 .clearer.hide-responsive  
 %br.hide-responsive/
 .main-content-left
-	%br.clearer/
-	#spotlight-wrapper
-		.ribbon-shadow-left  
-		.section-wrapper
-			/ spotlight section header
-			.section
-				Contact Plus+
-		.ribbon-shadow-right  
-		.section-arrow
-	.page-content.review
-		%link{:href => "http://www.industrialthemes.com/made/wp-content/uploads/2012/06/movies3-160x160.jpg", :rel => "image_src"}/
-		#register-page.page
-			
-			= form_for :contact,:method=>"POST",:action=>:create,:html=>{:class=>"standard-form"} do |f|
-				.overview-wrapper
-					.overview-new
-						.left-panel
-							%h2
-								Contact Plus+
-							%p Registering for this site is easy, just fill in the fields below and we'll get a new account set up for you in no time.
-							#basic-details-section.register-section
-								= f.label :name, "Name*"
-								= f.text_field :name,:placeholder=>"Please Enter Name",:id=>"signup_username"
-								= f.label "Company Name"
-								= f.text_field :company_name,:placeholder=>"Please Enter Company Name", :id=>"signup_email"
-								= f.label "Company Website"
-								= f.text_field :company_website,:placeholder=>"Please Enter Company Website",:id=>"signup_username"
-								= f.label "Email*"
-								= f.text_field :email,:placeholder=>"Please Enter Email",:id=>"signup_username"
-								= f.label "Telephone"
+  %br.clearer/
+  #spotlight-wrapper
+    .ribbon-shadow-left  
+    .section-wrapper
+      / spotlight section header
+      .section
+        Contact Plus+
+    .ribbon-shadow-right  
+    .section-arrow
+  .page-content.review
+    %link{:href => "http://www.industrialthemes.com/made/wp-content/uploads/2012/06/movies3-160x160.jpg", :rel => "image_src"}/
+    #register-page.page
+      
+      = form_for :contact,:method=>"POST",:action=>:create,:html=>{:class=>"standard-form"} do |f|
+        .overview-wrapper
+          .overview-new
+            .left-panel
+              %h2
+                Contact Plus+
+              %p Registering for this site is easy, just fill in the fields below and we'll get a new account set up for you in no time.
+              #basic-details-section.register-section
+                = f.label :name, "Name*"
+                = f.text_field :name,:placeholder=>"Please Enter Name",:id=>"signup_username"
+                = f.label "Company Name"
+                = f.text_field :company_name,:placeholder=>"Please Enter Company Name", :id=>"signup_email"
+                = f.label "Company Website"
+                = f.text_field :company_website,:placeholder=>"Please Enter Company Website",:id=>"signup_username"
+                = f.label "Email*"
+                = f.text_field :email,:placeholder=>"Please Enter Email",:id=>"signup_username"
+                = f.label "Telephone"
 
-								= f.text_field :country_code,:placeholder=>"Country",:id=>"signup_username",:class=>"set-box"
-								= f.text_field :area_code,:placeholder=>"Area",:id=>"signup_username",:class=> "set-box"
-								= f.text_field :phone_number,:placeholder=>"Number",:id=>"signup_username",:class=>"set-box-phone"
-								%br
-								%br
-								.field.capcha{:style=>"margin-left:-10px;"}
-									= raw recaptcha_tag(:challenge, :display => { :theme => 'white'})
-							#profile-details-section.register-section
-								.editfield
-									=f.label "Country  :"
-									.select-text-adj
-										= f.country_select :country
-								.editfield
-									= f.label "I am interested in"
-									%select#req_interest{:interested_in => "req_interest", :class=>"select-text-adj"}
-										%option{:value => "Becoming a Partner"} Becoming a Partner
-										%option{:value => "Making a Donation"} Making a Donation
-										%option{:value => "Sending a general comment"} Sending a general comment
-										%option{:value => "Applying for a job"} Applying for a job
-										%option{:value => "Support"} Support
-										%option{:value => "Other"} Other  
-								.editfield
-									= f.label "Preferred method of contact"
-									%select#req_method{:prefer_contact => "req_method"}
-										%option{:value => "Email"} Email
-										%option{:value => "Phone"} Phone
-								.editfield
-									= f.label "Other Comments"
-									= f.text_area :comment, :style => "width: 250px",:placeholder=>"Please Enter Comment"    
-					.contact-section-bottom-button
-						= link_to "Cancel".html_safe, contact_index_path, :class=>"contact-button", :id=> "align"
-						= f.submit "Submit", :class=>"contact-button", :id=> "align"
-	%br.clearer/
+                = f.text_field :country_code,:placeholder=>"Country",:id=>"signup_username",:class=>"set-box"
+                = f.text_field :area_code,:placeholder=>"Area",:id=>"signup_username",:class=> "set-box"
+                = f.text_field :phone_number,:placeholder=>"Number",:id=>"signup_username",:class=>"set-box-phone"
+                %br
+                %br
+                .field.capcha{:style=>"margin-left:-10px;"}
+                  = raw recaptcha_tag(:challenge, :display => { :theme => 'white'})
+              #profile-details-section.register-section
+                .editfield
+                  =f.label "Country  :"
+                  .select-text-adj
+                    = f.country_select :country
+                .editfield
+                  = f.label "I am interested in"
+                  %select#req_interest{:interested_in => "req_interest", :class=>"select-text-adj"}
+                    %option{:value => "Becoming a Partner"} Becoming a Partner
+                    %option{:value => "Making a Donation"} Making a Donation
+                    %option{:value => "Sending a general comment"} Sending a general comment
+                    %option{:value => "Applying for a job"} Applying for a job
+                    %option{:value => "Support"} Support
+                    %option{:value => "Other"} Other  
+                .editfield
+                  = f.label "Preferred method of contact"
+                  %select#req_method{:prefer_contact => "req_method"}
+                    %option{:value => "Email"} Email
+                    %option{:value => "Phone"} Phone
+                .editfield
+                  = f.label "Other Comments"
+                  = f.text_area :comment, :style => "width: 250px",:placeholder=>"Please Enter Comment"    
+          .contact-section-bottom-button
+            = link_to "Cancel".html_safe, contact_index_path, :class=>"contact-button", :id=> "align"
+            = f.submit "Submit", :class=>"contact-button", :id=> "align"
+  %br.clearer/
 /side bar
 .sidebar
-	- if current_user.nil?
-		/login box
-		= render "experimental/partials/login_box"
-	-else
-		/profile box
-		= render "experimental/partials/profile_box"
+  - if current_user.nil?
+    /login box
+    = render "experimental/partials/login_box"
+  -else
+    /profile box
+    = render "experimental/partials/profile_box"
 
-	/ social login box
-	= render "experimental/partials/social_login_box"
-	/ member box
-	= render "experimental/partials/member_box"
-	/rating box
-	= render "experimental/partials/rating_box"
-	/rating box
-	= render "experimental/partials/rating_box2"
-	/ left bar
-	/ = render "experimental/partials/left_bar"
-	/widget top
-	= render "experimental/partials/widget_top"
-	/ .clearer.hide-responsive
-	/ %br.clearer/
-	/ newly reviewd
-	= render "experimental/partials/newly_reviewed"
-	/popular box
-	= render "experimental/partials/popular_box"
-	/banner box
-	= render "experimental/partials/banner_box"
+  / social login box
+  = render "experimental/partials/social_login_box"
+  / member box
+  /= render "experimental/partials/member_box"
+  /rating box
+  = render "experimental/partials/rating_box"
+  /rating box
+  = render "experimental/partials/rating_box2"
+  / left bar
+  / = render "experimental/partials/left_bar"
+  /widget top
+  = render "experimental/partials/widget_top"
+  / .clearer.hide-responsive
+  / %br.clearer/
+  / newly reviewd
+  /= render "experimental/partials/newly_reviewed"
+  /popular box
+  = render "experimental/partials/popular_box"
+  /banner box
+  = render "experimental/partials/banner_box"
+
 :css
-	#recaptcha_area, #recaptcha_table{
-		height:128px;
-	}
+  #recaptcha_area, #recaptcha_table{
+    height:128px;
+  }
 
 :javascript
-	// jQuery("#send_contact_us_link").click(function (){
-	// 	jQuery("#send_contact_us_form").submit();
-	// });
+  // jQuery("#send_contact_us_link").click(function (){
+  //  jQuery("#send_contact_us_form").submit();
+  // });
 
-	// client side validations
-	jQuery("#new_contact").validate({
+  // client side validations
+  jQuery("#new_contact").validate({
 
-			rules:{
-				"contact[name]":{
-					required:true
-				},
+      rules:{
+        "contact[name]":{
+          required:true
+        },
 
-				"contact[email]":{
-					required:true
-				},
+        "contact[email]":{
+          required:true
+        },
 
-				"contact[comment]":{
-					required:true
-				}
+        "contact[comment]":{
+          required:true
+        }
 
-			},
-			messages:{
-				"contact[name]":{
-					required:"Name Can't be Blank"
-				},
+      },
+      messages:{
+        "contact[name]":{
+          required:"Name Can't be Blank"
+        },
 
-				"contact[email]":{
-					required:"Email Can't be Blank"
-				},
+        "contact[email]":{
+          required:"Email Can't be Blank"
+        },
 
-				"contact[comment]":{
-					required:"Comment Can't be Blank"
-				}
+        "contact[comment]":{
+          required:"Comment Can't be Blank"
+        }
 
-			}
+      }
 
-	});
+  });
 

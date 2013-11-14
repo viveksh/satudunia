@@ -3,106 +3,131 @@
 .clearer.hide-responsive  
 %br.hide-responsive/
 .main-content-left
-	#content.page-content
-		.review-content
-			.ribbon-shadow-left
-			.section-wrapper
-				.section-header
+  #content.page-content
+    .review-content
+      .ribbon-shadow-left
+      .section-wrapper
+        .section-header
 
-					Members Profile :: #{@user.login}
-			.section-arrow
-			/ post by removed from here
-		#item-header.qa-q-item-tags{:role=>"complementary"}
-			#item-header-avatar
-				%a{:style=>"float:left;"}
-					-if @user.use_gravatar?
-						= image_tag avatar_user_path(@user),:size=>'140x140',:class => "avatar" 
-					-else                       
-						= image_tag(default_avatar_url('big'), :class=>"avatar")
-			#item-header-content
-				%h2
+          Members Profile :: #{@user.login}
+      .section-arrow
+      / post by removed from here
+    #item-header.qa-q-item-tags{:role=>"complementary"}
+      #item-header-avatar
+        %a{:style=>"float:left;"}
+          -if @user.use_gravatar?
+            = image_tag avatar_user_path(@user),:size=>'140x140',:class => "avatar" 
+          -else                       
+            = image_tag(default_avatar_url('big'), :class=>"avatar")
+      #item-header-content
+        %h2
 
-					= link_to "#{@user.login}", user_path(@user)
-				/ .item-meta
-				/ 	%span{:class=>"activity"}
-				/ 		Joined 
-				/ 		= t("time.ago", :time => time_ago_in_words(config.joined_at))
-				.user-nicename
-					Website:
-					= link_to @user.website, @user.website
-				.user-nicename
-					= link_to "<span>HIV Condition: #{user_hiv_condition(@user)}</span>".html_safe, "#", :class => "qwest_tag1"
-					=# link_to "<span>Edit Profile</span>".html_safe, settings_path, :class => "qwest_tag15"
-				.a6
-					= image_tag "plus/a1.png"
-					%span
-						Country: 
-						= user_country(@user)
-					%br
-					= image_tag "plus/a2.png"
-					%span
-						Age: 
-						= user_age(@user)
-					%br
-					/ -if current_user != @user && @user.member_of?(current_group)
-					/ 	.follow
-					/ 		= follow_user_link(@user) 
-		#item-nav
-			#object-nav.item-list-tabs{:id=>"firstElement"}
-				%ul
-					= tab_entry "li", t(:questions, :scope => "activerecord.models"), user_path(@user), {:selected => "selected"}, {:class => "questions"}
-					= tab_entry "li", t(:answers, :scope => "activerecord.models"), answers_user_path(@user), {:selected => "selected"}, {:class => "answers"}
-					= tab_entry "li", t('global.following'), follows_user_path(@user), {:selected => "selected"}
-					= tab_entry "li", t(:activity, :scope => "activerecord.models"), activity_user_path(@user), {:selected => "selected"}, {:class => "activity"}
-					= tab_entry "li", "Survey", survey_user_path(@user), {:selected => "selected"}, {:class => "activity"}
-			
-			#subnav.item-list-tabs.no-ajax{:role => "navigation"}
-				%ul
-					= render "users/show/user_#{params[:action]}_filters"
-		#members-dir-list.members.dir-list
-			%ul#members-list.items-list
-				= render "users/show/user_#{params[:action]}_content"
+          = link_to "#{@user.login}", user_path(@user)
+        / .item-meta
+        /   %span{:class=>"activity"}
+        /     Joined 
+        /     = t("time.ago", :time => time_ago_in_words(config.joined_at))
+        .user-nicename
+          Website:
+          = link_to @user.website, @user.website
+        .user-nicename
+          = link_to "<span>HIV Condition: #{user_hiv_condition(@user)}</span>".html_safe, "#", :class => "qwest_tag1"
+          =# link_to "<span>Edit Profile</span>".html_safe, settings_path, :class => "qwest_tag15"
+        .a6
+          = image_tag "plus/a1.png"
+          %span
+            Country: 
+            = user_country(@user)
+          %br
+          = image_tag "plus/a2.png"
+          %span
+            Age: 
+            = user_age(@user)
+          %br
+          / -if current_user != @user && @user.member_of?(current_group)
+          /   .follow
+          /     = follow_user_link(@user) 
+    #item-nav
+      #object-nav.item-list-tabs{:id=>"firstElement"}
+        %ul
+          = tab_entry "li", t(:questions, :scope => "activerecord.models"), user_path(@user), {:selected => "selected"}, {:class => "questions"}
+          = tab_entry "li", t(:answers, :scope => "activerecord.models"), answers_user_path(@user), {:selected => "selected"}, {:class => "answers"}
+          = tab_entry "li", t('global.following'), follows_user_path(@user), {:selected => "selected"}
+          = tab_entry "li", t(:activity, :scope => "activerecord.models"), activity_user_path(@user), {:selected => "selected"}, {:class => "activity"}
+          = tab_entry "li", "Survey", survey_user_path(@user), {:selected => "selected"}, {:class => "activity"}
+      
+      #subnav.item-list-tabs.no-ajax{:role => "navigation"}
+        %ul
+          = render "users/show/user_#{params[:action]}_filters"
+    #members-dir-list.members.dir-list
+      %ul#members-list.items-list
+        = render "users/show/user_#{params[:action]}_content"
 
 .sidebar
-	= render "experimental/partials/left_bar"
-	= render "followers"
-:javascript
-	$(window).load(function (){
+  - if current_user.nil?
+    /login box
+    = render "experimental/partials/login_box"
+  -else
+    /profile box
+    = render "experimental/partials/profile_box"
 
-		switch('#{params[:sort]}'){
-			case "oldest":
-				$('#sort_oldest').addClass('active-tab');
-				break;
-			case "views":
-				$('#sort_views').addClass('active-tab');
-				break;
-			case "votes":
-				$('#sort_votes').addClass('active-tab');
-				break;
-			case "questions":
-				$('#question-tab').addClass('active-tab');
-				$('#question1-tab').addClass('active-tab');
-				break;
-			case "answers":
-				$('#answer-tab').addClass('active-tab');
-				break;
-			case "following":
-				$('#following-tab').addClass('active-tab');
-				break;
-			case "followers":
-				$('#followers-tab').addClass('active-tab');
-				break;
-			case "all":
-				$('#all-tab').addClass('active-tab');
-				break;
-			case "users":
-				$('#user-tab').addClass('active-tab');
-				break;
-			case "pages":
-				$('#page-tab').addClass('active-tab');
-				break;
-			default:
-				$('#sort_newest,#question-tab,#all-tab').addClass('active-tab');
-				break;
-		}
-	});
+  / social login box
+  = render "experimental/partials/social_login_box"
+  / member box
+  /= render "experimental/partials/member_box"
+  /rating box
+  = render "experimental/partials/rating_box"
+  /rating box
+  = render "experimental/partials/rating_box2"
+  / left bar
+  / = render "experimental/partials/left_bar"
+  /widget top
+  = render "experimental/partials/widget_top"
+  / .clearer.hide-responsive
+  / %br.clearer/
+  / newly reviewd
+  /= render "experimental/partials/newly_reviewed"
+  /popular box
+  = render "experimental/partials/popular_box"
+  /banner box
+  = render "experimental/partials/banner_box"
+:javascript
+  $(window).load(function (){
+
+    switch('#{params[:sort]}'){
+      case "oldest":
+        $('#sort_oldest').addClass('active-tab');
+        break;
+      case "views":
+        $('#sort_views').addClass('active-tab');
+        break;
+      case "votes":
+        $('#sort_votes').addClass('active-tab');
+        break;
+      case "questions":
+        $('#question-tab').addClass('active-tab');
+        $('#question1-tab').addClass('active-tab');
+        break;
+      case "answers":
+        $('#answer-tab').addClass('active-tab');
+        break;
+      case "following":
+        $('#following-tab').addClass('active-tab');
+        break;
+      case "followers":
+        $('#followers-tab').addClass('active-tab');
+        break;
+      case "all":
+        $('#all-tab').addClass('active-tab');
+        break;
+      case "users":
+        $('#user-tab').addClass('active-tab');
+        break;
+      case "pages":
+        $('#page-tab').addClass('active-tab');
+        break;
+      default:
+        $('#sort_newest,#question-tab,#all-tab').addClass('active-tab');
+        break;
+    }
+  });
