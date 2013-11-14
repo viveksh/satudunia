@@ -76,7 +76,7 @@ class UsersController < ApplicationController
 
 	def create
 		@user = User.new
-		@user.safe_update(%w[login email name password_confirmation password  website
+		@user.safe_update(%w[login email name first_name last_name date password_confirmation password  website
 												 language timezone identity_url bio hide_country
 												 preferred_languages], params[:user])
 		if params[:user]["birthday(1i)"]
@@ -279,6 +279,7 @@ class UsersController < ApplicationController
 	end
 
 	def update
+		
 		# checking for gravatar
 		@paramsUpdated = params[:user]
 		# to push value of gravatar to true
@@ -304,9 +305,9 @@ class UsersController < ApplicationController
 			params[:user][:preferred_languages].reject! { |lang| lang.blank? }
 		end
 		@user.networks = params[:networks]
-		@user.safe_update(%w[preferred_languages login email name hide_realname
+		@user.safe_update(%w[preferred_languages login email name first_name last_name hide_realname
 												 language timezone bio hide_country hide_age hide_hiv_condition
-												 country_name user_age hiv_condition website avatar use_gravatar facebook_profile_url 
+												 country_name user_age  hiv_condition website avatar use_gravatar facebook_profile_url 
 												 linkedin_profile_url twitter_profile_url google_plus_profile_url youtube_profile_url flickr_profile_url digg_profile_url url_profile_url ], @paramsUpdated)
 		@user.notification_opts.safe_update(%w[new_answer give_advice activities reports
 			 questions_to_twitter badges_to_twitter favorites_to_twitter answers_to_twitter
@@ -331,6 +332,13 @@ class UsersController < ApplicationController
 				redirect_to accept_invitation_path(:step => params[:next_step], :id => params[:invitation_id])
 			else
 				redirect_to "/profile/settings"
+				if params[:user][:hide_hiv_condition].present? || params[:user][:hide_country].present? || params[:user][:hide_age].present? || params[:user][:hide_realname].present?
+          flash[:notice] = "Info has been saved for privacy"
+        elsif params[:user][:facebook_profile_url].present? || params[:user][:linkedin_profile_url].present? || params[:user][:twitter_profile_url].present? || params[:user][:google_plus_profile_url].present? || params[:user][:youtube_profile_url].present? || params[:user][:flickr_profile_url].present? || params[:user][:digg_profile_url].present? || params[:user][:url_profile_url].present?
+          flash[:notice] = "Socail web saved"  
+        else   
+          flash[:notice] = "profile updated successfully"
+        end   
 			end
 		else
 			render :action => "edit"

@@ -97,9 +97,16 @@
                 = f.password_field :password_confirmation, :class => "text_field",:placeholder=>"Please Re-Enter Password",:class=>"input-class-new"
 
 
+              / %br
+              /   = f.label :name, t(:name, :scope => "activerecord.attributes.user"), :class => "label"
+              /   = f.text_field :name, :class => "text_field",:placeholder=>"Please Enter Real Name",:class=>"input-class-new"
               %br
-                = f.label :name, t(:name, :scope => "activerecord.attributes.user"), :class => "label"
-                = f.text_field :name, :class => "text_field",:placeholder=>"Please Enter Real Name",:class=>"input-class-new"
+                = f.label :first_name, :class => "label"
+                = f.text_field :first_name, :class => "text_field",:placeholder=>"Please Enter First Name",:class=>"input-class-new"
+
+              %br
+                = f.label :last_name, :class => "label"
+                = f.text_field :last_name, :class => "text_field",:placeholder=>"Please Enter Last Name",:class=>"input-class-new" 
 
               %br
                 = f.label :bio, t(:bio, :scope => "activerecord.attributes.user", :default => "Bio"), :class => "label"
@@ -233,7 +240,7 @@
   / social login box
   = render "experimental/partials/social_login_box"
   / member box
-  = render "experimental/partials/member_box"
+  / = render "experimental/partials/member_box"
   /rating box
   = render "experimental/partials/rating_box"
   /rating box
@@ -245,11 +252,12 @@
   / .clearer.hide-responsive
   / %br.clearer/
   / newly reviewd
-  = render "experimental/partials/newly_reviewed"
+  / = render "experimental/partials/newly_reviewed"
   /popular box
   = render "experimental/partials/popular_box"
   /banner box
   = render "experimental/partials/banner_box"
+
 
   
 = javascript_include_tag("experimental/passwordStrength")

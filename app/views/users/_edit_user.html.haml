@@ -7,8 +7,13 @@
 		.overview-new.no-background
 			.left-panel
 				#basic-details-section.register-section
-					= f.label :name, "Name*"
-					= f.text_field :name,:placeholder=>"Please Enter Name",:id=>"signup_username"
+					/ = f.label :name, "Name*"
+					/ = f.text_field :name,:placeholder=>"Please Enter Name",:id=>"signup_username"
+					= f.label :first_name, "First Name*"
+					= f.text_field :first_name,:placeholder=>"Please Enter First Name"
+
+					= f.label :last_name, "Last Name*" 
+					= f.text_field :last_name, :placeholder=>"Please Enter Last Name"
 					= f.label "Login*"
 					= f.text_field :login,:placeholder=>"Please Enter Company Name"
 					= f.label "Website"
@@ -21,9 +26,11 @@
 					= f.file_field :avatar
 				#profile-details-section.register-section
 					= f.label "Country"
-					= f.text_field :country_name,:placeholder=>"Please Enter Country"
+					.select-text-adj
+						= f.country_select :country_name
+					/ = f.text_field :country_name,:placeholder=>"Please Enter Country"
 					= f.label "HIV"
-					= f.select :hiv_condition, ["Negative","Positive"],{:selected => @user.hiv_condition}, :class => "select-class1"
+					= f.select :hiv_condition, ["Negative","Positive","I don't know","Prefer not to disclose"],{:selected => @user.hiv_condition}, :class => "select-class1"
 					= f.label "Bio"
 					= f.text_area :bio, :style => "width: 250px",:placeholder=>"Please Enter Comment"
 		
