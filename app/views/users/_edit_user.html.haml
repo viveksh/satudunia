@@ -21,8 +21,10 @@
           = f.text_field :login,:placeholder=>"Please Enter Company Name"
           = f.label "Website"
           = f.text_field :name,:placeholder=>"Please Enter Website"
-          = f.label "Date"
-          = f.text_field :user_age
+          = f.label "Birth Date(mm/dd/yy)"
+          / = f.text_field :user_age
+          /=f.text_field :date, :id=>"datepicker"
+          =f.text_field :date, :id=>"datepicker", :value=>@user.date.strftime("%d/%m/%Y")
           / = f.label "Upload Avatar"
           %br
           %br

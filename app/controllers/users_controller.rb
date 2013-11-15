@@ -76,7 +76,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new
-    @user.safe_update(%w[login email name first_name last_name password_confirmation password  website
+    @user.safe_update(%w[login email name first_name  last_name date password_confirmation password  website
                          language timezone identity_url bio hide_country
                          preferred_languages], params[:user])
     if params[:user]["birthday(1i)"]
@@ -306,7 +306,7 @@ class UsersController < ApplicationController
       params[:user][:preferred_languages].reject! { |lang| lang.blank? }
     end
     @user.networks = params[:networks]
-    @user.safe_update(%w[preferred_languages login email name first_name last_name hide_realname
+    @user.safe_update(%w[preferred_languages login email name first_name last_name date hide_realname
                          language timezone bio hide_country hide_age hide_hiv_condition
                          country_name user_age hiv_condition website avatar use_gravatar facebook_profile_url 
                          linkedin_profile_url twitter_profile_url google_plus_profile_url youtube_profile_url flickr_profile_url digg_profile_url url_profile_url ], @paramsUpdated)
