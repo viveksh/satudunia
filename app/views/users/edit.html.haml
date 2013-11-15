@@ -1,4 +1,4 @@
-.clearer.hide-responsive  
+.clearer.hide-responsive 
 %br.hide-responsive/
 .main-content-left
 	.page-content.review.single-post
@@ -6,25 +6,23 @@
 		.review-content
 			.ribbon-shadow-left
 			.section-wrapper
-				.section
-					.section-for-header
-						Profile Settings
+				.section-header Profile Settings
 			.section-arrow
 		#item-header.qa-q-item-tags{:role=>"complementary"}
 			#item-header-avatar
 				%a{:style=>"float:left;"}
 					-if @user.use_gravatar?
 						= image_tag avatar_user_path(@user),:size=>'140x140',:class => "avatar"
-					-else                       
+					-else                      
 						= image_tag(default_avatar_url('big'), :class=>"avatar")
 			#item-header-content
 				%h2
 					= link_to "#{user_realname(@user)}", user_path(@user)
 
 				/ .item-meta
-				/ 	%span{:class=>"activity"}
-				/ 		Joined 
-				/ 	= t("time.ago", :time => time_ago_in_words(@user.created_at))
+				/   %span{:class=>"activity"}
+				/     Joined
+				/   = t("time.ago", :time => time_ago_in_words(@user.created_at))
 				.user-nicename
 					Website:
 					= link_to @user.website, @user.website
@@ -32,47 +30,120 @@
 					= link_to "<span>HIV Condition: #{user_hiv_condition(@user)}</span>".html_safe, "#", :class => "qwest_tag1"
 					=# link_to "<span>Edit Profile</span>".html_safe, settings_path, :class => "qwest_tag15"
 				/ .extra-tags
-				/ 	- unless @user.profile_tiers.blank?
-				/ 		= link_to "<span>Sample</span>".html_safe, "#", :class => "qwest_tag12"
-				/ 	-unless @user.profile_support.nil?
-				/ 		= link_to "<span>Tier 1</span>".html_safe, "#", :class => "qwest_tag12"
-				/ 	- for i in 2..7 do
-				/ 		-unless eval "@user.profile_tier#{i}.nil?"
-				/ 			= link_to "<span>Tier #{i}</span>".html_safe, "#", :class => "qwest_tag12"
+				/   - unless @user.profile_tiers.blank?
+				/     = link_to "<span>Sample</span>".html_safe, "#", :class => "qwest_tag12"
+				/   -unless @user.profile_support.nil?
+				/     = link_to "<span>Tier 1</span>".html_safe, "#", :class => "qwest_tag12"
+				/   - for i in 2..7 do
+				/     -unless eval "@user.profile_tier#{i}.nil?"
+				/       = link_to "<span>Tier #{i}</span>".html_safe, "#", :class => "qwest_tag12"
 				.a6
 					= image_tag "plus/a1.png"
 					%span
-						Country: 
+						Country:
 						= user_country(@user)
 					%br
 					= image_tag "plus/a2.png"
 					%span
-						Age: 
+						Age:
 						= user_age(@user)
-		#item-nav
-			#object-nav.item-list-tabs{:id=>"firstElement"}
-				%ul
-					%li
-						%a#user-activity{:href=>"javascript:void(0)", :class=>"loader-adjust-set"}
-							Activity
-							%span
-								= (@resources.blank?)? 0 : @resources.count
-							.loader.show-inline
-					%li.selected
-						%a#user-xprofile{:href=>"javascript:void(0)",:data_send=>"profile",:user_id=>"#{@user.id}", :class=>"loader-adjust-profile"}
-							Profile
-							.loader.show-inline
-					%li
-						%a#user-profile{:href=>"javascript:void(0)",:user_id=>"#{@user.id}", :class=>"loader-adjust-profile"}
-							Privacy
-							.loader.show-inline
-					%li
-						%a#user-social-profile{:href=>"javascript:void(0)",:user_id=>"#{@user.id}", :class=>"loader-adjust-profile"}
-							Social
-							.loader.show-inline
 
-						
-					
+		-if params[:tab] == "1"
+			#item-nav
+				#object-nav.item-list-tabs{:id=>"firstElement"}
+					%ul
+						%li
+							%a#user-activity{:href=>"javascript:void(0)", :class=>"loader-adjust-set"}
+								Activity
+								%span
+									= (@resources.blank?)? 0 : @resources.count
+								.loader.show-inline
+						%li
+							%a#user-xprofile{:href=>"javascript:void(0)",:data_send=>"profile",:user_id=>"#{@user.id}", :class=>"loader-adjust-profile"}
+								Profile
+								.loader.show-inline
+						%li.selected
+							%a#user-profile{:href=>"javascript:void(0)",:user_id=>"#{@user.id}", :class=>"loader-adjust-profile"}
+								Privacy
+								.loader.show-inline
+						%li
+							%a#user-social-profile{:href=>"javascript:void(0)",:user_id=>"#{@user.id}", :class=>"loader-adjust-profile"}
+								Social
+								.loader.show-inline
+			#subtabs
+				.activity_sub
+					= render "users/activity_subtabs"
+				.profile_sub
+					= render "users/profile_subtabs"
+			#activity_tab1
+				#members-dir-list.members.dir-list#activity_tab{:style =>"display:none"}
+					%ul#members-list.items-list
+						= render "users/show/user_activity_content"
+				.review-content#user_profile_tab
+					= render "experimental/partials/users/user_privacy"
+					/ %h1{:style=>"background:none; border:none"}
+					/   = link_to @user.display_name, user_path(@user)
+							 
+			%br.clearer/         
+		-elsif params[:tab] == "2"
+			#item-nav
+				#object-nav.item-list-tabs{:id=>"firstElement"}
+					%ul
+						%li
+							%a#user-activity{:href=>"javascript:void(0)", :class=>"loader-adjust-set"}
+								Activity
+								%span
+									= (@resources.blank?)? 0 : @resources.count
+								.loader.show-inline
+						%li
+							%a#user-xprofile{:href=>"javascript:void(0)",:data_send=>"profile",:user_id=>"#{@user.id}", :class=>"loader-adjust-profile"}
+								Profile
+								.loader.show-inline
+						%li
+							%a#user-profile{:href=>"javascript:void(0)",:user_id=>"#{@user.id}", :class=>"loader-adjust-profile"}
+								Privacy
+								.loader.show-inline
+						%li.selected
+							%a#user-social-profile{:href=>"javascript:void(0)",:user_id=>"#{@user.id}", :class=>"loader-adjust-profile"}
+								Social
+								.loader.show-inline
+			#subtabs
+				.activity_sub
+					= render "users/activity_subtabs"
+				.profile_sub
+					= render "users/profile_subtabs"
+			#activity_tab1
+				#members-dir-list.members.dir-list#activity_tab{:style =>"display:none"}
+					%ul#members-list.items-list
+						= render "users/show/user_activity_content"
+				.review-content#user_profile_tab
+					= render "experimental/partials/users/user_social"
+					/ %h1{:style=>"background:none; border:none"}
+					/   = link_to @user.display_name, user_path(@user)
+							 
+			%br.clearer/         
+		-else
+			#item-nav
+				#object-nav.item-list-tabs{:id=>"firstElement"}
+					%ul
+						%li
+							%a#user-activity{:href=>"javascript:void(0)", :class=>"loader-adjust-set"}
+								Activity
+								%span
+									= (@resources.blank?)? 0 : @resources.count
+								.loader.show-inline
+						%li.selected
+							%a#user-xprofile{:href=>"javascript:void(0)",:data_send=>"profile",:user_id=>"#{@user.id}", :class=>"loader-adjust-profile"}
+								Profile
+								.loader.show-inline
+						%li
+							%a#user-profile{:href=>"javascript:void(0)",:user_id=>"#{@user.id}", :class=>"loader-adjust-profile"}
+								Privacy
+								.loader.show-inline
+						%li
+							%a#user-social-profile{:href=>"javascript:void(0)",:user_id=>"#{@user.id}", :class=>"loader-adjust-profile"}
+								Social
+								.loader.show-inline                                 
 			#subtabs
 				.activity_sub
 					= render "users/activity_subtabs"
@@ -85,7 +156,7 @@
 				.review-content#user_profile_tab
 					= render "users/edit"
 					/ %h1{:style=>"background:none; border:none"}
-					/ 	= link_to @user.display_name, user_path(@user)
+					/   = link_to @user.display_name, user_path(@user)
 								
 	%br.clearer/
 /side bar
@@ -142,4 +213,8 @@
 
 	jQuery('#item-header-avatar').click(function(){
 		jQuery('#user_avatar').click();
+	});
+
+	jQuery(function() {
+		jQuery( "#datepicker" ).datepicker();
 	});

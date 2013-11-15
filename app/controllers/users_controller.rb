@@ -280,70 +280,77 @@ class UsersController < ApplicationController
 
 	def update
 		
-		# checking for gravatar
-		@paramsUpdated = params[:user]
-		# to push value of gravatar to true
-		if (params[:user].has_key?(:avatar))
-			unless current_user.use_gravatar?
-				@paramsUpdated = params[:user].merge(:use_gravatar=>true)
-			end
-		end
-		# checking for gravatar
-		if params[:id] == 'login' && params[:user].nil? # HACK for facebook-connectable
-			redirect_to root_path
-			return
-		end
+    # checking for gravatar
 
-		@user = current_user
+    @paramsUpdated = params[:user]
+    # to push value of gravatar to true
+    if (params[:user].has_key?(:avatar))
+      unless current_user.use_gravatar?
+        @paramsUpdated = params[:user].merge(:use_gravatar=>true)
+      end
+    end
+    # checking for gravatar
+    if params[:id] == 'login' && params[:user].nil? # HACK for facebook-connectable
+      redirect_to root_path
+      return
+    end
 
-		if params[:user][:current_password] && @user.valid_password?(params[:user][:current_password])
-			@user.encrypted_password = ""
-			@user.password = params[:user][:password]
-			@user.password_confirmation = params[:user][:password_confirmation]
-		end
-		if params[:user][:preferred_languages]
-			params[:user][:preferred_languages].reject! { |lang| lang.blank? }
-		end
-		@user.networks = params[:networks]
-		@user.safe_update(%w[preferred_languages login email name first_name last_name hide_realname
-												 language timezone bio hide_country hide_age hide_hiv_condition
-												 country_name user_age  hiv_condition website avatar use_gravatar facebook_profile_url 
-												 linkedin_profile_url twitter_profile_url google_plus_profile_url youtube_profile_url flickr_profile_url digg_profile_url url_profile_url ], @paramsUpdated)
-		@user.notification_opts.safe_update(%w[new_answer give_advice activities reports
-			 questions_to_twitter badges_to_twitter favorites_to_twitter answers_to_twitter
-			 comments_to_twitter], params[:user][:notification_opts]) if params[:user][:notification_opts]
-		if params[:user]["birthday(1i)"]
-			@user.birthday = build_date(params[:user], "birthday")
-		end
+    @user = current_user
 
-		Jobs::Users.async.on_update_user(@user.id, current_group.id).commit!
+    if params[:user][:current_password] && @user.valid_password?(params[:user][:current_password])
+      @user.encrypted_password = ""
+      @user.password = params[:user][:password]
+      @user.password_confirmation = params[:user][:password_confirmation]
+    end
+    if params[:user][:preferred_languages]
+      params[:user][:preferred_languages].reject! { |lang| lang.blank? }
+    end
+    @user.networks = params[:networks]
+    @user.safe_update(%w[preferred_languages login email date name first_name last_name hide_realname
+                         language timezone bio hide_country hide_age hide_hiv_condition
+                         country_name user_age hiv_condition website avatar use_gravatar facebook_profile_url
+                         linkedin_profile_url twitter_profile_url google_plus_profile_url youtube_profile_url flickr_profile_url digg_profile_url url_profile_url ], @paramsUpdated)
+    @user.notification_opts.safe_update(%w[new_answer give_advice activities reports
+       questions_to_twitter badges_to_twitter favorites_to_twitter answers_to_twitter
+       comments_to_twitter], params[:user][:notification_opts]) if params[:user][:notification_opts]
+    if params[:user]["birthday(1i)"]
+      @user.birthday = build_date(params[:user], "birthday")
+    end
 
-		preferred_tags = params[:user][:preferred_tags]
+    Jobs::Users.async.on_update_user(@user.id, current_group.id).commit!
 
-		if @user.valid? && @user.save
-			if params[:user][:avatar]
-				Jobs::Images.async.generate_user_thumbnails(@user.id).commit!
-			end
-			@user.add_preferred_tags(preferred_tags, current_group) if preferred_tags
-			if params[:next_step]
-				current_user.accept_invitation(params[:invitation_id])
-				@invitation = Invitation.find(params[:invitation_id])
-				@invitation.confirm if @invitation
-				redirect_to accept_invitation_path(:step => params[:next_step], :id => params[:invitation_id])
-			else
-				redirect_to "/profile/settings"
-				if params[:user][:hide_hiv_condition].present? || params[:user][:hide_country].present? || params[:user][:hide_age].present? || params[:user][:hide_realname].present?
+    preferred_tags = params[:user][:preferred_tags]
+
+    if @user.valid? && @user.save
+      if params[:user][:avatar]
+        Jobs::Images.async.generate_user_thumbnails(@user.id).commit!
+      end
+      @user.add_preferred_tags(preferred_tags, current_group) if preferred_tags
+      if params[:next_step]
+        current_user.accept_invitation(params[:invitation_id])
+        @invitation = Invitation.find(params[:invitation_id])
+        @invitation.confirm if @invitation
+        redirect_to accept_invitation_path(:step => params[:next_step], :id => params[:invitation_id])
+      else
+       
+        if params[:user][:hide_hiv_condition].present? || params[:user][:hide_country].present? || params[:user][:hide_age].present? || params[:user][:hide_realname].present?
           flash[:notice] = "Info has been saved for privacy"
+          redirect_to "/profile/settings?tab=1"
+
         elsif params[:user][:facebook_profile_url].present? || params[:user][:linkedin_profile_url].present? || params[:user][:twitter_profile_url].present? || params[:user][:google_plus_profile_url].present? || params[:user][:youtube_profile_url].present? || params[:user][:flickr_profile_url].present? || params[:user][:digg_profile_url].present? || params[:user][:url_profile_url].present?
-          flash[:notice] = "Socail web saved"  
-        else   
+          flash[:notice] = "Socail web saved" 
+          redirect_to "/profile/settings?tab=2"
+
+        else  
           flash[:notice] = "profile updated successfully"
-        end   
-			end
-		else
-			render :action => "edit"
-		end
-	end
+          redirect_to "/profile/settings"
+        end  
+
+      end
+    else
+      render :action => "edit"
+    end
+  end
 
 	def connect
 		target = User.find(params[:target_id])

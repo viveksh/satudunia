@@ -2,6 +2,7 @@
 	.standard-form input[type="text"] {
 		width: 87%;
 	}
+
 = form_for (@user),:url=>{:action => "update"}, :html => {:class => "standard-form", :multipart => true, :id => "edit-user-form"} do |f|
 	.overview-wrapper
 		.overview-new.no-background
@@ -18,8 +19,10 @@
 					= f.text_field :login,:placeholder=>"Please Enter Company Name"
 					= f.label "Website"
 					= f.text_field :name,:placeholder=>"Please Enter Website"
-					= f.label "Date"
-					= f.text_field :user_age
+					= f.label "Birth Date (mm/dd/yy)"
+					/ = f.date_select :date, order: [:day,:month,:year]
+
+					=f.text_field :date, :id=>"datepicker", :value=>@user.date.strftime("%D")
 					/ = f.label "Upload Avatar"
 					%br
 					%br
@@ -27,7 +30,7 @@
 				#profile-details-section.register-section
 					= f.label "Country"
 					.select-text-adj
-						= f.country_select :country_name
+						= f.country_select :country_name,[ 'Singapore' ]
 					/ = f.text_field :country_name,:placeholder=>"Please Enter Country"
 					= f.label "HIV"
 					= f.select :hiv_condition, ["Negative","Positive","I don't know","Prefer not to disclose"],{:selected => @user.hiv_condition}, :class => "select-class1"
