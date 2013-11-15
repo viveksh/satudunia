@@ -1,3 +1,4 @@
+
 .clearer.hide-responsive  
 %br.hide-responsive/
 .main-content-left
@@ -47,30 +48,103 @@
           %span
             Age: 
             = user_age(@user)
-    #item-nav
-      #object-nav.item-list-tabs{:id=>"firstElement"}
-        %ul
-          %li
-            %a#user-activity{:href=>"javascript:void(0)", :class=>"loader-adjust-set"}
-              Activity
-              %span
-                = (@resources.blank?)? 0 : @resources.count
-              .loader.show-inline
-          %li.selected
-            %a#user-xprofile{:href=>"javascript:void(0)",:data_send=>"profile",:user_id=>"#{@user.id}", :class=>"loader-adjust-profile"}
-              Profile
-              .loader.show-inline
-          %li
-            %a#user-profile{:href=>"javascript:void(0)",:user_id=>"#{@user.id}", :class=>"loader-adjust-profile"}
-              Privacy
-              .loader.show-inline
-          %li
-            %a#user-social-profile{:href=>"javascript:void(0)",:user_id=>"#{@user.id}", :class=>"loader-adjust-profile"}
-              Social
-              .loader.show-inline
 
-            
-          
+    -if params[:tab] == "1"
+      #item-nav
+        #object-nav.item-list-tabs{:id=>"firstElement"}
+          %ul
+            %li
+              %a#user-activity{:href=>"javascript:void(0)", :class=>"loader-adjust-set"}
+                Activity
+                %span
+                  = (@resources.blank?)? 0 : @resources.count
+                .loader.show-inline
+            %li
+              %a#user-xprofile{:href=>"javascript:void(0)",:data_send=>"profile",:user_id=>"#{@user.id}", :class=>"loader-adjust-profile"}
+                Profile
+                .loader.show-inline
+            %li.selected
+              %a#user-profile{:href=>"javascript:void(0)",:user_id=>"#{@user.id}", :class=>"loader-adjust-profile"}
+                Privacy
+                .loader.show-inline
+            %li
+              %a#user-social-profile{:href=>"javascript:void(0)",:user_id=>"#{@user.id}", :class=>"loader-adjust-profile"}
+                Social
+                .loader.show-inline
+      #subtabs
+        .activity_sub
+          = render "users/activity_subtabs"
+        .profile_sub
+          = render "users/profile_subtabs"
+      #activity_tab1
+        #members-dir-list.members.dir-list#activity_tab{:style =>"display:none"}
+          %ul#members-list.items-list
+            = render "users/show/user_activity_content"
+        .review-content#user_profile_tab
+          = render "experimental/partials/users/user_privacy"
+          / %h1{:style=>"background:none; border:none"}
+          /   = link_to @user.display_name, user_path(@user)
+                
+      %br.clearer/          
+    -elsif params[:tab] == "2" 
+      #item-nav
+        #object-nav.item-list-tabs{:id=>"firstElement"}
+          %ul
+            %li
+              %a#user-activity{:href=>"javascript:void(0)", :class=>"loader-adjust-set"}
+                Activity
+                %span
+                  = (@resources.blank?)? 0 : @resources.count
+                .loader.show-inline
+            %li
+              %a#user-xprofile{:href=>"javascript:void(0)",:data_send=>"profile",:user_id=>"#{@user.id}", :class=>"loader-adjust-profile"}
+                Profile
+                .loader.show-inline
+            %li
+              %a#user-profile{:href=>"javascript:void(0)",:user_id=>"#{@user.id}", :class=>"loader-adjust-profile"}
+                Privacy
+                .loader.show-inline
+            %li.selected
+              %a#user-social-profile{:href=>"javascript:void(0)",:user_id=>"#{@user.id}", :class=>"loader-adjust-profile"}
+                Social
+                .loader.show-inline 
+      #subtabs
+        .activity_sub
+          = render "users/activity_subtabs"
+        .profile_sub
+          = render "users/profile_subtabs"
+      #activity_tab1
+        #members-dir-list.members.dir-list#activity_tab{:style =>"display:none"}
+          %ul#members-list.items-list
+            = render "users/show/user_activity_content"
+        .review-content#user_profile_tab
+          = render "experimental/partials/users/user_social"
+          / %h1{:style=>"background:none; border:none"}
+          /   = link_to @user.display_name, user_path(@user)
+                
+      %br.clearer/          
+    -else
+      #item-nav
+        #object-nav.item-list-tabs{:id=>"firstElement"}
+          %ul
+            %li
+              %a#user-activity{:href=>"javascript:void(0)", :class=>"loader-adjust-set"}
+                Activity
+                %span
+                  = (@resources.blank?)? 0 : @resources.count
+                .loader.show-inline
+            %li.selected
+              %a#user-xprofile{:href=>"javascript:void(0)",:data_send=>"profile",:user_id=>"#{@user.id}", :class=>"loader-adjust-profile"}
+                Profile
+                .loader.show-inline
+            %li
+              %a#user-profile{:href=>"javascript:void(0)",:user_id=>"#{@user.id}", :class=>"loader-adjust-profile"}
+                Privacy
+                .loader.show-inline
+            %li
+              %a#user-social-profile{:href=>"javascript:void(0)",:user_id=>"#{@user.id}", :class=>"loader-adjust-profile"}
+                Social
+                .loader.show-inline                                  
       #subtabs
         .activity_sub
           = render "users/activity_subtabs"

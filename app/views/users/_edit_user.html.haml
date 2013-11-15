@@ -29,7 +29,7 @@
           = f.file_field :avatar
         #profile-details-section.register-section
           = f.label "Country"
-          = f.country_select :country_name
+          =  f.country_select :country_name,[ 'Singapore' ]
           = f.label "HIV"
           = f.select :hiv_condition, ["Negative","Positive","I do not know","Prefer not to disclose"],{:selected => @user.hiv_condition}, :class => "select-class1"
           = f.label "Bio"
