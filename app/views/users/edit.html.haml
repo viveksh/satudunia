@@ -27,7 +27,7 @@
 					Website:
 					= link_to @user.website, @user.website
 				.user-nicename
-					= link_to "<span>HIV Condition: #{user_hiv_condition(@user)}</span>".html_safe, "#", :class => "qwest_tag1"
+					= link_to "<span>HIV Status: #{user_hiv_condition(@user)}</span>".html_safe, "#", :class => "qwest_tag1"
 					=# link_to "<span>Edit Profile</span>".html_safe, settings_path, :class => "qwest_tag15"
 				/ .extra-tags
 				/   - unless @user.profile_tiers.blank?
@@ -201,9 +201,9 @@
 
 	Experimental.getAjaxData("click","#user-xprofile","/profile/settings","GET","activity_tab1","users/edit","#user-xprofile .loader","subtabs","users/profile_subtabs","");
 
-	Experimental.getAjaxData("click","#user-profile","/profile/settings","GET","activity_tab1","users/user_privacy","#user-profile .loader"," "," "," ");
+	Experimental.getAjaxData("click","#user-profile","/profile/settings","GET","activity_tab1","users/user_privacy","#user-profile .loader","subtabs","users/privacy_subtabs","");
 
-	Experimental.getAjaxData("click","#user-social-profile","/profile/settings","GET","activity_tab1","users/user_social","#user-social-profile .loader"," "," "," ");
+	Experimental.getAjaxData("click","#user-social-profile","/profile/settings","GET","activity_tab1","users/user_social","#user-social-profile .loader","subtabs","users/social_subtabs","");
 	
 	jQuery(document).ready(function(jQ){
 		jQ('#pagination-digg a').live('click',function(e){
