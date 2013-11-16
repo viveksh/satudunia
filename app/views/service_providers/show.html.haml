@@ -36,20 +36,36 @@
 					%b website: 
 					= link_to "#{@service_provider.url}"
 	#tabs-frontpage
-		%ul.tabnav.ui-tabs-nav
-			%li.ui-tabs-selected
-				%a{:href => "#Profile",:id=>"profile-tab"} Profile
-			%li
-				%a{:href => "#TreatmentPrices"} Treatment & Prices
-			%li
-				%a{:href => "#Staff"} Staff
-			%li
-				%a{:href => "#Review"} Review
-			%li
-				%a{:href => "#Map" ,:id => "map-tab"} Map
-			- unless current_user.nil?
+		.item-list-services
+			%ul.tab-nav-ser.ui-tabs-nav
+				%li.ui-tabs-selected
+					%a{:href => "#Profile",:id=>"profile-tab"} Profile
 				%li
-					%a{:href => "#Validate" ,:id => "validate-tab", :class=>"fancybox", "data-reveal-id"=>"myModalShow"} Validate
+					%a{:href => "#TreatmentPrices"} Treatment & Prices
+				%li
+					%a{:href => "#Staff"} Staff
+				%li
+					%a{:href => "#Review"} Review
+				%li
+					%a{:href => "#Map" ,:id => "map-tab"} Map
+				- unless current_user.nil?
+					%li
+						%a{:href => "#Validate" ,:id => "validate-tab", :class=>"fancybox", "data-reveal-id"=>"myModalShow"} Validate
+
+		/ %ul.tabnav.ui-tabs-nav
+		/ 	%li.ui-tabs-selected
+		/ 		%a{:href => "#Profile",:id=>"profile-tab"} Profile
+		/ 	%li
+		/ 		%a{:href => "#TreatmentPrices"} Treatment & Prices
+		/ 	%li
+		/ 		%a{:href => "#Staff"} Staff
+		/ 	%li
+		/ 		%a{:href => "#Review"} Review
+		/ 	%li
+		/ 		%a{:href => "#Map" ,:id => "map-tab"} Map
+		/ 	- unless current_user.nil?
+		/ 		%li
+		/ 			%a{:href => "#Validate" ,:id => "validate-tab", :class=>"fancybox", "data-reveal-id"=>"myModalShow"} Validate
 		/ top contact bar
 		= render "service_providers/partials/contact_bar"
 		.tabdiv-wrapper
