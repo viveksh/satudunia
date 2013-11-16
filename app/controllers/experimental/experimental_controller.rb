@@ -74,6 +74,12 @@ class Experimental::ExperimentalController < ApplicationController
   def rss_feed
     add_breadcrumb "RSS", 'rss'
   end
+
+  def calculator
+
+
+  end
+
   # terms of use
   def terms    
     add_breadcrumb "Terms of Service", terms_experimental_index_path.gsub("/","") 

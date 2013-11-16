@@ -31,7 +31,7 @@
           Website:
           = link_to @user.website, @user.website
         .user-nicename
-          = link_to "<span>HIV Condition: #{user_hiv_condition(@user)}</span>".html_safe, "#", :class => "qwest_tag1"
+          = link_to "<span>HIV Status: #{user_hiv_condition(@user)}</span>".html_safe, "#", :class => "qwest_tag1"
           =# link_to "<span>Edit Profile</span>".html_safe, settings_path, :class => "qwest_tag15"
         .a6
           = image_tag "plus/a1.png"

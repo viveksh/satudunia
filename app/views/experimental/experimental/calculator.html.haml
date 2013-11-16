@@ -1,0 +1,115 @@
+
+
+
+
+:javascript
+  var hiv_status = '';
+  var partners = '';
+  $(document).ready(function(){
+
+    //Gets Data
+    $('#calc-frequency').click(function(){
+      //$.get('<?php print plugins_url( 'test-frequency-calculator-read.php', __FILE__ ); ?>?partners=' + $('#calc_partners').val() + '&hiv_status=' + $('#calc_hiv_status').val(), function(data){
+        //eval('calc_return = ' + data);
+        alert(calc_return.response);
+      //});
+    });
+
+    //Click On Options
+    $('#tool-area #selections #hiv_status #hiv_options .option').click(function(){
+      $('#tool-area #selections #hiv_status #hiv_options .option').removeClass('selected');
+      $(this).addClass('selected');
+      hiv_status = $(this).attr('data');
+      //alert(hiv_status);
+      get_calculation();
+    });
+    $('#tool-area #selections #partners #partners_options .option').click(function(){
+      $('#tool-area #selections #partners #partners_options .option').removeClass('selected');
+      $(this).addClass('selected');
+      partners = $(this).attr('data');
+      get_calculation();
+    });
+
+    function get_calculation(){
+      if(hiv_status != '' && partners != ''){
+        //document.write('<?php print plugins_url( 'test-frequency-calculator-read.php', __FILE__ ); ?>?partners=' + encodeURIComponent(partners) + '&hiv_status=' + encodeURIComponent(hiv_status));
+        //$.get('<?php print plugins_url( 'test-frequency-calculator-read.php', __FILE__ ); ?>?partners=' + encodeURIComponent(partners) + '&hiv_status=' + encodeURIComponent(hiv_status), function(data){
+          $('#results').hide();
+          //eval('calc_return = ' + data);
+          $('#results').show();
+          $('#results').slideDown();
+        //});
+      }
+    }
+
+  });
+#flash
+.clearer.hide-responsive  
+%br.hide-responsive/
+.main-content-left  
+  #tool-area
+    #top-text
+      %p In order to end HIV, more gay men need to get tested more often - once a year is the minimum, even better if it's twice a year, but you may need to test more often. Find out how often to test using the tool below:
+    #accordion
+    #selections
+      #hiv_status
+        #hiv_status_title
+          %span What's your HIV status?
+        #hiv_options
+          .option{data: "negative"}
+            %span Negative
+          .breaker
+          .option{data: "not_sure"}
+            %span Not Sure
+      #partners
+        #partners_status_title
+          %span IN THE LAST 6 MONTHS HOW MANY SEXUAL PARTNERS DID YOU HAVE?
+        #partners_options
+          .option{data: "0"}
+            %span 0
+          .breaker
+          .option{data: "1"}
+            %span 1
+          .breaker
+          .option{data: "2 - 9"}
+            %span 2 - 9
+          .breaker
+          .option{data: "10+"}
+            %span 10+
+      %div{style: "clear:both;"}
+    #accordion
+    #results{:style=>"display:none;"}
+      %p Even if you had only 1 sexual partner in the last 6 months, it is recommended that you get tested at least twice a year.
+      %p
+        You may be able to get a rapid HIV test. It’s free, easy and gay-friendly, and you get your results within 30 minutes. Find out if rapid HIV tests are available near you
+
+
+
+.sidebar
+  - if current_user.nil?
+    /login box
+    = render "experimental/partials/login_box"
+  -else
+    /profile box
+    = render "experimental/partials/profile_box"
+
+  / social login box
+  = render "experimental/partials/social_login_box"
+  / member box
+  /= render "experimental/partials/member_box"
+  /rating box
+  = render "experimental/partials/rating_box"
+  /rating box
+  = render "experimental/partials/rating_box2"
+  / left bar
+  / = render "experimental/partials/left_bar"
+  /widget top
+  = render "experimental/partials/widget_top"
+  / .clearer.hide-responsive
+  / %br.clearer/
+  / newly reviewd
+  /= render "experimental/partials/newly_reviewed"
+  /popular box
+  = render "experimental/partials/popular_box"
+  /banner box
+  = render "experimental/partials/banner_box"

@@ -2684,3 +2684,32 @@ div.bbp-forum-header, div.bbp-topic-header, div.bbp-reply-header, li.bbp-body di
 #featured-wrapper-short.full .stars {padding:15px 10px 10px 10px;}
 #featured-wrapper-short .number {font-size:1.9em;padding:5px 9px 3px 9px;bottom:323px;}
 #featured-wrapper-short .letter {font-size:1.7em;padding:5px 11px 3px 11px;bottom:323px;}
+#tool-area p{line-height:1.3;}
+  /* Selections */
+#tool-area #selections{margin-top:15px;margin-bottom:15px;}
+#tool-area #selections #hiv_status{background-color:#57a1a7;width:310px;height:172px;float:left;margin-right:5px;margin-bottom:5px;}
+#tool-area #selections #hiv_status #hiv_status_title{color:#FFF;text-align:center;font-size:28px;height:100px;text-transform:uppercase;}
+#tool-area #selections #hiv_status #hiv_status_title span{display:block;padding-top:40px; font-size: 16px; font-family:"TrumpGothicEast-Bold";}
+#tool-area #selections #hiv_status #hiv_options{text-align:center;margin-top: 8px;}
+#tool-area #selections #hiv_status #hiv_options .breaker{width:15px;display:inline-block;}
+#tool-area #selections #hiv_status #hiv_options .option{width:129px;height:53px;background-color:white;display:inline-block;}
+#tool-area #selections #hiv_status #hiv_options .option span{font-size:20px;padding-top:16px;display:block;font-family:"TrumpGothicEast-Bold"; text-transform:uppercase;}
+#tool-area #selections #partners{background-color:#964aa4;width:310px;height:172px;float:left;}
+#tool-area #selections #partners #partners_status_title{color:#FFF;text-align:center;font-size:28px;height:100px;text-transform:uppercase; line-height:110%;}
+#tool-area #selections #partners #partners_status_title span{display:block;padding-top:21px;font-size: 16px; font-family:"TrumpGothicEast-Bold";}
+#tool-area #selections #partners #partners_options{text-align:center; margin-top: 8px;}
+#tool-area #selections #partners #partners_options .breaker{width:9px;display:inline-block;}
+#tool-area #selections #partners #partners_options .option{width:60px;height:53px;background-color:white;display:inline-block;}
+#tool-area #selections #partners #partners_options .option span{font-size:24px;padding-top:16px;display:block; font-family:"TrumpGothicEast-Bold"; text-transform:uppercase;}
+#tool-area #selections .option{cursor:pointer;}
+#tool-area #selections .selected{background-color: #000 !important; color:#fff}
+#tool-area #results  a {color:#9357A7;font-weight:bold;}
+    #tool-area #results {background-color:#EEF5F6; padding:15px; line-height:1.3;}
+#tool-area #results { background-color: #E4EFEF; line-height: 1.3; padding: 15px;
+width: 596px;}       
+
+@media screen and (max-width: 320px) {
+#tool-area #selections #hiv_status, #tool-area #selections #partners{width:100%}
+#tool-area #selections #hiv_status #hiv_options .option{width:110px;}
+#tool-area #selections #partners #partners_options .option{width:50px;}
+}

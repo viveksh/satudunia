@@ -413,6 +413,7 @@ Rails.application.routes.draw do
         get :index_experimental,:path=>"/index1"
         get :public_about,:path=>"/about"
         get :rss_feed,:path=>"rss"
+        get :calculator
         get :terms
         get :faq
         get :partners
