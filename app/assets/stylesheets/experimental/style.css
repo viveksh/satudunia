@@ -38,8 +38,8 @@ code, tt { }
 .postmetadata { }
 #sidebar { }
 .navgation { }
-   .next-posts { }
-   .prev-posts { }
+	 .next-posts { }
+	 .prev-posts { }
 #searchform { }
 	#s { }
 	#searchsubmt { }
@@ -284,7 +284,7 @@ select#select-menu-main-menu {display:none;}
 .cat-menu ul {float:left;list-style-type:none;margin:0px;padding:0px;position:relative;z-index:99;margin-top:-1px;}
 .cat-menu div.menu { float:left; }
 .cat-menu ul li {float:left;padding:0px;margin:0px;position:relative;padding:0px;}
-.cat-menu ul li a {display:block;padding:14px 12px 10px 12px;text-align:center;font-size:13px;height:19px;color:#FFF;font-weight:bold;border-top:1px solid #909090;}
+.cat-menu ul li a {display:block;padding:14px 12px 10px 12px;text-align:center;font-size:13px;height:19px;color:#FFF;font-weight:bold;border-top:1px solid #E75903;}
 .cat-menu ul li a:hover, 
 .cat-menu ul li.current-menu-item a,
 .cat-menu ul li.current_page_item a, 
@@ -2215,26 +2215,26 @@ fonts
 *************************************************/
 /*fonts need to be outside of media query calls to work in IE*/
 @font-face {
-    font-family: 'BebasNeueRegular';
-    src: url('fonts/BebasNeue-webfont.eot');
-    src: url('fonts/BebasNeue-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/BebasNeue-webfont.woff') format('woff'),
-         url('fonts/BebasNeue-webfont.ttf') format('truetype'),
-         url('fonts/BebasNeue-webfont.svg#BebasNeueRegular') format('svg');
-    font-weight: normal;
-    font-style: normal;
+		font-family: 'BebasNeueRegular';
+		src: url('fonts/BebasNeue-webfont.eot');
+		src: url('fonts/BebasNeue-webfont.eot?#iefix') format('embedded-opentype'),
+				 url('fonts/BebasNeue-webfont.woff') format('woff'),
+				 url('fonts/BebasNeue-webfont.ttf') format('truetype'),
+				 url('fonts/BebasNeue-webfont.svg#BebasNeueRegular') format('svg');
+		font-weight: normal;
+		font-style: normal;
 
 }
 .bebas {font-family:BebasNeueRegular, Arial, Sans-Serif;}
 @font-face {
-    font-family: 'ProcionoRegular';
-    src: url('fonts/Prociono-Regular-webfont.eot');
-    src: url('fonts/Prociono-Regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/Prociono-Regular-webfont.woff') format('woff'),
-         url('fonts/Prociono-Regular-webfont.ttf') format('truetype'),
-         url('fonts/Prociono-Regular-webfont.svg#ProcionoRegular') format('svg');
-    font-weight: normal;
-    font-style: normal;
+		font-family: 'ProcionoRegular';
+		src: url('fonts/Prociono-Regular-webfont.eot');
+		src: url('fonts/Prociono-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+				 url('fonts/Prociono-Regular-webfont.woff') format('woff'),
+				 url('fonts/Prociono-Regular-webfont.ttf') format('truetype'),
+				 url('fonts/Prociono-Regular-webfont.svg#ProcionoRegular') format('svg');
+		font-weight: normal;
+		font-style: normal;
 
 }
 .prociono {font-family:ProcionoRegular, Georia, serif;}
@@ -2244,173 +2244,173 @@ fonts
 	text-align: justify;
 }
 .login-form {
-    padding-bottom: 20px;
-    padding-left: 15px;
-    padding-right: 10px;
-    padding-top: 10px;
+		padding-bottom: 20px;
+		padding-left: 15px;
+		padding-right: 10px;
+		padding-top: 10px;
 }
 .login-form label {
-    display: block;
-    padding-bottom: 8px;
-    padding-left: 0;
-    padding-right: 0;
-    padding-top: 5px;
+		display: block;
+		padding-bottom: 8px;
+		padding-left: 0;
+		padding-right: 0;
+		padding-top: 5px;
 }
 .login-form input[type="text"], .login-form input[type="password"] {
-    padding-bottom: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 5px;
-    width: 240px;
+		padding-bottom: 5px;
+		padding-left: 10px;
+		padding-right: 10px;
+		padding-top: 5px;
+		width: 240px;
 }
 
 /*tags list*/
 .tags-exp {
-    border-bottom: 1px solid #D0D3D6;
-    padding-bottom: 40px;
-    padding-top: 5px;
+		border-bottom: 1px solid #D0D3D6;
+		padding-bottom: 40px;
+		padding-top: 5px;
 }
 .tags1_2 {
 	background: url("images/tags1_1.jpg") repeat-x scroll 0 0 transparent;
-    border: 1px solid #AAB9BF;
-    border-radius: 2px 2px 2px 2px;
-    margin-left: 5px;
-    padding: 3px 6px;
-    margin-bottom: 10px;
-    }
+		border: 1px solid #AAB9BF;
+		border-radius: 2px 2px 2px 2px;
+		margin-left: 5px;
+		padding: 3px 6px;
+		margin-bottom: 10px;
+		}
 
 .tags1_2 a {
-    color: #003B54;
-    font-family: Arial;
-    font-size: 10px;
-    font-weight: bold;
-    line-height: 1.5em;
+		color: #003B54;
+		font-family: Arial;
+		font-size: 10px;
+		font-weight: bold;
+		line-height: 1.5em;
 }
 .tags-list {
-    border-bottom: 1px solid #D0D3D6;
-    padding: 10px 5px 0 !important;
-    position: relative;
-    display: inline-block;
+		border-bottom: 1px solid #D0D3D6;
+		padding: 10px 5px 0 !important;
+		position: relative;
+		display: inline-block;
 } 
 /*tags list*/
 
 /*widget list*/
 
 .sidebar .widget .item-avatar {
-    display: inline-block;
-    padding-bottom: 0;
-    padding-left: 17px;
-    padding-right: 0;
-    padding-top: 15px;
+		display: inline-block;
+		padding-bottom: 0;
+		padding-left: 17px;
+		padding-right: 0;
+		padding-top: 15px;
 }
 .sidebar .widget .item-list .item-avatar {
-    float: left;
-    padding-bottom: 0;
-    padding-left: 0;
-    padding-right: 0;
-    padding-top: 0;
+		float: left;
+		padding-bottom: 0;
+		padding-left: 0;
+		padding-right: 0;
+		padding-top: 0;
 }
 .sidebar .widget .item-list .item {
-    min-height: 80px;
+		min-height: 80px;
 }
 .sidebar .widget ul.item-list {
-    list-style-type: none;
-    margin-bottom: 0;
-    margin-left: 0;
-    margin-right: 0;
-    margin-top: 0;
+		list-style-type: none;
+		margin-bottom: 0;
+		margin-left: 0;
+		margin-right: 0;
+		margin-top: 0;
 }
 .sidebar .widget ul.item-list li {
-    padding-bottom: 0;
-    padding-left: 15px;
-    padding-right: 10px;
-    padding-top: 10px;
+		padding-bottom: 0;
+		padding-left: 15px;
+		padding-right: 10px;
+		padding-top: 10px;
 }
 .sidebar .widget .item-options {
-    color: #BBBBBB;
-    float: right;
-    margin-top: -30px;
-    padding-right: 10px;
+		color: #BBBBBB;
+		float: right;
+		margin-top: -30px;
+		padding-right: 10px;
 }
 .sidebar .widget .item-options a {
-    color: #BBBBBB;
-    font-size: 11px;
+		color: #BBBBBB;
+		font-size: 11px;
 }
 .sidebar .widget .item-options a:hover {
-    color: #666666;
+		color: #666666;
 }
 .sidebar .widget .item-options a.selected {
-    color: #666666;
+		color: #666666;
 }
 .widget .item-avatar img.avatar, .widget .bbp-logged-in img.avatar {
-    -moz-border-bottom-colors: none;
-    -moz-border-left-colors: none;
-    -moz-border-right-colors: none;
-    -moz-border-top-colors: none;
-    background-attachment: scroll;
-    background-clip: border-box;
-    background-color: #F0F0F0;
-    background-image: none;
-    background-origin: padding-box;
-    background-position: 0 0;
-    background-repeat: repeat;
-    background-size: auto auto;
-    border-bottom-color: #DDDDDD;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    border-bottom-style: solid;
-    border-bottom-width: 1px;
-    border-image-outset: 0 0 0 0;
-    border-image-repeat: stretch stretch;
-    border-image-slice: 100% 100% 100% 100%;
-    border-image-source: none;
-    border-image-width: 1 1 1 1;
-    border-left-color-ltr-source: physical;
-    border-left-color-rtl-source: physical;
-    border-left-color-value: #DDDDDD;
-    border-left-style-ltr-source: physical;
-    border-left-style-rtl-source: physical;
-    border-left-style-value: solid;
-    border-left-width-ltr-source: physical;
-    border-left-width-rtl-source: physical;
-    border-left-width-value: 1px;
-    border-right-color-ltr-source: physical;
-    border-right-color-rtl-source: physical;
-    border-right-color-value: #DDDDDD;
-    border-right-style-ltr-source: physical;
-    border-right-style-rtl-source: physical;
-    border-right-style-value: solid;
-    border-right-width-ltr-source: physical;
-    border-right-width-rtl-source: physical;
-    border-right-width-value: 1px;
-    border-top-color: #DDDDDD;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    border-top-style: solid;
-    border-top-width: 1px;
-    padding-bottom: 8px;
-    padding-left: 8px;
-    padding-right: 8px;
-    padding-top: 8px;
+		-moz-border-bottom-colors: none;
+		-moz-border-left-colors: none;
+		-moz-border-right-colors: none;
+		-moz-border-top-colors: none;
+		background-attachment: scroll;
+		background-clip: border-box;
+		background-color: #F0F0F0;
+		background-image: none;
+		background-origin: padding-box;
+		background-position: 0 0;
+		background-repeat: repeat;
+		background-size: auto auto;
+		border-bottom-color: #DDDDDD;
+		border-bottom-left-radius: 5px;
+		border-bottom-right-radius: 5px;
+		border-bottom-style: solid;
+		border-bottom-width: 1px;
+		border-image-outset: 0 0 0 0;
+		border-image-repeat: stretch stretch;
+		border-image-slice: 100% 100% 100% 100%;
+		border-image-source: none;
+		border-image-width: 1 1 1 1;
+		border-left-color-ltr-source: physical;
+		border-left-color-rtl-source: physical;
+		border-left-color-value: #DDDDDD;
+		border-left-style-ltr-source: physical;
+		border-left-style-rtl-source: physical;
+		border-left-style-value: solid;
+		border-left-width-ltr-source: physical;
+		border-left-width-rtl-source: physical;
+		border-left-width-value: 1px;
+		border-right-color-ltr-source: physical;
+		border-right-color-rtl-source: physical;
+		border-right-color-value: #DDDDDD;
+		border-right-style-ltr-source: physical;
+		border-right-style-rtl-source: physical;
+		border-right-style-value: solid;
+		border-right-width-ltr-source: physical;
+		border-right-width-rtl-source: physical;
+		border-right-width-value: 1px;
+		border-top-color: #DDDDDD;
+		border-top-left-radius: 5px;
+		border-top-right-radius: 5px;
+		border-top-style: solid;
+		border-top-width: 1px;
+		padding-bottom: 8px;
+		padding-left: 8px;
+		padding-right: 8px;
+		padding-top: 8px;
 }
  /*some new styles*/
 .page-content ul.item-list li.activity-list-show {
-    background: none repeat scroll 0 0 #FFFFFF;
-    border: 1px solid #E0E0E0;
-    border-radius: 6px 6px 6px 6px;
-    list-style-type: none;
-    margin: 0 0 10px;
-    padding: 10px;
+		background: none repeat scroll 0 0 #FFFFFF;
+		border: 1px solid #E0E0E0;
+		border-radius: 6px 6px 6px 6px;
+		list-style-type: none;
+		margin: 0 0 10px;
+		padding: 10px;
 }
 .page-content div#subnav.item-list-tabs {
-    border: 1px solid #E0E0E0;
-    margin: -13px 0 15px;
-    padding-top: 5px;
+		border: 1px solid #E0E0E0;
+		margin: -13px 0 15px;
+		padding-top: 5px;
 }
 .page-content div.item-list-tabs {
-    background: none repeat scroll 0 0 transparent;
-    border: 0 none;
-    margin: 25px 0 12px;
+		background: none repeat scroll 0 0 transparent;
+		border: 0 none;
+		margin: 25px 0 12px;
 }
 .page-content div.item-list-tabs ul li {
 	border: 1px solid #E0E0E0;
@@ -2420,124 +2420,124 @@ fonts
 	padding: 0px;
 }
 .page-content div.item-list-tabs ul {
-    margin: 0;
+		margin: 0;
 }
 .page-content div.item-list-tabs ul li:first-child {
-    margin-left: 10px;
+		margin-left: 10px;
 }
 .page-content div#subnav.item-list-tabs ul li {
-    border: 0 none;
+		border: 0 none;
 }
 .page-content div#item-header {
-    margin-bottom: 15px;
+		margin-bottom: 15px;
 }
 .page-content div#item-header-avatar img.avatar {
-    margin-right: 15px !important;
+		margin-right: 15px !important;
 }
 .page-content div#item-header img.avatar {
-    margin: 0 !important;
+		margin: 0 !important;
 }
 .page-content .item-list .avatar, .page-content form#whats-new-form #whats-new-avatar, .page-content div#item-header img.avatar, .services-top-adj div.post-panel .post-thumbnail img.avatar {
-    background: none repeat scroll 0 0 #F0F0F0;
-    border: 1px solid #DDDDDD;
-    border-radius: 5px 5px 5px 5px;
-    margin-right: 10px;
-    padding: 8px;
+		background: none repeat scroll 0 0 #F0F0F0;
+		border: 1px solid #DDDDDD;
+		border-radius: 5px 5px 5px 5px;
+		margin-right: 10px;
+		padding: 8px;
 }
 .page-content div#item-header h2 a, .page-content ul.item-list li h5 a, .page-content #item-body h4 a{
 	color: #444444;
 }
 .page-content .dir-list {
-    padding: 5px 0 0px;
+		padding: 5px 0 0px;
 }
 .page-content .pag-count {
-    float: left;
+		float: left;
 }
 .page-content .pagination-links {
-    float: right;
-    height: 25px;
-    margin: 0 0 5px;
+		float: right;
+		height: 25px;
+		margin: 0 0 5px;
 }
 .page-content .dir-list .pagination, .page-content #item-body .pagination {
-    color: #999999;
-    float: none;
-    padding: 10px 0;
-    text-transform: none;
+		color: #999999;
+		float: none;
+		padding: 10px 0;
+		text-transform: none;
 }
 .page-content ul.item-list {
-    margin-left: 0;
+		margin-left: 0;
 }
 .standard-form #basic-details-section, .standard-form #blog-details-section, .standard-form #profile-details-section {
-    float: left;
-    width: 48%;
+		float: left;
+		width: 48%;
 }
 .standard-form label, .standard-form span.label {
-    display: block;
-    font-weight: bold;
-    margin: 15px 0 5px;
+		display: block;
+		font-weight: bold;
+		margin: 15px 0 5px;
 }
 .standard-form input[type="text"], .standard-form textarea, .form-allowed-tags, #commentform input[type="text"], #commentform textarea {
-    width: 90%;
+		width: 90%;
 }
 .standard-form input[type="text"] {
-    width: 75%;
+		width: 75%;
 }
 .standard-form textarea, .standard-form input[type="text"], .standard-form select, .standard-form input[type="password"], .dir-search input[type="text"] {
-    -moz-font-feature-settings: inherit;
-    -moz-font-language-override: inherit;
-    border: 1px inset #CCCCCC;
-    border-radius: 3px 3px 3px 3px;
-    color: #888888;
-    font-family: inherit;
-    font-size: 14px;
-    font-size-adjust: inherit;
-    font-stretch: inherit;
-    font-style: inherit;
-    font-variant: inherit;
-    font-weight: inherit;
-    line-height: inherit;
-    padding: 6px;
+		-moz-font-feature-settings: inherit;
+		-moz-font-language-override: inherit;
+		border: 1px inset #CCCCCC;
+		border-radius: 3px 3px 3px 3px;
+		color: #888888;
+		font-family: inherit;
+		font-size: 14px;
+		font-size-adjust: inherit;
+		font-stretch: inherit;
+		font-style: inherit;
+		font-variant: inherit;
+		font-weight: inherit;
+		line-height: inherit;
+		padding: 6px;
 }
 .standard-form #basic-details-section input[type="password"], .standard-form #blog-details-section input#signup_blog_url {
-    width: 35%;
+		width: 35%;
 }
 .standard-form input[type="password"] {
-    margin-bottom: 5px;
+		margin-bottom: 5px;
 }
 .page-content table.forum {
-    border-spacing: 0;
-    margin: 10px 0 20px;
+		border-spacing: 0;
+		margin: 10px 0 20px;
 }
 table.forum tr th#th-title, table.forum tr th#th-poster, table.forum tr th#th-group, table.forum td.td-poster, table.forum td.td-group, table.forum td.td-title {
-    text-align: left;
+		text-align: left;
 }
 table.forum th#th-title {
-    width: 80%;
+		width: 80%;
 }
 .page-content table.forum thead tr th {
-    border: 1px solid #E0E0E0;
-    font-size: 12px;
-    font-weight: normal;
-    padding: 8px 15px;
+		border: 1px solid #E0E0E0;
+		font-size: 12px;
+		font-weight: normal;
+		padding: 8px 15px;
 }
 table.forum th#th-question {
-    width: 80%;
+		width: 80%;
 }
 table.forum tr th#th-question, table.forum tr th#th-poster, table.forum tr th#th-group, table.forum td.td-poster, table.forum td.td-group, table.forum td.td-question {
-    text-align: left;
+		text-align: left;
 }
 .page-content table.forum tr td.td-question a.topic-title {
-    color: #444444;
-    font-family: ProcionoRegular,Georgia,serif;
-    font-size: 1.1em;
+		color: #444444;
+		font-family: ProcionoRegular,Georgia,serif;
+		font-size: 1.1em;
 }
 .page-content table.forum td.td-votescount {
 	border: 1px solid #E0E0E0;
 	border-top: 0px;
 	padding-left: 15px;
 	color: #777777;
-    font-family: BebasNeueRegular,Arial,Sans-Serif;
-    font-size: 1.5em;
+		font-family: BebasNeueRegular,Arial,Sans-Serif;
+		font-size: 1.5em;
 }
 .page-content table.forum td.td-answerscount {
 	border: 1px solid #E0E0E0;
@@ -2561,98 +2561,98 @@ table.forum tr th#th-question, table.forum tr th#th-poster, table.forum tr th#th
 	border-left: 0px;
 }
 .page-content table.forum td {
-    background: none repeat scroll 0 0 #FFFFFF;
-    padding: 10px;
+		background: none repeat scroll 0 0 #FFFFFF;
+		padding: 10px;
 }
 #bbpress-forums {
-    background: none repeat scroll 0 0 transparent;
-    clear: both;
-    font-size: 12px;
-    margin-bottom: 20px;
-    overflow: hidden;
+		background: none repeat scroll 0 0 transparent;
+		clear: both;
+		font-size: 12px;
+		margin-bottom: 20px;
+		overflow: hidden;
 }
 #bbpress-forums ul.bbp-lead-topic, #bbpress-forums ul.bbp-topics, #bbpress-forums ul.bbp-forums, #bbpress-forums ul.bbp-replies, #bbpress-forums ul.bbp-search-results {
-    border: 1px solid #EEEEEE;
-    clear: both;
-    font-size: 12px;
-    margin-bottom: 20px;
-    overflow: hidden;
+		border: 1px solid #EEEEEE;
+		clear: both;
+		font-size: 12px;
+		margin-bottom: 20px;
+		overflow: hidden;
 }
 #bbpress-forums ul {
-    list-style: none outside none;
-    margin: 0;
-    padding: 0;
+		list-style: none outside none;
+		margin: 0;
+		padding: 0;
 }
 .page-content #bbpress-forums ul.forums li, .page-content #bbpress-forums ul.topic li, .page-content #bbpress-forums li.bbp-body {
-    padding: 0;
+		padding: 0;
 }
 #bbpress-forums li.bbp-header, #bbpress-forums li.bbp-body, #bbpress-forums li.bbp-footer {
-    clear: both;
+		clear: both;
 }
 #bbpress-forums li {
-    list-style: none outside none;
-    margin: 0;
+		list-style: none outside none;
+		margin: 0;
 }
 #bbpress-forums div.bbp-forum-header, #bbpress-forums div.bbp-topic-header, #bbpress-forums div.bbp-reply-header {
-    background-color: #F4F4F4;
+		background-color: #F4F4F4;
 }
 div.bbp-forum-header, div.bbp-topic-header, div.bbp-reply-header {
-    border-top: 1px solid #DDDDDD;
-    clear: both;
+		border-top: 1px solid #DDDDDD;
+		clear: both;
 }
 div.bbp-forum-header, div.bbp-topic-header, div.bbp-reply-header, li.bbp-body div.hentry {
-    margin-bottom: 0;
-    overflow: hidden;
-    padding: 8px;
+		margin-bottom: 0;
+		overflow: hidden;
+		padding: 8px;
 }
 .page-content #bbpress-forums li .bbp-meta, .page-content #bbpress-forums .bbp-body li.bbp-topic-freshness {
-    color: #AAAAAA;
-    font-size: 11px;
+		color: #AAAAAA;
+		font-size: 11px;
 }
 .bbp-forum-header a.bbp-forum-permalink, .bbp-topic-header a.bbp-topic-permalink, .bbp-reply-header a.bbp-reply-permalink {
-    color: #CCCCCC;
-    float: right;
-    margin-left: 10px;
+		color: #CCCCCC;
+		float: right;
+		margin-left: 10px;
 }
 .page-content #bbpress-forums .topic, .page-content #bbpress-forums .reply {
-    background: none repeat scroll 0 0 #FFFFFF;
-    float: left;
-    width: 100%;
+		background: none repeat scroll 0 0 #FFFFFF;
+		float: left;
+		width: 100%;
 }
 .page-content #bbpress-forums div.bbp-topic-author, .page-content #bbpress-forums div.bbp-reply-author {
-    border-right: 1px solid #E8E8E8;
-    padding-bottom: 10px;
+		border-right: 1px solid #E8E8E8;
+		padding-bottom: 10px;
 }
 #bbpress-forums div.bbp-forum-author, #bbpress-forums div.bbp-topic-author, #bbpress-forums div.bbp-reply-author {
-    float: left;
-    text-align: center;
-    width: 115px;
+		float: left;
+		text-align: center;
+		width: 115px;
 }
 #bbpress-forums div.bbp-forum-author img.avatar, #bbpress-forums div.bbp-topic-author img.avatar, #bbpress-forums div.bbp-reply-author img.avatar {
-    border: medium none;
-    float: none;
-    margin: 12px auto 0;
-    max-width: 80px;
-    padding: 0;
+		border: medium none;
+		float: none;
+		margin: 12px auto 0;
+		max-width: 80px;
+		padding: 0;
 }
 .page-content #bbpress-forums div.bbp-topic-author a.bbp-author-name, .page-content #bbpress-forums div.bbp-reply-author a.bbp-author-name {
-    color: #999999;
+		color: #999999;
 }
 #bbpress-forums div.bbp-forum-author a.bbp-author-name, #bbpress-forums div.bbp-topic-author a.bbp-author-name, #bbpress-forums div.bbp-reply-author a.bbp-author-name {
-    display: inline-block;
-    margin: 0 12px;
+		display: inline-block;
+		margin: 0 12px;
 }
 #bbpress-forums div.bbp-forum-author .bbp-author-role, #bbpress-forums div.bbp-topic-author .bbp-author-role, #bbpress-forums div.bbp-reply-author .bbp-author-role {
-    font-size: 11px;
-    font-style: italic;
+		font-size: 11px;
+		font-style: italic;
 }
 .page-content #bbpress-forums div.bbp-topic-content, .page-content #bbpress-forums div.bbp-reply-content {
-    font-size: 13px;
+		font-size: 13px;
 }
 #bbpress-forums div.bbp-forum-content, #bbpress-forums div.bbp-topic-content, #bbpress-forums div.bbp-reply-content {
-    margin-left: 130px;
-    padding: 12px 12px 12px 0;
-    text-align: left;
+		margin-left: 130px;
+		padding: 12px 12px 12px 0;
+		text-align: left;
 }
 /*index1 images short styles*/
 
