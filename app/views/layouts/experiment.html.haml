@@ -50,13 +50,13 @@
 				#logo-bar-wrapper
 					/ begin the main header logo area
 					#logo-bar
-						#logo-wrapper.set-margin-logo
-							#logo
+						#logo-wrapper
+							#logo.set-margin-top-logo
 								/ logo and section header area
 								%a{:href => root_path,:title=>"Plus Home",:title=>"Plus Home"}
 									/ %img#site-logo{:alt => "plus", :src => "/assets/plus/logo.png"}/
 									/ %img#site-logo{:alt => "plus", :src => "/assets/beingme-logo.png"}/
-									%img#site-logo{:alt => "plus", :src => "/assets/logo-footer.png"}
+									%img#site-logo{alt: "plus", height: "100", src: "/assets/logo-footer.png", width: "100"}/
 									%img#site-logo-iphone{:alt => "plus", :src => "/assets/plus/logo.png"}/
 									%img#site-logo-ipad{:alt => "plus", :src => "/assets/plus/logo.png"}/
 							%br.clearer/
@@ -65,7 +65,8 @@
 							/ header ad
 							%a{:href => "#"}
 							/ %img{:src => "/assets/experimental/images/images_live/ad-top.png"}/
-							Where we can be ourselves and be there for each other
+							WHERE WE CAN BE OURSELVES 
+							%br AND BE THERE FOR EACH OTHER
 						%br.clearer/
 					#logo-bar-shadow  
 				/ end the logo area
