@@ -1,0 +1,180 @@
+:css
+  /* Top Text */
+  #tool-area .message{font-weight:bold;text-align:center;font-style:italic;color:#57a1a7;margin-bottom:20px;}
+  #tool-area p{line-height:1.3;}
+  #tool-area a {color:#9357A7;font-weight:bold;}
+  /*#tool-area #top-text{font-style:italic;font-weight:bold;padding-bottom:25px; font-family:'stag'}*/
+  #tool-area #remind-me-frm{padding-top:15px;padding-bottom:15px;}
+  #tool-area #remind-me-frm .input select, #tool-area #remind-me-frm .input input{font-family: "Helvetica", "Arial", sans-serif; width:295px; height: 32px;background-color: black;color: #A4A3A3;font-weight: normal; font-size:14px; border:none; padding: 5px; float: left; margin-bottom:10px; padding-left:10px;}
+  #tool-area #remind-me-frm #left-side{width:310px;float:left; margin-right:5px;}
+  #tool-area #remind-me-frm #right-side{width:300px;float:left;}
+  #tool-area #remind-me-frm #submit-btn{width:230px;height:40px;border:solid 1px #000;margin:auto auto;background-color:white;display:block;font-size:18px;font-weight:bold;text-transform:uppercase;text-align:center;cursor:pointer;}
+  #tool-area #remind-me-frm #submit-btn:hover{background-color:#FFF;}
+  #tool-area #remind-me-frm #submit-btn span{padding-top:4px;display:block;color:#000;font-size:30px; font-family:"TrumpGothicEast-Bold"; font-weight:normal;}
+  #tool-area #unsubscribe{text-align:center;padding-top:15px;}
+  #tool-area #unsubscribe-title{font-size:50px;text-transform:uppercase;padding-top:10px;margin-bottom:10px;font-family:"TrumpGothicEast-Bold"}
+  #tool-area #unsubscribe_window{display:none;}
+  #tool-area #overlay{width:100%;height:100%;position:fixed;top:0px;left:0px;background-color:#000;z-index:999;opacity:0.7;}
+  #tool-area #window{width:630px;height:306px;background-color:#FFF;position:fixed;left:50%;margin-left:-315px;top:100px;z-index:9999;text-align:center;}
+  #tool-area #window .input{width:100%;}
+  #tool-area #window .input input{width: 95%;height: 32px;background-color: black;color: #A4A3A3;font-weight: normal;font-size: 14px;border: none;padding: 5px;margin-bottom:10px;padding-left:10px; -webkit-appearance:none;}
+  #tool-area #window #close_window{right:5px;top:5px;position:absolute;cursor:pointer;}
+  #tool-area #unsubscribe-btn{width:230px;height:40px;border:solid 1px #000;margin:auto auto;background-color:white;display:block;font-size:18px;font-weight:bold;text-transform:uppercase;text-align:center;}
+  #tool-area #unsubscribe-btn:hover{background-color:#FFF;}
+  #tool-area #unsubscribe-btn span{padding-top:2px;display:block;color:#000;font-family:"TrumpGothicEast-Bold"; font-weight:normal;font-size:30px;}
+  #tool-area #unsubscribe a {color:#000; font-weight:bold; font-size:14px;}
+  @media screen and (max-width: 320px) {
+  #tool-area #remind-me-frm #left-side{width:275px}
+  #tool-area #remind-me-frm .input input{width:100%}
+  #tool-area #remind-me-frm .input select{width:100%; background:url('http://au.endinghiv.org.au/wp-content/themes/ending_hiv/images/mobile-drop-arrow.png') center right no-repeat; }
+  #tool-area #window{width:80%; margin-left:-140px; padding:10px;top:50px;}
+  #tool-area #unsubscribe-title{font-size:30px; margin-bottom:0;}
+  }
+:javascript
+  $(document).ready(function(){
+    $('.input input[label]').each(function(){
+      $(this).val($(this).attr('label'));
+    });
+    $('.input input[label]').focus(function(){
+      if( $(this).val() == $(this).attr('label') ){
+        $(this).val('');
+      }
+    });
+    $('.input input[label]').blur(function(){
+      if($(this).val() == ''){
+        $(this).val($(this).attr('label'));
+      }
+    });
+    $('#tool-area #remind-me-frm #submit-btn').click(function(){
+      stop_frm = false;
+      $('#remind-me-frm input').each(function(){
+        if($(this).val() == $(this).attr('label')){
+          alert("Please ensure to enter your " + $(this).val());
+          stop_frm = true;
+          return false;
+        }
+      if($(this).hasClass('phone')){
+        if($(this).val() != parseInt($(this).val())){
+          alert('Please enter a valid numeric only phone number');
+        }
+      }
+    });
+      if( $('#email_reminder').attr('checked')!='checked' && $('#phone_reminder').attr('checked')!='checked' ){
+        alert("Please select how you would like to receive reminders");
+        stop_frm = false;
+        return false;
+      }
+    trapid_hiv_test = $('#rapid_hiv_test').attr('checked')=='checked'?1:0;
+    if(stop_frm){
+      return false;
+    }else{
+      $('#remind-me-frm').submit();
+    }
+    return false;
+    });
+    $('#tool-area #unsubscribe a').click(function(){
+      $('#unsubscribe_window').fadeIn();
+      return false;
+    });
+    $('#overlay').click(function(){
+      $('#unsubscribe_window').fadeOut();
+      return false;
+    });
+    $('#close_window').click(function(){
+      $('#unsubscribe_window').fadeOut();
+      return false;
+    });
+    $('#tool-area #unsubscribe-btn').click(function(){
+      $('#remind-unsub-frm').submit();
+      return false;
+    });
+  });
+#flash
+.clearer.hide-responsive  
+%br.hide-responsive/
+.main-content-left    
+  #tool-area
+    #top-text
+      %p To end HIV, more gay men need to get tested more often … but it’s easy to forget when you last had an HIV test and when it’s time to have the next one.
+      %p
+        Sign up to the ‘Remind Me’ service to receive e-mail or SMS reminders for your next HIV test. It’s free, easy and confidential. If you are not sure how often you should get tested, click
+        %a{:href => "/calculator"} here
+        to find out
+    #accordion
+    %form#remind-me-frm{:action => "/remind-me/", :method => "post"}
+      #left-side
+        .input
+          %input{:label => "First Name", :name => "username", :type => "text"}
+        .input
+          %input{:label => "Email", :name => "email", :type => "text"}
+        %div or
+        .input
+          %input.phone{:label => "Mobile Phone", :name => "mobile", :type => "text"}
+        .input
+          %select{:label => "Select State", :name => "state", :style => "width:100%; -webkit-appearance:none; background-color:black ;"}
+            %option{:value => ""} Please Select
+            %option{:value => "NSW"} NSW
+            %option{:value => "QLD"} QLD
+            %option{:value => "WA"} WA
+            %option{:value => "VIC"} VIC
+            %option{:value => "TAS"} TAS
+            %option{:value => "SA"} SA
+            %option{:value => "SA"} NT
+            %option{:value => "ACT"} ACT
+      #right-side
+        .label
+          %b Would you like to receive:
+        %div
+          %input#email_reminder{:name => "recieve_email", :type => "checkbox", :value => "1"}
+            Email Reminders
+            %br
+              %input#phone_reminder{:name => "receive_phone", :type => "checkbox", :value => "1"}
+                SMS Reminders
+        .label
+          %b How often would you like to be reminded?
+        %div
+          %input{:name => "reminder_time_frame", :type => "radio", :value => "+3 Months"}
+            Four Times a Year
+            %br
+              %input{:checked => "checked", :name => "reminder_time_frame", :type => "radio", :value => "+6 Months"}
+                Twice a Year
+                %br
+      %div{:style => "clear:both;"}
+      #submit-btn
+        %span Submit
+    #accordion
+    %p#unsubscribe
+      To
+      %a{:href => ""} unsubscribe
+      from this service click here
+    #unsubscribe_window
+      %form#remind-unsub-frm{:action => "/remind-me/", :method => "post"}
+      
+.sidebar
+  - if current_user.nil?
+    /login box
+    = render "experimental/partials/login_box"
+  -else
+    /profile box
+    = render "experimental/partials/profile_box"
+
+  / social login box
+  = render "experimental/partials/social_login_box"
+  / member box
+  /= render "experimental/partials/member_box"
+  /rating box
+  = render "experimental/partials/rating_box"
+  /rating box
+  = render "experimental/partials/rating_box2"
+  / left bar
+  / = render "experimental/partials/left_bar"
+  /widget top
+  = render "experimental/partials/widget_top"
+  / .clearer.hide-responsive
+  / %br.clearer/
+  / newly reviewd
+  /= render "experimental/partials/newly_reviewed"
+  /popular box
+  = render "experimental/partials/popular_box"
+  /banner box
+  = render "experimental/partials/banner_box"
