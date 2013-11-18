@@ -119,6 +119,8 @@ Rails.application.routes.draw do
       post :send_contact_us
     end
   end
+
+  resources :remind_me
   
   get '/services-map/:country' =>"service_providers#country" , :as => :country_services_map
   match 'provider_validate' => "service_providers#provider_validate", :as => :provider_validate,:via =>[:post]
@@ -414,7 +416,8 @@ Rails.application.routes.draw do
         get :public_about,:path=>"/about"
         get :rss_feed,:path=>"rss"
         get :calculator
-        get :remind_me
+        # get :remind_me
+        # post :create_remind_me
         get :terms
         get :faq
         get :partners

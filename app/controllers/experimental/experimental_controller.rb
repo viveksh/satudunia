@@ -80,8 +80,7 @@ class Experimental::ExperimentalController < ApplicationController
 
   end
 
-  def remind_me
-  end  
+  
 
   # terms of use
   def terms    

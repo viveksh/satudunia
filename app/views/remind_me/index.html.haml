@@ -7,7 +7,7 @@
   #tool-area #remind-me-frm{padding-top:15px;padding-bottom:15px;}
   #tool-area #remind-me-frm .input select, #tool-area #remind-me-frm .input input{font-family: "Helvetica", "Arial", sans-serif; width:295px; height: 32px;background-color: black;color: #A4A3A3;font-weight: normal; font-size:14px; border:none; padding: 5px; float: left; margin-bottom:10px; padding-left:10px;}
   #tool-area #remind-me-frm #left-side{width:310px;float:left; margin-right:5px;}
-  #tool-area #remind-me-frm #right-side{width:300px;float:left;}
+  #tool-area #remind-me-frm #right-side{width:300px;float:left;margin-left: 10px;}
   #tool-area #remind-me-frm #submit-btn{width:230px;height:40px;border:solid 1px #000;margin:auto auto;background-color:white;display:block;font-size:18px;font-weight:bold;text-transform:uppercase;text-align:center;cursor:pointer;}
   #tool-area #remind-me-frm #submit-btn:hover{background-color:#FFF;}
   #tool-area #remind-me-frm #submit-btn span{padding-top:4px;display:block;color:#000;font-size:30px; font-family:"TrumpGothicEast-Bold"; font-weight:normal;}
@@ -32,62 +32,58 @@
   }
 :javascript
   $(document).ready(function(){
-    $('.input input[label]').each(function(){
-      $(this).val($(this).attr('label'));
-    });
-    $('.input input[label]').focus(function(){
-      if( $(this).val() == $(this).attr('label') ){
-        $(this).val('');
-      }
-    });
-    $('.input input[label]').blur(function(){
-      if($(this).val() == ''){
-        $(this).val($(this).attr('label'));
-      }
-    });
-    $('#tool-area #remind-me-frm #submit-btn').click(function(){
-      stop_frm = false;
-      $('#remind-me-frm input').each(function(){
-        if($(this).val() == $(this).attr('label')){
-          alert("Please ensure to enter your " + $(this).val());
-          stop_frm = true;
-          return false;
-        }
-      if($(this).hasClass('phone')){
-        if($(this).val() != parseInt($(this).val())){
-          alert('Please enter a valid numeric only phone number');
-        }
-      }
-    });
-      if( $('#email_reminder').attr('checked')!='checked' && $('#phone_reminder').attr('checked')!='checked' ){
-        alert("Please select how you would like to receive reminders");
-        stop_frm = false;
-        return false;
-      }
-    trapid_hiv_test = $('#rapid_hiv_test').attr('checked')=='checked'?1:0;
-    if(stop_frm){
-      return false;
-    }else{
-      $('#remind-me-frm').submit();
-    }
-    return false;
-    });
-    $('#tool-area #unsubscribe a').click(function(){
-      $('#unsubscribe_window').fadeIn();
-      return false;
-    });
-    $('#overlay').click(function(){
-      $('#unsubscribe_window').fadeOut();
-      return false;
-    });
-    $('#close_window').click(function(){
-      $('#unsubscribe_window').fadeOut();
-      return false;
-    });
-    $('#tool-area #unsubscribe-btn').click(function(){
-      $('#remind-unsub-frm').submit();
-      return false;
-    });
+  $('.input input[label]').each(function(){
+  $(this).val($(this).attr('label'));
+  });
+  $('.input input[label]').focus(function(){
+  if( $(this).val() == $(this).attr('label') ){$(this).val('');}
+  });
+  $('.input input[label]').blur(function(){
+  if($(this).val() == ''){$(this).val($(this).attr('label'));}
+  });
+  $('#tool-area #remind-me-frm #submit-btn').click(function(){
+  stop_frm = false;
+  $('#remind-me-frm input').each(function(){
+  if($(this).val() == $(this).attr('label')){
+  alert("Please ensure to enter your " + $(this).val());
+  stop_frm = true;
+  return false;
+  }
+  if($(this).hasClass('phone')){
+  if($(this).val() != parseInt($(this).val())){
+  alert('Please enter a valid numeric only phone number');
+  }
+  }
+  });
+  if( $('#email_reminder').attr('checked')!='checked' && $('#phone_reminder').attr('checked')!='checked' ){
+  //alert("Please select how you would like to receive reminders");
+  //stop_frm = false;
+  //return false;
+  }
+  trapid_hiv_test = $('#rapid_hiv_test').attr('checked')=='checked'?1:0;
+  if(stop_frm){
+  return false;
+  }else{
+  $('#remind-me-frm').submit();
+  }
+  return false;
+  });
+  $('#tool-area #unsubscribe a').click(function(){
+  $('#unsubscribe_window').fadeIn();
+  return false;
+  });
+  $('#overlay').click(function(){
+  $('#unsubscribe_window').fadeOut();
+  return false;
+  });
+  $('#close_window').click(function(){
+  $('#unsubscribe_window').fadeOut();
+  return false;
+  });
+  $('#tool-area #unsubscribe-btn').click(function(){
+  $('#remind-unsub-frm').submit();
+  return false;
+  });
   });
 #flash
 .clearer.hide-responsive  
@@ -101,28 +97,29 @@
         %a{:href => "/calculator"} here
         to find out
     #accordion
-    = form_for(@remind_me, :method=>"POST",:action=>:create_remind_me,:html => {:class => "form",:id =>"remind-me-frm" ,:multipart => true}) do |f|
+    = form_for :remind_me,:method=>"POST",:action=>:create,:html=>{:id=>"remind-me-frm"} do |f|
     
       #left-side
         .input
-          //%input{:label => "First Name", :name => "username", :type => "text"}
-          = f.text_field :first_name, :label => "First Name", :name => "username", :type => "text"
+          = f.text_field :first_name,:class=>"input" ,:label => "First Name", :type => "text"
         .input
-          %input{:label => "Email", :name => "email", :type => "text"}
+          = f.text_field :email,:class=>"input" ,:label => "Email", :type => "text"        
         %div or
         .input
-          %input.phone{:label => "Mobile Phone", :name => "mobile", :type => "text"}
-        .input
-          %select{:label => "Select State", :name => "state", :style => "width:100%; -webkit-appearance:none; background-color:black ;"}
-            %option{:value => ""} Please Select
-            %option{:value => "NSW"} NSW
-            %option{:value => "QLD"} QLD
-            %option{:value => "WA"} WA
-            %option{:value => "VIC"} VIC
-            %option{:value => "TAS"} TAS
-            %option{:value => "SA"} SA
-            %option{:value => "SA"} NT
-            %option{:value => "ACT"} ACT
+          = f.text_field :mobile_phone,:class=>"input" ,:label => "Mobile Phone", :type => "text"
+        .input{}
+          =f.select :state,["Please Select","NSW","QLD","WA","VIC","TAS","SA","NT","ACT"],:html=>{:label => "Select State",:style => "width:100%; -webkit-appearance:none; background-color:black ;"}
+          / %select{:label => "Select State", :name => "state", :style => "width:100%; -webkit-appearance:none; background-color:black ;"}
+          /   %option{:value => ""} Please Select
+          /   %option{:value => "NSW"} NSW
+          /   %option{:value => "QLD"} QLD
+          /   %option{:value => "WA"} WA
+          /   %option{:value => "VIC"} VIC
+          /   %option{:value => "TAS"} TAS
+          /   %option{:value => "SA"} SA
+          /   %option{:value => "SA"} NT
+          /
+          /%option{:value => "ACT"} ACT
       #right-side
         .label
           %b Would you like to receive:
@@ -141,9 +138,10 @@
               %input{:checked => "checked", :name => "reminder_time_frame", :type => "radio", :value => "+6 Months"}
                 Twice a Year
                 %br
-      %div{:style => "clear:both;"}
-      #submit-btn
-        %span Submit
+      %div{:style => "clear:both;"}  
+        #submit-btn
+          %span
+            = f.submit "Save"
     #accordion
     %p#unsubscribe
       / To
