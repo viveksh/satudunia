@@ -317,6 +317,12 @@ class QuestionsController < ApplicationController
       @question.follow_up.original_answer_id = params[:original_answer_id]
     end
 
+    if params[:question][:tags].present?
+      tags_ques = params[:question][:tags].reject {|a| a.empty?}
+      @question.tags=tags_ques
+      @question.save.errors
+    end
+
     @question.anonymous = params[:question][:anonymous] if current_group.enable_anonymous
 
     if !logged_in?
