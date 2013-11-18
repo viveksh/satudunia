@@ -414,6 +414,7 @@ Rails.application.routes.draw do
         get :public_about,:path=>"/about"
         get :rss_feed,:path=>"rss"
         get :calculator
+        get :remind_me
         get :terms
         get :faq
         get :partners

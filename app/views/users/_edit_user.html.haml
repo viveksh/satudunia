@@ -22,7 +22,7 @@
 					= f.label "Birth Date (dd/mm/yy)"
 					/ = f.date_select :date, order: [:day,:month,:year]
 					- if @user.date.present?
-						=f.text_field :date, :id=>"datepicker", :value=>@user.date.strftime("%d/%m/%y")
+						=f.text_field :date, :id=>"datepicker", :value=>@user.date.strftime("%d-%m-%y")
 					- else
 						=f.text_field :date, :id=>"datepicker"
 					/ = f.label "Upload Avatar"

@@ -80,6 +80,9 @@ class Experimental::ExperimentalController < ApplicationController
 
   end
 
+  def remind_me
+  end  
+
   # terms of use
   def terms    
     add_breadcrumb "Terms of Service", terms_experimental_index_path.gsub("/","") 

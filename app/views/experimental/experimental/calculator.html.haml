@@ -1,7 +1,4 @@
 
-
-
-
 :javascript
   var hiv_status = '';
   var partners = '';
@@ -31,15 +28,79 @@
     });
 
     function get_calculation(){
-      if(hiv_status != '' && partners != ''){
-        //document.write('<?php print plugins_url( 'test-frequency-calculator-read.php', __FILE__ ); ?>?partners=' + encodeURIComponent(partners) + '&hiv_status=' + encodeURIComponent(hiv_status));
-        //$.get('<?php print plugins_url( 'test-frequency-calculator-read.php', __FILE__ ); ?>?partners=' + encodeURIComponent(partners) + '&hiv_status=' + encodeURIComponent(hiv_status), function(data){
-          $('#results').hide();
-          //eval('calc_return = ' + data);
-          $('#results').show();
-          $('#results').slideDown();
-        //});
+      
+      if(hiv_status =="negative" && partners == "0")
+      {
+        $('#results').hide();
+        //eval('calc_return = ' + data);
+        $('#results').html("If you know you are HIV negative and you haven’t had any sex in the 6 months since your last test, then you don’t need to get tested.<br/><br/>In case things change, remember that all sexually active gay men should get tested at least twice a year.");
+        $('#results').show();
+        $('#results').slideDown();    
       }
+      if(hiv_status =="negative" && partners == "1")
+      {
+        
+        $('#results').hide();
+        //eval('calc_return = ' + data);
+        $('#results').html("Even if you had only 1 sexual partner in the last 6 months, it is recommended that you get tested at least twice a year.<br/><br/>You may be able to get a rapid HIV test. It’s free, easy and gay-friendly, and you get your results within 30 minutes. Find out if rapid HIV tests are available near you ");
+        $('#results').show();
+        $('#results').slideDown();    
+      }
+      if(hiv_status =="negative" && partners == "2 - 9")
+      {
+        
+        $('#results').hide();
+        //eval('calc_return = ' + data);
+        $('#results').html("Based on your answers, you should get tested at least twice a year.<br/><br/>Did you know that now you can get a rapid HIV test? It’s free, quick, easy and gay-friendly. Find out where to get tested here <br/><br/>It can be easy to forget when you last got an HIV test and when it’s time to get the next one. Sign up to the ‘Remind Me’ service to receive e-mail or SMS reminders for your next HIV here.");
+        $('#results').show();
+        $('#results').slideDown();    
+      }
+      if(hiv_status =="negative" && partners == "10+")
+      {
+        
+        $('#results').hide();
+        //eval('calc_return = ' + data);
+        $('#results').html("Based on your answers, you should get tested at least 4 times a year.<br/><br/>Did you know that now you can get a rapid HIV test? It’s free, quick, easy and gay-friendly. Find out where to get tested here.<br/><br/>It can be easy to forget when you last got an HIV test and when it’s time to get the next one. Sign up to the ‘Remind Me’ service to receive e-mail or SMS reminders for your next HIV here.");
+        $('#results').show();
+        $('#results').slideDown();    
+      }
+      if(hiv_status =="not_sure" && partners == "0")
+      {
+        
+        $('#results').hide();
+        //eval('calc_return = ' + data);
+        $('#results').html("If you don’t know your HIV status, it’s very important that you get tested now, even if you didn’t have any sex in the last 6 months.<br/><br/>You can now get a rapid HIV test and get your results during the same appointment. It’s free, quick, easy and gay-friendly. Find out where you can get tested here.<br/><br/>It can be easy to forget when you last got an HIV test and when it’s time to get the next one. Sign up to the ‘Remind Me’ service to receive e-mail or SMS reminders for your next HIV");
+        $('#results').show();
+        $('#results').slideDown();    
+      }
+      if(hiv_status =="not_sure" && partners == "1")
+      {
+        
+        $('#results').hide();
+        //eval('calc_return = ' + data);
+        $('#results').html("If you don’t know your HIV status, it’s very important that you get tested now, even if you had only 1 sex partner in the last 6 months.<br/><br/>You can now get a rapid HIV test and get your results during the same appointment. It’s free, quick, easy and gay-friendly. Find out where you can get tested here.<br/><br/>It can be easy to forget when you last got an HIV test and when it’s time to get the next one. Sign up to the ‘Remind Me’ service to receive e-mail or SMS reminders for your next HI");
+        $('#results').show();
+        $('#results').slideDown();    
+      }
+      if(hiv_status =="not_sure" && partners == "2 - 9")
+      {
+        
+        $('#results').hide();
+        //eval('calc_return = ' + data);
+        $('#results').html("If you don’t know your HIV status, it’s very important that you get tested now. You can now get a rapid HIV test and get your results during the same appointment. It’s free, quick, easy and gay-friendly. Find out where you can get tested here.<br/><br/>Based on your answers, you should also get tested at least twice a year.<br/><br/>It can be easy to forget when you last got an HIV test and when it’s time to get the next one. Sign up to the ‘Remind Me’ service to receive e-mail or SMS reminders for your next HIV here.");
+        $('#results').show();
+        $('#results').slideDown();    
+      }
+      if(hiv_status =="not_sure" && partners == "10+")
+      {
+        
+        $('#results').hide();
+        //eval('calc_return = ' + data);
+        $('#results').html("If you don’t know your HIV status, it’s very important that you get tested now. You can now get a rapid HIV test and get your results during the same appointment. It’s free, quick, easy and gay-friendly. Find out where you can get tested here.<br/><br/>Based on your answers, you should also get tested at least 4 times a year.<br/><br/>It can be easy to forget when you last got an HIV test and when it’s time to get the next one. Sign up to the ‘Remind Me’ service to receive e-mail or SMS reminders for your next HIV here.");
+        $('#results').show();
+        $('#results').slideDown();    
+      }
+    
     }
 
   });
@@ -77,11 +138,9 @@
           .option{data: "10+"}
             %span 10+
       %div{style: "clear:both;"}
-    #accordion
-    #results{:style=>"display:none;"}
-      %p Even if you had only 1 sexual partner in the last 6 months, it is recommended that you get tested at least twice a year.
+    #results
       %p
-        You may be able to get a rapid HIV test. It’s free, easy and gay-friendly, and you get your results within 30 minutes. Find out if rapid HIV tests are available near you
+      
 
 
 
