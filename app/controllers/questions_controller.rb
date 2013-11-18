@@ -311,12 +311,6 @@ class QuestionsController < ApplicationController
     @question.user = current_user
     @question.safe_update(%w[title body language tags wiki position attachments], params[:question])
 
-    if params[:question][:tags].present?
-      tags_ques = params[:question][:tags].reject {|a| a.empty?}
-      @question.tags=tags_ques
-      @question.save
-    end
-
     if params[:original_question_id]
       @question.follow_up = FollowUp.new
       @question.follow_up.original_question_id = params[:original_question_id]
