@@ -261,7 +261,7 @@ a.selectBox {display:none !important;}
 header area
 *************************************************/
 #page-wrapper {width:1000px;margin:0px auto;}
-#logo-bar-wrapper {background-color:#F57810;
+#logo-bar-wrapper {background-color:#CC3A00;
 	 box-shadow: 0 5px 30px -5px;}
 #logo-bar-shadow {width:1000px;height:12px;background:url(images/logo-bar-shadow.png) repeat-x 0px 0px;}
 #logo-bar {padding:20px 20px 0px 30px;}
@@ -270,7 +270,7 @@ header area
 #site-logo-iphone {display:none;}
 #site-logo-ipad {display:none;}
 .subtitle {padding-top:5px;color:#FFF;font-size:.8em;}
-#ad-header {float:right;margin-top:30px;margin-right:35px;color:#FFFFFF;}
+#ad-header {float:right;margin-top:10px;font-size:20px;color:#FFFFFF;}
 
 /*************************************************
 category menu
@@ -278,7 +278,7 @@ category menu
 select#select-menu-main-menu {display:none;}
 #menu-main-menu {width:910px;}
 .cat-menu #random-article {float:right;padding:10px 10px 0px 0px;}
-.cat-menu {width:1000px;margin:0px auto;float:left;background:#E75903;  repeat-x 0px 0px;position:relative;z-index:30;border-top:1px solid #E75903;}
+.cat-menu {width:1000px;margin:0px auto;float:left;background:#E15C01;  repeat-x 0px 0px;position:relative;z-index:30;border-top:1px solid #E15C01;}
 .cat-menu a.home-link {display:block;float:left;width:50px;height:38px;background:url(images/menu-home.png) no-repeat 24px 13px;}
 .cat-menu a.home-link:hover {background:url(images/menu-home.png) no-repeat 24px -26px;}
 .cat-menu ul {float:left;list-style-type:none;margin:0px;padding:0px;position:relative;z-index:99;margin-top:-1px;}
@@ -336,7 +336,7 @@ select#select-menu-main-menu {display:none;}
 .cat-menu ul li ul li.over > a > .sf-sub-indicator {background-position: -10px 0;}
 
 /*taxonomy menu*/
-.cat-menu.tax {height:38px;overflow:hidden;position:relative;z-index:20;background:#D33613 repeat-x 0px 0px;border-top:1px solid #D33613;}
+.cat-menu.tax {height:38px;overflow:hidden;position:relative;z-index:20;background:#EE7A00 repeat-x 0px 0px;border-top:1px solid #EE7A00;}
 .cat-menu.tax ul {padding-left:15px;}
 .cat-menu.tax ul li a {height:20px;font-size:12px;padding:6px 13px 9px 13px;margin-top:6px;border:none;text-transform:none;font-weight:normal;color:#CCC;}
 .cat-menu.tax ul li:hover a, 
