@@ -56,5 +56,13 @@ module Jobs
     def self.on_new_invitation(invitation_id)
       Notifier.new_invitation(invitation_id).deliver
     end
+
+
+
+
+    # def self.on_new_remined_me(email)
+    #   Notifier.new_remined_me(email).deliver
+    # end  
+
   end
 end

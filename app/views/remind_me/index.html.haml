@@ -84,17 +84,24 @@
       #right-side
         .label
           %b Would you like to receive:
+          %br
+          %br
         %div
           
           = f.check_box :email_reminder, :name => "recieve_email",:value => "1"
           = f.label "Email Reminders"
-          %br/
+          %br
+          
 
           
           = f.check_box :phone_reminder, :name => "receive_phone",:value => "1"
           = f.label "SMS Reminders"
+          %br
+          %br
         .label
           %b How often would you like to be reminded?
+          %br
+          %br
         %div
           
            
@@ -102,10 +109,12 @@
           = f.radio_button :reminder_time_frame , true 
           Four Times a Year 
           %br
+         
           
           /= f.radio_button :reminder_time_frame, :value => 1
           = f.radio_button :reminder_time_frame , false 
           Twise a year
+          %br
           %br
 
       %div{:style => "clear:both;"}        
