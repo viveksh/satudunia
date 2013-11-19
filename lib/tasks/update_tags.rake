@@ -5,19 +5,12 @@ namespace :update_tags do
     ["casual_partners","family","friends","regular_partners","partying","sex","situation","compliance","regular_access_to_medication","dating","family","friends","minimising-risk","safer_sex","accessing_medication","cost","selecting_medication","side_effects","clinics","cost","doctors","migration","tourism","fitness","nutrition","health_checks","health_insurance","inclusion_&_iscrimination","technology","business","science","politics","religion","sports","entertainment","gaming","lifestyle","offbeat","sexy_baby","sexy","testing-tags","new_tag1","test_tag1","sexman","medication","disclosure"].each do |tag|
       Tag.create(:name => tag)
     end
-    @tags={:disclosure=>["casual_partners","family","friends","regular_partners"],
-    :drugs=>["partying","sex"],:first_diagnosis=>["situation"],
-    :maintaining_treatment=>["compliance","regular_access_to_medication"],
-    :relationships=>["dating","family","friends"],:sex=>["minimizing-risk","safer_sex"],
-    :starting_medication=>["accessing_medication","cost","selecting_medication",
-    "side_effects"],:starting_treatment=>["clinics","cost","doctors"],
-    :travel=>["migration","tourism"],:well_being=>["fitness","nutrition"],
-    :work=>["health_checks","health_insurance","inclusion_&_iscrimination"]}
+    @tags=["casual_partners","family","friends","regular_partners","partying","sex","situation","compliance","regular_access_to_medication","dating","family","friends","minimising-risk","safer_sex","accessing_medication","cost","selecting_medication","side_effects","clinics","cost","doctors","migration","tourism","fitness","nutrition","health_checks","health_insurance","inclusion_&_iscrimination","technology","business","science","politics","religion","sports","entertainment","gaming","lifestyle","offbeat","sexy_baby","sexy","testing-tags","new_tag1","test_tag1","sexman","medication","disclosure"]
     # conditional statemnets
     if Group.last.update_attributes(:default_tags=>@tags)
       puts "Default tags updated"
     else
-      Puts "Something went wrong"
+      puts "Something went wrong"
     end
   end
 
