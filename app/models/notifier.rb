@@ -86,6 +86,8 @@ class Notifier < ActionMailer::Base
     end
   end
 
+
+
   def new_invitation(invitation_id)
     @invite = true
     @invitation = Invitation.find(invitation_id)
@@ -248,4 +250,18 @@ class Notifier < ActionMailer::Base
   def set_locale(lang)
     I18n.locale = lang
   end
+
+  # def new_remined_me(email) 
+    
+  #   mail(:to =>"poonam.s@cisinlabs.com",
+  #        :from => "dinshaw.r@cisinlabs.com",
+  #        :subject => "remind me",
+  #        :date => Time.now ) do |format|
+  #     format.text
+  #     format.html
+  #   end 
+  # end
+
+
+  
 end

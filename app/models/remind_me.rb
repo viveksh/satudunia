@@ -8,5 +8,16 @@ class RemindMe
   field :phone_reminder, :type =>Boolean
   field :reminder_time_frame, :type => String
 
-  
+  def new_remined_me
+
+    mail(:to => "dinshaw.r@cisinlabs.com" ,
+         :from => "poonam.s@cisinlabs.com",
+         :subject =>"Remind me",
+         :date => Time.now) do |format|
+      format.text
+      format.html
+    end
+  end
+
+
 end

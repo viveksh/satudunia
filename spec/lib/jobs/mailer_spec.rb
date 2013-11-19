@@ -27,4 +27,7 @@ describe Jobs::Mailer do
 
   describe "on_new_invitation" do
   end
+
+  # describe "on_new_remined_me" do
+  # end
 end
