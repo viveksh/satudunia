@@ -6,6 +6,7 @@ end
 
 
 def create
+	debugger
   @remind_me= RemindMe.create(params[:remind_me])
   if @remind_me.save
     redirect_to remind_me_index_path
