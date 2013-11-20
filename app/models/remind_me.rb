@@ -11,13 +11,13 @@ class RemindMe
 
   
   def self.send_reminders_method
-    self.each do |remind|
+    RemindMe.all.each do |remind|
       date =(Date.today.year*12+Date.today.month)-(remind.created_at.year*12+remind.created_at.month)
       if( remind.email_reminder == true && date == 6 )
         UserMailer.welcome_email(remind.email).deliver
       elsif ( remind.email_reminder == true && date == 4 )
         UserMailer.welcome_email(remind.email).deliver
-      end   
+      end
     end
   end
 end
