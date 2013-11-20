@@ -9,19 +9,27 @@
 = form_for (@user),:url=>{:action => "update"}, :html => {:class => "exp-contact-form", :multipart => true, :id => "edit-user-form"} do |f|
 	.overview-wrapper#all_checks{:style =>"display:none"}
 		.overview-new.no-background
-			.left-panel	
+			.left-panel
+				.category
+					.catname
+						Privacy
+					.category-arrow	
 				.checkbox1
 					= f.check_box :hide_hiv_condition
 					Hide my HIV Condition to other users
+				%br
 				.checkbox1
 					= f.check_box :hide_country
 					Hide my Country to other users
+				%br
 				.checkbox1
 					= f.check_box :hide_age
 					Hide my Age to other users
+				%br
 				.checkbox1
 					= f.check_box :hide_realname
 					Hide my Real Name to other users
+				%br
 		.contact-section-bottom-button
 			= f.submit "Save", :class=>"contact-button contact-button-single", :id=> "align"
 	%br.clearer/

@@ -1385,19 +1385,19 @@ form#search input {
 #tool-area p{line-height:1.3;}
   /* Selections */
 #tool-area #selections{margin-top:15px;margin-bottom:15px;}
-#tool-area #selections #hiv_status{background-color:#57a1a7;width:310px;height:172px;float:left;margin-right:5px;margin-bottom:5px;}
+#tool-area #selections #hiv_status{background-color:#57a1a7;width:290px;height:172px;float:left;margin-right:5px;margin-bottom:5px;}
 #tool-area #selections #hiv_status #hiv_status_title{color:#FFF;text-align:center;font-size:28px;height:100px;text-transform:uppercase;}
 #tool-area #selections #hiv_status #hiv_status_title span{display:block;padding-top:40px; font-size: 16px; font-family:"TrumpGothicEast-Bold";}
 #tool-area #selections #hiv_status #hiv_options{text-align:center;margin-top: 8px;}
 #tool-area #selections #hiv_status #hiv_options .breaker{width:15px;display:inline-block;}
 #tool-area #selections #hiv_status #hiv_options .option{width:129px;height:53px;background-color:white;display:inline-block;}
 #tool-area #selections #hiv_status #hiv_options .option span{font-size:20px;padding-top:16px;display:block;font-family:"TrumpGothicEast-Bold"; text-transform:uppercase;}
-#tool-area #selections #partners{background-color:#964aa4;width:310px;height:172px;float:left;}
+#tool-area #selections #partners{background-color:#964aa4;width:290px;height:172px;float:left;}
 #tool-area #selections #partners #partners_status_title{color:#FFF;text-align:center;font-size:28px;height:100px;text-transform:uppercase; line-height:110%;}
-#tool-area #selections #partners #partners_status_title span{display:block;padding-top:21px;font-size: 16px; font-family:"TrumpGothicEast-Bold";}
+#tool-area #selections #partners #partners_status_title span{display:block;padding-top:16px;font-size: 16px; font-family:"TrumpGothicEast-Bold";}
 #tool-area #selections #partners #partners_options{text-align:center; margin-top: 8px;}
 #tool-area #selections #partners #partners_options .breaker{width:9px;display:inline-block;}
-#tool-area #selections #partners #partners_options .option{width:60px;height:53px;background-color:white;display:inline-block;}
+#tool-area #selections #partners #partners_options .option{width:60px;height:53px;background-color:white;display:inline-block;margin-left: -8px;}
 #tool-area #selections #partners #partners_options .option span{font-size:24px;padding-top:16px;display:block; font-family:"TrumpGothicEast-Bold"; text-transform:uppercase;}
 #tool-area #selections .option{cursor:pointer;}
 #tool-area #selections .selected{background-color: #000 !important; color:#fff}
@@ -1445,3 +1445,15 @@ width: 596px;}
 #tool-area #unsubscribe-title{font-size:30px; margin-bottom:0;}
 }
 /*remind me tool-area-css-ends*/
+
+#user_birthday_3i.birthday-select {
+    width: 50px !important;
+}
+
+#user_birthday_2i.birthday-select {
+    width: 100px !important;
+}
+
+#user_birthday_1i.birthday-select {
+    width: 65px !important;
+}

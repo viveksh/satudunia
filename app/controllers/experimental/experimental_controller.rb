@@ -76,7 +76,7 @@ class Experimental::ExperimentalController < ApplicationController
   end
 
   def calculator
-
+    add_breadcrumb "calculator", 'calculator'
 
   end
 

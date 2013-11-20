@@ -12,7 +12,7 @@
 					/ = f.text_field :name,:placeholder=>"Please Enter Name",:id=>"signup_username"
 					= f.label :first_name, "First Name*"
 					= f.text_field :first_name,:placeholder=>"Please Enter First Name"
-
+					= f.hidden_field :hidden_value, :value => "2"
 					= f.label :last_name, "Last Name*" 
 					= f.text_field :last_name, :placeholder=>"Please Enter Last Name"
 					= f.label "Login*"
