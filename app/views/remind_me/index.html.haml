@@ -1,133 +1,83 @@
-:javascript
-  $(document).ready(function(){
-    $('.input input[label]').each(function(){
-      $(this).val($(this).attr('label'));
-    });
-    $('.input input[label]').focus(function(){
-      if( $(this).val() == $(this).attr('label') ){$(this).val('');}
-    });
-    $('.input input[label]').blur(function(){
-      if($(this).val() == ''){$(this).val($(this).attr('label'));}
-    });
-    $('#tool-area #remind-me-frm #submit-btn').click(function(){
-      stop_frm = false;
-      $('#remind-me-frm input').each(function(){
-        if($(this).val() == $(this).attr('label')){
-          alert("Please ensure to enter your " + $(this).val());
-          stop_frm = true;
-          return false;
-        }
-        if($(this).hasClass('phone')){
-          if($(this).val() != parseInt($(this).val())){
-            alert('Please enter a valid numeric only phone number');
-          }
-        }
-
-      });
-
-      // if( $('#email_reminder').attr('checked')!='checked' && $('#phone_reminder').attr('checked')!='checked'){
-      //   alert("Please select how you would like to receive reminders");
-      //   stop_frm = false;
-      //   return false;
-      // }
-
-      trapid_hiv_test = $('#rapid_hiv_test').attr('checked')=='checked'?1:0;
-
-      if(stop_frm){
-        return false;
-      }else{
-        $('#remind-me-frm').submit();
-      }
-      return false;
-    });
-    $('#tool-area #unsubscribe a').click(function(){
-      $('#unsubscribe_window').fadeIn();
-      return false;
-    });
-    $('#overlay').click(function(){
-      $('#unsubscribe_window').fadeOut();
-      return false;     
-    });
-    $('#close_window').click(function(){
-      $('#unsubscribe_window').fadeOut();
-      return false;     
-    });
-    $('#tool-area #unsubscribe-btn').click(function(){
-      $('#remind-unsub-frm').submit();
-      return false;
-    });
-  });
-#flash
 .clearer.hide-responsive  
 %br.hide-responsive/
-.main-content-left    
-  #tool-area
-    #top-text
-      %p To end HIV, more gay men need to get tested more often … but it’s easy to forget when you last had an HIV test and when it’s time to have the next one.
-      %p
-        Sign up to the ‘Remind Me’ service to receive e-mail or SMS reminders for your next HIV test. It’s free, easy and confidential. If you are not sure how often you should get tested, click
-        %a{:href => "/calculator"} here
-        to find out
-    #accordion
-    = form_for :remind_me,:method=>"POST",:action=>:create,:html=>{:id=>"remind-me-frm"} do |f|
-    
-      #left-side
-        .input
-          = f.text_field :first_name,:class=>"input" ,:label => "First Name", :type => "text"
-        .input
-          = f.text_field :email,:class=>"input" ,:label => "Email", :type => "text"        
-        %div or
-        .input
-          = f.text_field :mobile_phone,:class=>"input" ,:label => "Mobile Phone", :type => "text"
-        .input{}
-          =f.select :state,["Please Select","NSW","QLD","WA","VIC","TAS","SA","NT","ACT"],:html=>{:label => "Select State",:style => "width:100%; -webkit-appearance:none; background-color:black ;"}
-      #right-side
-        .label
-          %b Would you like to receive:
-          %br
-          %br
-        %div
-          
-          = f.check_box :email_reminder, :name => "recieve_email",:value => "1"
-          = f.label "Email Reminders"
-          %br
-          
+#flash
+.main-content-left   
+  .page-content.review.single-post
+    %link{:href => "http://www.industrialthemes.com/made/wp-content/uploads/2012/06/misc1-160x160.jpg", :rel => "image_src"}/
+    .review-content
+      .ribbon-shadow-left
+      .section-wrapper
+        .section
+          .comment-bubble
+          / making title stronger
+          .section-for-header
+            /%i.icon-vcard
+            Remind Me
+    .overview-wrapper
+      .overview-new.nopadding-top.padding-about
+        .excerpt-new1.justify-content.nopadding-top
+          #tool-area
+            #top-text
+              %p To end HIV, more gay men need to get tested more often … but it’s easy to forget when you last had an HIV test and when it’s time to have the next one.
+              %p
+                Sign up to the ‘Remind Me’ service to receive e-mail or SMS reminders for your next HIV test. It’s free, easy and confidential. If you are not sure how often you should get tested, click
+                %a{:href => "/calculator"} here
+                to find out
+            #accordion
+            = form_for :remind_me,:method=>"POST",:action=>:create,:html=>{:id=>"remind-me-frm"} do |f|
+            
+              #left-side
+                .input
+                  = f.text_field :first_name,:class=>"input" ,:label => "First Name", :type => "text"
+                .input
+                  = f.text_field :email,:class=>"input" ,:label => "Email", :type => "text"        
+                %div or
+                .input
+                  = f.text_field :mobile_phone, :class=>"input phone" ,:label => "Mobile Phone", :type => "text"
+                .input{}
+                  =f.select :state,["Please Select","NSW","QLD","WA","VIC","TAS","SA","NT","ACT"],:html=>{:label => "Select State",:style => "width:100%; -webkit-appearance:none; background-color:black ;"}
+              #right-side
+                .label
+                  %b Would you like to receive:
+                  %br
+                  %br
+                %div
+                  
+                  = f.check_box :email_reminder, :id=>"email_reminder" 
+                  = f.label "Email Reminders"
+                  %br
+                  
 
-          
-          = f.check_box :phone_reminder, :name => "receive_phone",:value => "1"
-          = f.label "SMS Reminders"
-          %br
-          %br
-        .label
-          %b How often would you like to be reminded?
-          %br
-          %br
-        %div
-          
-           
-          /= f.radio_button :reminder_time_frame, :value => 0
-          = f.radio_button :reminder_time_frame , true 
-          Four Times a Year 
-          %br
-         
-          
-          /= f.radio_button :reminder_time_frame, :value => 1
-          = f.radio_button :reminder_time_frame , false 
-          Twise a year
-          %br
-          %br
+                  
+                  = f.check_box :phone_reminder, :id=>"phone_reminder" 
+                  = f.label "SMS Reminders"
+                  %br
+                  %br
+                .label
+                  %b How often would you like to be reminded?
+                  %br
+                  %br
+                %div
+                  = f.radio_button :reminder_time_frame, "3"
+                  Four Times a Year 
+                  %br
+                 
+                  = f.radio_button :reminder_time_frame, "6" ,:checked => true
+                  Twise a year
+                  %br
+                  %br
 
-      %div{:style => "clear:both;"}        
-        = f.submit "submit",  :id=>"submit-btn" ,:style=>"font-color:black;"
-         
-    #accordion
-    %p#unsubscribe
-      / To
-      / %a{:href => ""} unsubscribe
-      / from this service click here
-    #unsubscribe_window
-      %form#remind-unsub-frm{:action => "/remind-me/", :method => "post"}
-        }
+              %div{:style => "clear:both;"}        
+                = f.submit "submit",  :id=>"submit-btn" ,:style=>"font-color:black;"
+                 
+            #accordion
+            %p#unsubscribe
+              / To
+              / %a{:href => ""} unsubscribe
+              / from this service click here
+            #unsubscribe_window
+              %form#remind-unsub-frm{:action => "/remind-me/", :method => "post"}
+                }
       
 .sidebar
   - if current_user.nil?
@@ -157,3 +107,64 @@
   = render "experimental/partials/popular_box"
   /banner box
   = render "experimental/partials/banner_box"
+
+:javascript
+  $(document).ready(function(){
+    $('.input input[label]').each(function(){
+      $(this).val($(this).attr('label'));
+    });
+    $('.input input[label]').focus(function(){
+      if( $(this).val() == $(this).attr('label') ){$(this).val('');}
+    });
+    $('.input input[label]').blur(function(){
+      if($(this).val() == ''){$(this).val($(this).attr('label'));}
+    });
+    $('#tool-area #remind-me-frm #submit-btn').click(function(){
+      stop_frm = false;
+      $('#remind-me-frm input').each(function(){
+        if($(this).val() == $(this).attr('label')){
+          alert("Please ensure to enter your " + $(this).val());
+          stop_frm = true;
+          return false;
+        }
+        if($(this).hasClass('phone')){
+          if($(this).val() != parseInt($(this).val())){
+            alert('Please enter a valid numeric only phone number');
+          }
+        }
+
+      });
+
+           
+      if(!$('#email_reminder').is(':checked') && !$('#phone_reminder').is(':checked')){
+        alert("Please select how you would like to receive reminders");
+        stop_frm = false;
+        return false;
+      }
+
+      trapid_hiv_test = $('#rapid_hiv_test').attr('checked')=='checked'?1:0;
+
+      if(stop_frm){
+        return false;
+      }else{
+        $('#remind-me-frm').submit();
+      }
+      return false;
+    });
+    $('#tool-area #unsubscribe a').click(function(){
+      $('#unsubscribe_window').fadeIn();
+      return false;
+    });
+    $('#overlay').click(function(){
+      $('#unsubscribe_window').fadeOut();
+      return false;     
+    });
+    $('#close_window').click(function(){
+      $('#unsubscribe_window').fadeOut();
+      return false;     
+    });
+    $('#tool-area #unsubscribe-btn').click(function(){
+      $('#remind-unsub-frm').submit();
+      return false;
+    });
+  });

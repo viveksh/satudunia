@@ -8,6 +8,7 @@ twitter = "#{launcher} script/import_twitter production"
 email = "#{launcher} script/import_email production"
 
 env "PATH", ENV["PATH"]
+
 set :output, "#{APP_ROOT}/log/crontab.log"
 
 every :saturday, :at => "2:50 am" do
@@ -25,3 +26,12 @@ end
 every 8.minutes do
   command email
 end
+
+every :day, :at => '12:20am' do
+  runner "RemindMe.send_reminders_method"
+end
+
+
+
+
+

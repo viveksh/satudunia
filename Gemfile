@@ -29,6 +29,7 @@ gem 'poirot', :git => 'git://github.com/dcu/poirot.git'
 gem "breadcrumbs_on_rails"
 
 gem 'htmlentities'
+gem 'whenever', :require => false
 
 
 # mongodb
@@ -83,7 +84,7 @@ gem 'devise', '~> 1.4.0'
 gem 'devise_rpx_connectable'
 
 
-gem 'whenever', :require => false
+
 gem 'rack-ssl', :require => false
 
 gem 'state_machine', '1.1.2'

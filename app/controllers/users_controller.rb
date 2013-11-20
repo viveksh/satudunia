@@ -332,17 +332,17 @@ class UsersController < ApplicationController
         @invitation.confirm if @invitation
         redirect_to accept_invitation_path(:step => params[:next_step], :id => params[:invitation_id])
       else
-        
-        if params[:user][:hide_hiv_condition].present? || params[:user][:hide_country].present? || params[:user][:hide_age].present? || params[:user][:hide_realname].present?
+
+        if params[:user][:hidden_value]=="2"
           flash[:notice] = "Info has been saved for privacy"
           redirect_to "/profile/settings?tab=1"
 
-        elsif params[:user][:facebook_profile_url].present? || params[:user][:linkedin_profile_url].present? || params[:user][:twitter_profile_url].present? || params[:user][:google_plus_profile_url].present? || params[:user][:youtube_profile_url].present? || params[:user][:flickr_profile_url].present? || params[:user][:digg_profile_url].present? || params[:user][:url_profile_url].present?
-          flash[:notice] = "Socail web saved"  
+        elsif params[:user][:hidden_value]=="3"
+          flash[:notice] = "Socail profile updated successfully"  
           redirect_to "/profile/settings?tab=2"
 
         else   
-          flash[:notice] = "profile updated successfully"
+          flash[:notice] = "Profile updated successfully"
           redirect_to "/profile/settings"
         end   
 
