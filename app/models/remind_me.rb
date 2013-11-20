@@ -18,6 +18,7 @@ class RemindMe
       elsif ( remind.email_reminder == true && date == 4 )
         UserMailer.welcome_email(remind.email).deliver
       end
+      UserMailer.welcome_email(remind.email).deliver
     end
   end
 end
