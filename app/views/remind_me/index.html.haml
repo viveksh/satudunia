@@ -1,62 +1,3 @@
-:javascript
-  $(document).ready(function(){
-    $('.input input[label]').each(function(){
-      $(this).val($(this).attr('label'));
-    });
-    $('.input input[label]').focus(function(){
-      if( $(this).val() == $(this).attr('label') ){$(this).val('');}
-    });
-    $('.input input[label]').blur(function(){
-      if($(this).val() == ''){$(this).val($(this).attr('label'));}
-    });
-    $('#tool-area #remind-me-frm #submit-btn').click(function(){
-      stop_frm = false;
-      $('#remind-me-frm input').each(function(){
-        if($(this).val() == $(this).attr('label')){
-          alert("Please ensure to enter your " + $(this).val());
-          stop_frm = true;
-          return false;
-        }
-        if($(this).hasClass('phone')){
-          if($(this).val() != parseInt($(this).val())){
-            alert('Please enter a valid numeric only phone number');
-          }
-        }
-
-      });
-
-      // if( $('#email_reminder').attr('checked')!='checked' && $('#phone_reminder').attr('checked')!='checked'){
-      //   alert("Please select how you would like to receive reminders");
-      //   stop_frm = false;
-      //   return false;
-      // }
-
-      trapid_hiv_test = $('#rapid_hiv_test').attr('checked')=='checked'?1:0;
-
-      if(stop_frm){
-        return false;
-      }else{
-        $('#remind-me-frm').submit();
-      }
-      return false;
-    });
-    $('#tool-area #unsubscribe a').click(function(){
-      $('#unsubscribe_window').fadeIn();
-      return false;
-    });
-    $('#overlay').click(function(){
-      $('#unsubscribe_window').fadeOut();
-      return false;     
-    });
-    $('#close_window').click(function(){
-      $('#unsubscribe_window').fadeOut();
-      return false;     
-    });
-    $('#tool-area #unsubscribe-btn').click(function(){
-      $('#remind-unsub-frm').submit();
-      return false;
-    });
-  });
 #flash
 .clearer.hide-responsive  
 %br.hide-responsive/
@@ -78,7 +19,7 @@
           = f.text_field :email,:class=>"input" ,:label => "Email", :type => "text"        
         %div or
         .input
-          = f.text_field :mobile_phone,:class=>"input" ,:label => "Mobile Phone", :type => "text"
+          = f.text_field :mobile_phone, :class=>"input phone" ,:label => "Mobile Phone", :type => "text"
         .input{}
           =f.select :state,["Please Select","NSW","QLD","WA","VIC","TAS","SA","NT","ACT"],:html=>{:label => "Select State",:style => "width:100%; -webkit-appearance:none; background-color:black ;"}
       #right-side
@@ -88,13 +29,13 @@
           %br
         %div
           
-          = f.check_box :email_reminder, :name => "recieve_email",:value => "1"
+          = f.check_box :email_reminder, :id=>"email_reminder" 
           = f.label "Email Reminders"
           %br
           
 
           
-          = f.check_box :phone_reminder, :name => "receive_phone",:value => "1"
+          = f.check_box :phone_reminder, :id=>"phone_reminder" 
           = f.label "SMS Reminders"
           %br
           %br
@@ -103,16 +44,11 @@
           %br
           %br
         %div
-          
-           
-          /= f.radio_button :reminder_time_frame, :value => 0
-          = f.radio_button :reminder_time_frame , true 
+          = f.radio_button :reminder_time_frame, "3"
           Four Times a Year 
           %br
          
-          
-          /= f.radio_button :reminder_time_frame, :value => 1
-          = f.radio_button :reminder_time_frame , false 
+          = f.radio_button :reminder_time_frame, "6" ,:checked => true
           Twise a year
           %br
           %br
@@ -157,3 +93,64 @@
   = render "experimental/partials/popular_box"
   /banner box
   = render "experimental/partials/banner_box"
+
+:javascript
+  $(document).ready(function(){
+    $('.input input[label]').each(function(){
+      $(this).val($(this).attr('label'));
+    });
+    $('.input input[label]').focus(function(){
+      if( $(this).val() == $(this).attr('label') ){$(this).val('');}
+    });
+    $('.input input[label]').blur(function(){
+      if($(this).val() == ''){$(this).val($(this).attr('label'));}
+    });
+    $('#tool-area #remind-me-frm #submit-btn').click(function(){
+      stop_frm = false;
+      $('#remind-me-frm input').each(function(){
+        if($(this).val() == $(this).attr('label')){
+          alert("Please ensure to enter your " + $(this).val());
+          stop_frm = true;
+          return false;
+        }
+        if($(this).hasClass('phone')){
+          if($(this).val() != parseInt($(this).val())){
+            alert('Please enter a valid numeric only phone number');
+          }
+        }
+
+      });
+
+           
+      if(!$('#email_reminder').is(':checked') && !$('#phone_reminder').is(':checked')){
+        alert("Please select how you would like to receive reminders");
+        stop_frm = false;
+        return false;
+      }
+
+      trapid_hiv_test = $('#rapid_hiv_test').attr('checked')=='checked'?1:0;
+
+      if(stop_frm){
+        return false;
+      }else{
+        $('#remind-me-frm').submit();
+      }
+      return false;
+    });
+    $('#tool-area #unsubscribe a').click(function(){
+      $('#unsubscribe_window').fadeIn();
+      return false;
+    });
+    $('#overlay').click(function(){
+      $('#unsubscribe_window').fadeOut();
+      return false;     
+    });
+    $('#close_window').click(function(){
+      $('#unsubscribe_window').fadeOut();
+      return false;     
+    });
+    $('#tool-area #unsubscribe-btn').click(function(){
+      $('#remind-unsub-frm').submit();
+      return false;
+    });
+  });
