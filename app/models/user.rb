@@ -26,7 +26,7 @@ class User
   field :bio,                       :type => String, :limit => 200
   field :website,                   :type => String, :limit => 200
   field :location,                  :type => String, :limit => 200
-  field :birthday,                  :type => Time
+  field :birthday,                  :type => Date
   field :user_age,                  :type => String
   field :date,                      :type => DateTime
   field :identity_url,              :type => String
