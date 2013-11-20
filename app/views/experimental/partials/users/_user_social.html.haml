@@ -38,6 +38,7 @@
 				.checkbox1
 					= f.check_box :hide_hiv_condition
 					Hide my HIV Condition to other users
+					= f.hidden_field :hidden_value, :value => "3"
 				%br
 				.checkbox1
 					= f.check_box :hide_country
@@ -54,6 +55,7 @@
 		.contact-section-bottom-button
 			= f.submit "Save", :class=>"contact-button contact-button-single", :id=> "align"
 	%br.clearer/
+= form_for (@user),:url=>{:action => "update"}, :html => {:class => "exp-contact-form", :multipart => true, :id => "edit-user-form"} do |f|	
 	.overview-wrapper#password_settings{:style =>"display:none"}
 		.overview-new
 			.left-panel     
