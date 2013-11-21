@@ -1,11 +1,9 @@
 class RemindMeController < ApplicationController
   
-
-
   def index
+    add_breadcrumb "RemindMe", 'RemindMe' 
     @remind_me = RemindMe.new
   end
-
 
   def create
   	@remind_me= RemindMe.create(params[:remind_me])
