@@ -27,7 +27,7 @@ every 8.minutes do
   command email
 end
 
-every 1.minutes do
+every :day, :at => '12:20am' do
   runner "RemindMe.send_reminders_method"
 end
 
