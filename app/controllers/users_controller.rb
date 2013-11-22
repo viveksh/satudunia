@@ -72,6 +72,15 @@ class UsersController < ApplicationController
     @user = User.new
     @user.preferred_languages = current_languages.to_a
     @user.timezone = AppConfig.default_timezone
+    @user_extra = "extra"
+    request.fullpath
+    unless session[:signup].present?
+      session[:sign_up_session] = "action_new"
+      redirect_to root_url()  
+    else
+      session[:sign_up_session].clear
+      session[:signup].clear
+    end 
   end
 
   def create
