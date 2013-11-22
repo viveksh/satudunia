@@ -200,8 +200,7 @@ class Experimental::ExperimentalController < ApplicationController
   # action dashboard ends here
   #action_social starts from here
   def social
-    @title="social login"
-    
+    @title="social login" 
   end
 
   #action_social ends here

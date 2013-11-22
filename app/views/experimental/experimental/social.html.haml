@@ -107,7 +107,10 @@
 				.janrain-sign-up{:style=>"display:none;"}
 					
 					- if params[:via]=="email"
-						%a.contact-button.contact-button-single{href: signup_path, title: "Sign up with email"} Next
+						
+						- session[:signup]="email"
+						- if session[:signup]
+							%a.contact-button.contact-button-single{href: signup_path, title: "Sign up with email"} Next 
 					- else
 						= link_to_rpx "Next", user_session_url,:html=>{:title=>"Sign up with Janrain",:class=>"contact-button contact-button-single"}
 	
