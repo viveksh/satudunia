@@ -1161,7 +1161,7 @@ form#search input {
 .textarea-wrapper{
   border-radius: 4px 4px 4px 4px;
   box-shadow: 0 0 0 2px rgba(16, 48, 68, 0.2) inset;
-  margin: -40px 0 0 63px;
+  margin: -57px 0 0 63px;
   padding: 2px;
   position: relative;
   width: 88% !important;
@@ -1226,6 +1226,7 @@ form#search input {
 
 .set-comment-area{
   width:526px !important;
+  height:33px;
 }
 
 .rating-news{
@@ -1294,7 +1295,7 @@ form#search input {
 .temp-post.btn{
   margin-bottom: -1px;
   text-align: right;
-  width: 528px;
+  width: 555px;
 }
 .create-question-button{
   margin-top:-60px;
@@ -1466,4 +1467,16 @@ width: 596px;}
   margin-left:-74px;
   margin-top:-105px;
 
+}
+#set-margin-item-tags{
+  margin-top:-22px;
+}
+
+#top-margin{
+  margin-top:-30px !important;
+}
+
+#change-call-button{
+  background:none repeat scroll 0 0 #E9E9E9;
+  border:1px solid #E0E0E0;
 }
