@@ -69,6 +69,7 @@ class UsersController < ApplicationController
 
   # render new.rhtml
   def new
+    
     @user = User.new
     @user.preferred_languages = current_languages.to_a
     @user.timezone = AppConfig.default_timezone
