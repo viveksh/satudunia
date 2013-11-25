@@ -265,7 +265,7 @@ class ApplicationController < ActionController::Base
     if session["from_admin_login"]
       admin_path
     else
-      if current_user.sign_in_count > 1
+      if current_user.sign_in_count == 1
         terms_condition_experimental_index_path
       else  
         settings_path
