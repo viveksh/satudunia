@@ -87,6 +87,7 @@ Rails.application.routes.draw do
       post :connect
       get :new_password
       get :change_question
+
     end
 
     member do
@@ -101,6 +102,7 @@ Rails.application.routes.draw do
       get :follows
       get :activity
       get :survey
+      
     end
   end
   # match 'towns' => 'towns#index'
@@ -121,6 +123,7 @@ Rails.application.routes.draw do
   end
 
   resources :remind_me
+
   
   get '/services-map/:country' =>"service_providers#country" , :as => :country_services_map
   match 'provider_validate' => "service_providers#provider_validate", :as => :provider_validate,:via =>[:post]
@@ -416,6 +419,7 @@ Rails.application.routes.draw do
         get :public_about,:path=>"/about"
         get :rss_feed,:path=>"rss"
         get :calculator
+        get :terms_condition
         # get :remind_me
         # post :create_remind_me
         get :terms
