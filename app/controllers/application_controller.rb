@@ -262,11 +262,15 @@ class ApplicationController < ActionController::Base
 
     # to redirect if login from admin template
     if session["from_admin_login"]
-      admin_path
+      admin_path 
     else
-      # questions_path
-      settings_path
+      if current_user.sign_in_count == 1
+        terms_condition_experimental_index_path
+      else  
+        settings_path
+      end    
     end
+  end
     
     # self.current_user.logged!(self.current_group)
     # if resource_or_scope.is_a? User
@@ -274,7 +278,7 @@ class ApplicationController < ActionController::Base
     # else
     #   super(resource_or_scope)
     # end
-  end
+
 
   def share_variables
     Thread.current[:current_group] = current_group

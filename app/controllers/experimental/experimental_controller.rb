@@ -92,6 +92,9 @@ class Experimental::ExperimentalController < ApplicationController
 
   end
 
+  def terms_condition
+  end
+
   # action for admin tab
   def show_member
     @caseVarible = params[:dataSend]

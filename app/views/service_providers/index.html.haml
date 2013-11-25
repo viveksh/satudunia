@@ -229,6 +229,9 @@
 	google.maps.event.addDomListener(window, 'load', mainMapFunction('#{raw services_array}'));
 	//searching by dropdown
 	jQuery(document).ready(function(jQ){
+	  setTimeout(function () {
+      jQ("#activity-filter-by").trigger('change');
+    }, 1000);
 		jQ("#activity-filter-by").on('change',function(){
 			var valueTaker = jQ('#activity-filter-by').val();
 			jQuery(".loader").addClass("ajax-loader");
