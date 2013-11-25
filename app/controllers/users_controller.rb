@@ -78,8 +78,12 @@ class UsersController < ApplicationController
       session[:sign_up_session] = "action_new"
       redirect_to root_url()  
     else
-      session[:sign_up_session].clear
-      session[:signup].clear
+      if session[:sign_up_session].present?
+        session[:sign_up_session].clear
+      end
+      if session[:signup].present?
+        session[:signup].clear
+      end  
     end 
   end
 
