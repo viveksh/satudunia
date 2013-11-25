@@ -101,6 +101,13 @@
                 %a{:href => '/login'}  
                   ="Login".html_safe
               -else
+                = link_to "Knowledgebase","#"
+
+            %li
+              - if current_user.nil?
+                //%a{:href => '/login'}  
+                //  ="Login".html_safe
+              -else
                 = link_to "Settings","#"
                 %ul
                   - if current_user.present?

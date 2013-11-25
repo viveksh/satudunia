@@ -264,7 +264,7 @@ class ApplicationController < ActionController::Base
     if session["from_admin_login"]
       admin_path
     else
-      questions_path
+      settings_path
     end
     
     # self.current_user.logged!(self.current_group)
