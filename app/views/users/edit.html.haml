@@ -54,7 +54,7 @@
 										year
 									-else
 										= user_age(@user)
-										-if user_age(@user).present?
+										-unless user_age(@user)=="unknown"
 											year
 									
 
