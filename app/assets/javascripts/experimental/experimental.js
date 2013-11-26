@@ -19,3 +19,5 @@
 //= require 'experimental/jquery.tipsy'  
 //= require 'experimental/addthis_widget.js'
 //= require 'experimental/turnsocialTooltip.js'
+//= require 'jquery.autosize.js'
+//= require 'jquery.autosize.min.js'

@@ -49,7 +49,10 @@
           = image_tag "plus/a2.png"
           %span
             Age:
-            = (Date.today.year)-(@user.birthday.year)
+            -if @user.birthday.present?
+              = (Date.today.year)-(@user.birthday.year)
+            -else
+              = user_age(@user)
             year
     -if params[:tab] == "1"
       #item-nav

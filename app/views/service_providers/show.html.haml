@@ -36,19 +36,19 @@
                 = link_to "#{@service_provider.url}"
 
     %br.clearer/
-    #item-header.qa-q-item-tags{:role=>"complementary"}
-      #item-header-avatar
-        %a{:style=>"float:left;"}
-          = image_tag(default_avatar_url('big'), :class=>"avatar")
-      #item-header-content
-        %h2
-          = @service_provider.name  
-        .user-nicename
-          %b Address: 
-          = @service_provider.address
-        .user-nicename
-          %b website: 
-          = link_to "#{@service_provider.url}"
+    / #item-header.qa-q-item-tags{:role=>"complementary"}
+    /   #item-header-avatar
+    /     %a{:style=>"float:left;"}
+    /       = image_tag(default_avatar_url('big'), :class=>"avatar")
+    /   #item-header-content
+    /     %h2
+    /       = @service_provider.name  
+    /     .user-nicename
+    /       %b Address: 
+    /       = @service_provider.address
+    /     .user-nicename
+    /       %b website: 
+    /       = link_to "#{@service_provider.url}"
   #tabs-frontpage
     .item-list-services
       %ul.tab-nav-ser.ui-tabs-nav

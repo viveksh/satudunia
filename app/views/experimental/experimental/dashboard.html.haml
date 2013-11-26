@@ -22,6 +22,7 @@
       .section-arrow
       / post by removed from here
     #item-header.qa-q-item-tags{:role=>"complementary"}
+    .overview-new
       #item-header-avatar
         %a{:style=>"float:left;"}
           -if @user.use_gravatar?
@@ -57,9 +58,14 @@
             = user_country(@user)
           %br
           = image_tag "plus/a2.png"
+          
           %span
-            Age: 
-            = user_age(@user)
+            Age:
+            -if @user.birthday.present?
+              = (Date.today.year)-(@user.birthday.year)
+            -else
+              = user_age(@user)
+            year
     #item-nav
       #object-nav.item-list-tabs{:id=>"firstElement"}
         %ul
