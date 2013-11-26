@@ -14,33 +14,25 @@
 					.catname
 						Privacy
 					.category-arrow
-				.checkbox1
-					The "
+				.checkbox1					
 					= f.check_box :hide_hiv_condition
-					Hide my HIV Condition to other users" should also be under HIV status field in the profile page.
-					/ = f.check_box :hide_hiv_condition
-					/ Hide my HIV Condition to other users
+					Hide my HIV Condition to other users, should also be under HIV status field in the profile page.
+					
 				%br
-				.checkbox1
-					The "
+				.checkbox1					
 					= f.check_box :hide_country
-					Hide my Country to other users" should also be under country field in the profile page.
-					/ = f.check_box :hide_country
-					/ Hide my Country to other users
+					Hide my Country to other users, should also be under country field in the profile page.
+					
 				%br
 				.checkbox1
-					The "
 					= f.check_box :hide_age
-					Hide my Age to other users" should also be under the Age field in the profile page.
-					/ = f.check_box :hide_age
-					/ Hide my Age to other users
+					Hide my Age to other users, should also be under the Age field in the profile page.
+					
 				%br
 				.checkbox1
-					The "
 					= f.check_box :hide_realname
-					Hide my Real Name to other users" should also be under the Last Name Field in the profile page.
-					/ = f.check_box :hide_realname
-					/ Hide my Real Name to other users
+					Hide my Real Name to other users, should also be under the Last Name Field in the profile page.
+					
 				%br
 		.contact-section-bottom-button
 			= f.submit "Save", :class=>"contact-button contact-button-single", :id=> "align"

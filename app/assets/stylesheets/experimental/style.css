@@ -4,7 +4,7 @@ css reset and general setup
 *************************************************/
 * { margin: 0; padding: 0; }
 body { font-family:Arial, Helvetica, sans-serif; background-color:#E1E1E1;
-	background:url("images/backgrounds/background-new.jpg") repeat scroll 0 0 rgba(0, 0, 0, 0); 
+	background:none repeat scroll 0 0 #FBFFC3; 
 	background-attachment: fixed; 
 	background-position:center top;
 	background-repeat: no-repeat;
