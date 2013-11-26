@@ -1,18 +1,18 @@
 
 .BW_contact.panel_wrapper.panel_wrapper_border
-  %span.icon
-  .inner_content
-    / .contact_holder
-    /   .contact_green
-    /     ="Contact Clinic"
-    .contact_holder{:style=>"margin-top:10px;"}
-      .contact-button.contact-button-single{:style=>"height:18px;width:159px;"}
-        ="Call to Click:" 
-        -if @service_provider.telephone.present? 
-          =@service_provider.telephone
-    %span.tel
-      %span.pseudoLink
-        ="Show numbers"
-    %span.adr.clinic_address
-      %span{:property=>"address"} 
-        =@service_provider.address
+	%span.icon
+	.inner_content
+		/ .contact_holder
+		/   .contact_green
+		/     ="Contact Clinic"
+		.contact_holder{:style=>"margin-top:10px;"}
+			.contact-button.contact-button-single{:style=>"height:auto;width:159px;"}
+				="Call to Click:" 
+				-if @service_provider.telephone.present? 
+					=@service_provider.telephone
+		%span.tel
+			%span.pseudoLink
+				="Show numbers"
+		.adr.clinic_address{:style=>"width:330px"}
+			%span{:property=>"address"} 
+				=@service_provider.address    

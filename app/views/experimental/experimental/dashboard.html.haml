@@ -66,9 +66,11 @@
 									Age: 
 									-if @user.birthday.present?
 										= (Date.today.year)-(@user.birthday.year)
+										year
 									-else
 										= user_age(@user)
-									year
+										-if user_age(@user).present?
+											year
 		#item-nav
 			#object-nav.item-list-tabs{:id=>"firstElement"}
 				%ul

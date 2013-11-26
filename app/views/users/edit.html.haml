@@ -50,12 +50,14 @@
 								%br
 								= image_tag "plus/a2.png", :class=> "shift-left-margin"
 								%span
-									Age:
+									Age: 
 									-if @user.birthday.present?
 										= (Date.today.year)-(@user.birthday.year)
+										year
 									-else
 										= user_age(@user)
-									year
+										-if user_age(@user).present?
+											year
 		-if params[:tab] == "1"
 			#item-nav
 				#object-nav.item-list-tabs{:id=>"firstElement"}
