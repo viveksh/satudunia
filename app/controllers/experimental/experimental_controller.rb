@@ -212,6 +212,9 @@ class Experimental::ExperimentalController < ApplicationController
     
   end
 
+  def terms_condition
+  end  
+
   #action_social ends here
 
   #action for dashboard
@@ -238,6 +241,8 @@ class Experimental::ExperimentalController < ApplicationController
       format.atom
     end
   end
+
+
   
 
 end

@@ -1,3 +1,4 @@
+
 .clearer.hide-responsive 
 %br.hide-responsive/
 .main-content-left
@@ -8,7 +9,9 @@
       .section-wrapper
         .section-header Profile Settings
       .section-arrow
+
     #item-header.qa-q-item-tags{:role=>"complementary"}
+    .overview-new
       #item-header-avatar
         %a{:style=>"float:left;"}
           -if @user.use_gravatar?
@@ -46,8 +49,8 @@
           = image_tag "plus/a2.png"
           %span
             Age:
-            = user_age(@user)
-
+            = (Date.today.year)-(@user.birthday.year)
+            year
     -if params[:tab] == "1"
       #item-nav
         #object-nav.item-list-tabs{:id=>"firstElement"}

@@ -31,8 +31,8 @@
           / = f.date_select :birthday, (:order = {:day, :month, :year})
           = f.date_select :birthday, {:order => [:day, :month, :year],:prompt => true, :start_year => 1960, :end_year => Time.now.year}, :class=>"birthday-select"
           %br
-          %br
-          = f.file_field :avatar
+          / %br
+          / = f.file_field :avatar
         #profile-details-section.register-section
           = f.label "Country"
           .select-text-adj

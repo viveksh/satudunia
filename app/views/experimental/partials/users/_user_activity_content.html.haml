@@ -36,7 +36,7 @@
 							.activity-header
 								%p
 									%a.view.activity-time-since
-										= pjax_link_to activity.user.display_name, "user", user_path(activity.user), :style=>"padding-left:15px"
+										= pjax_link_to activity.user.login, "user", user_path(activity.user), :style=>"padding-left:15px"
 										=# activity.humanize_action.capitalize
 									.show-activity
 										%a.view.activity-time-since{:href => "#", :title => "View Discussion"}
