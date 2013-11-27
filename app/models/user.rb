@@ -8,9 +8,9 @@ class User
   include MongoidExt::Storage
   include Shapado::Models::GeoCommon
   include Shapado::Models::Networks
-
+   #,:confirmable
   devise :database_authenticatable, :recoverable, :registerable, :rememberable,:rpx_connectable,
-         :lockable, :token_authenticatable, :encryptable, :trackable, :omniauthable, :encryptor => :restful_authentication_sha1
+         :lockable,:token_authenticatable, :confirmable, :encryptable, :trackable, :omniauthable, :encryptor => :restful_authentication_sha1
 
   ROLES = %w[user moderator admin]
   LANGUAGE_FILTERS = %w[any user] + AVAILABLE_LANGUAGES
@@ -66,6 +66,7 @@ class User
   field :following_count,           :type => Integer, :default => 0
   # rpx_identifire
   field :rpx_identifier,            :type=>String
+  field :confirmed_at,          :type => Time
 
   field :group_ids,                 :type => Array, :default => []
 
@@ -117,6 +118,7 @@ class User
 
   before_create :initialize_fields
   after_create :create_lists
+  
 
   before_create :generate_uuid
   after_create :update_anonymous_user
@@ -362,6 +364,10 @@ Time.zone.now ? 1 : 0)
   def openid_login?
     !self.auth_keys.blank? || (AppConfig.enable_facebook_auth && !facebook_id.blank?)
   end
+
+
+
+   
 
   def linked_in_login?
     user_info && !user_info["linked_in"].blank? && linked_in_id
@@ -983,6 +989,8 @@ Time.zone.now ? 1 : 0)
         self[:login]=rpx_user[:username] if rpx_user[:username]
       end
     end
-  end  
+  end 
+
+
 
 end
