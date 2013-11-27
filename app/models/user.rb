@@ -10,7 +10,7 @@ class User
   include Shapado::Models::Networks
 
   devise :database_authenticatable, :recoverable, :registerable, :rememberable,:rpx_connectable,
-         :lockable, :token_authenticatable, :encryptable, :trackable, :omniauthable, :encryptor => :restful_authentication_sha1
+         :lockable,:token_authenticatable, :confirmable, :encryptable, :trackable, :omniauthable, :encryptor => :restful_authentication_sha1
 
   ROLES = %w[user moderator admin]
   LANGUAGE_FILTERS = %w[any user] + AVAILABLE_LANGUAGES
@@ -33,6 +33,7 @@ class User
   index :identity_url
 
   field :facebook_profile_url,      :type => String
+  field :confirmed_at,              :type => Time
   field :linkedin_profile_url,      :type => String
   field :twitter_profile_url,       :type => String
   field :google_plus_profile_url,   :type => String
