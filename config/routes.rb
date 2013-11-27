@@ -7,6 +7,7 @@ require 'magent_web'
 Rails.application.routes.draw do
   
   resources :badge_comments
+  resources :feedback
 
   get "survey/index"
 
@@ -429,7 +430,7 @@ Rails.application.routes.draw do
         get :dashboard, :path=> "/profile/dashboard"
         get 'social/:via' => :social ,:as=> :social
         get :comments_rss
-
+        get :show_numbers_service
         # get :announce, :path=> "/announcements"
         # experimental routes
         get "*a", :to => "experimental#routing_error"
