@@ -7,6 +7,7 @@ require 'magent_web'
 Rails.application.routes.draw do
   
   resources :badge_comments
+  resources :feedback
 
   get "survey/index"
 
