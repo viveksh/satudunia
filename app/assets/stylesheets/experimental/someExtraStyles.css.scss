@@ -1489,68 +1489,26 @@ width: 596px;}
 	margin-left:10px;
 }
 /*Contact-box*/
-/*#contact-box h2  {
-  background: url("/images/icon-phone-blue.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
-  color: #3587BA;
-  padding: 0 0 0 35px;
-}
-
-#contact-box #box_white {
-  border: 0 none;
-  margin: -13px 20px -13px -31px;
-  padding: 0;
-  width: 576px;
-}
-#box_white {
-  background: none repeat scroll 0 0 #FFFFFF;
-  border: 1px solid #C9C9C9;
-  color: #333333;
-  font-size: 13px;
-  height: 100%;
-  min-height: 400px;
-}
-
-#contact-box .panel_wrapper_orange {
-  background: none repeat scroll 0 0 #F3D089;
-  border: 1px solid #C9C9C9;
-  margin-bottom: 20px;
-  padding: 10px;
-}
-
-#contact-box .phone_help {
-  clear: left;
-  font-size: 12px;
-  padding: 10px 0 5px;
-  text-align: center;
-}
-
-#contact-box .panel_wrapper {
-    background: none repeat scroll 0 0 #F0F0F0;
-    border: 1px solid #C9C9C9;
-    margin-bottom: 20px;
-    padding: 10px;
-}*/
-
 #contact-box#box_white {
-    border: 0 none;
-    margin: 10px 20px;
-    padding: 0;
-    width: 576px;
+		border: 0 none;
+		margin: 10px 20px;
+		padding: 0;
+		width: 576px;
 }
 #box_white {
-    background: none repeat scroll 0 0 #FFFFFF;
-    color: #333333;
-    font-size: 13px;
-    height: 100%;
-    min-height: 400px;
-    float: left;
-    width:538px;
+		background: none repeat scroll 0 0 #FFFFFF;
+		color: #333333;
+		font-size: 13px;
+		height: 100%;
+		min-height: 400px;
+		float: left;
+		width:538px;
 }
 
 #contact-box h2 {
-    background: none repeat scroll 0 center rgba(0, 0, 0, 0);
-    color: #000000;
-    font-size: 24px;
+		background: none repeat scroll 0 center rgba(0, 0, 0, 0);
+		color: #000000;
+		font-size: 24px;
 }
 
 
@@ -1562,154 +1520,150 @@ width: 596px;}
 
 
 #contact-box .panel_orange {
-    background: none repeat scroll 0 0 #F3D089;
-    border: 1px solid #C9C9C9;
-    margin-bottom: 20px;
-    padding: 10px;
+		background: none repeat scroll 0 0 #F3D089;
+		border: 1px solid #C9C9C9;
+		margin-bottom: 20px;
+		padding: 10px;
 }
 
 #contact-box .phone_help {
-    clear: left;
-    font-size: 12px;
-    padding: 10px 0 5px;
-    text-align: center;
+		clear: left;
+		font-size: 12px;
+		padding: 10px 0 5px;
+		text-align: center;
 }
 
 #contact-box .panel_wrapper {
-    background: none repeat scroll 0 0 #F0F0F0;
-    border: 1px solid #C9C9C9;
-    margin-bottom: 20px;
-    padding: 10px;
+		background: none repeat scroll 0 0 #F0F0F0;
+		border: 1px solid #C9C9C9;
+		margin-bottom: 20px;
+		padding: 10px;
 }
 
 #contact-box .panel_wrapper p {
-    color: #333333;
-    margin: 10px 0;
+		color: #333333;
+		margin: 10px 0;
 }
 
 #contact-box #tbComments {
-    height: 30px;
-    width: 415px;
+		height: 30px;
+		width: 415px;
 }
 .fields_input {
-    border: 1px solid #C9C9C9;
-    color: #333333;
-    font-size: 13px;
-    padding: 4px;
+		border: 1px solid #C9C9C9;
+		color: #333333;
+		font-size: 13px;
+		padding: 4px;
 }
 
-
-
 #contact-box .comment .number_left {
-    float: left;
-    margin: 5px 0;
-    padding-right: 19px;
-    width: 240px;
+		float: left;
+		margin: 5px 0;
+		padding-right: 19px;
+		width: 240px;
 }
 
 #contact-box .comment .number_right {
-    color: #333333;
-    float: left;
-    margin: 5px 0;
-    width: 165px;
+		color: #333333;
+		float: left;
+		margin: 5px 0;
+		width: 165px;
 }
 #contact-box .panel_wrapper .tandc {
-    color: #888888;
-    font-size: 10px;
-    margin: 0 0 5px;
-    width: 400px;
+		color: #888888;
+		font-size: 10px;
+		margin: 0 0 5px;
+		width: 400px;
 }
 
 .size0 {
-    color: #666666;
-    font-size: 9px;
-    font-weight: normal;
-    line-height: 10px;
+		color: #666666;
+		font-size: 9px;
+		font-weight: normal;
+		line-height: 10px;
 }
 #contact-box .btn_small {
-    height: auto;
+		height: auto;
 }
 #contact-box .button_tag {
-    float: left;
+		float: left;
 }
 a.button_tag:link, a.button_tag:visited, a.button_tag:active {
-    color: #443617;
-    font-size: 14px;
-    font-weight: bold;
-    text-decoration: none;
+		color: #443617;
+		font-size: 14px;
+		font-weight: bold;
+		text-decoration: none;
 }
 a:link, a:visited, a:active {
-    outline: 0 none;
+		outline: 0 none;
 }
 .btn_small {
-    background: linear-gradient(to bottom, #FBE4B1 5%, #DC9C16 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
-    border: 1px solid #CF9A2A;
-    border-radius: 3px;
-    box-shadow: 0 0 1px 1px #F6F6F6 inset;
-    clear: right;
-    cursor: pointer;
-    font-family: Arial;
-    text-align: center;
-    text-shadow: 0 1px 0 #FFFFFF;
-    width: 114px;
+		background: linear-gradient(to bottom, #FBE4B1 5%, #DC9C16 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+		border: 1px solid #CF9A2A;
+		border-radius: 3px;
+		box-shadow: 0 0 1px 1px #F6F6F6 inset;
+		clear: right;
+		cursor: pointer;
+		font-family: Arial;
+		text-align: center;
+		text-shadow: 0 1px 0 #FFFFFF;
+		width: 114px;
 }
 
 .button_tag {
-    padding: 8px 0;
+		padding: 8px 0;
 }
-
 
 #contact-box .phone_text .text_link {
-    cursor: pointer;
-    float: right;
-    text-align: center;
-    width: 165px;
+		cursor: pointer;
+		float: right;
+		text-align: center;
+		width: 165px;
 }
 
-
 #contact-box .phone_text .phone_number_holder > span {
-    display: block;
+		display: block;
 }
 #contact-box .phone_text .phone_number {
-    color: #333333;
-    font-size: 20px;
-    font-weight: bold;
+		color: #333333;
+		font-size: 20px;
+		font-weight: bold;
 }
 
 #contact-box .phone_text .phone_number_holder > span {
-    display: block;
+		display: block;
 }
 
 
 #contact-box .phone_text .phone_number_holder {
-    text-align: left;
-    width: 350px;
+		text-align: left;
+		width: 350px;
 }
 
 #contact-box h2 span {
-    background: url("/images/icon-phone-blue.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
-    color: #3587BA;
-    padding: 0 0 0 35px;
+		background: url("/images/icon-phone-blue.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+		color: #3587BA;
+		padding: 0 0 0 35px;
 }
 
-
 #contact-box .image_holder {
-    clear: right;
-    float: right;
-    margin: 8px 7px 0 0;
-    width: 126px;
+		clear: right;
+		float: right;
+		margin: 8px 7px 0 0;
+		width: 126px;
 }
 
 #contact-box .image_holder img {
-    height: 126px;
-    width: 126px;
-    margin-left: 25px;
+		height: 126px;
+		width: 126px;
+		margin-left: 25px;
 }
 
 .btn-style{
 	background: none repeat scroll 0 0 #EBBF62 !important;
-  border: medium none #EBBF62 !important;
-  height: 36px;
-  opacity: 1;
-  width: 107px;
+	border: medium none #EBBF62 !important;
+	height: 36px;
+	opacity: 1;
+	width: 107px;
 }
+/*Contact-box*/
