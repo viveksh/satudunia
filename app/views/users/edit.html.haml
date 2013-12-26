@@ -80,6 +80,11 @@
 							%a#user-social-profile{:href=>"javascript:void(0)",:user_id=>"#{@user.id}", :class=>"loader-adjust-profile"}
 								Social
 								.loader.show-inline
+						%li
+							%a#user-tier-profile{:href=>"/settings/profile-tiers",:user_id=>"#{@user.id}", :class=>"loader-adjust-profile"}
+								Tiers
+								.loader.show-inline
+
 			#subtabs
 				.activity_sub
 					= render "users/activity_subtabs"
@@ -117,6 +122,10 @@
 							%a#user-social-profile{:href=>"javascript:void(0)",:user_id=>"#{@user.id}", :class=>"loader-adjust-profile"}
 								Social
 								.loader.show-inline
+						%li
+							%a#user-tier-profile{:href=>"/settings/profile-tiers",:user_id=>"#{@user.id}", :class=>"loader-adjust-profile"}
+								Tiers
+								.loader.show-inline
 			#subtabs
 				.activity_sub
 					= render "users/activity_subtabs"
@@ -153,7 +162,11 @@
 						%li
 							%a#user-social-profile{:href=>"javascript:void(0)",:user_id=>"#{@user.id}", :class=>"loader-adjust-profile"}
 								Social
-								.loader.show-inline                                 
+								.loader.show-inline   
+						%li
+							%a#user-tier-profile{:href=>"/settings/profile-tiers",:user_id=>"#{@user.id}", :class=>"loader-adjust-profile"}
+								Tiers
+								.loader.show-inline                              
 			#subtabs
 				.activity_sub
 					= render "users/activity_subtabs"

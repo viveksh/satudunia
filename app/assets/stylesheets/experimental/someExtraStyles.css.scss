@@ -801,7 +801,8 @@ body { top: 0px !important; }
 }
 
 .bg2_1, #page4 .bg2_1 {
-		background: url("../plus/bg2_1.png") no-repeat scroll 0 0 transparent;
+		/*background: url("../plus/bg2_1.png") no-repeat scroll 0 0 transparent;*/
+		background:none repeat scroll 0 0 #868686;
 		min-height: 80px;
 		position: relative;
 		top: 0px;
@@ -826,7 +827,7 @@ form#search {
 		padding-top: 10px;
 		position: relative;
 }
-form#search input[value="What is your question?"] {
+form#search input[value="WHAT IS YOUR QUESTION?"] {
 		color: #000000;
 		font-family: Calibri;
 		font-size: 18px;

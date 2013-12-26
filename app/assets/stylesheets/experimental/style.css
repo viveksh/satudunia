@@ -261,7 +261,7 @@ a.selectBox {display:none !important;}
 header area
 *************************************************/
 #page-wrapper {width:1000px;margin:0px auto;}
-#logo-bar-wrapper {background-color:#CC3A00;
+#logo-bar-wrapper {background-color:#B23221;
 	 box-shadow: 0 5px 30px -5px;}
 #logo-bar-shadow {width:1000px;height:12px;background:url(images/logo-bar-shadow.png) repeat-x 0px 0px;}
 #logo-bar {padding:20px 20px 0px 30px;}
@@ -278,7 +278,7 @@ category menu
 select#select-menu-main-menu {display:none;}
 #menu-main-menu {width:910px;}
 .cat-menu #random-article {float:right;padding:10px 10px 0px 0px;}
-.cat-menu {width:1000px;margin:0px auto;float:left;background:#E15C01;  repeat-x 0px 0px;position:relative;z-index:30;border-top:1px solid #E15C01;}
+.cat-menu {width:1000px;margin:0px auto;float:left;background:#DA602B;  repeat-x 0px 0px;position:relative;z-index:30;border-top:1px solid #DA602B;}
 .cat-menu a.home-link {display:block;float:left;width:50px;height:38px;background:url(images/menu-home.png) no-repeat 24px 13px;}
 .cat-menu a.home-link:hover {background:url(images/menu-home.png) no-repeat 24px -26px;}
 .cat-menu ul {float:left;list-style-type:none;margin:0px;padding:0px;position:relative;z-index:99;margin-top:-1px;}
@@ -336,9 +336,9 @@ select#select-menu-main-menu {display:none;}
 .cat-menu ul li ul li.over > a > .sf-sub-indicator {background-position: -10px 0;}
 
 /*taxonomy menu*/
-.cat-menu.tax {height:38px;overflow:hidden;position:relative;z-index:20;background:#EE7A00 repeat-x 0px 0px;border-top:1px solid #EE7A00;}
+.cat-menu.tax {height:38px;overflow:hidden;position:relative;z-index:20;background:#F5A431 repeat-x 0px 0px;border-top:1px solid #F5A431;}
 .cat-menu.tax ul {padding-left:15px;}
-.cat-menu.tax ul li a {height:20px;font-size:12px;padding:6px 13px 9px 13px;margin-top:6px;border:none;text-transform:none;font-weight:normal;color:#CCC;}
+.cat-menu.tax ul li a {height:20px;font-size:15px;padding:6px 13px 9px 13px;margin-top:6px;border:none;text-transform:none;font-weight:normal;color:#FFFFFF;font-family: BebasNeueRegular;}
 .cat-menu.tax ul li:hover a, 
 .cat-menu.tax ul li.over a {background:none;}
 .cat-menu.tax ul li a:hover,
@@ -350,7 +350,7 @@ select#select-menu-main-menu {display:none;}
 don't miss
 *************************************************/	
 #dontmiss-bar {width:1006px;border-bottom:1px solid #DDD;background:url(images/dontmiss-slider-bg.jpg) no-repeat 0px 0px;height:68px;position:relative;margin-left:-6px;}
-#dontmiss-header {width:54px;height:45px;float:left;background:url(images/dontmiss-header-bg.jpg) no-repeat 0px 0px;padding:14px 10px 10px 20px;color:#C32C0D;text-transform:uppercase;font-size:20px;font-family:BebasNeueRegular, Arial, Sans-Serif;line-height:1em;border-left:1px solid #DDD;}
+#dontmiss-header {width:54px;height:45px;float:left;background:url(images/dontmiss-header-bg.jpg) no-repeat 0px 0px;padding:14px 10px 10px 20px;color:#868686;text-transform:uppercase;font-size:20px;font-family:BebasNeueRegular, Arial, Sans-Serif;line-height:1em;border-left:1px solid #DDD;}
 #dontmiss-arrow {width:11px;height:68px;background:url(images/dontmiss-arrow.png) no-repeat 0px 0px;float:left;position:absolute;left:84px;z-index:10;}
 .dontmiss {width:642px;position:relative;display:block;padding:0;margin:0;float:left;overflow:hidden;height:68px;}
 .dontmiss .panel {float:left;padding-right:20px;padding:14px 20px;}
