@@ -16,11 +16,11 @@
 						%a#back{:href=>"/profile/settings", :class=>"loader-adjust-set"}
 							Back
 							
-					%li
-						%a#Tier1{:href=>"javascript:void(0)",:data_send=>"profile", :class=>"loader-adjust-profile"}
+					%li.selected
+						%a#tier1{:href=>"javascript:void(0)",:data_send=>"profile", :class=>"loader-adjust-profile"}
 							Tier1
 							.loader.show-inline
-					%li.selected
+					%li
 						%a#tier2{:href=>"javascript:void(0)", :class=>"loader-adjust-profile"}
 							Tier2
 							.loader.show-inline
@@ -29,7 +29,7 @@
 							Tier3
 							.loader.show-inline
 					%li
-						%a#tier4{:href=>"/settings/profile-tiers", :class=>"loader-adjust-profile"}
+						%a#tier4{:href=>"javascript:void(0)", :class=>"loader-adjust-profile"}
 							Tier4
 							.loader.show-inline
 		#subtabs
@@ -40,6 +40,14 @@
 							%label{:for => "activity-filter-by"} Show:
 							%select#activity-filter-by
 								%option{:value => "all"} All
+					#activity_tab1
+						#members-dir-list.members.dir-list#activity_tab{:style =>"display:none"}
+							%ul#members-list.items-list
+								=# render "users/show/user_activity_content"
+						.review-content#user_profile_tab
+							=# render "users/edit"
+							/ %h1{:style=>"background:none; border:none"}
+							/   = link_to @user.display_name, user_path(@user)            
 									
 .sidebar
 	/login box
@@ -68,3 +76,21 @@
 	= render "experimental/partials/rating_box"
 	/banner box
 	= render "experimental/partials/banner_box"
+
+:javascript 
+	$(document).ready(function(){
+		$.ajax({
+			url: "/tier1_index"
+		});
+		//tabs click event
+		$("#tier1,#tier2,#tier3,#tier4").click(function(){
+			$.ajax({
+				url: "/"+$(this).attr('id')+"_index"
+			});      
+		});
+		jQuery("#object-nav_firstElement > ul > li").click(function(){
+			jQuery("#object-nav_firstElement > ul > li").removeClass('selected');
+			jQuery(this).addClass('selected');
+		});
+	});
+
