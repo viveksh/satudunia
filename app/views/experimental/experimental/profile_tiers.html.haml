@@ -1,0 +1,70 @@
+.clearer.hide-responsive  
+%br.hide-responsive/
+.main-content-left
+	.page-content.review.single-post
+		%link{:href => "http://www.industrialthemes.com/made/wp-content/uploads/2012/06/misc1-160x160.jpg", :rel => "image_src"}/
+		.review-content
+			.ribbon-shadow-left
+			.section-wrapper
+				.section-header
+					Profile Tiers
+			.section-arrow
+		#item-nav
+			#object-nav.item-list-tabs{:id=>"firstElement"}
+				%ul
+					%li
+						%a#back{:href=>"/profile/settings", :class=>"loader-adjust-set"}
+							Back
+							
+					%li
+						%a#Tier1{:href=>"javascript:void(0)",:data_send=>"profile", :class=>"loader-adjust-profile"}
+							Tier1
+							.loader.show-inline
+					%li.selected
+						%a#tier2{:href=>"javascript:void(0)", :class=>"loader-adjust-profile"}
+							Tier2
+							.loader.show-inline
+					%li
+						%a#tier3{:href=>"javascript:void(0)", :class=>"loader-adjust-profile"}
+							Tier3
+							.loader.show-inline
+					%li
+						%a#tier4{:href=>"/settings/profile-tiers", :class=>"loader-adjust-profile"}
+							Tier4
+							.loader.show-inline
+		#subtabs
+			.activity_sub_tabs
+				#subnav.item-list-tabs.no-ajax{:role => "navigation"}
+					%ul
+						%li#activity-filter-select.last
+							%label{:for => "activity-filter-by"} Show:
+							%select#activity-filter-by
+								%option{:value => "all"} All
+									
+.sidebar
+	/login box
+	- if current_user.nil?
+		/login box
+		= render "experimental/partials/login_box"
+	-else
+		/profile box
+		= render "experimental/partials/profile_box"
+
+	/ social login box
+	= render "experimental/partials/social_login_box"
+	/ member box
+	/ = render "experimental/partials/member_box"
+	/ left bar
+	= render "experimental/partials/left_bar"
+	/widget top
+	= render "experimental/partials/widget_top"
+	/ .clearer.hide-responsive
+	/ %br.clearer/
+	/ newly reviewd
+	/ = render "experimental/partials/newly_reviewed"
+	/popular box
+	= render "experimental/partials/popular_box"
+	/rating box
+	= render "experimental/partials/rating_box"
+	/banner box
+	= render "experimental/partials/banner_box"

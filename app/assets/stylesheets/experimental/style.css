@@ -261,7 +261,7 @@ a.selectBox {display:none !important;}
 header area
 *************************************************/
 #page-wrapper {width:1000px;margin:0px auto;}
-#logo-bar-wrapper {background-color:#B23221;
+#logo-bar-wrapper {background-color:#B82404;
 	 box-shadow: 0 5px 30px -5px;}
 #logo-bar-shadow {width:1000px;height:12px;background:url(images/logo-bar-shadow.png) repeat-x 0px 0px;}
 #logo-bar {padding:20px 20px 0px 30px;}
@@ -278,13 +278,13 @@ category menu
 select#select-menu-main-menu {display:none;}
 #menu-main-menu {width:910px;}
 .cat-menu #random-article {float:right;padding:10px 10px 0px 0px;}
-.cat-menu {width:1000px;margin:0px auto;float:left;background:#DA602B;  repeat-x 0px 0px;position:relative;z-index:30;border-top:1px solid #DA602B;}
+.cat-menu {width:1000px;margin:0px auto;float:left;background:#EB6623;  repeat-x 0px 0px;position:relative;z-index:30;border-top:1px solid #EB6623;}
 .cat-menu a.home-link {display:block;float:left;width:50px;height:38px;background:url(images/menu-home.png) no-repeat 24px 13px;}
 .cat-menu a.home-link:hover {background:url(images/menu-home.png) no-repeat 24px -26px;}
 .cat-menu ul {float:left;list-style-type:none;margin:0px;padding:0px;position:relative;z-index:99;margin-top:-1px;}
 .cat-menu div.menu { float:left; }
 .cat-menu ul li {float:left;padding:0px;margin:0px;position:relative;padding:0px;}
-.cat-menu ul li a {display:block;padding:14px 12px 10px 12px;text-align:center;font-size:13px;height:19px;color:#FFF;font-weight:bold;border-top:1px solid #E75903;}
+.cat-menu ul li a {display:block;padding:14px 12px 10px 12px;text-align:center;font-size:20px;height:19px;color:#FFF;font-weight:normal;border-top:1px solid #E75903;font-family:BebasNeueRegular;}
 .cat-menu ul li a:hover, 
 .cat-menu ul li.current-menu-item a,
 .cat-menu ul li.current_page_item a, 
@@ -336,9 +336,9 @@ select#select-menu-main-menu {display:none;}
 .cat-menu ul li ul li.over > a > .sf-sub-indicator {background-position: -10px 0;}
 
 /*taxonomy menu*/
-.cat-menu.tax {height:38px;overflow:hidden;position:relative;z-index:20;background:#F5A431 repeat-x 0px 0px;border-top:1px solid #F5A431;}
+.cat-menu.tax {height:38px;overflow:hidden;position:relative;z-index:20;background:#FFA200 repeat-x 0px 0px;border-top:1px solid #FFA200;}
 .cat-menu.tax ul {padding-left:15px;}
-.cat-menu.tax ul li a {height:20px;font-size:15px;padding:6px 13px 9px 13px;margin-top:6px;border:none;text-transform:none;font-weight:normal;color:#FFFFFF;font-family: BebasNeueRegular;}
+.cat-menu.tax ul li a {height:20px;font-size:20px;padding:6px 13px 9px 13px;margin-top:6px;border:none;text-transform:none;font-weight:normal;color:#FFFFFF;font-family: BebasNeueRegular;}
 .cat-menu.tax ul li:hover a, 
 .cat-menu.tax ul li.over a {background:none;}
 .cat-menu.tax ul li a:hover,
