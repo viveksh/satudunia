@@ -31,7 +31,7 @@ class ApplicationController < ActionController::Base
   before_filter :check_mobile_logout
   before_filter :get_service_providers
   before_filter :get_tags_and_questions
-  before_filter :check_user_terms
+  before_filter :check_user_terms,:except=>[:terms_condition]
 
 
   has_mobile_fu :mobile_enabled
