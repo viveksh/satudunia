@@ -31,6 +31,7 @@ class ApplicationController < ActionController::Base
   before_filter :check_mobile_logout
   before_filter :get_service_providers
   before_filter :get_tags_and_questions
+  before_filter :check_user_terms
 
 
   has_mobile_fu :mobile_enabled
@@ -337,6 +338,14 @@ class ApplicationController < ActionController::Base
   def login_breadcrumb
     if params[:controller]=="devise/sessions" && params[:action]=="new"
       add_breadcrumb "login", "login"    
+    end
+  end
+  def check_user_terms
+    if current_user
+      if current_user.accept_terms.nil?
+        flash[:notice] = "Please answered the consent form"
+        redirect_to terms_condition_experimental_index_path and return
+      end
     end
   end
 end
