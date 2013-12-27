@@ -11,6 +11,7 @@ class Tier6Controller < ApplicationController
     else
       @profile_tier6 = ProfileTier6.new
     end
+    render :layout=>false if request.xhr?
   end
 
   def create

@@ -19,7 +19,7 @@ class User
   identity :type => String
   field :login,                     :type => String, :limit => 40
   index :login
-
+  field :accept_terms,              :type => String
   field :name,                      :type => String, :limit => 100, :default => '', :null => true
   field :first_name,                :type => String, :limit => 100, :default => '', :null => true
   field :last_name,                 :type => String, :limit => 100, :default => '', :null => true

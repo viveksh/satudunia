@@ -88,7 +88,6 @@ Rails.application.routes.draw do
       post :connect
       get :new_password
       get :change_question
-
     end
 
     member do
@@ -103,7 +102,6 @@ Rails.application.routes.draw do
       get :follows
       get :activity
       get :survey
-      
     end
   end
   # match 'towns' => 'towns#index'
@@ -122,9 +120,6 @@ Rails.application.routes.draw do
       post :send_contact_us
     end
   end
-
-  resources :remind_me
-
   
   get '/services-map/:country' =>"service_providers#country" , :as => :country_services_map
   match 'provider_validate' => "service_providers#provider_validate", :as => :provider_validate,:via =>[:post]
@@ -410,7 +405,14 @@ Rails.application.routes.draw do
     end
     resources :users, :path=>"/members"
   end
-
+  match 'tier1_index'=>"tier1#tier1_index",:controller=>:tier1,:as=>'tier1_index'
+  match 'tier2_index'=>"tier2#tier2_index",:controller=>:tier2,:as=>'tier2_index'
+  match 'tier3_index'=>"tier3#tier3_index",:controller=>:tier3,:as=>'tier3_index'
+  match 'tier4_index'=>"tier4#tier4_index",:controller=>:tier4,:as=>'tier4_index'
+  # match 'tier5_index'=>"tier5#tier5_index",:controller=>:tier5,:as=>'tier5_index'
+  # match 'tier6_index'=>"tier6#tier6_index",:controller=>:tier6,:as=>'tier6_index'
+  # match 'tier7_index'=>"tier7#tier7_index",:controller=>:tier7,:as=>'tier7_index'
+  root :to => 'experimental/experimental#index_experimental'
    # experimetal routes
   scope :module => "experimental" do
     resources :experimental, :path => "/" do
@@ -419,10 +421,7 @@ Rails.application.routes.draw do
         get :index_experimental,:path=>"/index1"
         get :public_about,:path=>"/about"
         get :rss_feed,:path=>"rss"
-        get :calculator
         get :terms_condition
-        # get :remind_me
-        # post :create_remind_me
         get :terms
         get :faq
         get :partners
@@ -437,16 +436,19 @@ Rails.application.routes.draw do
         get :dashboard, :path=> "/profile/dashboard"
         get 'social/:via' => :social ,:as=> :social
         get :comments_rss
+        get :show_numbers_service
+        get :profile_tiers, :path=>"/settings/profile-tiers"
         # get :announce, :path=> "/announcements"
         # experimental routes
         get "*a", :to => "experimental#routing_error"
+        
       end
     end
   end 
   match '/moderate' => 'moderate/questions#index'
 #   match '/search' => 'searches#index', :as => :search
   match '/about' => 'groups#show', :as => :about
-  root :to => 'experimental/experimental#index'
+  
   #match '/:controller(/:action(/:id))'
   match '*a', :to => 'public_errors#routing'
 

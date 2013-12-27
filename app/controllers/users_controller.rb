@@ -279,12 +279,22 @@ class UsersController < ApplicationController
     end
   end
 
-  def edit
+  def edit   
+    if params[:user]
+      if params[:user][:accept_terms]
+        current_user.accept_terms="true"
+        current_user.save
+      end
+    end 
+    if current_user.accept_terms.nil?
+      flash[:notice] = "Please answered the consent form"
+      redirect_to terms_condition_experimental_index_path and return
+    end
     add_breadcrumb "Profile Settings", 'settings'
     @body_id = "page3"
     @user = current_user
     @user.timezone = AppConfig.default_timezone if @user.timezone.blank?
-    @resources= @user.activities.page(params["page"]) 
+    @resources= @user.activities.page(params["page"])     
     respond_to do |format|
       format.html
       format.js{render "/experimental/experimental/ajax_entry"}
