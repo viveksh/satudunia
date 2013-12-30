@@ -846,7 +846,7 @@ form#search input {
 		min-height: 12px;
 		overflow: hidden;
 		padding: 10px 0 10px 7px;
-		width: 600px;
+		width: 555px;
 }
 .search-btn {
 		cursor: pointer;
@@ -1684,4 +1684,9 @@ h3#change-fonts {
 }
 #featured-short .title{
 	border-right: 2px solid #868686;
+}
+
+/*news-letter*/
+#dontmiss.dontmiss {
+    width: 596px;
 }

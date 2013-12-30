@@ -358,7 +358,7 @@ don't miss
 .dontmiss .panel .title {float:left;padding:0px 0px 0px 14px;max-width:200px;}
 .dontmiss .panel .title a {color:#777;font-family:ProcionoRegular, Georia, serif;font-size:.8em;}
 .dontmiss .panel .title a:hover {color:#888;}
-#dontmiss-email {float:left;width:250px;height:55px;border-left:1px solid #DDD;background:url(images/dontmiss-email-bg.jpg) no-repeat 0px 0px;padding:7px 10px 6px 18px;color:#888;font-size:.9em;}
+#dontmiss-email {float:left;width:296px;height:55px;border-left:1px solid #DDD;background:url(images/dontmiss-email-bg.jpg) no-repeat 0px 0px;padding:7px 10px 6px 18px;color:#888;font-size:.9em;}
 #dontmiss-email h3 {font-size:1em;font-family:ProcionoRegular, Georia, serif;}
 /*feedburner subscribe*/
 .signup .email-wrapper {overflow:hidden;height:28px;border:1px solid #DFDFDF;background:#FFF;width:154px;padding:0px 0px 0px 4px;float:left;border-right:0px;-moz-border-radius-topleft: 4px;border-top-left-radius: 4px;-moz-border-radius-bottomleft: 4px;border-bottom-left-radius: 4px;}
