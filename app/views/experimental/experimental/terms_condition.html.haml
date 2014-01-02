@@ -13,25 +13,25 @@
 					/ making title stronger
 					.section-for-header
 						/%i.icon-vcard
-						Research
+						RESEARCH : INFORMATION SHEET AND CONSENT FORM
 		=form_for current_user, :url=>settings_path do |f|
 			.overview-wrapper
-				.overview-new.nopadding-top.padding-about
+				.overview-new.nopadding-top.padding-about#change-color
 					.excerpt-new1.justify-content.nopadding-top
 						#tool-area
 							#top-text
+								
 								%br/
-								%br/
-								%h3 Research
-								%br/
-
-								%p B-Change Foundation is currently undertaking a research project to better understand how users use andengage with PLUS. 
+								%h2 Research : Information Sheet And Consent Form
+								/ %br/
+								/ %br/
+								%p B-Change Foundation is currently undertaking a research project to better understand how users use and engage with PLUS. 
 
 								%p  The study is being conducted by researchers Benjamin Hanckel, Associate Professor Alan Morris, Laurindo Garcia, Professor Eric Manalastas, Mikael Navarro, Dan Wohlfeiler, Glenn-Milo Santos, Darrin Adams and Associate Professor Kane Race who are interested in exploring the role of technology in community development programs. The results of the study will be shared with PLUS users.
 
 								%p  By ticking ‘I agree’ below:
 								%ul{:style=>"list-style:circle;font-size: 15px;color: #000000;"}
-									%li You give permission for these researchers to collect information about you from PLUS. All information collected will be de-identified (ie. made anonymous).The results of the study may be published by one of these researchers in a form that will not identify you in any way.
+									%li You give permission for these researchers to collect information about you from PLUS. All information collected will be de-identified (ie. made anonymous). The results of the study may be published by one of these researchers in a form that will not identify you in any way.
 									%li
 										You can withdraw your participation from this research project at any time, without consequence, and without giving a reason(you can do this by changing the settings in your profile).
 
@@ -43,7 +43,7 @@
 									//No Thankyou
 		.contact-section-bottom-button{:style=>"z-index:500; margin-top:0px !important; display:none"} 
 			.janrain-sign-up{:style=>"display:none;"}
-				%a.contact-button.contact-button-single{href: '#', title: "Next"} Next
+				%a.contact-button.contact-button-single{href: '#', title: "Next"} Continue
 	%br.clearer/
 /side bar
 .sidebar

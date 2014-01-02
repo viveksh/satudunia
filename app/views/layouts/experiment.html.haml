@@ -126,7 +126,7 @@
 						/ Login drop ends
 						%li
 							/ - if current_user.present?
-							= link_to "Knowledge Base","#"
+							= link_to "Knowledge Base","http://being-me.net/wiki/Main_Page"
 					%select#select-menu-main-menu
 						%option Category Navigation
 						%option{:value => "archive-a.html"} Layouts
@@ -146,7 +146,7 @@
 						%option{:value => "review-directory-a.html"} Review Directory layout A
 						%option{:value => "review-directory-b.html"} Review Directory layout B
 					#random-article
-						%a{:href => experimental_index_path, :title => "Random Article"}
+						%a{:href => "#", :title => "Random Article"}
 							%img{:alt => "Random Article", :src => "/assets/experimental/images/random-article.png"}/
 				%br.clearer.hide-responsive-small/
 				.cat-menu.tax

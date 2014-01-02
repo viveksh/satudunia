@@ -93,6 +93,8 @@ class Experimental::ExperimentalController < ApplicationController
   end
 
   def terms_condition
+    add_breadcrumb "Profile", "settings"
+    add_breadcrumb "Participate in Research", "participate-research"
   end
 
   # action for admin tab
@@ -163,6 +165,7 @@ class Experimental::ExperimentalController < ApplicationController
   end
   #ERROR PAGE FOR EXPERIMENTAL
   def routing_error
+    add_breadcrumb "404 Page not found","routing_error"
     if params[:query]!="" && params[:query].present?
       @questions_search = Question.where(:title=> /#{params[:query]}/i)
       @answers_search = Answer.where(:body=> /#{params[:query]}/i)

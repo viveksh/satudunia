@@ -2,6 +2,10 @@
   .page-content.review.single-post
     %link{:href => "http://www.industrialthemes.com/made/wp-content/uploads/2012/06/misc1-160x160.jpg", :rel => "image_src"}/
     .review-content
+      .show-category
+        .show-catname
+          Tier 2
+        .show-category-arrow
       .content-panel
         .the-content.justify-content
           = form_for @profile_tier2, :url => {:controller => :tier2, :action => :create},:html => {:class => "exp-contact-form"}, :method => :post,:remote=>true do |f|
@@ -94,8 +98,9 @@
               = f.label "What is one humorous or odd thing about your life with HIV?", :class=>"label"
             = f.text_area :odd_about_hiv, :disabled => @is_disable , :rows=>5, :style => "width: 580px",:class=>"textarea"
             %p
-            - unless @is_disable
-              = link_to "<i class='icon-check'></i>Submit".html_safe, "javascript:void(0)", :class => "submit-button", :id => "ask_question_link", :style => "margin-bottom: 10px;"
+            .contact-section-bottom-button#set-left-margin
+              - unless @is_disable
+                = link_to "<i class='icon-check'></i>Submit".html_safe, "javascript:void(0)", :class => "submit-button", :id => "ask_question_link", :style => "margin-bottom: 10px;margin-left: 540px;"
 :javascript
   jQuery("#ask_question_link").click(function (){
     jQuery("#new_profile_tier2,#edit_profile_tier2").submit();
