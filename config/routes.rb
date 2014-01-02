@@ -421,7 +421,7 @@ Rails.application.routes.draw do
         get :index_experimental,:path=>"/index1"
         get :public_about,:path=>"/about"
         get :rss_feed,:path=>"rss"
-        get :terms_condition
+        get :terms_condition, :path=> "/profile/participate-research"
         get :terms
         get :faq
         get :partners
@@ -437,7 +437,7 @@ Rails.application.routes.draw do
         get 'social/:via' => :social ,:as=> :social
         get :comments_rss
         get :show_numbers_service
-        get :profile_tiers, :path=>"/settings/profile-tiers"
+        get :profile_tiers, :path=>"/profile/tiers"
         # get :announce, :path=> "/announcements"
         # experimental routes
         get "*a", :to => "experimental#routing_error"

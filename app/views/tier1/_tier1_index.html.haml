@@ -2,8 +2,11 @@
   .page-content.review.single-post
     %link{:href => "http://www.industrialthemes.com/made/wp-content/uploads/2012/06/misc1-160x160.jpg", :rel => "image_src"}/
     .review-content
-      .section-arrow
       / post by removed from here
+      .show-category
+        .show-catname
+          Tier1
+        .show-category-arrow
       .content-panel
         .the-content.justify-content
           = form_for @profile_support, :url => {:controller => :tier1, :action => :create},:html => {:class => "exp-contact-form"}, :method => :post,:remote=>true do |f|
@@ -208,8 +211,10 @@
                     = check_box_tag("profile_support[languages][]", "Français", false, :class=> "text_field", :disabled => @is_disable)
                     Français
             %br
-            - unless @is_disable
-              = link_to "<i class='icon-check'></i>Submit".html_safe, "javascript:void(0)", :class => "submit-button", :id => "ask_question_link", :style => "margin-bottom: 10px;"
+            .contact-section-bottom-button#set-left-margin
+
+              - unless @is_disable
+                = link_to "<i class='icon-check'></i>Submit".html_safe, "javascript:void(0)", :class => "submit-button", :id => "ask_question_link", :style => "margin-bottom: 10px;margin-left: 540px;"
 .sidebar
   - if current_user.nil?
     /login box

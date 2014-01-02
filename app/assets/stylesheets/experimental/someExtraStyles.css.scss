@@ -1649,3 +1649,42 @@ a:link, a:visited, a:active {
   opacity: 1;
   width: 107px;
 }
+
+
+
+ /*show-category-arrow*/
+.show-category{
+	background: none repeat scroll 0 0 #FFFFFF;
+  border-color: #CCCCCC -moz-use-text-color #CCCCCC #CCCCCC;
+  border-image: none;
+  border-style: solid none solid solid;
+  border-width: 1px 0 1px 1px;
+  bottom: 0;
+  color: #111111;
+  display: inline-block;
+  font-family: BebasNeueRegular,Arial,Sans-Serif;
+  font-size: 1.3em;
+  left: -20px;
+  margin: 5px 0 15px;
+  position: relative;
+  z-index: 9;
+}
+
+.show-catname{
+	float: left;
+  margin: 6px 15px 0 20px;
+}
+
+.show-category-arrow{
+	background: url("images/featured-arrow.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+  float: left;
+  height: 32px;
+  margin-right: -10px;
+  margin-top: -1px;
+  width: 11px;
+}
+
+#set-left-margin{
+	margin-left:-25px!important;
+	margin-top:10px;
+}

@@ -8,6 +8,8 @@ class UsersController < ApplicationController
 
   before_filter :check_signup_type, :only => [:new]
   before_filter :track_pageview
+
+  before_filter :check_user_terms,only: :edit
   
   # add_breadcrumb "Home", :root_path
   tab_config = [[:newest, [:created_at, Mongo::DESCENDING]],
@@ -286,10 +288,10 @@ class UsersController < ApplicationController
         current_user.save
       end
     end 
-    if current_user.accept_terms.nil?
-      flash[:notice] = "Please answered the consent form"
-      redirect_to terms_condition_experimental_index_path and return
-    end
+    # if current_user.accept_terms.nil?
+    #   flash[:notice] = "Please answer the consent form"
+    #   redirect_to terms_condition_experimental_index_path and return
+    # end
     add_breadcrumb "Profile Settings", 'settings'
     @body_id = "page3"
     @user = current_user
