@@ -3,7 +3,6 @@
 #main-wrapper-dark
   .main-content-left
     .page-content.review.single-post
-      %link{:href => "http://www.industrialthemes.com/made/wp-content/uploads/2012/06/misc1-160x160.jpg", :rel => "image_src"}/
       .review-content
         .ribbon-shadow-left
         .section-wrapper
@@ -26,7 +25,7 @@
       .item-list-tabs.activity-type-tabs{:role => "navigation"}
         %ul
           %li#members-order-select.selected
-            %a{:href => "http://www.industrialthemes.com/made/activity/", :title => "The public activity for everyone on this site.", :class=>"loader-adjust"}
+            %a{:class=>"loader-adjust"}
               All Badges
               %span= @badges.count
               .loader.show-inline
@@ -74,13 +73,13 @@
     - if current_user
       .main-content-left
         .page-content.review.single-post
-          %link{:href => "http://www.industrialthemes.com/made/wp-content/uploads/2012/06/misc1-160x160.jpg", :rel => "image_src"}/
           .review-content
             .ribbon-shadow-left
             .section-wrapper
               .section
                 .comment-bubble
-                  %a{:title => "Comment on Made Magazine Is The First Responsive Theme Released By IndustrialThemes"} #{@badge_comments.count}
+                  %a
+                    #{@badge_comments.count}
 
 
                 / making title stronger
@@ -109,7 +108,6 @@
     %br.clearer/
     .main-content-left
       .page-content.review.single-post
-        %link{:href => "http://www.industrialthemes.com/made/wp-content/uploads/2012/06/misc1-160x160.jpg", :rel => "image_src"}/
         .review-content
           .ribbon-shadow-left
           .section-wrapper

@@ -6,14 +6,14 @@
     .item-list-tabs.activity-type-tabs{:role => "navigation"}
       %ul
         %li#activity-all.selected
-          %a{:href => "http://www.industrialthemes.com/made/activity/", :title => "The public activity for everyone on this site."}
+          %a
             All Members
             %span 96
     / .item-list-tabs
     #subnav.item-list-tabs.no-ajax{:role => "navigation"}
       %ul
         %li.feed
-          %a{:href => "http://www.industrialthemes.com/made/activity/feed/", :title => "RSS Feed"} RSS
+          %a{:href => rss_feed_experimental_index_path ,:title => "RSS Feed"} RSS
         %li#activity-filter-select.last
           %label{:for => "activity-filter-by"} Show:
           %select#activity-filter-by

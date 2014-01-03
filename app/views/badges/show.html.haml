@@ -1,32 +1,31 @@
 .clearer.hide-responsive  
 %br.hide-responsive/
 .main-content-left
-	.page-content.review.single-post
-		%link{:href => "http://www.industrialthemes.com/made/wp-content/uploads/2012/06/misc1-160x160.jpg", :rel => "image_src"}/
-		.review-content
-			.ribbon-shadow-left
-			.section-wrapper
-				.section-header
-					Badges
-			.section-arrow
-			.overview-wrapper
-				.overview-new.nopadding-top.padding-about
-					.content-panel
-						.the-content
-							/ old plus content
-							%h2
-								= render :partial => "badges/badge", :object => @badge, :locals => {:hide_user => true}
-							%p
-								= @badge.description
-							.counter
-								%p
-									%b
-										=@badges.total_count
-									=t(".description")
-								-@users.each do |user|
-									= render :partial => "user", :object => user, :locals => {:badge => @badge}
+  .page-content.review.single-post 
+    .review-content
+      .ribbon-shadow-left
+      .section-wrapper
+        .section-header
+          Badges
+      .section-arrow
+      .overview-wrapper
+        .overview-new.nopadding-top.padding-about
+          .content-panel
+            .the-content
+              / old plus content
+              %h2
+                = render :partial => "badges/badge", :object => @badge, :locals => {:hide_user => true}
+              %p
+                = @badge.description
+              .counter
+                %p
+                  %b
+                    =@badges.total_count
+                  =t(".description")
+                -@users.each do |user|
+                  = render :partial => "user", :object => user, :locals => {:badge => @badge}
 
-							=paginate @badges
+              =paginate @badges
 
 
 /side bar

@@ -19,7 +19,9 @@
                 - unless Question.where(:tags =>tags[0]).blank?
                   .rating-wrapper.small 
                     .number.color4 7.4
-                = link_to title,question_path(title.downcase.gsub(" ","-"))
+                  = link_to title,question_path(title.downcase.gsub(" ","-"))
+                -else
+                  = title
                 %br.clearer/
               %li.last
         #tabs-compact-tag1.tabdiv
@@ -29,7 +31,9 @@
                 - unless Question.where(:tags =>tags[1]).blank?
                   .rating-wrapper.small 
                     .number.color4 7.4
-                = link_to title,question_path(title.downcase.gsub(" ","-"))
+                  = link_to title,question_path(title.downcase.gsub(" ","-"))
+                -else
+                  = title
                 %br.clearer/
               %li.last
         #tabs-compact-tag2.tabdiv
@@ -39,6 +43,8 @@
                 - unless Question.where(:tags =>tags[2]).blank?
                   .rating-wrapper.small 
                     .number.color4 7.4
-                = link_to title,question_path(title.downcase.gsub(" ","-"))
+                  = link_to title,question_path(title.downcase.gsub(" ","-"))
+                -else
+                  = title
                 %br.clearer/
               %li.last

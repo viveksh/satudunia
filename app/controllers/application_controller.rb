@@ -268,12 +268,17 @@ class ApplicationController < ActionController::Base
     else
       if current_user.sign_in_count == 1
         terms_condition_experimental_index_path
-      else  
-        settings_path
+      
+      else 
+        if current_user.accept_terms.nil?
+          flash[:notice] = "Please answer the consent form"
+          terms_condition_experimental_index_path
+        else 
+          settings_path
+        end
       end    
     end
-      
-    end
+  end
     
     # self.current_user.logged!(self.current_group)
     # if resource_or_scope.is_a? User

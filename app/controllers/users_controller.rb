@@ -284,14 +284,11 @@ class UsersController < ApplicationController
   def edit   
     if params[:user]
       if params[:user][:accept_terms]
-        current_user.accept_terms="true"
+        current_user.accept_terms= params[:user][:accept_terms]
         current_user.save
+        flash[:notice] = "Thank you for participating in our research"
       end
     end 
-    # if current_user.accept_terms.nil?
-    #   flash[:notice] = "Please answer the consent form"
-    #   redirect_to terms_condition_experimental_index_path and return
-    # end
     add_breadcrumb "Profile Settings", 'settings'
     @body_id = "page3"
     @user = current_user
@@ -307,7 +304,6 @@ class UsersController < ApplicationController
   def update
 
     # checking for gravatar
-
     @paramsUpdated = params[:user]
     # to push value of gravatar to true
     if (params[:user].has_key?(:avatar))
