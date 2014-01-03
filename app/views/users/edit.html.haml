@@ -30,7 +30,8 @@
 								Website:
 								= link_to @user.website, @user.website
 							.user-nicename
-								/ = link_to "<span>HIV Status: #{user_hiv_condition(@user)}</span>".html_safe, "#", :class => "qwest_tag1"
+								%span
+									HIV Status: #{user_hiv_condition(@user)}
 								=# link_to "<span>Edit Profile</span>".html_safe, settings_path, :class => "qwest_tag15"
 							/ .extra-tags
 							/   - unless @user.profile_tiers.blank?

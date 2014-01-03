@@ -31,9 +31,10 @@
 							.item-meta
 								=link_to "<i class='icon-star'></i>Admin".html_safe,admin_path
 						.item-meta{:style => "padding-left: 125px;"}
-							=link_to "<i class='icon-logout'></i>Signout".html_safe,destroy_user_session_path
-						.item-meta{:style => "padding-left: 125px;"}
 							=link_to "<i class='icon-newspaper'></i>Participate Research".html_safe,terms_condition_experimental_index_path
+						.item-meta{:style => "padding-left: 125px;"}
+							=link_to "<i class='icon-logout'></i>Signout".html_safe,destroy_user_session_path
+						
 	:javascript
 		jQuery(".avatar").error(function () {
 			jQuery(this).unbind("error").attr("src", "#{local_path_experimental}member.jpeg");
