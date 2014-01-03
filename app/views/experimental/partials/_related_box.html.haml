@@ -31,7 +31,7 @@
 						- if article.has_article_image?
 							=# image_tag news_image_path(news,"small"), :height => 70,:width=>100, :alt => news.slug
 						-else
-							%img{:alt => "misc2", :height => "70", :src => "../experimental/images/misc2-110x70.jpg", :style => "opacity: 1;", :width => "110"}/         
+							%img{:alt => "misc2", :height => "70", :src => "http://www.industrialthemes.com/made/wp-content/uploads/2012/06/misc2-110x70.jpg", :style => "opacity: 1;", :width => "110"}/         
 					/ %a.post-title{:href => "single-review-numbers.html"} Coffee Common: Bringing Coffee Power to the People
 					= link_to truncate(strip_tags(article.article_title.capitalize),:length=>70), "#",:class=>"post-title"
 				- if index%2 != 0
@@ -56,7 +56,7 @@
 						- if news.has_news_image?
 							= image_tag news_image_path(news,"small"), :height => 70,:width=>100, :alt => news.slug
 						-else
-							%img{:alt => "misc2", :height => "70", :src => "../experimental/images/misc2-110x70.jpg", :style => "opacity: 1;", :width => "110"}/           
+							%img{:alt => "misc2", :height => "70", :src => "http://www.industrialthemes.com/made/wp-content/uploads/2012/06/misc2-110x70.jpg", :style => "opacity: 1;", :width => "110"}/           
 					/ %a.post-title{:href => "single-review-numbers.html"} Built On The Swagger Framework, Made Is Rock-Solid
 					= link_to truncate(strip_tags(news.news_title.capitalize),:length=>70), news_path(news.slug),:class=>"post-title"         
 				- if index%2 != 0
