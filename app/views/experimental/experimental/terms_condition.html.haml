@@ -19,22 +19,30 @@
           .excerpt-new1.justify-content.nopadding-top
             #tool-area
               #top-text
+                
                 %br/
-                %br/
-                %h2 Research : Information Sheet And Consent Form
-                %br/
+                / %h2 Research : Information Sheet And Consent Form
+                / %br/
+                %h2 
+                  %b Research
+                
+                %p
+                  B-Change Foundation is currently undertaking a research project to better understand how users use and engage with
+                  = succeed "." do
+                    %b PLUS 
 
-                %p B-Change Foundation is currently undertaking a research project to better understand how users use and engage with PLUS. 
-
-                %p  The study is being conducted by researchers Benjamin Hanckel, Associate Professor Alan Morris, Laurindo Garcia, Professor Eric Manalastas, Mikael Navarro, Dan Wohlfeiler, Glenn-Milo Santos, Darrin Adams and Associate Professor Kane Race who are interested in exploring the role of technology in community development programs. The results of the study will be shared with PLUS users.
+                %p  The study is being conducted by researchers who are interested in exploring the role of technology in community development programs. The results of the study will be shared with PLUS users.
 
                 %p  By ticking ‘I agree’ below:
                 %ul{:style=>"list-style:circle;font-size: 15px;color: #000000;"}
-                  %li You give permission for these researchers to collect information about you from PLUS. All information collected will be de-identified (ie. made anonymous).The results of the study may be published by one of these researchers in a form that will not identify you in any way.
+                  %li You give permission for these researchers to collect information about you from 
+                  = succeed "." do
+                    %b PLUS 
+                  All information collected will be de-identified (ie. made anonymous).The results of the study may be published by one of these researchers in a form that will not identify you in any way.
                   %li
                     You can withdraw your participation from this research project at any time, without consequence, and without giving a reason(you can do this by changing the settings in your profile).
 
-                %p  If you have any concerns about the research please contact him at #{mail_to "Benjamin.J.Hanckel@student.uts.edu.au", 'Benjamin Hanckel'} or +61 418 232 373 or his supervisor Associate Professor #{mail_to "alan.morris@uts.edu.au", 'Alan Morris'} or + 61 2 9514 4880. If you would like to talk with someone not connected with the research you may contact the Research Ethics Officer at the University of Technology, Sydney(you can contact them on 00612 9514 9772 or Research.ethics@uts.edu.au and quote this number 2013000605), Australia.
+                %p  If you have any concerns about the research please contact him at #{mail_to "Benjamin.J.Hanckel@student.uts.edu.au", 'Benjamin Hanckel'} or his supervisor Associate Professor #{mail_to "alan.morris@uts.edu.au", 'Alan Morris'}. If you would like to talk with someone not connected with the research you may contact the #{mail_to "Research.ethics@uts.edu.au", 'Research Ethics Officer'}  at the University of Technology, Sydney, Australia.
                 %span.class-agree
                   = radio_button_tag 'user[accept_terms]',"true",true, :class=>"radio_class"
                   Yes, I Agree
