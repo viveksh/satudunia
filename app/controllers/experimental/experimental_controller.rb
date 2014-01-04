@@ -237,7 +237,7 @@ class Experimental::ExperimentalController < ApplicationController
   end
   def profile_tiers
     # debugger
-    add_breadcrumb "Profile Tiers","profile-tiers"
+    add_breadcrumb "Profile Tiers","tiers"
     set_page_title("Surveys")
     @surveys= current_user.profile_tiers
     @survey1= current_user.profile_support
