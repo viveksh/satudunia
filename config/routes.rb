@@ -434,7 +434,7 @@ Rails.application.routes.draw do
 				get 'social/:via' => :social ,:as=> :social
 				get :comments_rss
 				get :show_numbers_service
-				get :profile_tiers, :path=>"/settings/profile-tiers"
+				get :profile_tiers, :path=>"/profile/tiers"
 				# get :announce, :path=> "/announcements"
 				# experimental routes
 				get "*a", :to => "experimental#routing_error"
