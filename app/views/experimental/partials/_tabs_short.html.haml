@@ -82,7 +82,7 @@
 							#news-rating{:id =>"#{news.id}",:style => "float: right"}
 							= image_tag news_image_path(news,"small"), :height => 109,:width=>163, :alt => news.slug
 						-else
-							%img{:alt => "misc3", :height => "109", :src => "http://www.industrialthemes.com/made/wp-content/uploads/2012/06/misc3-70x70.jpg", :style => "opacity: 1;", :width => "163"}/
+							%img{:alt => "misc3", :height => "109", :src => "../assets/experimental/images/images_live/misc3-70x70.jpg", :style => "opacity: 1;", :width => "163"}/
 					%a.post-title{:href => news_path(news.slug), :title => "Coffee Common: Bringing Coffee Power to the People"} #{news.news_title}
 					%script
 						jQuery("#news-rating_#{news.id}").raty({ readOnly: true,score: "#{news.rating}",path: '../assets'});
@@ -139,7 +139,7 @@
 			.panel.right
 				%a.thumbnail.darken.small{:href => "single-review-numbers.html", :title => "Made Magazine Is The First Responsive Theme Released By IndustrialThemes"}
 					%img{:alt => "misc1", :height => "109", :src => "#{local_path_experimental}misc1-163x109.jpg", :width => "163"}/
-				%a.post-title{:href => "single-review-numbers.html", :title => "Made Magazine Is The First Responsive Theme Released By IndustrialThemes"} Made Magazine Is The First Responsive Theme Released By IndustrialThemes
+				%a.post-title{:href => "single-review-numbers.html"} Made Magazine Is The First Responsive Theme Released By IndustrialThemes
 			.clearer.hide-responsive
 			.panel
 				%a.thumbnail.darken.small{:href => "single-review-numbers.html", :title => "Standard Non-Review Post Example"}
