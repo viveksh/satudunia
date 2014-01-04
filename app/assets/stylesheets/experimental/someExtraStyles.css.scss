@@ -1653,9 +1653,12 @@ a:link, a:visited, a:active {
 
 
  /*show-category-arrow*/
-.show-category{
+ .show-category{
+	border: 1px solid #CCC;
+	border-right:none !important;
+
 	background: none repeat scroll 0 0 #FFFFFF;
-  border-color: #CCCCCC -moz-use-text-color #CCCCCC #CCCCCC;
+  /*border-color: #CCCCCC -moz-use-text-color #CCCCCC #CCCCCC;*/
   border-image: none;
   border-style: solid none solid solid;
   border-width: 1px 0 1px 1px;
