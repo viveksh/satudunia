@@ -42,7 +42,19 @@
                   %li
                     You can withdraw your participation from this research project at any time, without consequence, and without giving a reason(you can do this by changing the settings in your profile).
 
-                %p  If you have any concerns about the research please contact him at #{mail_to "Benjamin.J.Hanckel@student.uts.edu.au", 'Benjamin Hanckel'} or his supervisor Associate Professor #{mail_to "alan.morris@uts.edu.au", 'Alan Morris'}. If you would like to talk with someone not connected with the research you may contact the #{mail_to "Research.ethics@uts.edu.au", 'Research Ethics Officer'}  at the University of Technology, Sydney, Australia.
+                
+                %p
+                  If you have any concerns about the research please contact him at
+                  %u
+                    %a{href: "mailto:Benjamin.J.Hanckel@student.uts.edu.au"} Benjamin Hanckel
+                  or his supervisor Associate Professor
+                  = succeed "." do
+                    %u
+                      %a{href: "mailto:alan.morris@uts.edu.au"} Alan Morris
+                  If you would like to talk with someone not connected with the research you may contact the 
+                  %u
+                    %a{href: "mailto:Research.ethics@uts.edu.au"} Research Ethics Officer
+                  at the University of Technology, Sydney, Australia.
                 %span.class-agree
                   = radio_button_tag 'user[accept_terms]',"true",true, :class=>"radio_class"
                   Yes, I Agree
