@@ -18,7 +18,7 @@ class Tier4Controller < ApplicationController
       flash[:error] = "Tier4 update Failed"
     end
     if request.xhr?
-      redirect_to tier3_index_path
+      redirect_to tier4_index_path
     else
       redirect_to "/survey/sample/tier4"
     end
