@@ -71,7 +71,7 @@
 					#logo-bar-shadow  
 				/ end the logo area
 				#cat-menu.cat-menu
-					%a.home-link#no-home{:href => root_path,:title=>"Plus Home",:title=>"Plus Home"}  
+					%a.home-link#no-home{:href => root_path,:title=>"BE Home",:title=>"Be Home"}  
 					%ul#menu-main-menu
 						/ %li
 						/ 	%a{:href => "archive-a.html"} Layouts
@@ -90,7 +90,7 @@
 						/ 			%a{:href => "archive-f.html"} Archive Layout F
 						%li
 							/%a{:href => "single-review-numbers.html"} Service Map
-							=link_to 'Service Map', service_providers_path
+							=link_to 'Services Map', service_providers_path
 							%ul
 								-	get_country_name(@service_providers).each do |provider|
 									%li

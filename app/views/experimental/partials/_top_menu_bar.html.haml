@@ -5,23 +5,26 @@
     .container.mid
       .menu
         %ul#menu-top-menu
-          %li
-            %a{:href => public_about_experimental_index_path,:title=>"About Plus",:alt=>"About Plus",:class=>"tool-tip"} 
-              ="<i class='icon-text-doc'></i>About Beingme".html_safe
-          %li
-            %a{:href => questions_path,:title=>"Questions",:alt=>"Questions",:class=>"tool-tip"} 
-              ="<i class='icon-help'></i>Questions".html_safe
-          %li
-            %a{:href => service_providers_path,:title=>"Services Map",:alt=>"Services Map",:class=>"tool-tip"} 
-              ="<i class='icon-location'></i>Services map".html_safe
-          %li
-            %a{:href => contact_index_path,:title=>"Contact",:alt=>"Contact",:class=>"tool-tip"} 
-              ="<i class='icon-phone'></i>Contact".html_safe
           / %li
-          /   %a{:href => partners_experimental_index_path,:title=>"Partners",:alt=>"Partners"} Partners
+          /   %a{:href => public_about_experimental_index_path,:title=>"About Plus",:alt=>"About Plus",:class=>"tool-tip"} 
+          /     ="<i class='icon-text-doc'></i>About Beingme".html_safe
+          / %li
+          /   %a{:href => questions_path,:title=>"Questions",:alt=>"Questions",:class=>"tool-tip"} 
+          /     ="<i class='icon-help'></i>Questions".html_safe
+          / %li
+          /   %a{:href => service_providers_path,:title=>"Services Map",:alt=>"Services Map",:class=>"tool-tip"} 
+          /     ="<i class='icon-location'></i>Services map".html_safe
+          / %li
+          /   %a{:href => contact_index_path,:title=>"Contact",:alt=>"Contact",:class=>"tool-tip"} 
+          /     ="<i class='icon-phone'></i>Contact".html_safe
+          
+          / %li
+          /   %a{:href => ask_question_experimental_index_path,:title=>"Ask a Question",:alt=>"Ask a Question",:class=>"tool-tip"} 
+          /     ="<i class='icon-circled-help'></i>Ask a Question".html_safe
           %li
-            %a{:href => ask_question_experimental_index_path,:title=>"Ask a Question",:alt=>"Ask a Question",:class=>"tool-tip"} 
-              ="<i class='icon-circled-help'></i>Ask a Question".html_safe
+            %a{:href => "#",:title=>"Concern about Privacy",:alt=>"Concern about Privacy",:class=>"tool-tip"} 
+              ="<i class='icon-lock'></i>Concern about Privacy".html_safe
+          
           %li
             - if current_user.nil?
               %a{:href => '/login',:title=>"Sign in",:alt=>"sign in",:class=>"tool-tip",:title=>"Sign in"}  
