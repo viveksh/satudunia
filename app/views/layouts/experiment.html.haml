@@ -6,7 +6,7 @@
 		%link{href: "http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css", rel: "stylesheet"}/
 		%script{src: "http://code.jquery.com/jquery-1.9.1.js"}
 		%script{src: "http://code.jquery.com/ui/1.10.3/jquery-ui.js"}
-		%link{href: "/resources/demos/style.css", rel: "stylesheet"}/
+		/ %link{href: "/resources/demos/style.css", rel: "stylesheet"}/
 		%meta{:charset => "utf-8"}
 		/ SEO
 		%meta{:content => "c8c2b08298d35939-3cae02e526e3ee84-g7e43fb21f43e2136-12", :name => "google-translate-customization"}/
@@ -52,12 +52,11 @@
 						#logo-wrapper.set-margin-logo
 							#logo
 								/ logo and section header area
-								%a{:href => root_path,:title=>"Plus Home",:title=>"Plus Home"}
-									/ %img#site-logo{:alt => "plus", :src => "/assets/plus/logo.png"}/
+								%a{:href => root_path,:title=>"BE Home"}
+									
 									%img#site-logo{:alt => "plus", :src => "/assets/BE_Hollow_White_Red.gif",height: "300",width: "400"}/
-									/ %img#site-logo{:alt => "plus", :src => "/assets/logo-footer.png"}
-									%img#site-logo-iphone{:alt => "plus", :src => "/assets/plus/logo.png"}/
-									%img#site-logo-ipad{:alt => "plus", :src => "/assets/plus/logo.png"}/
+									%img#site-logo-iphone{:alt => "plus", :src => "/assets/BE_Hollow_White_Red.gif",height: "300",width: "400"}/
+									%img#site-logo-ipad{:alt => "plus", :src => "/assets/BE_Hollow_White_Red.gif",height: "300",width: "400"}/
 							%br.clearer/
 							.subtitle
 						#ad-header
@@ -146,8 +145,8 @@
 						%option{:value => "review-directory-a.html"} Review Directory layout A
 						%option{:value => "review-directory-b.html"} Review Directory layout B
 					#random-article
-						%a{:href => "#", :title => "Random Article"}
-							%img{:alt => "Random Article", :src => "/assets/experimental/images/random-article.png"}/
+						%a{:href => "#", :title => "BE article"}
+							%img{ :src => "/assets/experimental/images/random-article.png"}/
 				%br.clearer.hide-responsive-small/
 				.cat-menu.tax
 					%ul#menu-sub-menu.menu
