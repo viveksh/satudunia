@@ -5,19 +5,19 @@
 			%a.home-link{:href => root_path}  
 			%ul#menu-footer-menu.menu
 				%li
-					%a{:href => public_about_experimental_index_path, :title=>"About", :alt=>"About"} About Plus
+					%a{:href => public_about_experimental_index_path, :title=>"About BE", :alt=>"About BE"} About BE
 				%li
 					%a{:href => questions_path, :title=>"Questions", :alt=>"Questions"} Questions
 				%li
 					%a{:href => "/services-map", :title=>"Services Map", :alt=>"Services Map"} Services Map
-				%li
-					%a{:href => partners_experimental_index_path,:title=>"Partners",:alt=>"Partners"} Partners
-				%li
-					%a{:href => "/users", :title=>"Community", :alt=>"Community"} Community
+				/ %li
+				/ 	%a{:href => partners_experimental_index_path,:title=>"Partners",:alt=>"Partners"} Partners
+				/ %li
+				/ 	%a{:href => "/users", :title=>"Community", :alt=>"Community"} Community
 				%li
 					= link_to "Contact",contact_index_path
-				%li
-					%a{:href => ask_question_experimental_index_path, :title=>"Ask a Question", :alt=>"Ask a Question"} Ask a Question
+				/ %li
+				/ 	%a{:href => ask_question_experimental_index_path, :title=>"Ask a Question", :alt=>"Ask a Question"} Ask a Question
 		%br.clearer/
 		.inner
 			.panel
@@ -173,7 +173,12 @@
 						%p
 							/ %img{:alt => "logo", :src => "/assets/plus/footer_logo.png"}/
 							%img#site-logo{:alt => "plus", :src => "/assets/logo-footer.png"}/
-						%p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+						/ %p BE is a new web-app designed to support the well-being of young people from sexual and gender minorities, including but not limited to young lesbians, gay men, bisexual and transgender people.Where we can be ourselves and be there for each other.
+						%p.arrange-footer
+							BE is a new web-app designed to support the well-being of young people from sexual and gender minorities, including but not limited to young lesbians, gay men, bisexual and transgender people.
+							%br/
+							%br/
+							Where we can be ourselves and be there for each other.
 						- unless @footer.blank?
 							/ %p 
 							/   =  truncate(@footer.footer_content.sub("\n","<br>"), :omission => "", :length => 833).html_safe rescue ""

@@ -2,8 +2,8 @@
   .widget
     #tabbed-reviews.complex-list
       %ul.tabnav
-        %li
-          %a.first{:href => "#tabs-os_movie-"} Movie
+        / %li
+        /   %a.first{:href => "#tabs-os_movie-"} Movie
         %li
           %a{:href => "#tabs-os_music-"} Music
         %li
@@ -12,81 +12,81 @@
           %a{:href => "#tabs-os_restaurant-"} Restaurant
       %br.clearer/
       .tabdiv-wrapper
-        #tabs-os_movie-.tabdiv
-          %ul
-            %li
-              .floatleft
-                %a.thumbnail.darken.video.small{:href => "#", :title => "The Hobbit: An Unexpected Journey"}
-                  %img{:alt => "movies3", :height => "70", :src => "#{local_path_experimental}movies3-70x70.jpg", :width => "70"}/
-              .floatleft
-                %a.post-title{:href => "#", :title => "The Hobbit: An Unexpected Journey"} The Hobbit: An Unexpected Journey
-                %br.clearer/
-                .icon
-                  / %img{:alt => "icon", :height => "16", :src => "http://www.industrialthemes.com/made/wp-content/themes/made/images/review-movie-dark.png", :width => "16"}/
-                  %font{:size=>4}
-                    %i.icon-video
-                .rating-wrapper.small
-                  .number.color5 88%
-              %br.clearer/
-            %li
-              .floatleft
-                %a.thumbnail.darken.small{:href => "#", :title => "The Bourne Legacy"}
-                  %img{:alt => "movies2", :height => "70", :src => "#{local_path_experimental}movies2-70x70.jpg", :width => "70"}/
-              .floatleft
-                %a.post-title{:href => "#", :title => "The Bourne Legacy"} The Bourne Legacy
-                %br.clearer/
-                .icon
-                  %font{:size=>4}
-                    %i.icon-video
-                  / %img{:alt => "icon", :height => "16", :src => "http://www.industrialthemes.com/made/wp-content/themes/made/images/review-movie-dark.png", :width => "16"}/
-                .rating-wrapper.small
-                  .number.color3 42%
-              %br.clearer/
-            %li
-              .floatleft
-                %a.thumbnail.darken.video.small{:href => "#", :title => "Total Recall"}
-                  %img{:alt => "Planet earth", :height => "70", :src => "#{local_path_experimental}photodune-2102679-planet-earth-s-70x70.jpg", :width => "70"}/
-              .floatleft
-                %a.post-title{:href => "#", :title => "Total Recall"} Total Recall
-                %br.clearer/
-                .icon
-                  %font{:size=>4}
-                    %i.icon-video
-                  / %img{:alt => "icon", :height => "16", :src => "http://www.industrialthemes.com/made/wp-content/themes/made/images/review-movie-dark.png", :width => "16"}/
-                .rating-wrapper.small
-                  .number.color4 79%
-              %br.clearer/
-            %li
-              .floatleft
-                %a.thumbnail.darken.small{:href => "#", :title => "Django Unchained"}
-                  %img{:alt => "Broken window glass", :height => "70", :src => "#{local_path_experimental}photodune-1040342-broken-window-glass-s-70x70.jpg", :width => "70"}/
-              .floatleft
-                %a.post-title{:href => "#", :title => "Django Unchained"} Django Unchained
-                %br.clearer/
-                .icon
-                  %font{:size=>4}
-                    %i.icon-video
-                  / %img{:alt => "icon", :height => "16", :src => "http://www.industrialthemes.com/made/wp-content/themes/made/images/review-movie-dark.png", :width => "16"}/
-                .rating-wrapper.small
-                  .number.color4 69%
-              %br.clearer/
-            %li
-              .floatleft
-                %a.thumbnail.darken.video.small{:href => "#", :title => "The Amazing Spiderman"}
-                  %img{:alt => "Sign", :height => "70", :src => "#{local_path_experimental}photodune-2540921-sign-s-70x70.jpg", :width => "70"}/
-              .floatleft
-                %a.post-title{:href => "#", :title => "The Amazing Spiderman"} The Amazing Spiderman
-                %br.clearer/
-                .icon
-                  %font{:size=>4}
-                    %i.icon-video
-                  / %img{:alt => "icon", :height => "16", :src => "http://www.industrialthemes.com/made/wp-content/themes/made/images/review-movie-dark.png", :width => "16"}/
-                .rating-wrapper.small
-                  .number.color2 34%
-              %br.clearer/
-            %li.more{:title => "View all Movie reviews"}
-              %a{:href => "#"} More
-            %li.last  
+        / #tabs-os_movie-.tabdiv
+        /   %ul
+        /     %li
+        /       .floatleft
+        /         %a.thumbnail.darken.video.small{:href => "#", :title => "The Hobbit: An Unexpected Journey"}
+        /           %img{:alt => "movies3", :height => "70", :src => "#{local_path_experimental}movies3-70x70.jpg", :width => "70"}/
+        /       .floatleft
+        /         %a.post-title{:href => "#", :title => "The Hobbit: An Unexpected Journey"} The Hobbit: An Unexpected Journey
+        /         %br.clearer/
+        /         .icon
+        /           / %img{:alt => "icon", :height => "16", :src => "http://www.industrialthemes.com/made/wp-content/themes/made/images/review-movie-dark.png", :width => "16"}/
+        /           %font{:size=>4}
+        /             %i.icon-video
+        /         .rating-wrapper.small
+        /           .number.color5 88%
+        /       %br.clearer/
+        /     %li
+        /       .floatleft
+        /         %a.thumbnail.darken.small{:href => "#", :title => "The Bourne Legacy"}
+        /           %img{:alt => "movies2", :height => "70", :src => "#{local_path_experimental}movies2-70x70.jpg", :width => "70"}/
+        /       .floatleft
+        /         %a.post-title{:href => "#", :title => "The Bourne Legacy"} The Bourne Legacy
+        /         %br.clearer/
+        /         .icon
+        /           %font{:size=>4}
+        /             %i.icon-video
+        /           / %img{:alt => "icon", :height => "16", :src => "http://www.industrialthemes.com/made/wp-content/themes/made/images/review-movie-dark.png", :width => "16"}/
+        /         .rating-wrapper.small
+        /           .number.color3 42%
+        /       %br.clearer/
+        /     %li
+        /       .floatleft
+        /         %a.thumbnail.darken.video.small{:href => "#", :title => "Total Recall"}
+        /           %img{:alt => "Planet earth", :height => "70", :src => "#{local_path_experimental}photodune-2102679-planet-earth-s-70x70.jpg", :width => "70"}/
+        /       .floatleft
+        /         %a.post-title{:href => "#", :title => "Total Recall"} Total Recall
+        /         %br.clearer/
+        /         .icon
+        /           %font{:size=>4}
+        /             %i.icon-video
+        /           / %img{:alt => "icon", :height => "16", :src => "http://www.industrialthemes.com/made/wp-content/themes/made/images/review-movie-dark.png", :width => "16"}/
+        /         .rating-wrapper.small
+        /           .number.color4 79%
+        /       %br.clearer/
+        /     %li
+        /       .floatleft
+        /         %a.thumbnail.darken.small{:href => "#", :title => "Django Unchained"}
+        /           %img{:alt => "Broken window glass", :height => "70", :src => "#{local_path_experimental}photodune-1040342-broken-window-glass-s-70x70.jpg", :width => "70"}/
+        /       .floatleft
+        /         %a.post-title{:href => "#", :title => "Django Unchained"} Django Unchained
+        /         %br.clearer/
+        /         .icon
+        /           %font{:size=>4}
+        /             %i.icon-video
+        /           / %img{:alt => "icon", :height => "16", :src => "http://www.industrialthemes.com/made/wp-content/themes/made/images/review-movie-dark.png", :width => "16"}/
+        /         .rating-wrapper.small
+        /           .number.color4 69%
+        /       %br.clearer/
+        /     %li
+        /       .floatleft
+        /         %a.thumbnail.darken.video.small{:href => "#", :title => "The Amazing Spiderman"}
+        /           %img{:alt => "Sign", :height => "70", :src => "#{local_path_experimental}photodune-2540921-sign-s-70x70.jpg", :width => "70"}/
+        /       .floatleft
+        /         %a.post-title{:href => "#", :title => "The Amazing Spiderman"} The Amazing Spiderman
+        /         %br.clearer/
+        /         .icon
+        /           %font{:size=>4}
+        /             %i.icon-video
+        /           / %img{:alt => "icon", :height => "16", :src => "http://www.industrialthemes.com/made/wp-content/themes/made/images/review-movie-dark.png", :width => "16"}/
+        /         .rating-wrapper.small
+        /           .number.color2 34%
+        /       %br.clearer/
+        /     %li.more{:title => "View all Movie reviews"}
+        /       %a{:href => "#"} More
+        /     %li.last  
         #tabs-os_music-.tabdiv
           %ul
             %li
