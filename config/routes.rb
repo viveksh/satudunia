@@ -435,7 +435,7 @@ Rails.application.routes.draw do
 				get :comments_rss
 				get :show_numbers_service
 				get :profile_tiers, :path=>"/profile/tiers"
-				get :concern_about_privacy
+				get :concern_about_privacy, :path=>"/concern-about-privacy"
 				# get :announce, :path=> "/announcements"
 				# experimental routes
 				get "*a", :to => "experimental#routing_error"
