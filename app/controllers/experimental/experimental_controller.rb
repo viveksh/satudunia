@@ -249,4 +249,8 @@ class Experimental::ExperimentalController < ApplicationController
     @survey7 = current_user.profile_tier7
   end
 
+  def concern_about_privacy
+    add_breadcrumb "concern about privacy", (concern_about_privacy_experimental_index_path).gsub("/","")
+  end
+
 end
