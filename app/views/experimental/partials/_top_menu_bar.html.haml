@@ -27,8 +27,15 @@
           
           %li
             - if current_user.nil?
-              %a{:href => '/login',:title=>"Sign in",:alt=>"sign in",:class=>"tool-tip",:title=>"Sign in"}  
+              %a{:href => '#'}  
                 ="<i class='icon-login'></i>Login".html_safe
+              %ul
+                %li
+                  %a{:href => '/login',:title=>"Email",:alt=>"Email",:class=>"tool-tip"}  
+                    ="<i class='icon-mail'></i>Via E-Mail".html_safe
+                %li
+                  
+                  = link_to_rpx "<i class='icon-add-to-list'></i>Via Social".html_safe, user_session_url,:html=>{:title=>"with Janrain",:alt=>"with Janrain",:class=>"tool-tip"}
             -else
               = link_to "<i class='icon-user'></i>Logged in as #{h(current_user.login)}".html_safe,"#",:style=>"color:#027DB2;"
               %ul
