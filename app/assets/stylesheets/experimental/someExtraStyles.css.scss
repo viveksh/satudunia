@@ -1751,5 +1751,8 @@ h3#change-fonts {
 .arrange_concern u{
 	color:#3F87BA;
 }
-
 /*concern-about-privacy*/
+
+.disc > li {
+	list-style: disc outside none;
+}
