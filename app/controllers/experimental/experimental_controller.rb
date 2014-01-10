@@ -252,5 +252,14 @@ class Experimental::ExperimentalController < ApplicationController
   def concern_about_privacy
     add_breadcrumb "concern about privacy", (concern_about_privacy_experimental_index_path).gsub("/","")
   end
-
+  def knowledge_count
+    @knowledge_base_count_views = ViewsCount.where(:type => "knowledge_base_count").first
+    if @knowledge_base_count_views == nil
+      ViewsCount.create(:type => "knowledge_base_count", :count => 150)
+    else
+      @knowledge_base_count_views.count += 1
+      @knowledge_base_count_views.save
+    end
+    render :nothing => true
+  end
 end

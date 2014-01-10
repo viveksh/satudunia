@@ -90,8 +90,18 @@
 							/     .star  
 							/     .star  
 							.comments
-								%a{:href => "http://being-me.net/wiki/Main_Page", :title => "Comment on Sugar Rush: Banana Stracciatella Gelato from Eataly"}  Views
-							.more
-								%a{:href => "http://being-me.net/wiki/Main_Page"}  Understand the basics
+								%a{:href => "http://being-me.net/wiki/Main_Page", :title => "Comment on Sugar Rush: Banana Stracciatella Gelato from Eataly"} #{show_counts("knowledge_base_count")} Views
+							.more#knowledgebase
+								%a{:href => "http://being-me.net/wiki/Main_Page",:target => :blank}  Understand the basics
 					.clearer
 				
+:javascript
+	$("#knowledgebase").click(function(){
+		$.ajax({
+			url: '/knowledge_count',
+			beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+			method: 'post',
+			
+		});
+	});
+
