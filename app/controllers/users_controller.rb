@@ -279,11 +279,17 @@ class UsersController < ApplicationController
   end
 
   def edit
+    
     if params[:user]
       if params[:user][:accept_terms]
         current_user.accept_terms="true"
         current_user.save
       end
+      if params[:user][:remind_me]
+        current_user.remind_me = params[:user][:remind_me]
+        current_user.save
+      end
+
     end 
     add_breadcrumb "Profile Settings", 'settings'
     @body_id = "page3"
