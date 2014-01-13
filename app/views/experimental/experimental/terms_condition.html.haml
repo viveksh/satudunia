@@ -54,13 +54,22 @@
 							%u
 								%a{href: "mailto:Research.ethics@uts.edu.au"} Research Ethics Officer
 							at the University of Technology, Sydney, Australia.
-						%span.class-agree
-							= radio_button_tag 'user[accept_terms]',"true",true, :class=>"radio_class"
-							Yes, I Agree
-							= radio_button_tag 'user[accept_terms]',"false",false, :class=>"radio_class"
-							I do not agree
-							= radio_button_tag 'user[remind_me]',"true",false, :class=>"radio_class"
-							Remind Me Later
+						
+						.category
+						
+							.catname
+								Acknowledgement
+							.category-arrow  
+						%br.clearer/
+						%p
+							%span.class-agree
+								= radio_button_tag 'user[accept_terms]',"true",true, :class=>"radio_class"
+								Yes, I Agree
+								= radio_button_tag 'user[accept_terms]',"false",false, :class=>"radio_class"
+								I do not agree
+								= radio_button_tag 'user[remind_me]',"true",false, :class=>"radio_class"
+								Remind Me Later
+						/ %br
 		.contact-section-bottom-button{:style=>"z-index:500; margin-top:0px !important"} 
 			.janrain-sign-up
 				%a.contact-button.contact-button-single.next{href: '#', title: "Next"} Continue
@@ -115,7 +124,7 @@
 		});
 
 		$('#user_remind_me_true').click(function () {  
-	    $('#user_accept_terms_true').attr('checked',false);
-	    $('#user_accept_terms_false').attr('checked',false);
+			$('#user_accept_terms_true').attr('checked',false);
+			$('#user_accept_terms_false').attr('checked',false);
 		})
 	});
