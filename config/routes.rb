@@ -419,7 +419,7 @@ Rails.application.routes.draw do
 				get :public_about,:path=>"/about"
 				get :rss_feed,:path=>"rss"
 				get :terms_condition, :path=> "/profile/participate-research"
-				get :terms
+				get :terms, :path=> "privacy/terms-of-use"
 				get :faq
 				get :partners
 				get :show_member
