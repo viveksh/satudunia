@@ -135,7 +135,7 @@ class User
 
   validates_length_of       :name,     :maximum => 100
 
-  validates_presence_of     :email,    :if => lambda { |e| !e.openid_login? && !e.twitter_login? }
+  validates_presence_of     :email,    :if => :test_user
   validates_uniqueness_of   :email,    :if => lambda { |e| e.anonymous || (!e.openid_login? && !e.twitter_login?) }
   validates_length_of       :email,    :in => 6..100, :allow_nil => true, :if => lambda { |e| !e.email.blank? }
 
@@ -148,6 +148,14 @@ class User
   #before_save :update_languages
 
   attr_accessible :remember_me
+
+
+  def test_user
+  	if  self.rpx_identifier.present?
+  		return false
+
+  	end	
+  end  	
 
   def custom_domain_owned_groups
     groups = Group.where(:owner_id => self.id)
@@ -976,14 +984,22 @@ Time.zone.now ? 1 : 0)
   # rpx success
   def before_rpx_auto_create(rpx_user)
     # self[:login]=rpx_user[:username] if rpx_user[:username]
+    
     if rpx_user[:email]
+    	
       @registered_user = User.where(:email => rpx_user[:email])
       if @registered_user.present?
         redirect_to '/members/login'
       else
         self[:login]=rpx_user[:username] if rpx_user[:username]
       end
+    else
+    	
+    	self[:login]=rpx_user[:username] if rpx_user[:username]
+
+    	
     end
+
   end  
 
 end

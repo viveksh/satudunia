@@ -1,9 +1,9 @@
-%li
-	= link_to "News",news_index_path
-%li
-	= link_to "Questions" ,questions_path
-%li
-	%a{:href => "/answers",:title=>"Answers",:alt=>"Answers"} Answers
+/ %li
+/ 	= link_to "News",news_index_path
+/ %li
+/ 	= link_to "Questions" ,questions_path
+/ %li
+/ 	%a{:href => "/answers",:title=>"Answers",:alt=>"Answers"} Answers
 - if change_lower_tab
 
 	%li.dashboard
@@ -16,8 +16,8 @@
 		%a{:href => public_about_experimental_index_path,:title=>"About BE",:alt=>"About BE"} About BE
 	/ %li.terms
 	/ 	%a{:href => "/terms",:title=>"Terms of Use",:alt=>"Terms of Use"} Terms of Use
-%li
-	= link_to "Announcements",announcements_path
+/ %li
+/ 	= link_to "Announcements",announcements_path
 %li.public_privacy
 	%a{:href => "/privacy-policy",:title=>"privacy-policy",:alt=>"privacy-policy"} Privacy Policy
 %li.terms
