@@ -100,10 +100,10 @@
 						/ question drop ends
 						/ Login drop starts
 						%li
-							- if current_user.nil?
-								%a{:href => '/login'}  
-									="Login".html_safe
-							-else
+							/ - if current_user.nil?
+							/ 	%a{:href => '/login'}  
+							/ 		="Login".html_safe
+							-if current_user.present?
 								= link_to "Settings","#"
 								%ul
 									- if current_user.present?
