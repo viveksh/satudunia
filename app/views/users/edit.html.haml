@@ -29,18 +29,10 @@
 							.user-nicename
 								Website:
 								= link_to @user.website, @user.website
-							.user-nicename
-								%span
-									HIV Status: #{user_hiv_condition(@user)}
-								=# link_to "<span>Edit Profile</span>".html_safe, settings_path, :class => "qwest_tag15"
-							/ .extra-tags
-							/   - unless @user.profile_tiers.blank?
-							/     = link_to "<span>Sample</span>".html_safe, "#", :class => "qwest_tag12"
-							/   -unless @user.profile_support.nil?
-							/     = link_to "<span>Tier 1</span>".html_safe, "#", :class => "qwest_tag12"
-							/   - for i in 2..7 do
-							/     -unless eval "@user.profile_tier#{i}.nil?"
-							/       = link_to "<span>Tier #{i}</span>".html_safe, "#", :class => "qwest_tag12"
+							/ .user-nicename
+							/ 	%span
+							/ 		HIV Status: #{user_hiv_condition(@user)}
+								
 							.a6
 								= image_tag "plus/a1.png", :class=> "shift-left-margin"
 								%span
