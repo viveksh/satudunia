@@ -348,16 +348,17 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d7e866', end
 
 #flash_error,
 #flash_alert {
-	background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0)) repeat scroll 0 0 #FFEAA6;
+	/*background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0)) repeat scroll 0 0 #FFEAA6;*/
 		border: 1px solid #D55353;
 		border-radius: 3px 3px 3px 3px;
 		font-weight: normal;
 		margin-top: 3px;
 		text-decoration: none;
-		background-color:#C00000;
+		/*background-color:#C00000;*/
 		padding :10px 15px;
 		font-size:12px !important;
 }
+
 
 /*
 #notice {
@@ -1758,4 +1759,8 @@ h3#change-fonts {
 }
 #spotlight-wrapper .section-wrapper{
 	z-index:999999 !important;
+}
+
+#flash_error, #flash_alert{
+	background:none repeat scroll 0 0 #EB6623 !important;
 }
