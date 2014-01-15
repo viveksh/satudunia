@@ -18,7 +18,8 @@
 						%h2 Ask Question
 						.content-panel
 							.the-content.justify-content
-								%p.filter-content= raw(current_group.question_help)
+								%p.filter-content
+									Please keep your questions simple, short and clear to encourage constructive discussions.
 						= form_for(@question, html: {class: "standard-form", id: "ask_question", multipart: true, data: {'login-required' => true}}) do |f|
 							%br
 								= f.label :title, "Title*", :class=>"label"
