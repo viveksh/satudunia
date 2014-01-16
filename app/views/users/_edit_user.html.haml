@@ -35,8 +35,8 @@
 					.select-text-adj
 						= f.country_select :country_name,[ 'Singapore' ]
 					/ = f.text_field :country_name,:placeholder=>"Please Enter Country"
-					= f.label "HIV"
-					= f.select :hiv_condition, ["Negative","Positive","I don't know","Prefer not to disclose"],{:selected => @user.hiv_condition}, :class => "select-class1"
+					=# f.label "HIV"
+					=# f.select :hiv_condition, ["Negative","Positive","I don't know","Prefer not to disclose"],{:selected => @user.hiv_condition}, :class => "select-class1"
 					= f.label "Bio"
 					= f.text_area :bio, :style => "width: 250px",:placeholder=>"Please Enter Comment"
 		
