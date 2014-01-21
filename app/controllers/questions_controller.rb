@@ -377,7 +377,7 @@ class QuestionsController < ApplicationController
         Jobs::Tags.async.question_retagged(@question.id, @question.tags, [], Time.now).commit!
 
         current_group.on_activity(:ask_question)
-        if !@question.removed_tags.blank?
+        if !@question.removed_tags.reject{|e| e.empty?}.blank?
           flash[:warning] = I18n.t("questions.model.messages.tags_not_added",
                                    :tags => @question.removed_tags.join(", "),
                                    :reputation_required => @question.group.reputation_constrains["create_new_tags"])
