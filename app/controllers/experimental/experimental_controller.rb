@@ -54,7 +54,7 @@ class Experimental::ExperimentalController < ApplicationController
   # action public about
   def public_about
     
-    add_breadcrumb "About", (public_about_experimental_index_path).gsub("/","")
+    add_breadcrumb "About BE", (public_about_experimental_index_path).gsub("/","")
     @title = "about beingme"
   	@about = StaticPage.where(:static_key => 'about').first
     @about_user = User.find(@about.user_id) if @about.user_id?
