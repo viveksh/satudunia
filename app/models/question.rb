@@ -139,7 +139,7 @@ class Question
   validate :group_language
   #validate :disallow_spam
   validate :check_useful
-
+  after_save :remove_lockfile
   xapit do
     language :language
     text :title do |title|
@@ -556,3 +556,9 @@ class Question
   end
 end
 
+private
+  def remove_lockfile
+    f = File.new('./db/xapit/flintlock', "w");
+    f.chmod(0755) 
+    File.delete(f)
+  end  
