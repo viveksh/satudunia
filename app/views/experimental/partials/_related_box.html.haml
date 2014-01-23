@@ -4,8 +4,8 @@
 		%li.arrow.margin-zero
 		%li.ui-tabs-selected
 			%a{:href => "#tab1", :title => "Category 1"} BE
-		%li
-			%a{:href => "#tab2", :title => "Category 2"} Articles
+		/ %li
+		/ 	%a{:href => "#tab2", :title => "Category 2"} Articles
 		/ %li.ui-tabs-selected
 		/ 	%a{:href => "#tab3", :title => "Category 3"} News
 	%br.clearer/
@@ -15,29 +15,29 @@
 				- filter_updated_at.each do |e|
 					=render :partial => e.static_key
 			/ %br.clearer.hide-responsive
-		#tab2.tabdiv.ui-tabs-panel.ui-tabs-hide{:style => ""}
-			- article_count = @articles.count
-			- @articles.each_with_index do |article, index|
-				- cycle_class_article = cycle("", "", "right")
-				.panel{:class=>cycle_class_article}
-					.rating-wrapper.small
-						.stars.yellow
-							.star.full  
-							.star.full  
-							.star.full  
-							.star
-							.star
-					%a.darken.small.video{:href => "single-review-numbers.html"}
-						- if article.has_article_image?
-							=# image_tag news_image_path(news,"small"), :height => 70,:width=>100, :alt => news.slug
-						-else
-							%img{:alt => "misc2", :height => "70", :src => "http://www.industrialthemes.com/made/wp-content/uploads/2012/06/misc2-110x70.jpg", :style => "opacity: 1;", :width => "110"}/         
-					/ %a.post-title{:href => "single-review-numbers.html"} Coffee Common: Bringing Coffee Power to the People
-					= link_to truncate(strip_tags(article.article_title.capitalize),:length=>70), "#",:class=>"post-title"
-				- if index%2 != 0
-					.clear-responsive
-				- if (cycle_class_article == "right") || (article_count - index  == 1 && article_count%3 != 0)
-					%br.clearer.hide-responsive
+		/ #tab2.tabdiv.ui-tabs-panel.ui-tabs-hide{:style => ""}
+		/ 	- article_count = @articles.count
+		/ 	- @articles.each_with_index do |article, index|
+		/ 		- cycle_class_article = cycle("", "", "right")
+		/ 		.panel{:class=>cycle_class_article}
+		/ 			.rating-wrapper.small
+		/ 				.stars.yellow
+		/ 					.star.full  
+		/ 					.star.full  
+		/ 					.star.full  
+		/ 					.star
+		/ 					.star
+		/ 			%a.darken.small.video{:href => "single-review-numbers.html"}
+		/ 				- if article.has_article_image?
+		/ 					=# image_tag news_image_path(news,"small"), :height => 70,:width=>100, :alt => news.slug
+		/ 				-else
+		/ 					%img{:alt => "misc2", :height => "70", :src => "http://www.industrialthemes.com/made/wp-content/uploads/2012/06/misc2-110x70.jpg", :style => "opacity: 1;", :width => "110"}/         
+		/ 			/ %a.post-title{:href => "single-review-numbers.html"} Coffee Common: Bringing Coffee Power to the People
+		/ 			= link_to truncate(strip_tags(article.article_title.capitalize),:length=>70), "#",:class=>"post-title"
+		/ 		- if index%2 != 0
+		/ 			.clear-responsive
+		/ 		- if (cycle_class_article == "right") || (article_count - index  == 1 && article_count%3 != 0)
+		/ 			%br.clearer.hide-responsive
 
 		/ #tab3.tabdiv.ui-tabs-panel{:style => ""}
 		/ 	- news_count = @news.count
