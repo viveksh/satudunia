@@ -49,7 +49,10 @@
 						%option{:value => ""} All
 						-get_country_name(@service_providers).each do |provider|
 							%option{:value => "#{provider}"} 
-								= link_to "#{provider}",country_services_map_path(provider.downcase)
+								-if provider == "Kuala"
+									= link_to "Kuala Lumpur",country_services_map_path("Kuala-Lumpur")
+								- else
+									= link_to "#{provider}",country_services_map_path(provider.downcase)
 	#return-data-ajax.services-top-adj
 		= render "experimental/partials/provider"
 	.post-loop.directory
@@ -277,28 +280,28 @@
 
 	function success(position) {
 
-	  var coords = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-	  
-	  var options = {
-	    zoom: 10,
-	    center: coords,
-	    mapTypeControl: false,
-	    navigationControlOptions: {
-	    	style: google.maps.NavigationControlStyle.SMALL
-	    },
-	    mapTypeId: google.maps.MapTypeId.ROADMAP
-	  };
-	  var map = new google.maps.Map(document.getElementById("services_map"), options);
+		var coords = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+		
+		var options = {
+			zoom: 10,
+			center: coords,
+			mapTypeControl: false,
+			navigationControlOptions: {
+				style: google.maps.NavigationControlStyle.SMALL
+			},
+			mapTypeId: google.maps.MapTypeId.ROADMAP
+		};
+		var map = new google.maps.Map(document.getElementById("services_map"), options);
 
-	  var marker = new google.maps.Marker({
-	      position: coords,
-	      map: map,
-	      title:"You are here!"
-	  });
+		var marker = new google.maps.Marker({
+				position: coords,
+				map: map,
+				title:"You are here!"
+		});
 	}
 
 	if (navigator.geolocation) {
-	  navigator.geolocation.getCurrentPosition(success);
+		navigator.geolocation.getCurrentPosition(success);
 	} else {
-	  error('Geo Location is not supported');
+		error('Geo Location is not supported');
 	}

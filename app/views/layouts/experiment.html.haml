@@ -96,7 +96,8 @@
 								-	get_country_name(@service_providers).each do |provider|
 									%li
 										-if provider == "Kuala"
-											= link_to "Kuala Lumpur",country_services_map_path(provider.downcase)
+											/ - debugger
+											= link_to "Kuala Lumpur",country_services_map_path("kuala-lumpur")
 										- else
 											= link_to "#{provider}",country_services_map_path(provider.downcase)
 						
