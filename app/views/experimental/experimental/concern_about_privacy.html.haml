@@ -29,9 +29,15 @@
 								To register to for the first-time on BE, you have two options:
 							%ul.floatleft.concern-list
 								%li
-									You can Sign Up with Social+ Networks to set-up and regularly login of your new BE account with a few clicks of a mouse; or,
+									You can 
+									%u
+										= link_to "Sign Up with Social+ Networks", social_experimental_index_path(:via=>"networks")
+									to set-up and regularly login of your new BE account with a few clicks of a mouse; or,
 								%li
-									You can Sign Up with Email and type in your email contact details and an email will sent to you confirming your new account.  
+									You can 
+									%u
+										= link_to " Sign Up with Email", social_experimental_index_path(:via=>"email")
+									and type in your email contact details and an email will sent to you confirming your new account.  
 						%br
 						%p
 							Regardless of the way that you register for the first time, all BE users must agree to the purpose, values, terms of use and codes of conduct that are explained at the end of the registration process. All users are able to use their full name or choose a user name alias for their profile. In addition, all users will control over the privacy settings of their profile, and can choose to remain anonymous.
