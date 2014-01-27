@@ -1,4 +1,4 @@
-.clearer.hide-responsive 
+.clearer.hide-responsive
 %br.hide-responsive/
 .main-content-left
 	.page-content.review.single-post
@@ -16,7 +16,7 @@
 							%a{:style=>"float:left;"}
 								-if @user.use_gravatar?
 									= image_tag avatar_user_path(@user),:size=>'140x140',:class => "avatar"
-								-else                      
+								-else
 									= image_tag(default_avatar_url('big'), :class=>"avatar")
 						#item-header-content
 							%h2
@@ -26,13 +26,13 @@
 							/   %span{:class=>"activity"}
 							/     Joined
 							/   = t("time.ago", :time => time_ago_in_words(@user.created_at))
-							.user-nicename
-								Website:
-								= link_to @user.website, @user.website
+							/ .user-nicename
+							/ 	Website:
+							/ 	= link_to @user.website, @user.website
 							/ .user-nicename
 							/ 	%span
 							/ 		HIV Status: #{user_hiv_condition(@user)}
-								
+
 							.a6
 								= image_tag "plus/a1.png", :class=> "shift-left-margin"
 								%span
@@ -41,7 +41,7 @@
 								%br
 								= image_tag "plus/a2.png", :class=> "shift-left-margin"
 								%span
-									Age: 
+									Age:
 									-if @user.birthday.present?
 										= (Date.today.year)-(@user.birthday.year)
 										year
@@ -49,7 +49,7 @@
 										= user_age(@user)
 										-unless user_age(@user)=="unknown"
 											year
-									
+
 
 		-if params[:tab] == "1"
 			#item-nav
@@ -91,8 +91,8 @@
 					= render "experimental/partials/users/user_privacy"
 					/ %h1{:style=>"background:none; border:none"}
 					/   = link_to @user.display_name, user_path(@user)
-							 
-			%br.clearer/         
+
+			%br.clearer/
 		-elsif params[:tab] == "2"
 			#item-nav
 				#object-nav.item-list-tabs{:id=>"firstElement"}
@@ -132,8 +132,8 @@
 					= render "experimental/partials/users/user_social"
 					/ %h1{:style=>"background:none; border:none"}
 					/   = link_to @user.display_name, user_path(@user)
-							 
-			%br.clearer/         
+
+			%br.clearer/
 		-else
 			#item-nav
 				#object-nav.item-list-tabs{:id=>"firstElement"}
@@ -155,11 +155,11 @@
 						%li
 							%a#user-social-profile{:href=>"javascript:void(0)",:user_id=>"#{@user.id}", :class=>"loader-adjust-profile"}
 								Social
-								.loader.show-inline   
+								.loader.show-inline
 						%li
 							%a#user-tier-profile{:href=>"/profile/tiers",:user_id=>"#{@user.id}", :class=>"loader-adjust-profile"}
 								Tiers
-								.loader.show-inline                              
+								.loader.show-inline
 			#subtabs
 				.activity_sub
 					= render "users/activity_subtabs"
@@ -173,7 +173,7 @@
 					= render "users/edit"
 					/ %h1{:style=>"background:none; border:none"}
 					/   = link_to @user.display_name, user_path(@user)
-								
+
 	%br.clearer/
 /side bar
 .sidebar
@@ -205,9 +205,9 @@
 	/banner box
 	= render "experimental/partials/banner_box"
 
-	
+
 :javascript
-	
+
 	jQuery("#object-nav_firstElement > ul > li").click(function(){
 		jQuery("#object-nav_firstElement > ul > li").removeClass('selected');
 		jQuery(this).addClass('selected');
@@ -220,7 +220,7 @@
 	Experimental.getAjaxData("click","#user-profile","/profile/settings","GET","activity_tab1","users/user_privacy","#user-profile .loader","subtabs","users/privacy_subtabs","");
 
 	Experimental.getAjaxData("click","#user-social-profile","/profile/settings","GET","activity_tab1","users/user_social","#user-social-profile .loader","subtabs","users/social_subtabs","");
-	
+
 	jQuery(document).ready(function(jQ){
 		jQ('#pagination-digg a').live('click',function(e){
 			e.preventDefault();

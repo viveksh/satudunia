@@ -5,26 +5,26 @@ require 'magent_web'
 #require 'bug_hunter'
 
 Rails.application.routes.draw do
-	
+
 	resources :badge_comments
 	resources :feedback
 
 	get "survey/index"
 
 	devise_for(:users,:path=>"/members", :path_names => { :sign_in => "login", :sign_out => "logout"}, :controllers => {:registrations => 'users'}) do
-		
-		match "login" => "devise/sessions#new", :as => :new_user_session 
+
+		match "login" => "devise/sessions#new", :as => :new_user_session
 		match "logout" => "devise/sessions#destroy", :as => :destroy_user_session
 		match "/reset-password", :to => "devise/unlocks#new", :as => :new_user_unlock
 	end
 	devise_for(:users, :controllers => { :omniauth_callbacks => "multiauth/sessions"})
-	
+
 	match '/groups/:group_id/check_custom_domain' => 'groups#check_custom_domain',
 	:as => 'check_custom_domain'
 	match '/groups/:group_id/reset_custom_domain' => 'groups#reset_custom_domain',
 	 :method => :post, :as => 'reset_custom_domain'
 	# for user index
-	# match '/members' =>"users#index" , :method=>:get, 
+	# match '/members' =>"users#index" , :method=>:get,
 	match '/connect' => 'users#social_connect', :method => :get, :as => :social_connect
 	match '/invitations/accept' => 'invitations#accept', :method => :get, :as => :accept_invitation
 	match '/disconnect_twitter_group' => 'groups#disconnect_twitter_group', :method => :get
@@ -73,7 +73,7 @@ Rails.application.routes.draw do
 
 	match '/facts' => redirect("/")
 	match '/users/:id/:slug' => redirect("/users/%{slug}"), :as => :user_se_url, :id => /\d+/
-	
+
 	# match '/members' => 'users#index', :as =>:users
 	# match '/members/:id' => 'users#show', :as =>:user
 
@@ -114,19 +114,21 @@ Rails.application.routes.draw do
 	resources :news_letter, :path=>'/newsletter'
 
 	resources :searches, :path => "search", :as => "search"
-	
+
+	get 'contact-us' => 'contact#index', :as => :contact
+
 	resources :contact do
 		collection do
 			post :send_contact_us
 		end
 	end
-	
+
 	get '/services-map/:country' =>"service_providers#country" , :as => :country_services_map
 	match 'provider_validate' => "service_providers#provider_validate", :as => :provider_validate,:via =>[:post]
 
 	resources :service_providers, :except => [:show], :path=>'services-map'
 	get '/services-map/:id/:slug' => "service_providers#show", :as=>:service_map_provider
-	resources :news 
+	resources :news
 	match "/news/:id/rating" => "news#rating"
 	match "/announcements/:id/rating" => "announcements#rating"
 	resources :polls
@@ -157,10 +159,10 @@ Rails.application.routes.draw do
 
 	match '/answers(.format)' => 'answers#index', :as => :answers
 	match '/answers_tab(.format)' => 'answers#answers_tab', :as => :answers
-	
-	
 
-	# can be used in future 
+
+
+	# can be used in future
 	# scope('questions') do
 	#   resources :tags, :constraints => { :id => /\S+/ }
 	# end
@@ -206,7 +208,7 @@ Rails.application.routes.draw do
 		resources :comments, :except=> [:show] do
 			resources :votes
 		end
-		
+
 		resources :answers do
 			resources :votes
 			resources :flags
@@ -307,7 +309,7 @@ Rails.application.routes.draw do
 		resources :manage_faqs
 		resources :manage_contacts
 	end
-	
+
 	scope '/admin' do
 		resources :widgets do
 			member do
@@ -429,7 +431,7 @@ Rails.application.routes.draw do
 				get :profile_settings, :path=> "/profile/settings"
 				get :features
 				get :events
-				get :crowdfunding 
+				get :crowdfunding
 				get :dashboard, :path=> "/profile/dashboard"
 				get 'social/:via' => :social ,:as=> :social
 				get :comments_rss
@@ -440,14 +442,14 @@ Rails.application.routes.draw do
 				# get :announce, :path=> "/announcements"
 				# experimental routes
 				get "*a", :to => "experimental#routing_error"
-				
+
 			end
 		end
-	end 
+	end
 	match '/moderate' => 'moderate/questions#index'
 #   match '/search' => 'searches#index', :as => :search
 	match '/about' => 'groups#show', :as => :about
-	
+
 	#match '/:controller(/:action(/:id))'
 	match '*a', :to => 'public_errors#routing'
 

@@ -2,7 +2,7 @@
 	/ begin footer wrapper
 	#footer
 		.footer-menu
-			%a.home-link{:href => root_path}  
+			%a.home-link{:href => root_path}
 			%ul#menu-footer-menu.menu
 				%li
 					%a{:href => public_about_experimental_index_path, :title=>"About BE", :alt=>"About BE"} About BE
@@ -36,11 +36,11 @@
 						/ 				//%img{:alt => "icon", :height => "16", :src => "#{local_path_experimental}review-restaurant-dark.png", :width => "16"}/
 						/ 			.rating-wrapper.small
 						/ 				.stars.yellow
-						/ 					.star.full  
-						/ 					.star.full  
-						/ 					.star  
-						/ 					.star  
-						/ 					.star  
+						/ 					.star.full
+						/ 					.star.full
+						/ 					.star
+						/ 					.star
+						/ 					.star
 						/ 		%br.clearer/
 						/ 	%li
 						/ 		.floatleft
@@ -89,13 +89,13 @@
 						/ 				//%img{:alt => "icon", :height => "16", :src => "#{local_path_experimental}review-restaurant-dark.png", :width => "16"}/
 						/ 			.rating-wrapper.small
 						/ 				.stars.yellow
-						/ 					.star.full  
-						/ 					.star.full  
-						/ 					.star.full  
-						/ 					.star.full  
-						/ 					.star.half  
+						/ 					.star.full
+						/ 					.star.full
+						/ 					.star.full
+						/ 					.star.full
+						/ 					.star.half
 						/ 		%br.clearer/
-						/ 	%li.last  
+						/ 	%li.last
 						/ 	/ easiest way to hide the last border - i know, it's hacky
 			.panel
 				/ .widget
@@ -117,25 +117,25 @@
 				/ 					- tags_collection_footer[0].each do |tag|
 				/ 						%li
 				/ 							= link_to "#{tag.name}", tag_path(tag.name) rescue ""
-				/ 					%li.last  
+				/ 					%li.last
 				/ 			#tabs-genre_2.tabdiv
 				/ 				%ul
 				/ 					- tags_collection_footer[1].each do |tag|
 				/ 						%li
 				/ 							= link_to "#{tag.name}", tag_path(tag.name) rescue ""
-				/ 					%li.last  
+				/ 					%li.last
 				/ 			#tabs-genre_3.tabdiv
 				/ 				%ul
 				/ 					- tags_collection_footer[2].each do |tag|
 				/ 						%li
 				/ 							= link_to "#{tag.name}", tag_path(tag.name) rescue ""
-				/ 					%li.last  
+				/ 					%li.last
 				/ 			#tabs-genre_4.tabdiv
 				/ 				%ul
 				/ 					- tags_collection_footer[3].each do |tag|
 				/ 						%li
 				/ 							= link_to "#{tag.name}", tag_path(tag.name) rescue ""
-				/ 					%li.last  
+				/ 					%li.last
 				.widget
 					%h2 Meta
 					%ul.list-show-widget
@@ -154,37 +154,37 @@
 							= image_tag 'rss.png',alt: "Rss"
 						%li
 							= link_to "Service Providers RSS",service_providers_path(:atom)
-							= image_tag 'rss.png',alt: "Rss"  
+							= image_tag 'rss.png',alt: "Rss"
 						%li
 							= link_to "Questions and Answers RSS",questions_path(:atom)
 							= image_tag 'rss.png',alt: "Rss"
 			.panel
 				.widget
 					%h2 Latest Tweets
-					
+
 
 					%a.twitter-timeline{"data-widget-id" => "406032174916186112", href: "https://twitter.com/BChangeNow"} Tweets by @BChangeNow
 					:javascript
 						!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
 					.tweet.query.complex-list
-					.footer-fix 
+					.footer-fix
 			.panel.right
 				.widget
 					.textwidget
 						%p
 							/ %img{:alt => "logo", :src => "/assets/plus/footer_logo.png"}/
 							%img#site-logo{:alt => "plus", :src => "/assets/logo-footer.png"}/
-							
+
 						%p.arrange-footer
 							Where we can be ourselves and be there for each other.
 							%br/
 							%br/
-							BE is a new web-app designed to support the well-being of young people of diverse sexual orientations and gender identities, including but not limited to young lesbians, gay men, bisexual and transgender people. 
+							BE is a new web-app designed to support the well-being of young people of diverse sexual orientations and gender identities, including but not limited to young lesbians, gay men, bisexual and transgender people.
 							%br/
 							%br/
 							/ Where we can be ourselves and be there for each other.
 						- unless @footer.blank?
-							/ %p 
+							/ %p
 							/   =  truncate(@footer.footer_content.sub("\n","<br>"), :omission => "", :length => 833).html_safe rescue ""
 
 							/added links below plus/
@@ -209,19 +209,19 @@
 									%li
 										= image_tag("mail.png")
 										= link_to "Contact Us", "#"
-				
+
 			%br.clearer/
 		.copyright
-			.ribbon-shadow-left  
+			.ribbon-shadow-left
 			.floatleft
 				Copyright 2013 All Rights Reserved
-				| 
+				|
 				%a{:href=>terms_experimental_index_path}
 					Terms of Use
 				|
 				%a{:href=>"/privacy-policy"}
 					Privacy Policy
-				
+
 			.floatright
 				.floatleft
 					.textwidget
@@ -230,12 +230,11 @@
 						/   = succeed "." do
 						/     %a{:href => "http://www.industrialthemes.com"} Industrial Themes
 			%br.clearer/
-			.ribbon-shadow-right 
+			.ribbon-shadow-right
 
 :javascript
 	window.setTimeout(function(){
 		// alert("asdf");
-		jQuery(".twitter-timeline").contents().find("body").find(".stream").css({"overflow":"hidden"});
 		jQuery(".twitter-timeline").contents().find("body").find(".tweet").css({"padding":"15px 8px 6px"});
 		jQuery(".twitter-timeline").contents().find("body").find(".thm-dark").css({'background': 'none', 'border': 'none'});
 		jQuery(".twitter-timeline").contents().find("body").find(".timeline-footer").css({'display': 'none'});
