@@ -13,12 +13,10 @@
 					= f.label :first_name, "First Name*"
 					= f.text_field :first_name,:placeholder=>"Please Enter First Name"
 
-					= f.label :last_name, "Last Name*" 
+					= f.label :last_name, "Last Name*"
 					= f.text_field :last_name, :placeholder=>"Please Enter Last Name"
 					= f.label "Login*"
 					= f.text_field :login,:placeholder=>"Please Enter Company Name"
-					= f.label "Website"
-					= f.text_field :name,:placeholder=>"Please Enter Website"
 					= f.label "Birth Date (dd/mm/yy)"
 					= f.date_select :birthday, {:order => [:day, :month, :year],:prompt => true, :start_year => 1960, :end_year => Time.now.year}, :class=>"birthday-select"
 					/ = f.date_select :date, order: [:day,:month,:year]
@@ -39,7 +37,7 @@
 					=# f.select :hiv_condition, ["Negative","Positive","I don't know","Prefer not to disclose"],{:selected => @user.hiv_condition}, :class => "select-class1"
 					= f.label "Bio"
 					= f.text_area :bio, :style => "width: 250px",:placeholder=>"Please Enter Comment"
-		
+
 		.contact-section-bottom-button
 			= f.submit "Save", :class=>"contact-button contact-button-single", :id=> "align"
 	%br.clearer/

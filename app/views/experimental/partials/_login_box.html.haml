@@ -27,9 +27,9 @@
 							= button_tag "<i class='icon-login'></i>Login".html_safe,:type=>"submit"
 				%br
 				%p.login-submit
-					=link_to "First time? Sign-up now", "/concern-about-privacy"
+					=link_to "<i class='icon-login'></i>&nbspFirst time? Sign-up now".html_safe, "/concern-about-privacy"
 				%p.login-submit
-					=link_to "<i class='icon-lock'></i>Forgot your login/password?".html_safe,"/reset-password"
+					=link_to "<i class='icon-lock'></i>&nbspForgot your login/password?".html_safe,"/reset-password"
 
 :javascript
 	// client side validations

@@ -10,7 +10,7 @@
 		);
 	}
 
-.clearer.hide-responsive  
+.clearer.hide-responsive
 %br.hide-responsive/
 .main-content-left
 	#content.page-content
@@ -31,20 +31,17 @@
 						#item-header-avatar
 							%a{:style=>"float:left;"}
 								-if @user.use_gravatar?
-									= image_tag avatar_user_path(@user),:size=>'140x140',:class => "avatar" 
-								-else                       
+									= image_tag avatar_user_path(@user),:size=>'140x140',:class => "avatar"
+								-else
 									= image_tag(default_avatar_url('big'), :class=>"avatar")
 						#item-header-content
 							%h2
 								= link_to "#{user_realname(@user)}", user_path(@user)
 							.item-meta
 								%span{:class=>"activity"}
-									Joined 
+									Joined
 									= t("time.ago", :time => time_ago_in_words(current_user.created_at))
 									=# t("time.ago", :time => time_ago_in_words(config.joined_at))
-							.user-nicename
-								Website:
-								= link_to @user.website, @user.website
 							.user-nicename
 								= link_to "<span>HIV Condition: #{user_hiv_condition(@user)}</span>".html_safe, "#", :class => "qwest_tag1"
 								=# link_to "<span>Edit Profile</span>".html_safe, settings_path, :class => "qwest_tag15"
@@ -59,21 +56,21 @@
 							.a6
 								= image_tag "plus/a1.png", :class=> "shift-left-margin"
 								%span
-									Country: 
+									Country:
 									= user_country(@user)
 								%br
 								= image_tag "plus/a2.png", :class=> "shift-left-margin"
 								%span
-									Age: 
+									Age:
 									-if @user.birthday.present?
 										= (Date.today.year)-(@user.birthday.year)
 										year
 									-else
-										
+
 										= user_age(@user)
 										-unless user_age(@user)=="unknown"
 											year
-									
+
 		#item-nav
 			#object-nav.item-list-tabs{:id=>"firstElement"}
 				%ul
@@ -154,7 +151,7 @@
 	Experimental.getAjaxData("change","#activity-filter-by-answer","/profile/dashboard","GET","return-data-ajax","answer","#answer-ajax .loader","subnav ul","users/show/user_dashboard_subtab","");
 	/// ajax function for question sort
 	Experimental.getAjaxData("change","#activity-filter-by-question","/profile/dashboard","GET","return-data-ajax","questions","#questions-ajax .loader","subnav ul","users/show/user_dashboard_subtab","");
-	
+
 	jQuery(document).ready(function(jQ){
 		jQ('#pagination-digg  a').live('click',function(e){
 			e.preventDefault();
