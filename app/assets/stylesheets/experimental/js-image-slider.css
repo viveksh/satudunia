@@ -8,8 +8,9 @@
 }
 
 #slider, #slider div.sliderInner {
-    width:632px;height:306px;/* Must be the same size as the slider images */
+    width:652px;height:350px;/* Must be the same size as the slider images */
     border-radius: 2px;
+    left: -20px;
 }
 
 /* make video and audio to have rounded corners */
@@ -39,27 +40,30 @@
 #slider div.mc-caption-bg, #slider div.mc-caption-bg2 {
 	position:absolute;
 	width:100%;
-	height:auto;
+	height:40px;
 	padding:10px 0;/* 10px will increase the height.*/
 	left:0px; /*if the caption needs to be aligned from right, specify by right instead of left. i.e. right:20px;*/
 	bottom:0px;/*if the caption needs to be aligned from top, specify by top instead of bottom. i.e. top:150px;*/
 	z-index:3;
 	overflow:hidden;
 	font-size: 0;
-	border-radius: 0 0 6px 6px;/*round caption bottom corners */
+	border-radius: 0 0 0 0;/*round caption bottom corners */
 }
 #slider div.mc-caption-bg {
     /* NOTE: Its opacity is to be set through the sliderOptions.captionOpacity setting in the js-image-slider.js file.*/
 	background:Black;/* or any other colors such as White, or: background:none; */
 }
 #slider div.mc-caption-bg2 {
-    background:none;
+    background:none repeat scroll 0 0 #868686;
 }
 #slider div.mc-caption {
-	font: bold 14px/20px Arial;
+  font-size: 22px;
+  padding-left: 30px;
+  padding-top: 5px;
+  line-height: 1.5;
 	color:#EEE;
 	z-index:4;
-	text-align:center;
+  font-family: BebasNeueRegular, Arial, Sans-Serif;
     background:none;
 }
 #slider div.mc-caption a {
@@ -73,7 +77,7 @@
 /* ------ built-in navigation bullets wrapper ------*/
 /* Note: check themes\2\js-image-slider.css to see how to hide nav bullets */
 #slider div.navBulletsWrapper  {
-	top:320px;/* Its position is relative to the #slider */
+	top:350px;/* Its position is relative to the #slider */
 	text-align:center;
 	background:none;
 	position:relative;

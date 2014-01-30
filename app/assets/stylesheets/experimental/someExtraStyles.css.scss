@@ -157,7 +157,7 @@
 		font-size: 1px !important;
 		height: 20px !important;
 		width: 16px !important;
-		display: inline-block !important; 
+		display: inline-block !important;
 }
 .qa-vote-second-button {
 		bottom: 6px;
@@ -187,7 +187,7 @@
 		background-position: -16px -80px !important;
 		color: #CCCCCC;
 }
-/*questions display css*/ 
+/*questions display css*/
 
 .margin-top{
 	margin-top: 10px;
@@ -239,18 +239,18 @@
 /*input form styles*/
 form.exp-contact-form{
 		input.input-class{
-				width:625px; 
-				height:30px; 
+				width:625px;
+				height:30px;
 				border:1px solid #E0E0E0;
 				font-size: 14px;
 				color:#666666;
-				padding-left:5px; 
+				padding-left:5px;
 		}
-		
+
 	 textarea{
 				border:1px solid #E0E0E0;
 				font-size: 14px;
-				color:#666666;  
+				color:#666666;
 	 }
 	 textarea.error{
 
@@ -288,7 +288,7 @@ form.exp-contact-form{
 		/*background-color: #385F79;*/
 		background: -moz-linear-gradient(top, #457798, #385F79);
 		background: -webkit-linear-gradient(top,#457798, #385F79);
-					 
+
 		padding:10px 20px 10px 20px;
 		font-family: BebasNeueRegular,arial,sans-serif !important;
 		color:#fff;
@@ -296,7 +296,7 @@ form.exp-contact-form{
 	 a.submit-button{ /*background-color: #385F79;*/
 		background: -moz-linear-gradient(top, #457798, #385F79);
 		background: -webkit-linear-gradient(top,#457798, #385F79);
-					 
+
 		padding:10px 20px 10px 20px;
 		font-family: BebasNeueRegular,arial,sans-serif !important;
 		color:#fff;
@@ -309,8 +309,8 @@ form.exp-contact-form{
 				border:1px solid #E0E0E0;
 				background-color:#fff;
 	 }
-	 
- 
+
+
 }
 /*flash messages*/
 #flash_notice,
@@ -349,7 +349,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d7e866', end
 #flash_error,
 #flash_alert {
 	/*background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0)) repeat scroll 0 0 #FFEAA6;*/
-		border: 1px solid #D55353;
+		border: 1px solid #FFA200;
 		border-radius: 3px 3px 3px 3px;
 		font-weight: normal;
 		margin-top: 3px;
@@ -426,7 +426,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d7e866', end
 
 .strength2
 {
-		width:100px;    
+		width:100px;
 		background:#ff5f5f;
 }
 
@@ -454,14 +454,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d7e866', end
 }
 .extra-buttons{
 		/*background-image:url("images/aside-bg.jpg");*/
-		background-color:#5B5B5E; 
+		background-color:#5B5B5E;
 		color:#fff !important;
 		font-weight:bold;
 		border-radius: 4px;
-		padding:5px 10px 5px 10px; 
+		padding:5px 10px 5px 10px;
 }
 .extra-buttons:hover{
-		color:#DDDDDD !important; 
+		color:#DDDDDD !important;
 }
 .add-a-new-tag .each .tools{
 		float: right;
@@ -536,27 +536,27 @@ ul.tabbernav1 {
 }
 
 #div-load{
-		width:100%; 
-		z-index:1000; 
-		height:100%; 
+		width:100%;
+		z-index:1000;
+		height:100%;
 		background-color: rgb(119, 119, 119); opacity: 0.7;
-		position:fixed; 
+		position:fixed;
 
 }
 #div-another-image{
-		width:100%; 
-		z-index:1001; 
-		height:100%; 
+		width:100%;
+		z-index:1001;
+		height:100%;
 		background-image:url('images/loader.gif');
 		opacity: 0.6;
-		background-position:center center; 
-		background-repeat:no-repeat; 
-		position:fixed; 
+		background-position:center center;
+		background-repeat:no-repeat;
+		position:fixed;
 
 }
 
 
-		
+
 .tabbernav1 > li {
 		float: left;
 		margin-left: 10px;
@@ -627,7 +627,7 @@ div.item-list-tabs ul li.feed a {
 		list-style-type: none;
 		margin: 0 0px 10px ;
 		padding: 10px;
-		
+
 
 }
 .activity-list .activity-content .activity-inner, .activity-list .activity-content blockquote {
@@ -785,7 +785,7 @@ form.exp-contact-form input.input-class1 {
 	color: #000000 !important;
 }
 /*css for hiding top bar of google translator*/
-.goog-te-banner-frame.skiptranslate {display: none !important;} 
+.goog-te-banner-frame.skiptranslate {display: none !important;}
 body { top: 0px !important; }
 
 .section-bottom1{
@@ -873,7 +873,7 @@ form#search input {
 .survey.current_page_parent {
 		margin-left: -50px;
 		margin-top: -30px;
-		
+
 }
 
 .a6{
@@ -908,7 +908,7 @@ form#search input {
 }
 
 #enter-comment{
-	margin: 0px; 
+	margin: 0px;
 	height:30px;
 	width: 82%;
 }
@@ -1006,7 +1006,7 @@ form#search input {
 	line-height: 18px;
 }
 .show-inline{
-	display:inline !important;  
+	display:inline !important;
 }
 .loader-adjust-ques{
 	min-width: 140px;
@@ -1179,7 +1179,7 @@ form#search input {
 	height: 36px;
 	line-height: 1.4;
 	margin: 0;
-	min-height: 36px; 
+	min-height: 36px;
 	padding: 6px 10px 8px;
 	resize: none;
 	transition: all 0.15s ease-in-out 0s;
@@ -1248,7 +1248,7 @@ form#search input {
 .set-padding{
 	padding-bottom:20px !important;
 }
-	
+
 .comments-rss-show {
 		color: #333333;
 		font-family: Arial;
@@ -1408,7 +1408,7 @@ form#search input {
 #tool-area #results  a {color:#9357A7;font-weight:bold;}
 #tool-area #results {background-color:#EEF5F6; padding:15px; line-height:1.3;}
 #tool-area #results { background-color: #E4EFEF; line-height: 1.3; padding: 15px;
-width: 596px;}       
+width: 596px;}
 
 @media screen and (max-width: 320px) {
 #tool-area #selections #hiv_status, #tool-area #selections #partners{width:100%}
@@ -1761,7 +1761,11 @@ h3#change-fonts {
 	z-index:999999 !important;
 }
 
-#flash_error, #flash_alert{
+#flash_alert{
+	background:#FFA200 repeat-x 0px 0px;
+}
+
+#flash_error{
 	background:none repeat scroll 0 0 #FE5E00 !important;
 }
 
@@ -1775,4 +1779,23 @@ h3#change-fonts {
 	overflow:auto;
 	height:400px;
 	z-index: 20 !important;
+}
+.category-new{
+  margin-bottom: -11px !important;
+  z-index: 9;
+  .new-video{
+  	margin-top:7px;
+  }
+}
+.menu-contact{
+	margin-bottom: 30px;
+	margin-top: -5px;
+	.menu-list{
+		margin-left: 95px;
+		margin-top: -35px;
+	}
+	img{
+		width:40px;
+		margin-left: 45px;
+	}
 }

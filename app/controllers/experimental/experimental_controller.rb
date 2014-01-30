@@ -76,7 +76,7 @@ class Experimental::ExperimentalController < ApplicationController
   end
   # terms of use
   def terms
-    add_breadcrumb "Privacy", "/privacy-policy"
+    add_breadcrumb "Privacy", "/privacy/policy"
     add_breadcrumb "Terms of Service", "terms-of-use"
     @title = "terms of use"
     @tos = StaticPage.where(:static_key => 'tos').first

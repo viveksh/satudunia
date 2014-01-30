@@ -1,4 +1,4 @@
-.clearer.hide-responsive  
+.clearer.hide-responsive
 %br.hide-responsive/
 .main-content-left
 	.page-content.review.single-post
@@ -13,22 +13,22 @@
 					.section-for-header
 						%i.icon-text-doc
 						TERMS OF USE
-			.section-arrow 
-		/ content area 
+			.section-arrow
+		/ content area
 		%link{:href => "../experimental/images/movies3-160x160.jpg", :rel => "image_src"}/
 		.overview-wrapper.set-background
 			/ %h1.title Login
 			.overview-new.nopadding-top.padding-about#change-color
 				.excerpt-new1.justify-content.nopadding-top
 					%p.filter-content-new
-						%p 
-							-unless @tos.nil? 
+						%p
+							-unless @tos.nil?
 								= @tos.static_content.html_safe
 			.section-bottom{:style=>"margin-bottom:20px;"}
 				.category.qa-q-item-tags#logo-wrapper
 					.catname
 						Tags
-					.category-arrow  
+					.category-arrow
 				.tags-list-about#set-margin
 					%span.tags1_2.set-fonts
 						%a{:href => "/tags/technology"} Sample1
@@ -74,9 +74,9 @@
 	/ newly reviewd
 	/ = render "experimental/partials/newly_reviewed"
 	/popular box
-	= render "experimental/partials/popular_box"
+	=# render "experimental/partials/popular_box"
 	/rating box
-	= render "experimental/partials/rating_box"
+	=# render "experimental/partials/rating_box"
 	/banner box
 	= render "experimental/partials/banner_box"
 :css
@@ -85,13 +85,13 @@
 
 :javascript
 	jQuery.noConflict();
-	jQuery(document).ready(function() { 
-	
+	jQuery(document).ready(function() {
+
 		jQuery('#related > ul').tabs({ fx: { opacity: 'toggle', duration: 150 } });
 		// for making first character styled
-		
-	}); 
-	
+
+	});
+
 
 
 

@@ -15,7 +15,11 @@
 				/ %li
 				/ 	%a{:href => "/users", :title=>"Community", :alt=>"Community"} Community
 				%li
-					= link_to "Contact",contact_index_path
+					= link_to "Contact",contact_path
+				%li
+					= link_to "Terms of use",terms_experimental_index_path,:title=>"Terms of Use",:alt=>"Terms of Use"
+				%li
+					= link_to "Privacy Policy","/privacy/policy",:title=>"privacy-policy",:alt=>"privacy-policy"
 				/ %li
 				/ 	%a{:href => ask_question_experimental_index_path, :title=>"Ask a Question", :alt=>"Ask a Question"} Ask a Question
 		%br.clearer/
@@ -219,7 +223,7 @@
 				%a{:href=>terms_experimental_index_path}
 					Terms of Use
 				|
-				%a{:href=>"/privacy-policy"}
+				%a{:href=>"/privacy/policy"}
 					Privacy Policy
 
 			.floatright
