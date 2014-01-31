@@ -1,20 +1,20 @@
-:css 
+:css
 	.nivo-box{
 		height: 150px !important;
 	}
 %br
 #spotlight-wrapper
-	.ribbon-shadow-left  
+	.ribbon-shadow-left
 	.section-wrapper
 		/ spotlight section header
 		.section
 			%i.icon-flashlight
 			In The Spotlight
 			%button.nextspot.floatright{:style=>"z-index:9"} >
-			%button.prevspot.floatright{:style=>"z-index:9"} <	
-			
-	.ribbon-shadow-right  
-	.section-arrow  
+			%button.prevspot.floatright{:style=>"z-index:9"} <
+
+	.ribbon-shadow-right
+	.section-arrow
 	%br
 	.spotlight
 		#spotlight-slider.spotslider-index1
@@ -23,11 +23,11 @@
 				%li
 					.post-panel
 						.category
-							.ribbon-shadow-left  
-							/ .icon{:style => "background:url(http://www.industrialthemes.com/made/wp-content/themes/made/images/review-movie-light.png) no-repeat 0px 0px;"}  
+							.ribbon-shadow-left
+							/ .icon{:style => "background:url(http://www.industrialthemes.com/made/wp-content/themes/made/images/review-movie-light.png) no-repeat 0px 0px;"}
 							.catname
 								="<i class='icon-help'></i>Question & Answer".html_safe
-							.category-arrow  
+							.category-arrow
 						%a.darken{:href => "/questions"}
 							%img{:alt => "Question & Answer",:title=>"Question & Answer", :height => "170", :src => "/assets/experimental/images/questions-new.png", :width => "300"}/
 						.inner
@@ -36,9 +36,9 @@
 								-unless current_group.block_one_header.blank?
 									= current_group.block_one_header.html_safe rescue ""
 							.excerpt.full-align-style
-								= current_group.block_one_info.html_safe rescue "" 
+								= current_group.block_one_info.html_safe rescue ""
 						.more-bar
-							.arrow-catpanel-top  
+							.arrow-catpanel-top
 							/ .rating-wrapper.small
 							/   .number.color3 42%
 							.comments
@@ -48,11 +48,11 @@
 				%li
 					.post-panel.right
 						.category
-							.ribbon-shadow-left  
-							/ .icon{:style => "background:url(http://www.industrialthemes.com/made/wp-content/themes/made/images/review-fashion-light.png) no-repeat 0px 0px;"}  
+							.ribbon-shadow-left
+							/ .icon{:style => "background:url(http://www.industrialthemes.com/made/wp-content/themes/made/images/review-fashion-light.png) no-repeat 0px 0px;"}
 							.catname
 								="<i class='icon-location'></i>Services Map".html_safe
-							.category-arrow  
+							.category-arrow
 						%a.darken{:href => service_providers_path}
 							%img{:alt => "Services Map",:title=>"Services Map", :height => "170", :src => "/assets/experimental/images/MAP-THUMB.jpg", :width => "300"}/
 						.inner
@@ -65,7 +65,7 @@
 							%br
 							%br
 						.more-bar
-							.arrow-catpanel-top  
+							.arrow-catpanel-top
 							/ .rating-wrapper.small
 							/   .letter.color3 C
 							.comments
@@ -76,16 +76,16 @@
 				%li
 					.post-panel
 						.category
-							.ribbon-shadow-left  
-							/ .icon{:style => "background:url(http://www.industrialthemes.com/made/wp-content/themes/made/images/review-restaurant-light.png) no-repeat 0px 0px;"}  
+							.ribbon-shadow-left
+							/ .icon{:style => "background:url(http://www.industrialthemes.com/made/wp-content/themes/made/images/review-restaurant-light.png) no-repeat 0px 0px;"}
 							.catname
 								="<i class='icon-circled-help'></i>Knowledge Base".html_safe
-							.category-arrow  
+							.category-arrow
 						%a.darken{:href => "http://being-me.net/wiki/Main_Page"}
 							%img{:alt => "Knowledge Base",:title=>"Knowledge Base", :height => "170", :src => "/assets/experimental/images/KNOWLEDGE-THUMB.jpg", :width => "300"}/
 						.inner
 							%h2
-								%a{:href => "http://being-me.net/wiki/Main_Page"} 
+								%a{:href => "http://being-me.net/wiki/Main_Page"}
 									=current_group.block_three_header.html_safe rescue ""
 							.excerpt.full-align-style
 								=current_group.block_three_info.html_safe rescue ""
@@ -93,27 +93,27 @@
 							/ %br
 							/ %br
 						.more-bar
-							.arrow-catpanel-top  
+							.arrow-catpanel-top
 							/ .rating-wrapper.small
 							/   .stars.yellow
-							/     .star.full  
-							/     .star.full  
-							/     .star.half  
-							/     .star  
-							/     .star  
+							/     .star.full
+							/     .star.full
+							/     .star.half
+							/     .star
+							/     .star
 							.comments
 								%a{:href => "http://being-me.net/wiki/Main_Page", :title => "Comment on Sugar Rush: Banana Stracciatella Gelato from Eataly"} #{show_counts("knowledge_base_count")} Views
 							.more#knowledgebase
 								%a{:href => "http://being-me.net/wiki/Main_Page",:target => :blank}  Understand the basics
 					.clearer
-				
+
 :javascript
 	$("#knowledgebase").click(function(){
 		$.ajax({
 			url: '/knowledge_count',
 			beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
 			method: 'post',
-			
+
 		});
 	});
 

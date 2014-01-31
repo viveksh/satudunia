@@ -367,3 +367,21 @@
     jQuery("#flash_alert,#flash_notice").fadeOut(500);
     jQuery(this).hide();
   })
+
+  jQuery('.nextspot-slider').click(function($){
+    if(jQuery(".navBulletsWrapper div.active").next('div').text() == ""){
+      jQuery(".navBulletsWrapper div:first").trigger('click')
+    }
+    else{
+      jQuery(".navBulletsWrapper div.active").next('div').trigger('click')
+    }
+  })
+
+  jQuery('.prevspot-slider').click(function($){
+    if(jQuery(".navBulletsWrapper div.active").prev('div').text() == ""){
+      jQuery(".navBulletsWrapper div:last").trigger('click')
+    }
+    else{
+      jQuery(".navBulletsWrapper div.active").prev('div').trigger('click')
+    }
+  })
