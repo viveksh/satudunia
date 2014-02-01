@@ -13,6 +13,7 @@
 			%button.nextspot.floatright{:style=>"z-index:9"} >
 			%button.prevspot.floatright{:style=>"z-index:9"} <
 
+
 	.ribbon-shadow-right
 	.section-arrow
 	%br
@@ -106,6 +107,10 @@
 							.more#knowledgebase
 								%a{:href => "http://being-me.net/wiki/Main_Page",:target => :blank}  Understand the basics
 					.clearer
+		.show-bubbles
+			.active#move1{rel: "0"} 1
+			%div#move2{rel: "1"} 2
+			%div#move3{rel: "2"} 3
 
 :javascript
 	$("#knowledgebase").click(function(){
@@ -116,4 +121,12 @@
 
 		});
 	});
+	$('#move1,#move2,#move3').click(function(){
+		$('.show-bubbles div').each(function(){
+			$(this).removeClass('active');
+		})
+		$(this).addClass('active');
+
+	})
+
 

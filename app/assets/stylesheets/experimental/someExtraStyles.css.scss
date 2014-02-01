@@ -1802,3 +1802,27 @@ h3#change-fonts {
 .decimal-list ul li {
 	list-style: disc;
 }
+
+.show-bubbles {
+
+    /*top:350px; Its position is relative to the #slider */
+    text-align:center;
+    background:none;
+    position:relative;
+    z-index:5;
+     margin-top: -63px;
+}
+
+
+.show-bubbles div
+{
+    width:11px; height:11px;
+    font-size:0;color:White;/*hide the index number in the bullet element*/
+    background:transparent url(/assets/experimental/images/bullet.png) no-repeat 0 0;
+    display:inline-block; *display:inline; zoom:1;
+    overflow:hidden;cursor:pointer;
+    margin:0 6px;/* set distance between each bullet*/
+    cursor: pointer;
+}
+
+.show-bubbles div.active {background-position:0 -11px;}
