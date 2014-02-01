@@ -1770,7 +1770,7 @@ h3#change-fonts {
 }
 
 #fancy-concern ul li {
-  list-style: decimal outside none !important;
+	list-style: decimal outside none !important;
 }
 
 #search-container{
@@ -1781,11 +1781,11 @@ h3#change-fonts {
 	z-index: 20 !important;
 }
 .category-new{
-  margin-bottom: -11px !important;
-  z-index: 9;
-  .new-video{
-  	margin-top:7px;
-  }
+	margin-bottom: -11px !important;
+	z-index: 9;
+	.new-video{
+		margin-top:7px;
+	}
 }
 .menu-contact{
 	margin-bottom: 30px;
@@ -1798,4 +1798,7 @@ h3#change-fonts {
 		width:40px;
 		margin-left: 45px;
 	}
+}
+.decimal-list ul li {
+	list-style: disc;
 }
