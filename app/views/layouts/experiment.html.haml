@@ -373,3 +373,19 @@
     foo = foo.replace("Slider purchase reminder", " ");
     jQuery('#spotlight-wrapper').html(foo);
   });
+
+  jQuery(document).ready(function(){
+    var foo = jQuery("#featured-wrapper").html();
+    if(foo.contains=="Slider purchase reminder"){
+    	foo = foo.replace("Slider purchase reminder", " ");
+    	jQuery('#spotlight-wrapper').html(foo);
+    }
+  });
+
+  $("#move-right-bubble").click(function(){
+  	jQuery(".prevspot").trigger('click');
+  })
+
+  $('#move-left-bubble').click(function(){
+  	jQuery(".nextspot").trigger('click');
+  });

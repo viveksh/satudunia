@@ -10,8 +10,8 @@
 		.section
 			%i.icon-flashlight
 			In The Spotlight
-			%button.nextspot.floatright{:style=>"z-index:9"} >
-			%button.prevspot.floatright{:style=>"z-index:9"} <
+			%button.nextspot.floatright{:style=>"z-index:9;display:none;"} >
+			%button.prevspot.floatright{:style=>"z-index:9;display:none;"} <
 
 
 	.ribbon-shadow-right
@@ -108,9 +108,8 @@
 								%a{:href => "http://being-me.net/wiki/Main_Page",:target => :blank}  Understand the basics
 					.clearer
 		.show-bubbles
-			.active#move1{rel: "0"} 1
-			%div#move2{rel: "1"} 2
-			%div#move3{rel: "2"} 3
+			.active#move-right-bubble{rel: "0"} 1
+			%div#move-left-bubble{rel: "1"} 2
 
 :javascript
 	$("#knowledgebase").click(function(){
@@ -121,7 +120,7 @@
 
 		});
 	});
-	$('#move1,#move2,#move3').click(function(){
+	$('#move-right-bubble,#move-left-bubble').click(function(){
 		$('.show-bubbles div').each(function(){
 			$(this).removeClass('active');
 		})
