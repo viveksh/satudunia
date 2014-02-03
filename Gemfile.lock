@@ -219,8 +219,6 @@ GEM
       addressable (~> 2.2)
       multipart-post (~> 1.1)
       rack (~> 1.1)
-    faraday_middleware (0.7.0)
-      faraday (~> 0.7.3)
     ffaker (1.14.0)
     ffi (1.0.11)
     fssm (0.2.9)
@@ -229,7 +227,6 @@ GEM
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
     haml (3.1.4)
-    hashie (1.1.0)
     highline (1.6.11)
     hike (1.2.1)
     hpricot (0.8.6)
@@ -467,7 +464,6 @@ GEM
       multi_json (~> 1.0)
       rubyzip
     sexp_processor (3.2.0)
-    simple_oauth (0.1.9)
     simplecov (0.6.1)
       multi_json (~> 1.0)
       simplecov-html (~> 0.5.3)
@@ -492,13 +488,6 @@ GEM
     treetop (1.4.10)
       polyglot
       polyglot (>= 0.3.1)
-    twitter (1.7.2)
-      faraday (~> 0.7.4)
-      faraday_middleware (~> 0.7.0)
-      hashie (~> 1.1.0)
-      multi_json (~> 1.0.0)
-      multi_xml (~> 0.4.0)
-      simple_oauth (~> 0.1.5)
     twitter-text (1.1.8)
       actionpack
     twitter_oauth (0.4.3)
@@ -621,7 +610,6 @@ DEPENDENCIES
   stripe
   therubyracer
   tunnlr_connector!
-  twitter (= 1.7.2)
   twitter-text (= 1.1.8)
   twitter_oauth
   uglifier
