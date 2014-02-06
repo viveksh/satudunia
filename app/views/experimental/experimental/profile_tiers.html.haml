@@ -1,4 +1,4 @@
-.clearer.hide-responsive  
+.clearer.hide-responsive
 %br.hide-responsive/
 .main-content-left
 	.page-content.review.single-post
@@ -15,7 +15,7 @@
 					%li
 						%a#back{:href=>"/profile/settings", :class=>"loader-adjust-set"}
 							Back
-							
+
 					%li.selected
 						%a#tier1{:href=>"javascript:void(0)",:data_send=>"profile", :class=>"loader-adjust-profile"}
 							Tier1
@@ -47,8 +47,8 @@
 						.review-content#user_profile_tab
 							=# render "users/edit"
 							/ %h1{:style=>"background:none; border:none"}
-							/   = link_to @user.display_name, user_path(@user)            
-									
+							/   = link_to @user.display_name, user_path(@user)
+
 .sidebar
 	/login box
 	- if current_user.nil?
@@ -71,13 +71,13 @@
 	/ newly reviewd
 	/ = render "experimental/partials/newly_reviewed"
 	/popular box
-	= render "experimental/partials/popular_box"
+	/ = render "experimental/partials/popular_box"
 	/rating box
 	= render "experimental/partials/rating_box"
 	/banner box
 	= render "experimental/partials/banner_box"
 
-:javascript 
+:javascript
 	$(document).ready(function(){
 		$.ajax({
 			url: "/tier1_index"
@@ -86,7 +86,7 @@
 		$("#tier1,#tier2,#tier3,#tier4").click(function(){
 			$.ajax({
 				url: "/"+$(this).attr('id')+"_index"
-			});      
+			});
 		});
 		jQuery("#object-nav_firstElement > ul > li").click(function(){
 			jQuery("#object-nav_firstElement > ul > li").removeClass('selected');
