@@ -1,4 +1,4 @@
-.clearer.hide-responsive  
+.clearer.hide-responsive
 %br.hide-responsive/
 .main-content-left
 	.page-content.review.single-post
@@ -13,11 +13,11 @@
 					.section-for-header
 						/%i.icon-vcard
 						- if @tags.present?
-							-@tags.each do |tag| 
+							-@tags.each do |tag|
 								Tags::#{tag.name}
 						- else
 							Tags::#{@tagId.gsub(/[_]/, ' ')}
-			.section-arrow 
+			.section-arrow
 	#content.page-content
 		%form#members-directory-form.dir-form{:action => "", :method => "post"}
 			#members-dir-search.dir-search{:role => "search"}
@@ -35,7 +35,7 @@
 					%a{:href=>"javascript:void(0)",:id=>"questions-ajax-tags"}
 						- if @tags.present?
 							= @tags.first.name.capitalize
-						- else 
+						- else
 							#{@tagId.capitalize.gsub(/[_]/, ' ')}
 						%span= @questions.count
 						.loader
@@ -45,7 +45,7 @@
 					%label{:for => "members-order-by"} Order By:
 					%select#activity-filter-by
 						%option{:value => ""} Newest
-						%option{:value => ""} Hot 
+						%option{:value => ""} Hot
 						%option{:value => ""} Featured
 						%option{:value => ""} Votes
 						%option{:value => ""} Unanswered
@@ -80,7 +80,7 @@
 				= render "experimental/partials/tags_individual"
 		%br.clearer
 		%br.clearer
-		%br.clearer 
+		%br.clearer
 		.review-content
 			.ribbon-shadow-left
 			.section-wrapper
@@ -90,7 +90,7 @@
 					/ making title stronger
 					.section-for-header
 						Disqus
-			.section-arrow 
+			.section-arrow
 			.overview-wrapper
 				.overview-new
 					.left-panel
@@ -99,10 +99,10 @@
 							/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
 							var disqus_shortname = 'beingmedev'; // required: replace example with your forum shortname
 							/* * * DON'T EDIT BELOW THIS LINE * * */
-							(function() { 
+							(function() {
 								var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-								dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js'; 
-								(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq); 
+								dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+								(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 							})();
 						%noscript
 							Please enable JavaScript to view the
@@ -122,7 +122,7 @@
 
 
 / content variable
-/ .clearer.hide-responsive  
+/ .clearer.hide-responsive
 / %br.hide-responsive/
 / .main-content-left
 /   .page-content.review
@@ -130,7 +130,7 @@
 /     .overview-wrapper
 /       %h1.title Tags
 /       .overview
-/         .arrow-catpanel-bottom  
+/         .arrow-catpanel-bottom
 /         .excerpt-new
 /           -feed_url = url_for(:format => "atom", :tags => @tag_names.join("+"))
 /           -content_for :rss do
@@ -155,7 +155,7 @@
 /                     = render "experimental/partials/questions/plus_question", :question => question
 
 /                 = paginate @questions
-	
+
 .sidebar
 	- if current_user.nil?
 		/login box
@@ -181,7 +181,7 @@
 	/ newly reviewd
 	/ = render "experimental/partials/newly_reviewed"
 	/popular box
-	= render "experimental/partials/popular_box"
+	/ = render "experimental/partials/popular_box"
 	/banner box
 	= render "experimental/partials/banner_box"
 
