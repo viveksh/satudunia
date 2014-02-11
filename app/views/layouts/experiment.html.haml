@@ -36,8 +36,10 @@
 		= csrf_meta_tag
 
 		%body
+
 			/ stretch menu
-			= render "experimental/partials/sticky_menu"
+			- if params[:action]=="index_experimental"
+				= render "experimental/partials/sticky_menu"
 			/ page loader starts
 			- if check_pre_loader
 				#div-load

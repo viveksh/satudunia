@@ -416,8 +416,8 @@ Rails.application.routes.draw do
 	scope :module => "experimental" do
 		resources :experimental, :path => "/" do
 			collection do
-				get :index,:path=>"/index"
-				get :index_experimental,:path=>"/index1"
+				get :index,:path=>"/index1"
+				get :index_experimental,:path=>"/index"
 				get :public_about,:path=>"/about"
 				get :rss_feed,:path=>"rss"
 				get :terms_condition, :path=> "/profile/participate-research"
