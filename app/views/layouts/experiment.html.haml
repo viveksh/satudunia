@@ -64,10 +64,10 @@
               %a{:href => "#"}
               %img{:src => "/assets/experimental/images/images_live/ad-top.png"}/
             %br.clearer/
-          #logo-bar-shadow  
+          #logo-bar-shadow
         / end the logo area
         #cat-menu.cat-menu
-          %a.home-link{:href => root_path,:title=>"Plus Home",:title=>"Plus Home"}  
+          %a.home-link{:href => root_path,:title=>"Plus Home",:title=>"Plus Home"}
           %ul#menu-main-menu
             / %li
             /   %a{:href => "archive-a.html"} Layouts
@@ -93,19 +93,19 @@
                     = link_to "#{provider}",country_services_map_path(provider.downcase)
             / question drop starts
             =render 'experimental/partials/default_tags'
-                    
+
             / question drop ends
             / Login drop starts
             %li
               - if current_user.nil?
-                %a{:href => '/login'}  
+                %a{:href => '/login'}
                   ="Login".html_safe
               -else
                 = link_to "Knowledgebase","#"
 
             %li
               - if current_user.nil?
-                //%a{:href => '/login'}  
+                //%a{:href => '/login'}
                 //  ="Login".html_safe
               -else
                 = link_to "Settings","#"
@@ -122,10 +122,10 @@
                         = "<i class='icon-circled-right'></i>#{t('.following')}".html_safe
                     %li
                       %a{:href => follows_user_path(current_user)+"?sort=followers" }
-                        = "<i class='icon-right'></i>#{t('.followers')}".html_safe  
+                        = "<i class='icon-right'></i>#{t('.followers')}".html_safe
                     %li
                       %a{:href => '/logout' }
-                        = "<i class='icon-logout'></i>#{t("layouts.application.logout")}".html_safe           
+                        = "<i class='icon-logout'></i>#{t("layouts.application.logout")}".html_safe
             / Login drop ends
           %select#select-menu-main-menu
             %option Category Navigation
@@ -153,7 +153,7 @@
           %ul#menu-sub-menu.menu
             -if params[:controller] == "questions" || params[:controller] == "tags"
               = render "experimental/partials/subnavigation/questions_subnavigation"
-            -elsif params[:controller] == "service_providers" 
+            -elsif params[:controller] == "service_providers"
               = render "experimental/partials/subnavigation/service_providers_subnavigation"
             -else
               = render "experimental/partials/subnavigation/common_subnavigation"
@@ -174,9 +174,9 @@
                 - if flash[:alert] == "rpx_invalid"
                   .alert.alert-error
                     %a#close.msg-alert{href: ""} ×
-                    #flash_alert 
+                    #flash_alert
                       This user is already registered in our website. Please login to continue.
-                - else 
+                - else
                   %div{:class => "alert alert-#{name == :notice ? "success" : "error"}"}
                     / %a.close{"data-dismiss" => "alert"} ×
                     = link_to "×",'',:id=>"close", :class=>"msg-alert"
@@ -194,7 +194,7 @@
           function googleTranslateElementInit() {
             new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, multilanguagePage: true}, 'google_translate_element');
           }
-        
+
         /footer
         = render "experimental/partials/footer"
 
@@ -217,17 +217,26 @@
 
     %script{:src => "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit", :type => "text/javascript"}
 
+    %script
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function()
+      { (i[r].q=i[r].q||[]).push(arguments)}
+      ,i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-37291321-6', 'b-change.org');
+      ga('send', 'pageview');
+
 :javascript
   jQuery.noConflict();
     //DOCUMENT.READY
-    jQuery(document).ready(function($) { 
+    jQuery(document).ready(function($) {
 
       //loop through each post type and setup a jquery tabs object
       jQuery('#tabbed-Restaurant-reviews > ul').tabs({ fx: { opacity: 'toggle', duration: 150 } });
       jQuery('#tabbed-Music-reviews > ul').tabs({ fx: { opacity: 'toggle', duration: 150 } });
       jQuery('#tabbed-Movie-reviews > ul').tabs({ fx: { opacity: 'toggle', duration: 150 } });
       jQuery('#tabbed-Fashion-reviews > ul').tabs({ fx: { opacity: 'toggle', duration: 150 } });
-      jQuery('#tabbed-Product-reviews > ul').tabs({ fx: { opacity: 'toggle', duration: 150 } });  
+      jQuery('#tabbed-Product-reviews > ul').tabs({ fx: { opacity: 'toggle', duration: 150 } });
       //colorbox
       jQuery('.review .article-image a').colorbox({transition:'fade', speed:250});
       jQuery('.single-post .content .article-image a').colorbox({transition:'fade', speed:250});
@@ -236,7 +245,7 @@
       jQuery(".page-content a[href$='.jpg'],a[href$='.png'],a[href$='.gif']").colorbox();
       jQuery('.page-content .gallery a').colorbox({  rel:'gallery' });
       //initialize smooth div scroll on Don't Miss slider
-      jQuery("#dontmiss").smoothDivScroll({ 
+      jQuery("#dontmiss").smoothDivScroll({
         autoScrollingMode: "always",
         autoScrollingDirection: "endlessloopright",
         autoScrollingStep: 1,
@@ -256,10 +265,10 @@
         easingType: 'linear'
       };
       */
-      jQuery().UItoTop({ easingType: 'easeOutExpo' }); 
+      jQuery().UItoTop({ easingType: 'easeOutExpo' });
       jQuery("#ts_hide_link").click(function(){
         jQuery('#google_translate_element').toggle(700);
-      }) 
+      })
     });
     //the reason they are here instead of in custom.js is because they contain php variables which can't
     //be applied in a .js file. Also, make sure these come before the darken function.
@@ -336,21 +345,21 @@
     $('.tool-tip').tipsy({
       delayIn: 50,
       delayOut: 50,
-      fade: true, 
-      gravity: 'n', 
+      fade: true,
+      gravity: 'n',
       opacity: 100
       });
   });
 
   // active_tab
   Experimental.getActiveTab("#{params[:action]}","#{params[:controller]}");
-  
+
   (function()
-  { 
-    var t = document.createElement('script'); 
+  {
+    var t = document.createElement('script');
     t.type = 'text/javascript';
-    t.async = true; t.src = "/assets/experimental/turnsocialTooltip.js"; 
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(t, s); 
+    t.async = true; t.src = "/assets/experimental/turnsocialTooltip.js";
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(t, s);
   }
   )();
   //use for close button of success message flash
@@ -359,3 +368,11 @@
     jQuery("#flash_alert,#flash_notice").fadeOut(500);
     jQuery(this).hide();
   })
+
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function()
+  { (i[r].q=i[r].q||[]).push(arguments)}
+  ,i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-37291321-6', 'b-change.org');
+  ga('send', 'pageview');
