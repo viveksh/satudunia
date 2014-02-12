@@ -17,7 +17,7 @@
 		filter:alpha(opacity=40);
 	}
 
-.clearer.hide-responsive  
+.clearer.hide-responsive
 %br.hide-responsive/
 .main-content-left
 	.page-content.review.single-post
@@ -32,12 +32,12 @@
 					.section-for-header
 						%i.icon-vcard
 						= @title.upcase
-			.section-arrow 
+			.section-arrow
 			.disclaimer{:style=> "border: 1px solid #E0E0E0;"}
 				Disclaimer: This summary is not a part of the Terms of Use and is not a legal document.It is simply a reference for understanding the full terms.
 				%small .
-			%br 
-		/ content area 
+			%br
+		/ content area
 		%link{:href => "../experimental/images/movies3-160x160.jpg", :rel => "image_src"}/
 		/ %br.hide-responsive/
 		.overview-wrapper
@@ -45,7 +45,7 @@
 				.left-panel
 					%h3
 						3-Step First Registration Orientation
-						%p.floatleft 
+						%p.floatleft
 							Here is a quick summary of key facts that you need to know as you register for BE.
 
 		.overview-wrapper
@@ -82,14 +82,14 @@
 								%li
 									Diversity: seek to create a vibrant space where multiple, sometimes differing perspectives can thrive.
 								%li
-									Privacy: respect people’s right to private information and freedom from interference. 
+									Privacy: respect people’s right to private information and freedom from interference.
 								%li
 									Health & Well-being: seek to deliver up-to-date information that supports physical and mental health.
 								%li
 									Fair and Equitable Access: seek to ensure that all people, regardless of sexual orientation, gender identity, age, ethnicity, socio-economic status or religion have access to services that support health and well-being, without prejudice.
 								%li
 									Informed Choice: respect people’s ability to make their own decisions when they are supplied with relevant information and advice, without compulsion or duress.
-							
+
 							%span.class-agree
 								=check_box_tag("check2", value = "1", checked = false, options = {:autocomplete=>"off"})
 								Yes, I Acknowledge
@@ -114,22 +114,22 @@
 									Do no harm (? possible to change to a positive) – You do not damage or cause injury to other registered users of the Website or our technology infrastructure.
 								%li
 									Observe the Terms of Use and Policies – You adhere to the below Terms of Use and to the applicable community policies when you visit our sites or participate in our communities.
-							
+
 							%span.class-agree
 								=check_box_tag("check3", value = "1", checked = false, options = {:autocomplete=>"off"})
 								Yes, I Accept
-			.contact-section-bottom-button{:style=>"z-index:500; margin-top:0px !important; display:none"} 
+			.contact-section-bottom-button{:style=>"z-index:500; margin-top:0px !important; display:none"}
 				.janrain-sign-up{:style=>"display:none;"}
-					
+
 					- if params[:via]=="email"
-						
+
 						- session[:signup]="email"
 						- if session[:signup]
-							%a.contact-button.contact-button-single{href: signup_path, title: "Sign up with email"} Next 
+							%a.contact-button.contact-button-single{href: signup_path, title: "Sign up with email"} Next
 					- else
 						= link_to_rpx "Next", user_session_url,:html=>{:title=>"Sign up with Janrain",:class=>"contact-button contact-button-single"}
-	
-			
+
+
 
 			.content-panel.post-loop
 				/ authorbox
@@ -159,7 +159,7 @@
 	/ newly reviewd
 	/ = render "experimental/partials/newly_reviewed"
 	/popular box
-	= render "experimental/partials/popular_box"
+	/ = render "experimental/partials/popular_box"
 	/rating box
 	= render "experimental/partials/rating_box"
 	/banner box
@@ -167,10 +167,10 @@
 
 :javascript
 	jQuery.noConflict();
-		jQuery(document).ready(function() { 
-		
+		jQuery(document).ready(function() {
+
 			jQuery('#related > ul').tabs({ fx: { opacity: 'toggle', duration: 150 } });
-			
+
 		});
 		var calculateClick = 0;
 		jQuery(".class-agree input").click(function(){
@@ -183,10 +183,10 @@
 			if(calculateClick==3){
 				jQuery(".contact-section-bottom-button").show()
 				jQuery(".janrain-sign-up").fadeIn("slow");
-				
+
 			}
 			else{
 				jQuery(".janrain-sign-up").fadeOut("slow");
-				
+
 			}
 		});
