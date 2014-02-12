@@ -1,4 +1,4 @@
-.clearer.hide-responsive  
+.clearer.hide-responsive
 %br.hide-responsive/
 .main-content-left
 	.page-content.review.single-post
@@ -13,8 +13,8 @@
 					.section-for-header
 						Polls
 						=# @title.upcase
-			.section-arrow 
-		/ content area 
+			.section-arrow
+		/ content area
 		%link{:href => "../experimental/images/movies3-160x160.jpg", :rel => "image_src"}/
 		.overview-wrapper
 			/ %h1.title Login
@@ -22,11 +22,11 @@
 				.excerpt-new1.justify-content.nopadding-top
 					%p.filter-content-new
 						= succeed ":" do
-							%span.taxName Poll 
+							%span.taxName Poll
 						%span.taxContent
 							- if @poll
 								= @poll.poll_title
-						
+
 .sidebar
 	- if current_user.nil?
 		/login box
@@ -52,7 +52,7 @@
 	/ newly reviewd
 	/ = render "experimental/partials/newly_reviewed"
 	/popular box
-	= render "experimental/partials/popular_box"
+	/ = render "experimental/partials/popular_box"
 	/banner box
 	= render "experimental/partials/banner_box"
 
