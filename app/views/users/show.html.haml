@@ -1,6 +1,6 @@
 - config = @user.config_for(current_group)
 
-.clearer.hide-responsive  
+.clearer.hide-responsive
 %br.hide-responsive/
 .main-content-left
 	#content.page-content
@@ -15,8 +15,8 @@
 			#item-header-avatar
 				%a{:style=>"float:left;"}
 					-if @user.use_gravatar?
-						= image_tag avatar_user_path(@user),:size=>'140x140',:class => "avatar" 
-					-else                       
+						= image_tag avatar_user_path(@user),:size=>'140x140',:class => "avatar"
+					-else
 						= image_tag(default_avatar_url('big'), :class=>"avatar")
 			#item-header-content
 				%h2
@@ -24,7 +24,7 @@
 					= link_to "#{@user.login}", user_path(@user)
 				/ .item-meta
 				/ 	%span{:class=>"activity"}
-				/ 		Joined 
+				/ 		Joined
 				/ 		= t("time.ago", :time => time_ago_in_words(config.joined_at))
 				.user-nicename
 					Website:
@@ -35,17 +35,17 @@
 				.a6
 					= image_tag "plus/a1.png"
 					%span
-						Country: 
+						Country:
 						= user_country(@user)
 					%br
 					= image_tag "plus/a2.png"
 					%span
-						Age: 
+						Age:
 						= user_age(@user)
 					%br
 					/ -if current_user != @user && @user.member_of?(current_group)
 					/ 	.follow
-					/ 		= follow_user_link(@user) 
+					/ 		= follow_user_link(@user)
 		#item-nav
 			#object-nav.item-list-tabs{:id=>"firstElement"}
 				%ul
@@ -54,7 +54,7 @@
 					= tab_entry "li", t('global.following'), follows_user_path(@user), {:selected => "selected"}
 					= tab_entry "li", t(:activity, :scope => "activerecord.models"), activity_user_path(@user), {:selected => "selected"}, {:class => "activity"}
 					= tab_entry "li", "Survey", survey_user_path(@user), {:selected => "selected"}, {:class => "activity"}
-			
+
 			#subnav.item-list-tabs.no-ajax{:role => "navigation"}
 				%ul
 					= render "users/show/user_#{params[:action]}_filters"
@@ -87,11 +87,11 @@
 	/ newly reviewd
 	/ = render "experimental/partials/newly_reviewed"
 	/popular box
-	= render "experimental/partials/popular_box"
+	/ = render "experimental/partials/popular_box"
 	/banner box
 	= render "experimental/partials/banner_box"
 
-	
+
 :javascript
 	$(window).load(function (){
 
