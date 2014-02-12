@@ -38,7 +38,8 @@
 		%body
 
 			/ stretch menu
-			- if params[:action]=="index_experimental"
+
+			- if params[:controller]=="experimental/experimental" && params[:action]=="index"
 				= render "experimental/partials/sticky_menu"
 			/ page loader starts
 			- if check_pre_loader
