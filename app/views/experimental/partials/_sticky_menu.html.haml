@@ -84,6 +84,41 @@
     /   .sticky-search-area-close
     /     %a{href: "#"}
     /       %i.icon-remove
+  .other-sticky
+    .another-sticky-menu.sticky-menu-wrap
+      %ul.sf-js-enabled
+        %li.public_about.sticky-list.sub-menu
+          %a{alt: "About BE", href: "/about", title: "About BE"} About BE
+        %li.sticky-list.sub-menu
+          / %a{:href => "single-review-numbers.html"} Service Map
+          %a.sf-with-ul{href: "/services-map"}
+            Services Map
+            %span
+          %ul.sf-js-enabled.sf-shadow{style: "visibility: hidden; display: none;"}
+            %li
+              %a{href: "/services-map/malaysia"} Malaysia
+        %li.sticky-list.sub-menu
+          %a.sf-with-ul{href: "/questions"}
+            Questions
+            %span.sf-sub-indicator
+          %ul.sf-js-enabled.sf-shadow{style: "display: none; visibility: hidden;"}
+            %li
+              %a{href: "/tags/coming_out"} Coming Out
+            %li
+              %a{href: "/tags/family"} Family
+            %li
+              %a{href: "/tags/education"} Education
+            %li
+              %a{href: "/tags/employment"} Employment
+            %li
+              %a{href: "/tags/health"} Health
+            %li
+              %a{href: "/tags/relationships"} Relationships
+            %li
+              %a{href: "/tags/sex"} Sex
+        %li.sticky-list.sub-menu
+          / - if current_user.present?
+          %a{href: "http://being-me.net/wiki/Main_Page", target: "blank"} Knowledge Base
 
 = javascript_include_tag "experimental/upslider.js"
 = javascript_include_tag "experimental/upcustom.js"

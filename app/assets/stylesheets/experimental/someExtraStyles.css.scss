@@ -2238,3 +2238,24 @@ h3#change-fonts {
 	height: 0;
 }
 
+.other-sticky{
+	background:#EB6623;
+	height: 60px;
+}
+.another-sticky-menu  ul >li{
+	display: inline;
+}
+.another-sticky-menu  ul ,ol{
+	margin:0;
+	float:right;
+}
+.another-sticky-menu  ul >li.sticky-list > a{
+	color:#fff;
+	font-family: "Open Sans",sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.another-sticky-menu.sticky-menu-wrap {
+  margin-right: 370px;
+}
