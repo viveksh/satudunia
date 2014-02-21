@@ -47,7 +47,6 @@ gem 'redis-rails'
 gem 'html_truncator'
 # using entypo icons
 gem 'entypo-rails', github: 'lwe/entypo-rails'
-
 # utils
 gem 'whatlanguage', '1.0.0'
 gem 'uuidtools', '~> 2.1.1'
