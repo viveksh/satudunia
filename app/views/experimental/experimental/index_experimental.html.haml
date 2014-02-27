@@ -27,7 +27,8 @@
   %br.clearer/
 /side bar
 .sidebar
-
+  = render "experimental/partials/rating_box"
+  %br
   /login box
   - if current_user.nil?
     /login box
@@ -51,6 +52,6 @@
   /popular box
   =# render "experimental/partials/popular_box"
   /rating box
-  = render "experimental/partials/rating_box"
+  / = render "experimental/partials/rating_box"
   /banner box
   / = render "experimental/partials/banner_box"
