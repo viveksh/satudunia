@@ -6,9 +6,11 @@ class UsersController < ApplicationController
   before_filter :find_user, :only => [:show, :answers, :follows, :activity, :survey]
   tabs :default => :users
 
+  before_filter :check_invite_code,only: [:new]
   before_filter :check_signup_type, :only => [:new]
   before_filter :track_pageview
-  
+  before_filter :check_invite_data,  only: [:create]
+
   # add_breadcrumb "Home", :root_path
   tab_config = [[:newest, [:created_at, Mongo::DESCENDING]],
                 [:hot, [:hotness, Mongo::DESCENDING]],
@@ -25,7 +27,7 @@ class UsersController < ApplicationController
                     [:newest, [:created_at, :desc]],
                     [:oldest, [:created_at, :asc]]],
         :answers => [[:votes, [[:votes_average, :desc], [:created_at, :desc]]],
-                    [:views,  [:views, :desc]],
+
                     [:newest, [:created_at, :desc]],
                     [:oldest, [:created_at, :asc]]],
         :follows => [[:questions, []],
@@ -37,7 +39,7 @@ class UsersController < ApplicationController
         :feed => tab_config,
         :contributed => tab_config
   layout "experiment", :only => [:index,:new,:create, :show, :answers, :follows, :activity, :edit, :survey, :social_connect]
-  
+
   def index
     set_page_title(t("users.index.title"))
     order = current_order
@@ -69,25 +71,28 @@ class UsersController < ApplicationController
 
   # render new.rhtml
   def new
+    #
     @user = User.new
+    @user.code=params[:invite_code]
     @user.preferred_languages = current_languages.to_a
     @user.timezone = AppConfig.default_timezone
     @user_extra = "extra"
     request.fullpath
     unless session[:signup].present?
       session[:sign_up_session] = "action_new"
-      redirect_to root_url 
+      redirect_to root_url
     else
       if session[:sign_up_session].present?
         session[:sign_up_session].clear
-      end  
+      end
       if session[:signup].present?
         session[:signup].clear
-      end  
-    end 
+      end
+    end
   end
 
   def create
+
     @user = User.new
     @user.safe_update(%w[login email name first_name  last_name date password_confirmation password  website
                          language timezone identity_url bio hide_country
@@ -176,7 +181,7 @@ class UsersController < ApplicationController
   end
 
   def change_question
-    
+
     @query=params[:value]
     case @query
       when "newest"
@@ -225,7 +230,7 @@ class UsersController < ApplicationController
 
   def activity
     show_breadcrumb
-    
+
     @body_id = "page3"
     conds = {}
     if current_group
@@ -248,10 +253,10 @@ class UsersController < ApplicationController
         # conds[:trackable_type] = "Page"
         @resources = @user.activities.where(trackable_type:"Page").page(params["page"])
       end
-    else 
+    else
       @resources = @user.activities.where(conds).page(params["page"])
     end
-    
+
     # @resources = @user.activities.where(conds).page(params["page"])
     respond_to do |format|
       format.html{render :show}
@@ -279,7 +284,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    
+
     if params[:user]
       if params[:user][:accept_terms]
         current_user.accept_terms="true"
@@ -290,12 +295,12 @@ class UsersController < ApplicationController
         current_user.save
       end
 
-    end 
+    end
     add_breadcrumb "Profile Settings", 'settings'
     @body_id = "page3"
     @user = current_user
     @user.timezone = AppConfig.default_timezone if @user.timezone.blank?
-    @resources= @user.activities.page(params["page"]) 
+    @resources= @user.activities.page(params["page"])
     respond_to do |format|
       format.html
       format.js{render "/experimental/experimental/ajax_entry"}
@@ -333,7 +338,7 @@ class UsersController < ApplicationController
     @user.networks = params[:networks]
     @user.safe_update(%w[preferred_languages login email name first_name last_name date hide_realname
                          language timezone bio hide_country hide_age hide_hiv_condition
-                         country_name user_age hiv_condition website avatar use_gravatar facebook_profile_url 
+                         country_name user_age hiv_condition website avatar use_gravatar facebook_profile_url
                          linkedin_profile_url twitter_profile_url google_plus_profile_url youtube_profile_url flickr_profile_url digg_profile_url url_profile_url ], @paramsUpdated)
     @user.notification_opts.safe_update(%w[new_answer give_advice activities reports
        questions_to_twitter badges_to_twitter favorites_to_twitter answers_to_twitter
@@ -363,13 +368,13 @@ class UsersController < ApplicationController
           redirect_to "/profile/settings?tab=1"
 
         elsif params[:user][:hidden_value]=="3"
-          flash[:notice] = "Socail profile updated successfully"  
+          flash[:notice] = "Socail profile updated successfully"
           redirect_to "/profile/settings?tab=2"
 
-        else   
+        else
           flash[:notice] = "Profile updated successfully"
           redirect_to "/profile/settings"
-        end   
+        end
 
       end
     else
@@ -563,6 +568,33 @@ class UsersController < ApplicationController
     add_breadcrumb "#{params[:controller]}","/#{params[:controller]}"
     add_breadcrumb "#{params[:id]}",user_path
     add_breadcrumb "#{params[:action]}","/user/admin/#{params[:action]}"
+  end
+
+  def check_invite_code
+
+    if InviteCode.all.map(&:code).include? params[:invite_code]
+      return true
+    else
+      flash[:error] = "Invite Code does not match"
+      redirect_to "/"
+    end
+  end
+
+  def check_invite_data
+    @inv_email= params[:user][:email]
+    @invite= InviteCode.where(email: @inv_email).first
+    if @invite.present?
+      if @invite.code==params[:invite_code]
+        return true
+      else
+        flash[:error] = "Invite Code does not match"
+        redirect_to '/'
+      end
+    else
+      flash[:error] = "Invite Code does not match"
+      redirect_to '/'
+    end
+
   end
 
 end

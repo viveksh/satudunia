@@ -5,6 +5,9 @@ require 'magent_web'
 #require 'bug_hunter'
 
 Rails.application.routes.draw do
+	scope '/admin' do
+  	resources :invite_codes
+  end
 
 	resources :badge_comments
 	resources :feedback

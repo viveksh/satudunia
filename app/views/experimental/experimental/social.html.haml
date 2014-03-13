@@ -118,16 +118,38 @@
 							%span.class-agree
 								=check_box_tag("check3", value = "1", checked = false, options = {:autocomplete=>"off"})
 								Yes, I Accept
-			.contact-section-bottom-button{:style=>"z-index:500; margin-top:0px !important; display:none"}
-				.janrain-sign-up{:style=>"display:none;"}
+			=# form_tag ('/signup')  do
+			= form_tag('/signup', {:onSubmit => 'return validateForm()'} )do
+				- if params[:via]=="email"
+					.overview-new
+						.left-panel
+							%h2
+								Please Enter Your Invite Code
+							%p
+								%label{:for => "invite_code"} InviteCode:
+								= text_field_tag :invite_code, params[:invite_code]
+				.contact-section-bottom-button.button-margin{:style=>"z-index:500; margin-top:0px !important; display:none"}
+					.janrain-sign-up{:style=>"display:none;"}
 
-					- if params[:via]=="email"
 
-						- session[:signup]="email"
-						- if session[:signup]
-							%a.contact-button.contact-button-single{href: signup_path, title: "Sign up with email"} Next
-					- else
-						= link_to_rpx "Next", user_session_url,:html=>{:title=>"Sign up with Janrain",:class=>"contact-button contact-button-single"}
+						%p
+							- if params[:via]=="email"
+
+								- session[:signup]="email"
+								- if session[:signup]
+									= submit_tag "Next", :class=>"contact-button contact-button-single set-button-margin", :id=>"email-button"
+
+							- else
+								= link_to_rpx "Next", user_session_url,:html=>{:title=>"Sign up with Janrain",:class=>"contact-button contact-button-single set-button-margin"}
+							/ - if params[:via]=="email"
+
+							/ 	- session[:signup]="email"
+							/ 	- if session[:signup]
+							/ 		%a.contact-button.contact-button-single{href: signup_path, title: "Sign up with email"} Next
+							/ - else
+							/ 	= link_to_rpx "Next", user_session_url,:html=>{:title=>"Sign up with Janrain",:class=>"contact-button contact-button-single"}
+
+
 
 
 
@@ -190,3 +212,10 @@
 
 			}
 		});
+
+	jQuery("#email-button").click(function(){
+		if( $("#invite_code").val().length == 0 ) {
+			alert("Please enter Invite Code");
+			return false;
+		}
+	});
