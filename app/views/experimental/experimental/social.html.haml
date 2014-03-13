@@ -119,35 +119,43 @@
 								=check_box_tag("check3", value = "1", checked = false, options = {:autocomplete=>"off"})
 								Yes, I Accept
 			=# form_tag ('/signup')  do
-			= form_tag('/signup', {:onSubmit => 'return validateForm()'} )do
-				- if params[:via]=="email"
+			- if params[:via]=="email"
+				= form_tag('/signup', {:onSubmit => 'return validateForm()'} )do
+					/ - if params[:via]=="email"
 					.overview-new
 						.left-panel
 							%h2
 								Please Enter Your Invite Code
 							%p
 								%label{:for => "invite_code"} InviteCode:
-								= text_field_tag :invite_code, params[:invite_code]
+								= text_field_tag :invite_code, params[:invite_code], :placeholder => "Enter Invite Code"
+					.contact-section-bottom-button.button-margin{:style=>"z-index:500; margin-top:0px !important; display:none"}
+						.janrain-sign-up{:style=>"display:none;"}
+
+
+							%p
+								- if params[:via]=="email"
+
+									- session[:signup]="email"
+									- if session[:signup]
+										= submit_tag "Next", :class=>"contact-button contact-button-single set-button-margin", :id=>"email-button"
+
+
+			- else
+
+				.overview-new
+					.left-panel
+						%h2
+							Please Enter Your Invite Code
+						%p
+							%label{:for => "invite_code"} InviteCode:
+							= text_field_tag :invite_code, session[:invite_code],:placeholder => "Enter Invite Code"
 				.contact-section-bottom-button.button-margin{:style=>"z-index:500; margin-top:0px !important; display:none"}
 					.janrain-sign-up{:style=>"display:none;"}
-
-
 						%p
-							- if params[:via]=="email"
+							= link_to "Next", "#",:title=>"Sign up with Janrain",:class=>"contact-button contact-button-single set-button-margin" ,:id=>"frogen-next"
+							= link_to_rpx "Next", user_session_url(),:html=>{:style=>"display:none",:title=>"Sign up with Janrain",:class=>"contact-button contact-button-single set-button-margin" ,:id=>"janrain-next"}
 
-								- session[:signup]="email"
-								- if session[:signup]
-									= submit_tag "Next", :class=>"contact-button contact-button-single set-button-margin", :id=>"email-button"
-
-							- else
-								= link_to_rpx "Next", user_session_url,:html=>{:title=>"Sign up with Janrain",:class=>"contact-button contact-button-single set-button-margin"}
-							/ - if params[:via]=="email"
-
-							/ 	- session[:signup]="email"
-							/ 	- if session[:signup]
-							/ 		%a.contact-button.contact-button-single{href: signup_path, title: "Sign up with email"} Next
-							/ - else
-							/ 	= link_to_rpx "Next", user_session_url,:html=>{:title=>"Sign up with Janrain",:class=>"contact-button contact-button-single"}
 
 
 
@@ -219,3 +227,16 @@
 			return false;
 		}
 	});
+
+	jQuery("#frogen-next").click(function(){
+
+		if(jQuery("#invite_code").val()== ""){
+			alert("Please enter Invite Code");
+			return false;
+		}else{
+			$('#janrain-next').click();
+		}
+
+	});
+
+
