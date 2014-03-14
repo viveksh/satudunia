@@ -154,18 +154,15 @@
 					.janrain-sign-up{:style=>"display:none;"}
 						%p
 							= link_to "Next", "#",:title=>"Sign up with Janrain",:class=>"contact-button contact-button-single set-button-margin" ,:id=>"frogen-next"
-							= link_to_rpx "Next", user_session_url(),:html=>{:style=>"display:none",:title=>"Sign up with Janrain",:class=>"contact-button contact-button-single set-button-margin" ,:id=>"janrain-next"}
-
-
-
-
-
-
+							/ = link_to_rpx "Next", user_session_url(),:html=>{:style=>"display:none",:title=>"Sign up with Janrain",:class=>"contact-button contact-button-single set-button-margin" ,:id=>"janrain-next"}
 			.content-panel.post-loop
 				/ authorbox
 				= render "experimental/partials/author_box"
 				/ related partial
 				/ = render "experimental/partials/related_box"
+
+
+
 	%br.clearer
 .sidebar
 	/login box
@@ -194,7 +191,7 @@
 	= render "experimental/partials/rating_box"
 	/banner box
 	= render "experimental/partials/banner_box"
-
+= link_to_rpx "Next", user_session_url(),:html=>{:style=>"display:none",:title=>"Sign up with Janrain",:class=>"contact-button contact-button-single set-button-margin" ,:id=>"janrain-next"}
 :javascript
 	jQuery.noConflict();
 		jQuery(document).ready(function() {
