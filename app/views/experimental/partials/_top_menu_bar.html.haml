@@ -26,20 +26,23 @@
 							="<i class='icon-lock'></i>Concerned about Privacy?".html_safe
 					%li
 						%a{:href => contact_index_path,:title=>"Contact Us",:alt=>"Contact Us",:class=>"tool-tip"}
-							="<i class='icon-phone'></i>Contact Us".html_safe
+							="<i class='icon-export'></i>Contact Us".html_safe
 
 					%li
-						- if current_user.nil?
-							%a{:href => '#'}
-								="<i class='icon-login'></i>Login".html_safe
-							%ul
-								%li
-									%a{:href => '/login',:title=>"Email",:alt=>"Email"}
-										="<i class='icon-mail'></i>Via E-Mail".html_safe
-								%li
 
-									= link_to_rpx "<i class='icon-add-to-list'></i>Via Social".html_safe, user_session_url,:html=>{:title=>"with Janrain",:alt=>"with Janrain"}
-						-else
+						/ - if current_user.nil?
+						/ 	%a{:href => '#'}
+						/ 		="<i class='icon-login'></i>Login".html_safe
+						/ 	%ul
+						/ 		%li
+						/ 			%a{:href => '/login',:title=>"Email",:alt=>"Email"}
+						/ 				="<i class='icon-mail'></i>Via E-Mail".html_safe
+						/ 		%li
+
+						/ 			= link_to_rpx "<i class='icon-add-to-list'></i>Via Social".html_safe, user_session_url,:html=>{:title=>"with Janrain",:alt=>"with Janrain"}
+						/ -else
+						/ 	= link_to "<i class='icon-user'></i>Logged in as #{h(current_user.login)}".html_safe,"#",:style=>"color:#027DB2;"
+						- unless current_user.nil?
 							= link_to "<i class='icon-user'></i>Logged in as #{h(current_user.login)}".html_safe,"#",:style=>"color:#027DB2;"
 							%ul
 								/ %li
@@ -56,17 +59,17 @@
 								%li
 									= link_to "<i class='icon-logout'></i>#{t("layouts.application.logout")}".html_safe, destroy_user_session_path
 
-					-if current_user.nil?
-						%li
-							/ = link_to "<i class='icon-plus'></i>sign up".html_safe,"#",:html=>{:title=>"Sign up"}, :class=>"fancybox","data-reveal-id"=>"myModal"
-							= link_to "<i class='icon-plus'></i>sign up".html_safe,"#"
-							%ul
-								%li
-									%a{:href => social_experimental_index_path(:via=>"email"),:title=>"Email",:alt=>"Email"}
-										="<i class='icon-mail'></i>Via E-Mail".html_safe
-								%li
-									%a{:href => social_experimental_index_path(:via=>"networks"),:title=>"Social",:alt=>"Social"}
-										="<i class='icon-add-to-list'></i>Via Social".html_safe
+					/ -if current_user.nil?
+					/ 	%li
+					/ 		/ = link_to "<i class='icon-plus'></i>sign up".html_safe,"#",:html=>{:title=>"Sign up"}, :class=>"fancybox","data-reveal-id"=>"myModal"
+					/ 		= link_to "<i class='icon-plus'></i>sign up".html_safe,"#"
+					/ 		%ul
+					/ 			%li
+					/ 				%a{:href => social_experimental_index_path(:via=>"email"),:title=>"Email",:alt=>"Email"}
+					/ 					="<i class='icon-mail'></i>Via E-Mail".html_safe
+					/ 			%li
+					/ 				%a{:href => social_experimental_index_path(:via=>"networks"),:title=>"Social",:alt=>"Social"}
+					/ 					="<i class='icon-add-to-list'></i>Via Social".html_safe
 
 
 
