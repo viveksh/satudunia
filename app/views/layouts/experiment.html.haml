@@ -75,7 +75,7 @@
 					#logo-bar-shadow
 				/ end the logo area
 				#cat-menu.cat-menu
-					%a.home-link#no-home{:href => root_path,:title=>"BE Home",:title=>"Be Home"}
+					%a.home-link#no-home{:href => root_path,:title=>"BE"}
 					%ul#menu-main-menu
 						%li.public_about
 							%a{:href => public_about_experimental_index_path,:title=>"About BE",:alt=>"About BE"} About BE
@@ -105,39 +105,41 @@
 											= link_to "Kuala Lumpur",country_services_map_path("kuala-lumpur")
 										- else
 											= link_to "#{provider}",country_services_map_path(provider.downcase)
-
+						%li
+							/ - if current_user.present?
+							= link_to "Knowledge Base","http://being-me.net/wiki/Main_Page",:target => :blank
 						/ question drop starts
 						=render 'experimental/partials/default_tags'
 
 						/ question drop ends
 						/ Login drop starts
-						%li
-							/ - if current_user.nil?
-							/   %a{:href => '/login'}
-							/     ="Login".html_safe
-							-if current_user.present?
-								= link_to "Settings","#"
-								%ul
-									- if current_user.present?
-										%li
-											%a{:href => '/profile/settings'}
-												="<i class='icon-user'></i>Profile".html_safe
-										%li
-											%a{:href => '/connect'}
-												="<i class='icon-retweet'></i>Connect".html_safe
-										%li
-											%a{:href => follows_user_path(current_user)}
-												= "<i class='icon-circled-right'></i>#{t('.following')}".html_safe
-										%li
-											%a{:href => follows_user_path(current_user)+"?sort=followers" }
-												= "<i class='icon-right'></i>#{t('.followers')}".html_safe
-										%li
-											%a{:href => '/logout' }
-												= "<i class='icon-logout'></i>#{t("layouts.application.logout")}".html_safe
-						/ Login drop ends
+						/ %li
+						/ 	/ - if current_user.nil?
+						/ 	/   %a{:href => '/login'}
+						/ 	/     ="Login".html_safe
+						/ 	-if current_user.present?
+						/ 		= link_to "Settings","#"
+						/ 		%ul
+						/ 			- if current_user.present?
+						/ 				%li
+						/ 					%a{:href => '/profile/settings'}
+						/ 						="<i class='icon-user'></i>Profile".html_safe
+						/ 				%li
+						/ 					%a{:href => '/connect'}
+						/ 						="<i class='icon-retweet'></i>Connect".html_safe
+						/ 				%li
+						/ 					%a{:href => follows_user_path(current_user)}
+						/ 						= "<i class='icon-circled-right'></i>#{t('.following')}".html_safe
+						/ 				%li
+						/ 					%a{:href => follows_user_path(current_user)+"?sort=followers" }
+						/ 						= "<i class='icon-right'></i>#{t('.followers')}".html_safe
+						/ 				%li
+						/ 					%a{:href => '/logout' }
+						/ 						= "<i class='icon-logout'></i>#{t("layouts.application.logout")}".html_safe
+						/ / Login drop ends
 						%li
 							/ - if current_user.present?
-							= link_to "Knowledge Base","http://being-me.net/wiki/Main_Page",:target => :blank
+							= link_to "Stories Of Beingme","#"
 					%select#select-menu-main-menu
 						%option Category Navigation
 						%option{:value => "archive-a.html"} Layouts
@@ -163,7 +165,8 @@
 				.cat-menu.tax
 					%ul#menu-sub-menu.menu
 						-if params[:controller] == "questions" || params[:controller] == "tags"
-							= render "experimental/partials/subnavigation/questions_subnavigation"
+							/ = render "experimental/partials/subnavigation/questions_subnavigation"
+							= render "experimental/partials/subnavigation/common_subnavigation"
 						-elsif params[:controller] == "service_providers"
 							= render "experimental/partials/subnavigation/service_providers_subnavigation"
 						-else
