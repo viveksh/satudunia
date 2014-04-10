@@ -204,7 +204,7 @@
 			}
 		}
 		function codeAddresses(address){
-				geocoder.geocode( { 'address': address[3]}, function(results, status) {
+				geocoder.geocode( { 'address': address[2]}, function(results, status) {
 						if (status == google.maps.GeocoderStatus.OK) {
 								marker = new google.maps.Marker({
 										map: map,
@@ -212,7 +212,7 @@
 								});
 
 								google.maps.event.addListener(marker, 'click', function() {
-										var formattedAddress =  "<b>" + address[0] + "</b> <br/>" + address[1] + "<br/>" +"<b>" + address[2] + "</b>" ;
+										var formattedAddress =  "<b>" + address[0] + "</b> <br/>" + address[1] ;
 										infowindow.setContent(formattedAddress);
 										infowindow.open(map, this);
 								});
@@ -226,6 +226,7 @@
 						}
 
 						map.fitBounds(bounds);
+						map.setZoom(12)
 				});
 		}
 		initialize();
@@ -284,7 +285,7 @@
 		var coords = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 
 		var options = {
-			zoom: 10,
+			zoom: 2,
 			center: coords,
 			mapTypeControl: false,
 			navigationControlOptions: {
