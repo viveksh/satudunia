@@ -239,7 +239,15 @@
 			ga('create', 'UA-37291321-5', 'b-change.org');
 			ga('send', 'pageview');
 :javascript
+
+
 	jQuery.noConflict();
+		if (navigator.userAgent.indexOf('Mac OS X') != -1) {
+    jQuery("body").addClass("mac-os");
+	  }
+	  else {
+	    jQuery("body").addClass("pc");
+	  }
 		//DOCUMENT.READY
 		jQuery(document).ready(function($) {
 
@@ -406,8 +414,3 @@
 	});
 
 
-  if (navigator.userAgent.indexOf('Mac OS X') != -1) {
-    jQuery("body").addClass("mac-os");
-  } else {
-    jQuery("body").addClass("pc");
-  }
