@@ -23,10 +23,3 @@
 //= require 'jquery.autosize.min.js'
 //= require 'experimental/mcVideoPlugin'
 //= require 'experimental/js-image-slider'
-
-
-if (navigator.userAgent.indexOf('Mac OS X') != -1) {
-  jQuery("body").addClass("mac-os");
-} else {
-  jQuery("body").addClass("pc");
-}

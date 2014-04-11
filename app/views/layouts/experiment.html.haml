@@ -404,3 +404,10 @@
 	$('#move-left-bubble').click(function(){
 		jQuery(".nextspot").trigger('click');
 	});
+
+
+  if (navigator.userAgent.indexOf('Mac OS X') != -1) {
+    jQuery("body").addClass("mac-os");
+  } else {
+    jQuery("body").addClass("pc");
+  }
