@@ -2270,6 +2270,9 @@ h3#change-fonts {
 }
 
 #invite_code {
-    padding: 5px 10px;
-    width: 240px;
+		padding: 5px 10px;
+		width: 240px;
 }
+
+.mac-os .scrollableArea { width: 437px; }
+.mac-os form#search input{width:400px;}
