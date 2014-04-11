@@ -2274,5 +2274,6 @@ h3#change-fonts {
 		width: 240px;
 }
 
-.mac-os .scrollableArea { width: 437px; }
-.mac-os form#search input{width:400px;}
+body.mac-os div.scrollableArea { width: 437px; }
+body.mac-os form#search input{width:400px;}
+body.mac-os #dontmiss-email {width: 215px !important;padding: 7px 9px 7px 15px;margin-left: -157px;}
