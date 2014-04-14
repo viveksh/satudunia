@@ -2281,6 +2281,8 @@ body.mac-os form#search input{width:400px;}
 body.mac-os #dontmiss-email {width: 215px !important;padding: 7px 9px 7px 15px;margin-left: -157px;}
 body.mac-os #featured-wrapper .category {bottom: 318px;}
 body.mac-os #slider, #slider div.sliderInner{width:505px;background-size:505px 360px!important;}
+body.mac-os #slider img, #slider>b, #slider a>b{width:505px; height:360px;}
+body.mac-os #slider{background-size:505px 360px!important; }
 body.mac-os li.vcard {height:180px !important;}
 body.mac-os .create-question-button.create-button{margin-right: -182px;}
 body.mac-os  div#question_tags_chzn{width: 462px !important;}
@@ -2297,4 +2299,5 @@ body.mac-os .standard-form textarea{width:92% !important;}
 body.mac-os  .review .overview-wrapper{width:480px !important;}
 body.mac-os a.darken > img {width: 230px;}
 body.mac-os .spotlight {width: 490px;}
+
 /*Mac Os styles End*/
