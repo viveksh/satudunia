@@ -2274,6 +2274,26 @@ h3#change-fonts {
 		width: 240px;
 }
 
+/*Mac Os styles start*/
+
 body.mac-os div.scrollableArea { width: 437px; }
 body.mac-os form#search input{width:400px;}
 body.mac-os #dontmiss-email {width: 215px !important;padding: 7px 9px 7px 15px;margin-left: -157px;}
+body.mac-os #featured-wrapper .category {bottom: 318px;}
+body.mac-os #slider, #slider div.sliderInner{width:648px}
+body.mac-os li.vcard {height:180px !important;}
+body.mac-os .create-question-button.create-button{margin-right: -182px;}
+body.mac-os  div#question_tags_chzn{width: 462px !important;}
+body.mac-os .section-bottom{width: 462px;}
+body.mac-os .td-question>div, .ul{width:310px !important;}
+body.mac-os table.forum tr th#th-question, table.forum tr th#th-poster, table.forum tr th#th-group, table.forum td.td-poster, table.forum td.td-group, table.forum td.td-question{width:310px !important}
+body.mac-os .set-comment-area{width:370px!important;}
+body.mac-os .textarea-wrapper{width: 82%!important;}
+body.mac-os .temp-post.btn{width: 398px;}
+body.mac-os .textarea-wrapper .textarea{width:90%;}
+body.mac-os div.contact-section-bottom{padding-left: 330px !important;}
+body.mac-os .select-text-adj{width:100%;}
+body.mac-os .standard-form textarea{width:92% !important;}
+body.mac-os  .review .overview-wrapper{width:480px !important;}
+
+/*Mac Os styles End*/
