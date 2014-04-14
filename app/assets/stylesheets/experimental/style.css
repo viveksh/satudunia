@@ -1799,7 +1799,7 @@ a.nivo-prevNav {left:430px;top:235px !important;}
 .nivo-caption h1 a {font-size:.6em;}
 #featured-wrapper.full .nivo-caption h1 a {font-size:.7em;}
 /*spotlight slider*/
-#spotlight-slider ul {display:none;}
+/*#spotlight-slider ul {display:none;}*/
 #spotlight-slider-responsive {display:block;width:99999px;position:relative;visibility:hidden;left:-5000px;}
 #spotlight-wrapper {width:485px !important;margin-left:15px;}
 #spotlight-wrapper .section-wrapper {margin-left:-22px;}
