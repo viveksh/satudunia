@@ -10,14 +10,14 @@
 					.comment-bubble
 						%a{:title => "Comment on Made Magazine Is The First Responsive Theme Released By IndustrialThemes"}
 							= @news.count
-					/ making title stronger
+
 					.section-for-header
 						/%i.icon-vcard
 						News
 			.section-arrow
 	.post-loop#set-page
 		#announcement-ajax-div
-			= render :partial => "news"
+			/ = render :partial => "news"
 /side bar
 .sidebar
 	- if current_user.nil?
