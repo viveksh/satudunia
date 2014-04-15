@@ -26,28 +26,29 @@
 						on #{news.created_at.strftime("%d %b %Y - %I:%M %p")}
 						%br
 						= sanitize(news.news_body).truncate(100, :separator => " ").html_safe
-						
+
 				.more-bar
 					.arrow-catpanel-top
 					.rating-wrapper.small
 						/ .number.color5 0%
 					.comments
 					.more1
-						%a{:href => "single-review-numbers.html"} 
-							
+						%a{:href => "single-review-numbers.html"}
+
 							= link_to "More",news_path(news),:class=>"avoid_link_color"
 
 	%script
-		jQuery("#news-rating_#{news.id}").raty({ readOnly: true,score: "#{news.rating}",path: '../assets'});      
+		jQuery("#news-rating_#{news.id}").raty({ readOnly: true,score: "#{news.rating}",path: '../assets'});
 
 
 	- if @class == 'right'
 		.clearer
 %br.clearer
-#content.page-content
-	#forums-dir-list-newest.dir-list
-		#pag-top.pagination
-			-@paginator = @news
-			= render :partial =>"pagination/pagination",:locals => {:paginationType=>"news"}		
+#return-data-ajax
+	#content.page-content
+		#forums-dir-list-newest.dir-list
+			#pag-top.pagination
+				-@paginator = @news
+				= render :partial =>"pagination/pagination",:locals => {:paginationType=>"news"}
 
 
