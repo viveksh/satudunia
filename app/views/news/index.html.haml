@@ -13,8 +13,8 @@
 					/ making title stronger
 					.section-for-header
 						/%i.icon-vcard
-						News 
-			.section-arrow 
+						News
+			.section-arrow
 	.post-loop#set-page
 		#announcement-ajax-div
 			= render :partial => "news"
@@ -32,7 +32,7 @@
 	/ member box
 	/ = render "experimental/partials/member_box"
 	/rating box
-	= render "experimental/partials/rating_box"
+	/ = render "experimental/partials/rating_box"
 	/rating box
 	= render "experimental/partials/rating_box2"
 	/ left bar
@@ -44,7 +44,7 @@
 	/ newly reviewd
 	/ = render "experimental/partials/newly_reviewed"
 	/popular box
-	= render "experimental/partials/popular_box"
+	/ = render "experimental/partials/popular_box"
 	/banner box
 	= render "experimental/partials/banner_box"
 :javascript
@@ -64,4 +64,3 @@
 	jQuery( document ).ajaxStart(function() {
 		jQuery(".section-arrow").removeClass("ajax-loader");
 	});
-		
