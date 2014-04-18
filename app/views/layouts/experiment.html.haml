@@ -248,6 +248,9 @@
 			else {
 				jQuery("body").addClass("pc");
 			}
+			if (navigator.appVersion.indexOf("Win")!=-1) {
+				jQuery("body").addClass("window-os");
+			}
 			//loop through each post type and setup a jquery tabs object
 			jQuery('#tabbed-Restaurant-reviews > ul').tabs({ fx: { opacity: 'toggle', duration: 150 } });
 			jQuery('#tabbed-Music-reviews > ul').tabs({ fx: { opacity: 'toggle', duration: 150 } });
