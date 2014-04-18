@@ -242,12 +242,12 @@
 	jQuery.noConflict();
 
 		jQuery(document).ready(function($) {
-			if (navigator.userAgent.indexOf('Mac OS X') != -1) {
-				jQuery("body").addClass("mac-os");
-			}
-			else {
-				jQuery("body").addClass("pc");
-			}
+			// if (navigator.userAgent.indexOf('Mac OS X') != -1) {
+			// 	jQuery("body").addClass("mac-os");
+			// }
+			// else {
+			// 	jQuery("body").addClass("pc");
+			// }
 			//loop through each post type and setup a jquery tabs object
 			jQuery('#tabbed-Restaurant-reviews > ul').tabs({ fx: { opacity: 'toggle', duration: 150 } });
 			jQuery('#tabbed-Music-reviews > ul').tabs({ fx: { opacity: 'toggle', duration: 150 } });
