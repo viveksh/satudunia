@@ -2275,8 +2275,9 @@ h3#change-fonts {
 }
 
 /*Mac Os styles start*/
+body.mac-os .create-question-button.create-button{margin-right: -182px;}
 
-body.mac-os div.scrollableArea { width: 437px; }
+/*body.mac-os div.scrollableArea { width: 437px; }
 body.mac-os form#search input{width:400px;}
 body.mac-os #dontmiss-email {width: 215px !important;padding: 7px 9px 7px 15px;margin-left: -157px;}
 body.mac-os #featured-wrapper .category {bottom: 318px;}
@@ -2317,5 +2318,5 @@ body.mac-os #more-services {border: 1px solid #E0E0E0;margin-top: -13px;height: 
 body.mac-os #polls-image > img {width: 70px;}
 body.mac-os  .article-image {display: block;}
 body.mac-os  .post-loop .more-bar{width:232px}
-body.mac-os  .post-loop .post-panel{margin-left: −5px;width: 232px;margin-right: 12px;}
+body.mac-os  .post-loop .post-panel{margin-left: −5px;width: 232px;margin-right: 12px;}*/
 /*Mac Os styles End*/
