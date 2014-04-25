@@ -19,6 +19,7 @@ class User
   identity :type => String
   field :login,                     :type => String, :limit => 40
   index :login
+  field :code,                      :type => String
   field :accept_terms,              :type => String
   field :remind_me,                 :type => String
   field :name,                      :type => String, :limit => 100, :default => '', :null => true
@@ -154,8 +155,8 @@ class User
   	if  self.rpx_identifier.present?
   		return false
 
-  	end	
-  end  	
+  	end
+  end
 
   def custom_domain_owned_groups
     groups = Group.where(:owner_id => self.id)
@@ -931,10 +932,10 @@ Time.zone.now ? 1 : 0)
   def self.recent_users(limit = 5)
     User.order_by(%W[created_at desc]).limit(limit)
   end
-  
+
   def username
     login ? login : 'Not Available'
-  end 
+  end
 
   protected
   def update_languages
@@ -984,9 +985,9 @@ Time.zone.now ? 1 : 0)
   # rpx success
   def before_rpx_auto_create(rpx_user)
     # self[:login]=rpx_user[:username] if rpx_user[:username]
-    
+
     if rpx_user[:email]
-    	
+
       @registered_user = User.where(:email => rpx_user[:email])
       if @registered_user.present?
         redirect_to '/members/login'
@@ -994,12 +995,12 @@ Time.zone.now ? 1 : 0)
         self[:login]=rpx_user[:username] if rpx_user[:username]
       end
     else
-    	
+
     	self[:login]=rpx_user[:username] if rpx_user[:username]
 
-    	
+
     end
 
-  end  
+  end
 
 end
